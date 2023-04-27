@@ -1,0 +1,36 @@
+.container 
+    max-width: 1200px
+    margin: 0 auto
+    @media screen and ( max-width: 460px )
+        max-width: 100%
+        padding: 0 10px
+.block_animations 
+    background-image: url("./assests/images/animation_img.png")
+    background-repeat: no-repeat
+    background-position: center
+    width: 100%
+    height: 905px
+    position: fixed
+    left: 0
+    top: 30px 
+    /* //////////////animation///////////////// */
+    animation-name: infiniteupdown
+    animation-duration: 3s
+    animation-iteration-count: infinite
+    animation-timing-function: ease
+    transition: all 0.3s
+@keyframes infiniteupdown 
+  0% 
+    transform: translateY(0px)
+  
+  30% 
+    transform: translateY(-40px)
+  
+  80% 
+    transform: translateY(0px)
+  
+  80% 
+    transform: translateY(20px)
+.block_info 
+    position: relative
+

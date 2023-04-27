@@ -1,0 +1,49 @@
+.skeleton_parentBlock {
+  max-width: 100%;
+}
+.skeleton_parentBlock .skeleton_childBlock {
+  width: 320px;
+  height: 350px;
+  background-color: gray;
+  opacity: 0.4;
+  border-radius: 15px;
+  margin: 20px auto;
+}
+.skeleton_parentBlock .skeleton_childBlock .skeleton_top {
+  height: 240px;
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  background-color: black;
+}
+.skeleton_parentBlock .skeleton_childBlock .skeleton_top .skeleton_header {
+  width: 100px;
+  height: 30px;
+  background: grey;
+  border-radius: 15px 0 15px 0;
+}
+.skeleton_parentBlock .skeleton_childBlock .skeleton_bottom {
+  height: 110px;
+  background-color: gray;
+  border-radius: 0 0 15px 15px;
+  padding: 10px;
+}
+.skeleton_parentBlock .skeleton_childBlock .skeleton_bottom .skeleton_info1 {
+  width: 100px;
+  height: 25px;
+  border-radius: 3px;
+  background-color: black;
+}
+.skeleton_parentBlock .skeleton_childBlock .skeleton_bottom .skeleton_info2 {
+  margin-top: 10px;
+  width: 270px;
+  height: 30px;
+  border-radius: 3px;
+  background-color: black;
+}
+.skeleton_parentBlock .skeleton_childBlock .skeleton_bottom .skeleton_info3 {
+  width: 25px;
+  height: 15px;
+  background-color: black;
+  border-radius: 3px;
+  margin-top: 5px;
+}

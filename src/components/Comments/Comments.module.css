@@ -1,0 +1,24 @@
+.comment_parentBlock h5 {
+  font-family: "Unbounded";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1E1E1E;
+  margin-bottom: 10px;
+}
+.comment_parentBlock button {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+  padding: 5px 55px;
+  background-color: #001AFF;
+  display: block;
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  margin: 10px auto 0;
+  border: none;
+}
