@@ -1,8 +1,107 @@
-.cards_block 
+.block_imgInfo
+    height: 100vh
     display: flex
     justify-content: center
-    flex-wrap: wrap
     align-items: center
-    gap: 30px
-    padding: 27px 0px
+    background-image: url("../../assests/images/main/main_photo_back.jpg")
+    background-repeat: no-repeat
+    background-size: cover
+    // background-color: yellow
+    position: relative
+    z-index: 99
+    @media screen and ( max-width: 700px )
+        display: none
+    // .child_imgInfo
+        text-align: center
+        p
+            font-weight: 700
+            font-size: 28px
+            color: #000
+            animation: text 5s 1
+            letter-spacing: 10px
+            @keyframes text 
+                0% 
+                    margin-bottom: -40px
+                    letter-spacing: 20px
+                30% 
+                    letter-spacing: 40px
+                    margin-bottom: -40px
+                80% 
+                    letter-spacing: 25px
+                    margin-bottom: -10px
+                99% 
+                    letter-spacing: 18px
+                
+        h1
+            font-weight: 700
+            font-size: 58px
+            letter-spacing: 8px
+            color: #000
+            margin-top: 10px
+            animation: text_2 5s 1
+            @media screen and ( max-width: 1250px )
+                font-size: 76px
+                @media screen and ( max-width: 900px )
+                    font-size: 56px
+            @keyframes text_2
+                0% 
+                    color: transparent
+                    letter-spacing: 12px
+                50% 
+                    color: transparent
+                    letter-spacing: 18px
+                80% 
+                    letter-spacing: 10px
+                99% 
+                    letter-spacing: 9px
+                
+            
+.header_textMain
+    padding: 50px 0 25px
+    text-align: center
+    @media screen and ( max-width: 520px )
+        display: none
+.block_for_content
+    display: flex
+    justify-content: center
+    padding: 0 0 0 30px
+    max-width: 95%
+    @media screen and ( max-width: 1460px )
+        padding: 0 30px
+        max-width: 100%
+        @media screen and ( max-width: 1320px )
+            gap: 0px
+    .cards_block 
+        display: flex
+        flex-wrap: wrap
+        align-items: baseline
+        gap: 30px
+        padding: 27px 0px
+        @media screen and ( max-width: 1460px )
+            max-width: 1000px
+            // justify-content: space-around
+            padding: 27px 0
+            max-width: 900px
+            @media screen and ( max-width: 1220px )
+                max-width: 850px
+                padding: 27px 0px 27px 0
+                @media screen and ( max-width: 1170px )
+                    // justify-content: center
+                    padding: 27px 0
+                    max-width: 800px
+                  
+                    @media screen and ( max-width: 1100px )
+                        max-width: 750px
+                @media screen and ( max-width: 520px )
+                    max-width: 100%
+                    justify-content: center
+                    padding: 27px 0px
+        h2
+            font-weight: 700
+            font-size: 32px
+            line-height: 40px
+            text-align: center
+            color: #000000
+            margin: 0 auto
+
 

@@ -3,7 +3,7 @@ import styles from "./EveryComment.module.css";
 import comment_users from "../../assests/images/everyComments/comment_users.svg";
 
 const EveryComment = ({ commentEvery }) => {
-  console.log(commentEvery.name);
+  // console.log(commentEvery.name);
   return (
     <>
       <div className={styles.parent_everyCommentsBlock}>

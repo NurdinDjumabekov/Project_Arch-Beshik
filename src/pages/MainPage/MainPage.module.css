@@ -1,15 +1,107 @@
-.cards_block {
+.block_imgInfo {
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-image: url("../../assests/images/main/main_photo_back.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 99;
+}
+@media screen and (max-width: 700px) {
+  .block_imgInfo {
+    display: none;
+  }
+}
+
+.header_textMain {
+  padding: 50px 0 25px;
+  text-align: center;
+}
+@media screen and (max-width: 520px) {
+  .header_textMain {
+    display: none;
+  }
+}
+
+.block_for_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 0 0 30px;
+  max-width: 95%;
+}
+@media screen and (max-width: 1460px) {
+  .block_for_content {
+    padding: 0 30px;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 1460px) and (max-width: 1320px) {
+  .block_for_content {
+    gap: 0px;
+  }
+}
+.block_for_content .cards_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   gap: 30px;
   padding: 27px 0px;
+}
+@media screen and (max-width: 1460px) {
+  .block_for_content .cards_block {
+    max-width: 1000px;
+    padding: 27px 0;
+    max-width: 900px;
+  }
+}
+@media screen and (max-width: 1460px) and (max-width: 1220px) {
+  .block_for_content .cards_block {
+    max-width: 850px;
+    padding: 27px 0px 27px 0;
+  }
+}
+@media screen and (max-width: 1460px) and (max-width: 1220px) and (max-width: 1170px) {
+  .block_for_content .cards_block {
+    padding: 27px 0;
+    max-width: 800px;
+  }
+}
+@media screen and (max-width: 1460px) and (max-width: 1220px) and (max-width: 1170px) and (max-width: 1100px) {
+  .block_for_content .cards_block {
+    max-width: 750px;
+  }
+}
+@media screen and (max-width: 1460px) and (max-width: 1220px) and (max-width: 520px) {
+  .block_for_content .cards_block {
+    max-width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 27px 0px;
+  }
+}
+.block_for_content .cards_block h2 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+  color: #000000;
+  margin: 0 auto;
 }

@@ -7,7 +7,6 @@ import styles from "./NavMenuPage.module.css";
 const NavMenuPage = () => {
   const { stateBtnNav } = useSelector((state) => state.infoWorkSlice);
   const dispatch = useDispatch();
-  //   console.log(stateBtnNav);
   return (
     stateBtnNav && (
       <div className={styles.menu_info}>

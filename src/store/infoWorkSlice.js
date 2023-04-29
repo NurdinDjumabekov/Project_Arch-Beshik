@@ -4,7 +4,6 @@ import axios from "axios";
 const initialState = {
   infoArr: [],
   stateBtnNav: false,
-  // stateComment: false,
   stateSkeleton: false,
 };
 
@@ -13,8 +12,9 @@ export const infoWorkOutput = createAsyncThunk(
   async (infoWorkSlice, { dispatch }) => {
     try {
       const response = await axios.get(
-        "https://6443c7ca90738aa7c0778850.mockapi.io/informationPortal"
+        "https://6443c7ca90738aa7c0778850.mockapi.io/infoportal"
       );
+      // console.log(response.data);
       dispatch(toTakeInfo(response.data));
       dispatch(changeSkeleton(true));
     } catch {
@@ -30,9 +30,6 @@ const infoWorkSlice = createSlice({
     changeStateBtn: (state, action) => {
       state.stateBtnNav = action.payload;
     },
-    // changeComment: (state, action) => {
-    //   state.stateComment = action.payload;
-    // },
     toTakeInfo: (state, action) => {
       state.infoArr = action.payload;
     },

@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import styles from "./EveryCard.module.css";
 import icon_comment from "../../assests/images/Icon_comment.svg";
-import { useDispatch, useSelector } from "react-redux";
-import { changeComment } from "../../store/infoWorkSlice";
 import Comments from "../Comments/Comments";
 
 const EveryCard = ({ cardInfo }) => {
-  // const { stateComment } = useSelector((state) => state.infoWorkSlice);
   const [stateComment, setstateComment] = useState(false);
-  // const dispatch = useDispatch();
   return (
     <div className={styles.everyCard__parentBlock}>
       <div className={styles.everyCard__childBlock}>
@@ -28,7 +24,10 @@ const EveryCard = ({ cardInfo }) => {
           {cardInfo.moreInfo}
         </p>
         {stateComment ? (
-          <Comments cardInfo={cardInfo.comments} />
+          <Comments
+            cardInfo={cardInfo.comments}
+            setstateComment={setstateComment}
+          />
         ) : (
           <button onClick={() => setstateComment(true)}>
             <img src={icon_comment} alt="photo" />
