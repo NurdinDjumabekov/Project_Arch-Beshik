@@ -18,7 +18,7 @@ const Footer = () => {
               </div>
               <h6>Арча Бешик</h6>
             </div>
-            <ul className="">
+            <ul>
               <li>
                 <p>Реклама на сайте</p>
                 <span>+996 200 200 200</span>
@@ -57,7 +57,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div>
+          <div className={styles.block_for_ornament}>
             <img src={ornament} alt="orr" />
           </div>
         </div>

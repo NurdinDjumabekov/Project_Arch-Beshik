@@ -12,34 +12,35 @@
     background-repeat: no-repeat
     background-position: center
     min-width: 100%
-    height: 805px
+    height: 100%
     position: fixed
     left: 0
     top: 30px 
     /* //////////////animation///////////////// */
     animation-name: infiniteupdown
-    animation-duration: 3s
+    animation-duration: 10s
     animation-iteration-count: infinite
     animation-timing-function: ease
     transition: all 0.3s
     @media screen and ( max-width: 550px )
       background-image: url("./assests/images/animation_img.png")
-      
 @keyframes infiniteupdown 
-  0% 
-    transform: translateY(0px)
-  
+  5% 
+    transform: translateY(-20px)
+  10%
+    transform: translateY(-50px)
   30% 
-    transform: translateY(-40px)
-  
+    transform: translateY(-80px)
+  50% 
+    transform: translateY(100px)
+  60%
+    transform: translateX(-150px)
+  70%
+    transform: translateX(200px)
   80% 
-    transform: translateY(0px)
-  
-  80% 
-    transform: translateY(20px)
+    transform: translateY(250px)
+  99%
+    transform: translateY(10px)
 .block_info 
     position: relative
 
-.swiper-container 
-    width: 600px
-    height: 300px

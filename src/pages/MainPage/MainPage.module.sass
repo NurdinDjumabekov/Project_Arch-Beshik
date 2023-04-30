@@ -71,6 +71,10 @@
         max-width: 100%
         @media screen and ( max-width: 1320px )
             gap: 0px
+            @media screen and ( max-width: 940px )
+                max-width: 90%
+                @media screen and ( max-width: 600px )
+                    margin: 0 auto
     .cards_block 
         display: flex
         flex-wrap: wrap
@@ -86,16 +90,19 @@
                 max-width: 850px
                 padding: 27px 0px 27px 0
                 @media screen and ( max-width: 1170px )
-                    // justify-content: center
                     padding: 27px 0
                     max-width: 800px
-                  
                     @media screen and ( max-width: 1100px )
                         max-width: 750px
-                @media screen and ( max-width: 520px )
-                    max-width: 100%
-                    justify-content: center
-                    padding: 27px 0px
+                        @media screen and ( max-width: 940px )
+                            padding: 27px 40px
+                            justify-content: center
+                           
+
+                        @media screen and ( max-width: 520px )
+                            max-width: 100%
+                            justify-content: center
+                            padding: 27px 0px
         h2
             font-weight: 700
             font-size: 32px
