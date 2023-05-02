@@ -4,6 +4,9 @@ import Layout from "./components/hoc/Layout/Layout";
 import MainPage from "./pages/MainPage/MainPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import HistoryPage from "./pages/HistoryPage/HistoryPage";
+import DetailedPage from "./pages/DetailedPage/DetailedPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import AdminPage from "./pages/AdminPage/AdminPage";
 
 function App() {
   return (
@@ -13,7 +16,10 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/history" element={<HistoryPage />} />
+          <Route path="/content_detail/:id" element={<DetailedPage />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Route>
+        {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Routes>
     </div>
   );

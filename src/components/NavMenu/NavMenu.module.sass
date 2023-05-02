@@ -1,15 +1,18 @@
-.nav_menu 
-    max-width: 100%
-    margin: 0 auto
+.nav_blockParent
+    width: 100%
+    background-color: #fff
     box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)
-    border-radius: 8px
+    border-radius: 0px 0px 15px 15px
+    height: 90px
+    position: fixed
+    z-index: 99
     nav 
         max-width: 100%
         background-color: transparent
         display: flex
         justify-content: space-between
         align-items: center
-        padding: 16px 0px
+        padding: 16px 15px
         @media screen and ( max-width: 1280px )
             padding: 16px 40px
         .block_for_imgLine
@@ -34,10 +37,14 @@
             color: #1e1e1e
             display: none
         .block_for_navBtns
-            width: 325px
+            width: 385px
             display: flex
-            justify-content: space-between
+            gap: 50px
+            // margin-left: 20px
+            // justify-content: space-between
             @media screen and ( max-width: 750px )
+                display: none
+            .none
                 display: none
             button
                 font-weight: 300
@@ -53,7 +60,6 @@
                 img
                     width: 17px
                     height: 17px
-
         > button 
             background-color: transparent
             border: none

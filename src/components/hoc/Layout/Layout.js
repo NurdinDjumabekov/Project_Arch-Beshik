@@ -10,7 +10,7 @@ const Layout = () => {
     <>
       <NavMenu />
       {stateBtnNav ? "" : <Outlet />}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

@@ -1,0 +1,8 @@
+.parent_blockDetail {
+  position: absolute;
+  margin-top: 200px;
+}
+.parent_blockDetail img {
+  width: 300px;
+  height: 200px;
+}

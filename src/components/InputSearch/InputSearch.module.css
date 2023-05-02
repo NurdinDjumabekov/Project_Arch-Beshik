@@ -1,0 +1,30 @@
+.parent_searchBlock {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 5px;
+  margin-right: 20px;
+}
+.parent_searchBlock .search_input {
+  width: 80%;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 0 15px;
+}
+.parent_searchBlock button {
+  font-weight: 600;
+  width: 80px;
+  background-color: transparent;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-size: 20px;
+}
+.parent_searchBlock button:hover {
+  background: #888;
+}

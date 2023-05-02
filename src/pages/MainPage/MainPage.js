@@ -7,19 +7,26 @@ import MainSkeleton from "../../components/skeletons/MainSkeleton";
 import MenuBigDisplay from "../../components/MenuBigDisplay/MenuBigDisplay";
 import SliderSwiper from "../../components/SliderSwiper/SliderSwiper";
 import Preloader from "../../components/Preloader/Preloader";
+import Slider from "../../components/Slider/Slider";
+import { NavLink } from "react-router-dom";
 const MainPage = () => {
-  const { infoArr, stateSkeleton } = useSelector(
+  const { infoArr, filterArr, stateSkeleton } = useSelector(
     (state) => state.infoWorkSlice
   );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(infoWorkOutput());
   }, []);
+
   return (
     <>
       {stateSkeleton ? (
         <>
-          <SliderSwiper />
+          {/* <SliderSwiper /> */}
+          <Slider />
+          <b>
+            <NavLink to={"/admin"}>старница админа</NavLink>
+          </b>
           <div className="container">
             <div className="block_animations"></div>
             <div className="block_info">
@@ -31,6 +38,13 @@ const MainPage = () => {
                   {infoArr.map((cardInfo) => (
                     <EveryCard key={cardInfo.id} cardInfo={cardInfo} />
                   ))}
+                  {/* {filterArr.length === 0
+                    ? infoArr.map((cardInfo) => (
+                        <EveryCard key={cardInfo.id} cardInfo={cardInfo} />
+                      ))
+                    : filterArr.map((cardInfo) => (
+                        <EveryCard key={cardInfo.id} cardInfo={cardInfo} />
+                      ))} */}
                 </div>
                 <MenuBigDisplay />
               </div>
