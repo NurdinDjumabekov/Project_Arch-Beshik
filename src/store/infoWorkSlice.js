@@ -11,9 +11,7 @@ const initialState = {
   infoNewArr: [],
 };
 
-// http://192.168.31.218:8000/api/content_detail/2/
-const baseUrl = " https://6443c7ca90738aa7c0778850.mockapi.io/infoportal";
-
+// const baseUrl = " https://6443c7ca90738aa7c0778850.mockapi.io/infoportal";
 export const infoWorkOutput = createAsyncThunk(
   "infoWorkOutput",
   async (infoWorkSlice, { dispatch }) => {
@@ -29,6 +27,7 @@ export const infoWorkOutput = createAsyncThunk(
     }
   }
 );
+
 export const falsePreloaderOutput = createAsyncThunk(
   "infoWorkOutput",
   async (infoWorkSlice, { dispatch }) => {

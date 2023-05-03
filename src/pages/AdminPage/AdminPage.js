@@ -12,7 +12,7 @@ const AdminPage = () => {
         <button onClick={() => setAdminInput(!adminInput)}>
           Добавление постов
         </button>
-        {adminInput && <AddPosts />}
+        {adminInput && <AddPosts setAdminInput={setAdminInput} />}
       </div>
     </div>
   );

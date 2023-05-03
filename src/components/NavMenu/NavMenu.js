@@ -9,10 +9,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeStateBtn } from "../../store/infoWorkSlice";
 import NavMenuPage from "../../pages/NavMenuPage/NavMenuPage";
 import InputSearch from "../InputSearch/InputSearch";
+import Window_login from "../Windows/Window_login/Window_login";
+import Window_registration from "../Windows/Window_registrarion/Window_registration";
+import {
+  changeStateLogin,
+  changeStateRegistration,
+} from "../../store/statesWindowsSlice";
 
 const NavMenu = () => {
   const { stateBtnNav } = useSelector((state) => state.infoWorkSlice);
+  const { registrationState, loginState } = useSelector(
+    (state) => state.statesWindowsSlice
+  );
   const [inputState, setInputState] = useState(false);
+  // const [loginState, setLoginState] = useState(false);
   const dispatch = useDispatch();
   return (
     <div className={styles.nav_blockParent}>
@@ -39,8 +49,14 @@ const NavMenu = () => {
               <img src={nav_btn_search} alt="" />
               Поиск
             </button>
-            <button>Вход </button>
-            <button>Регистрация</button>
+            <button onClick={() => dispatch(changeStateLogin(true))}>
+              Вход
+            </button>
+            {loginState && <Window_login />}
+            <button onClick={() => dispatch(changeStateRegistration(true))}>
+              Регистрация
+            </button>
+            {registrationState && <Window_registration />}
           </div>
           {stateBtnNav ? (
             <>

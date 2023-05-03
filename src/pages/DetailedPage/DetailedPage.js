@@ -14,11 +14,10 @@ const DetailedPage = () => {
   //   comment.map((item) => console.log(item));
   //   console.log(date.comments);
   const aizhamal = date.comments;
-  console.log(aizhamal);
   return (
     <div className={styles.parent_blockDetail}>
-      <h1>{date.content}</h1>
-      <p>{date.title}</p>
+      <h1>{date.content}какой-то текст</h1>
+      <p>{date.title}новости</p>
       <img src={date.image} alt="" />
       <p>
         {aizhamal?.map((item) => (

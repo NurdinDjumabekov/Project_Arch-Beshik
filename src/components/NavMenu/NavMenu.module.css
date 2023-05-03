@@ -71,7 +71,7 @@
 .nav_blockParent nav .block_for_navBtns .none {
   display: none;
 }
-.nav_blockParent nav .block_for_navBtns button {
+.nav_blockParent nav .block_for_navBtns > button {
   font-weight: 300;
   font-size: 16px;
   line-height: 20px;
@@ -87,7 +87,7 @@
           align-items: center;
   gap: 5px;
 }
-.nav_blockParent nav .block_for_navBtns button img {
+.nav_blockParent nav .block_for_navBtns > button img {
   width: 17px;
   height: 17px;
 }

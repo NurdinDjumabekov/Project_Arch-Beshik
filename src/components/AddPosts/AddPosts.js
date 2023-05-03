@@ -1,46 +1,78 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./AddPosts.module.css";
 import axios from "axios";
-import photo from "../../assests/images/main/main_photo_back.jpg";
 
-const AddPosts = () => {
+const AddPosts = ({ setAdminInput }) => {
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
+  const [img, setImg] = useState(null);
+  // console.log(+category);
 
-  //http://192.168.4.204:8000/api/content_create/
+  // http://192.168.4.204:8000/api/content_create/
+  // http://192.168.31.218:8000/api/category_create/
+  const handleFn = (e) => {
+    setImg(e.target.files[0]);
+  };
 
-  const addPostsAdmin = (e) => {
+  const addPostsAdmin = async (e) => {
     e.preventDefault();
-    axios({
-      method: "POST",
-      url: "http://192.168.31.218:8000/api/category_create/",
-      data: {
-        content: "ytuiihioj",
-        title: "ftyuguhij",
-        image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTufBTSTgHgDApCMQwsP5qY80GgRHxMHqAyoQ&usqp=CAU",
-      },
-    }).then((resp) => console.log(resp));
+    const formData = new FormData();
+    formData.append("image", img);
+    formData.append("category_id", +category);
+    formData.append("content", description);
+    formData.append("title", name);
+    formData.append("image", img);
+    // console.log(formData);
+    try {
+      const response = await axios({
+        method: "POST",
+        url: "http://192.168.31.218:8000/api/content_create/",
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log(response);
+    } catch {
+      console.log("error");
+    }
   };
   return (
-    <div>
-      <form action="" onSubmit={addPostsAdmin}>
-        <input
-          onChange={(e) => setCategory(e.target.value)}
-          placeholder="категория"
-        />
-        <input
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder="описание"
-        />
-        <input
-          onChange={(e) => setName(e.target.value)}
-          placeholder="название"
-        />
-        <button type="submit">добавить пост</button>
-      </form>
-    </div>
+    <>
+      <div className={styles.block_shadow_forAddPosts}></div>
+      <div className={styles.parentBlock_addPosts}>
+        <h5>Добавление поста</h5>
+        <form action="" onSubmit={addPostsAdmin} encType="multipart/form-data">
+          <select onChange={(e) => setCategory(e.target.value)}>
+            <option value={1}>Пункт 1</option>
+            <option value={2}>Пункт 2</option>
+            <option value={3}>Пункт 3</option>
+            <option value={4}>Пункт 4</option>
+            <option value={5}>Пункт 5</option>
+            <option value={6}>Пункт 6</option>
+          </select>
+          <input
+            type="file"
+            name="image"
+            onChange={handleFn}
+            multiple
+            accept="image/*"
+          />
+          <input
+            onChange={(e) => setName(e.target.value)}
+            placeholder="название"
+          />
+          <input
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="описание"
+          />
+          <button type="submit" onClick={() => setAdminInput(false)}>
+            добавить пост
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 

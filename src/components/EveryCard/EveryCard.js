@@ -25,7 +25,7 @@ const EveryCard = ({ cardInfo }) => {
           >
             {cardInfo.content}
           </p>
-          {stateComment ? (
+          {/* {stateComment ? (
             <Comments
               cardInfo={cardInfo.comments}
               setstateComment={setstateComment}
@@ -34,7 +34,7 @@ const EveryCard = ({ cardInfo }) => {
             <button onClick={() => setstateComment(true)}>
               <img src={icon_comment} alt="photo" />
             </button>
-          )}
+          )} */}
         </div>
       </div>
     </NavLink>

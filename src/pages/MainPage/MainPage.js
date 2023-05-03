@@ -5,10 +5,10 @@ import EveryCard from "../../components/EveryCard/EveryCard";
 import { infoWorkOutput } from "../../store/infoWorkSlice";
 import MainSkeleton from "../../components/skeletons/MainSkeleton";
 import MenuBigDisplay from "../../components/MenuBigDisplay/MenuBigDisplay";
-import SliderSwiper from "../../components/SliderSwiper/SliderSwiper";
 import Preloader from "../../components/Preloader/Preloader";
 import Slider from "../../components/Slider/Slider";
 import { NavLink } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
 const MainPage = () => {
   const { infoArr, filterArr, stateSkeleton } = useSelector(
     (state) => state.infoWorkSlice
@@ -22,7 +22,6 @@ const MainPage = () => {
     <>
       {stateSkeleton ? (
         <>
-          {/* <SliderSwiper /> */}
           <Slider />
           <b>
             <NavLink to={"/admin"}>старница админа</NavLink>
@@ -50,6 +49,7 @@ const MainPage = () => {
               </div>
             </div>
           </div>
+          <Footer />
         </>
       ) : (
         <>
