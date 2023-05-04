@@ -8,10 +8,16 @@ const AdminPage = () => {
     <div>
       <div className="container">
         <div className={styles.block_push}></div>
-        <h1>Добро пожаловать, админ</h1>
-        <button onClick={() => setAdminInput(!adminInput)}>
-          Добавление постов
-        </button>
+        <h1>
+          Добро пожаловать, <span>админ</span>
+        </h1>
+        <div className={styles.block_for_btnsMain}>
+          <button onClick={() => setAdminInput(!adminInput)}>
+            Добавление постов
+          </button>
+          <button>Добавление постов</button>
+          <button>Добавление постов</button>
+        </div>
         {adminInput && <AddPosts setAdminInput={setAdminInput} />}
       </div>
     </div>

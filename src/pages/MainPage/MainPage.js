@@ -10,7 +10,7 @@ import Slider from "../../components/Slider/Slider";
 import { NavLink } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 const MainPage = () => {
-  const { infoArr, filterArr, stateSkeleton } = useSelector(
+  const { infoArr, stateSkeleton } = useSelector(
     (state) => state.infoWorkSlice
   );
   const dispatch = useDispatch();
@@ -37,13 +37,6 @@ const MainPage = () => {
                   {infoArr.map((cardInfo) => (
                     <EveryCard key={cardInfo.id} cardInfo={cardInfo} />
                   ))}
-                  {/* {filterArr.length === 0
-                    ? infoArr.map((cardInfo) => (
-                        <EveryCard key={cardInfo.id} cardInfo={cardInfo} />
-                      ))
-                    : filterArr.map((cardInfo) => (
-                        <EveryCard key={cardInfo.id} cardInfo={cardInfo} />
-                      ))} */}
                 </div>
                 <MenuBigDisplay />
               </div>

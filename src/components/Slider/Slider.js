@@ -21,7 +21,7 @@ const Slider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCount(count === imgArr.length - 1 ? 0 : count + 1);
-    }, 4000);
+    }, 3000);
     return () => clearInterval(interval);
   }, [count]);
   // console.log(count);

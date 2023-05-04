@@ -50,8 +50,11 @@
   font-size: 14px;
   line-height: 17px;
   color: #1e1e1e;
+  height: 25px;
+  overflow: hidden;
 }
 .everyCard__parentBlock .block_description .description_text {
+  position: relative;
   width: 298px;
   font-family: "Unbounded", sans-serif;
   font-style: normal;
@@ -59,21 +62,12 @@
   font-size: 10px;
   line-height: 12px;
   color: #484848;
-  margin: 11px 0 15px;
-  height: 25px;
+  margin: 11px 0px 15px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-}
-.everyCard__parentBlock .block_description .active_moreInfo {
-  width: 298px;
-  font-family: "Unbounded", sans-serif;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 10px;
-  line-height: 15px;
-  color: #484848;
-  margin: 11px 0 15px;
-  overflow: visible;
-  min-height: 25px;
+  height: 40px;
+  line-height: 20px;
 }
 .everyCard__parentBlock .block_description > button {
   width: 30px;

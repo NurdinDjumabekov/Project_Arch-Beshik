@@ -1,19 +1,20 @@
 import React, { useEffect } from "react";
 import styles from "./MenuBigDisplay.module.css";
-import { infostartOutput } from "../../store/infoWorkSlice";
+import { takeCategoryOutput } from "../../store/infoWorkSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const MenuBigDisplay = () => {
-  const { infoNewArr } = useSelector((state) => state.infoWorkSlice);
+  const { infoCategory } = useSelector((state) => state.infoWorkSlice);
   const dispatch = useDispatch();
-  console.log(infoNewArr);
+  console.log(infoCategory);
   useEffect(() => {
-    dispatch(infostartOutput());
+    dispatch(takeCategoryOutput());
   }, []);
   return (
     <div className={styles.parentBlock_menuBig}>
+      <h6>Навигация по сайту</h6>
       <ul>
-        {/* {infoNewArr.map((category) => (
+        {/* {infoCategory.map((category) => (
           <li>{category.name}</li>
         ))} */}
         <li>О нас</li>

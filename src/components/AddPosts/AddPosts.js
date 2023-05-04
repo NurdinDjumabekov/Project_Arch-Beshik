@@ -7,6 +7,7 @@ const AddPosts = ({ setAdminInput }) => {
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
   const [img, setImg] = useState(null);
+  const baseNums = "192.168.0.105";
   // console.log(+category);
 
   // http://192.168.4.204:8000/api/content_create/
@@ -19,15 +20,15 @@ const AddPosts = ({ setAdminInput }) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("image", img);
-    formData.append("category_id", +category);
+    formData.append("category_id", 1);
     formData.append("content", description);
     formData.append("title", name);
-    formData.append("image", img);
+    // formData.append("image", img);
     // console.log(formData);
     try {
       const response = await axios({
         method: "POST",
-        url: "http://192.168.31.218:8000/api/content_create/",
+        url: `http://${baseNums}:8000/api/content_create/`,
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",
@@ -63,14 +64,16 @@ const AddPosts = ({ setAdminInput }) => {
             onChange={(e) => setName(e.target.value)}
             placeholder="название"
           />
-          <input
+          <textarea
             onChange={(e) => setDescription(e.target.value)}
             placeholder="описание"
-          />
-          <button type="submit" onClick={() => setAdminInput(false)}>
-            добавить пост
-          </button>
+          ></textarea>
+          {/* <input
+            placeholder="описание"
+          /> */}
+          <button type="submit">Добавить пост</button>
         </form>
+        <button onClick={() => setAdminInput(false)}>Отмена</button>
       </div>
     </>
   );

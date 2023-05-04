@@ -3,21 +3,20 @@ import axios from "axios";
 
 const initialState = {
   infoArr: [],
-  filterArr: [],
   stateBtnNav: false,
   stateSkeleton: false,
-  stateSearchInput: "",
+  // stateSearchInput: "",
   falsePreloader: false,
-  infoNewArr: [],
+  infoCategory: [],
 };
-
 // const baseUrl = " https://6443c7ca90738aa7c0778850.mockapi.io/infoportal";
+const baseNums = "192.168.0.105";
 export const infoWorkOutput = createAsyncThunk(
   "infoWorkOutput",
   async (infoWorkSlice, { dispatch }) => {
     try {
       const response = await axios.get(
-        "http://192.168.31.218:8000/api/content_list/"
+        `http://${baseNums}:8000/api/content_list/`
       );
       dispatch(toTakeInfo(response.data.results));
       dispatch(changeSkeleton(true));
@@ -37,15 +36,14 @@ export const falsePreloaderOutput = createAsyncThunk(
     }, 500);
   }
 );
-
-export const infostartOutput = createAsyncThunk(
+export const takeCategoryOutput = createAsyncThunk(
   "infoWorkOutput",
   async (infoWorkSlice, { dispatch }) => {
     try {
       const response = await axios.get(
-        "http://192.168.4.204:8000/api/category_list/"
+        `http://${baseNums}:8000/api/category_list/`
       );
-      dispatch(startInfo(response.data.results));
+      dispatch(toTakeCategory(response.data.results));
       // console.log(response.data.results);
     } catch {
       console.log("error");
@@ -65,19 +63,11 @@ const infoWorkSlice = createSlice({
     changeSkeleton: (state, action) => {
       state.stateSkeleton = action.payload;
     },
-    changeSearchInput: (state, action) => {
-      state.stateSearchInput = action.payload;
-      state.filterArr = state.infoArr.filter((i) => {
-        return i.moreInfo
-          .toLowerCase()
-          .includes(state.stateSearchInput.toLowerCase());
-      });
-    },
     changeFalsePreloader: (state, action) => {
       state.falsePreloader = action.payload;
     },
-    startInfo: (state, action) => {
-      state.infoNewArr = action.payload;
+    toTakeCategory: (state, action) => {
+      state.infoCategory = action.payload;
     },
   },
 });
@@ -86,8 +76,7 @@ export const {
   changeStateBtn,
   toTakeInfo,
   changeSkeleton,
-  changeSearchInput,
   changeFalsePreloader,
-  startInfo,
+  toTakeCategory,
 } = infoWorkSlice.actions;
 export default infoWorkSlice.reducer;
