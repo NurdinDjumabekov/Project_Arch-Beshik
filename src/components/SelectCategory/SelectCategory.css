@@ -1,0 +1,12 @@
+select {
+  width: 360px;
+  height: 35px;
+  background: #007AFF;
+  text-align: center;
+  margin: 0 auto -30px;
+  color: white;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-size: 18px;
+  padding: 0 20px;
+}

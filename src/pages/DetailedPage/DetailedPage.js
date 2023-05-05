@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "./DetailedPage.module.css";
 import usersComment from "../../assests/images/Detalied/users_comment.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,6 +17,7 @@ const DetailedPage = () => {
   const dateComents = date.comments;
   const baseNums = "192.168.0.105";
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { stateSkeleton } = useSelector((state) => state.infoWorkSlice);
 
   useEffect(() => {
@@ -44,24 +45,29 @@ const DetailedPage = () => {
       setName("");
     }, 500);
   };
+  // console.log(count);
+  const goToBack = () => {
+    navigate(-1);
+  };
   return (
     <>
       {stateSkeleton ? (
         <div className={styles.blockParent_for_detalied}>
           <div className="container">
             <div className={styles.parent_blockDetail}>
-              <img src={date.image} alt="..." />
-              {console.log(date.image)}
+              <button onClick={goToBack}>Back</button>
+              <img src={date.image} alt="фотка" />
+              {/* {console.log(date.image)} */}
               <h1>{date.title}</h1>
               <p>{date.content}</p>
               <div>
                 <h3>Комментарии</h3>
+                {/* {console.log(dateComents)} */}
                 {dateComents?.map((item) => (
-                  <div className={styles.block_for_comments}>
+                  <div className={styles.block_for_comments} key={item.id}>
                     <div>
                       <img src={usersComment} alt="comment" />
                     </div>
-
                     {/* <p>{item.pub_date}</p> */}
                     <div>
                       <h2>{item.name}</h2>

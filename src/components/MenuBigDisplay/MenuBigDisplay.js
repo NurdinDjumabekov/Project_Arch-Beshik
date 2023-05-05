@@ -9,15 +9,23 @@ const MenuBigDisplay = () => {
   console.log(infoCategory);
   useEffect(() => {
     dispatch(takeCategoryOutput());
+    console.log("tyuhi");
   }, []);
   return (
     <div className={styles.parentBlock_menuBig}>
       <h6>Навигация по сайту</h6>
       <ul>
-        {/* {infoCategory.map((category) => (
-          <li>{category.name}</li>
-        ))} */}
-        <li>О нас</li>
+        {infoCategory.map((category) => (
+          <li key={category.id}>{category.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default MenuBigDisplay;
+
+/* <li>О нас</li>
         <li>История</li>
         <li>Дороги</li>
         <li>Тазалык</li>
@@ -32,10 +40,4 @@ const MenuBigDisplay = () => {
         <li>Водоканал</li>
         <li>Канализация</li>
         <li>Электричество</li>
-        <li>Газоснабжения</li>
-      </ul>
-    </div>
-  );
-};
-
-export default MenuBigDisplay;
+        <li>Газоснабжения</li> */

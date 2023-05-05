@@ -3,7 +3,7 @@ import styles from "./Window_login.module.css";
 import cross_btn from "../../../assests/images/Windows/cross_img.svg";
 import axios from "axios";
 import { changeStateLogin } from "../../../store/statesWindowsSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Window_login = () => {
@@ -11,19 +11,27 @@ const Window_login = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-//http://192.168.0.111:8000/
-  const sendToRequestLogin = (e) => {
+  const baseNums = "192.168.0.105";
+
+  const sendToRequestLogin = async (e) => {
+    const cookieValue = "sessionid=2dtlfbxiopbg2lppv5j8cw9nojjwmem4"; // здесь нужно указать значение куки
     e.preventDefault();
-    axios({
+    await axios({
       method: "POST",
-      url: "http://192.168.31.218:8000/api/login/",
+      url: `http://${baseNums}:8000/api/login/`,
       data: {
         username: userName,
         password: password,
       },
+      withCredentials: true,
+      headers: {
+        Cookie: cookieValue,
+      },
     });
     dispatch(changeStateLogin(false));
     navigate("/admin");
+    // const request = await axios.get(`http://${baseNums}:8000/api/check_auth/`);
+    // console.log(request);
   };
   return (
     <>
@@ -43,11 +51,7 @@ const Window_login = () => {
             placeholder="Ваш пароль"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button
-            className={styles.entrance_btn}
-            type="submit"
-            onClick={() => dispatch(changeStateLogin(false))}
-          >
+          <button className={styles.entrance_btn} type="submit">
             Войти
           </button>
         </form>
@@ -64,3 +68,11 @@ const Window_login = () => {
 };
 
 export default Window_login;
+// try {
+//   setTimeout(() => {
+//     const request = axios.get(`http://${baseNums}:8000/api/users/`);
+//     console.log(request);
+//   }, 2000);
+// } catch {
+//   console.log("error request users");
+// }

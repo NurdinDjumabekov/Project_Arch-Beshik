@@ -5,7 +5,6 @@ const initialState = {
   infoArr: [],
   stateBtnNav: false,
   stateSkeleton: false,
-  // stateSearchInput: "",
   falsePreloader: false,
   infoCategory: [],
 };
@@ -16,11 +15,11 @@ export const infoWorkOutput = createAsyncThunk(
   async (infoWorkSlice, { dispatch }) => {
     try {
       const response = await axios.get(
-        `http://${baseNums}:8000/api/content_list/`
+        `http://${baseNums}:8000/api/content_list/5/`
       );
       dispatch(toTakeInfo(response.data.results));
       dispatch(changeSkeleton(true));
-      // console.log(response.data.results);
+      console.log(response.data.results);
     } catch {
       console.log("error!");
     }

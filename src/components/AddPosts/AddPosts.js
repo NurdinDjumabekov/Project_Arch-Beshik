@@ -1,26 +1,23 @@
 import React, { useState, useRef } from "react";
 import styles from "./AddPosts.module.css";
 import axios from "axios";
+import SelectCategory from "../SelectCategory/SelectCategory";
 
 const AddPosts = ({ setAdminInput }) => {
-  const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
   const [img, setImg] = useState(null);
   const baseNums = "192.168.0.105";
-  // console.log(+category);
-
-  // http://192.168.4.204:8000/api/content_create/
-  // http://192.168.31.218:8000/api/category_create/
   const handleFn = (e) => {
     setImg(e.target.files[0]);
   };
+  const addPhotoRef = useRef(null);
 
   const addPostsAdmin = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("image", img);
-    formData.append("category_id", 1);
+    formData.append("category_id", 2);
     formData.append("content", description);
     formData.append("title", name);
     // formData.append("image", img);
@@ -39,27 +36,29 @@ const AddPosts = ({ setAdminInput }) => {
       console.log("error");
     }
   };
+  const addPhotoFN = () => {
+    addPhotoRef.current.click();
+  };
+
   return (
     <>
       <div className={styles.block_shadow_forAddPosts}></div>
       <div className={styles.parentBlock_addPosts}>
         <h5>Добавление поста</h5>
         <form action="" onSubmit={addPostsAdmin} encType="multipart/form-data">
-          <select onChange={(e) => setCategory(e.target.value)}>
-            <option value={1}>Пункт 1</option>
-            <option value={2}>Пункт 2</option>
-            <option value={3}>Пункт 3</option>
-            <option value={4}>Пункт 4</option>
-            <option value={5}>Пункт 5</option>
-            <option value={6}>Пункт 6</option>
-          </select>
+          <SelectCategory />
           <input
             type="file"
             name="image"
             onChange={handleFn}
+            className={styles.none_Block}
             multiple
             accept="image/*"
+            ref={addPhotoRef}
           />
+          <button className={styles.one} onClick={addPhotoFN}>
+            Загрузите картинку
+          </button>
           <input
             onChange={(e) => setName(e.target.value)}
             placeholder="название"
@@ -68,10 +67,9 @@ const AddPosts = ({ setAdminInput }) => {
             onChange={(e) => setDescription(e.target.value)}
             placeholder="описание"
           ></textarea>
-          {/* <input
-            placeholder="описание"
-          /> */}
-          <button type="submit">Добавить пост</button>
+          <button className={styles.two} type="submit">
+            Добавить пост
+          </button>
         </form>
         <button onClick={() => setAdminInput(false)}>Отмена</button>
       </div>

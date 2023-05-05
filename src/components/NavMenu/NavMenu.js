@@ -28,17 +28,17 @@ const NavMenu = () => {
     <div className={styles.nav_blockParent}>
       <div className="container">
         <nav>
-          <div className={styles.block_for_imgLine}>
-            <NavLink to={"/"}>
+          <NavLink to={"/"}>
+            <div className={styles.block_for_imgLine}>
               <img
                 src={img_mainIcon}
                 alt="#"
                 className={styles.btn_left_rigth}
               />
-            </NavLink>
-            <div className={styles.line_mini}></div>
-            <h1>Арча Бешик</h1>
-          </div>
+              <div className={styles.line_mini}></div>
+              <h1>Арча Бешик</h1>
+            </div>
+          </NavLink>
           <h2>Арча Бешик</h2>
           {inputState && <InputSearch />}
           <div className={styles.block_for_navBtns}>

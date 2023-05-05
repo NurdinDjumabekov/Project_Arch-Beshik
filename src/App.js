@@ -19,7 +19,7 @@ function App() {
           <Route path="/content_detail/:id" element={<DetailedPage />} />
           <Route path="/admin" element={<AdminPage />} />
         </Route>
-        {/* <Route path="*" element={<NotFoundPage />} /> */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );
