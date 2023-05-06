@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./AdminPage.module.css";
 import AddPosts from "../../components/AddPosts/AddPosts";
 import MainPage from "../MainPage/MainPage";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   changeStateDeleteBtn,
   changeStateEditBtn,
@@ -12,9 +12,12 @@ import {
 const AdminPage = () => {
   const [adminInput, setAdminInput] = useState(false);
   const dispatch = useDispatch();
+  const { stateRequestOnCategory } = useSelector(
+    (state) => state.infoWorkSlice
+  );
   useEffect(() => {
     dispatch(changeStateForSlider(false));
-  }, []);
+  }, [stateRequestOnCategory]);
   const changeStateBtnEdit = () => {
     dispatch(changeStateEditBtn(true));
     dispatch(changeStateDeleteBtn(false));

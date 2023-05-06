@@ -7,6 +7,8 @@ import HistoryPage from "./pages/HistoryPage/HistoryPage";
 import DetailedPage from "./pages/DetailedPage/DetailedPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import AdminPage from "./pages/AdminPage/AdminPage";
+import SaleApartament from "./pages/SaleApartament/SaleApartament";
+import DetailedApartamentPage from "./pages/DetailedApartamentPage/DetailedApartamentPage";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/content_detail/:id" element={<DetailedPage />} />
+          <Route path="/apartaments" element={<SaleApartament />} />
+          <Route path="/apartaments/:id" element={<DetailedApartamentPage />} />
           <Route path="/admin" element={<AdminPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />

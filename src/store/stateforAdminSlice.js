@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   stateEditBtn: false,
@@ -21,6 +21,7 @@ const stateforAdminSlice = createSlice({
     },
     changeStateAllComponents: (state) => {
       state.stateAllComponents = state.stateAllComponents + 1;
+      // не нужен
     },
   },
 });

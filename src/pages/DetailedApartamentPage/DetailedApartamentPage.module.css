@@ -1,0 +1,140 @@
+.blockParent_detaliedApartament {
+  max-width: 85%;
+  margin: 0 auto;
+  padding-top: 60px;
+}
+.blockParent_detaliedApartament .block_forImgs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.blockParent_detaliedApartament .block_forImgs div:nth-child(1) {
+  width: 880px;
+  height: 560px;
+  border-radius: 15px;
+}
+.blockParent_detaliedApartament .block_forImgs div:nth-child(1) img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.blockParent_detaliedApartament .block_forImgs div:nth-child(2) {
+  width: 260px;
+  height: 615px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.blockParent_detaliedApartament .block_forImgs div:nth-child(2) div {
+  width: 120px;
+  height: 120px;
+}
+.blockParent_detaliedApartament .block_forImgs div:nth-child(2) div img {
+  width: 100%;
+  height: 100%;
+}
+.blockParent_detaliedApartament .content_apartament {
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 50px;
+}
+.blockParent_detaliedApartament .content_apartament .content_apartament_inner {
+  width: 100%;
+  max-width: 880px;
+}
+.blockParent_detaliedApartament .content_apartament .content_apartament_inner .number_phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 17px 20px;
+  margin: 0 0 40px 0;
+}
+.blockParent_detaliedApartament .content_apartament .content_apartament_inner .number_phone h2 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  color: #007AFF;
+}
+.blockParent_detaliedApartament .content_apartament .content_apartament_inner > ul {
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 20px;
+}
+.blockParent_detaliedApartament .content_apartament .content_apartament_inner > ul li {
+  margin-bottom: 20px;
+}
+.blockParent_detaliedApartament .content_apartament .content_apartament_inner > ul li h3 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+.blockParent_detaliedApartament .content_apartament .content_apartament_inner > ul li p {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  color: #000000;
+  display: inline-block;
+}
+.blockParent_detaliedApartament .content_apartament .content_apartament_inner > ul li span {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 30px;
+  color: #000000;
+  margin-left: 10px;
+}
+.blockParent_detaliedApartament .content_apartament .content_apartament_inner .desceiption_text_apartament {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  margin-top: 50px;
+}
+.blockParent_detaliedApartament .content_apartament .content_apartament_inner .desceiption_text_apartament h4 {
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  color: #000000;
+}
+.blockParent_detaliedApartament .content_apartament .content_apartament_inner .desceiption_text_apartament p {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  color: #3F3F3F;
+}
+.blockParent_detaliedApartament .content_apartament .apartament_advertising {
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  width: 255px;
+  min-height: 100%;
+}

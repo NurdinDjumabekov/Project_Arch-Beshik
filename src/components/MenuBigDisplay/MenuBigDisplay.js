@@ -5,6 +5,7 @@ import {
   takeCategoryOutput,
 } from "../../store/infoWorkSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { changeStateForSlider } from "../../store/stateforAdminSlice";
 
 const MenuBigDisplay = () => {
   const { infoCategory } = useSelector((state) => state.infoWorkSlice);
@@ -25,7 +26,7 @@ const MenuBigDisplay = () => {
       <h6>Навигация по сайту</h6>
       <ul>
         <li>
-          <button onClick={changeCategoryBtns}>все</button>
+          <button onClick={allPosts}>все</button>
         </li>
         {infoCategory.map((category) => (
           <li key={category.id}>

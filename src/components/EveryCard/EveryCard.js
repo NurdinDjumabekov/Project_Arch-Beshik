@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 import ActionAdminBtns from "../ActionAdminBtns/ActionAdminBtns";
 
 const EveryCard = ({ cardInfo }) => {
-  // const imgs = `{{ request.scheme }}://{{ request.get_host }}.image`;
   return (
     <div className={styles.everyCard__wrapper}>
       <ActionAdminBtns cardInfo={cardInfo} />

@@ -18,6 +18,102 @@
 @media screen and (max-width: 700px) {
   .block_imgInfo {
     display: none;
+    text-align: center;
+  }
+  .block_imgInfo p {
+    font-weight: 700;
+    font-size: 28px;
+    color: #000;
+    -webkit-animation: text 5s 1;
+            animation: text 5s 1;
+    letter-spacing: 10px;
+  }
+  @-webkit-keyframes text {
+    0% {
+      margin-bottom: -40px;
+      letter-spacing: 20px;
+    }
+    30% {
+      letter-spacing: 40px;
+      margin-bottom: -40px;
+    }
+    80% {
+      letter-spacing: 25px;
+      margin-bottom: -10px;
+    }
+    99% {
+      letter-spacing: 18px;
+    }
+  }
+  @keyframes text {
+    0% {
+      margin-bottom: -40px;
+      letter-spacing: 20px;
+    }
+    30% {
+      letter-spacing: 40px;
+      margin-bottom: -40px;
+    }
+    80% {
+      letter-spacing: 25px;
+      margin-bottom: -10px;
+    }
+    99% {
+      letter-spacing: 18px;
+    }
+  }
+  .block_imgInfo h1 {
+    font-weight: 700;
+    font-size: 58px;
+    letter-spacing: 8px;
+    color: #000;
+    margin-top: 10px;
+    -webkit-animation: text_2 5s 1;
+            animation: text_2 5s 1;
+  }
+}
+@media screen and (max-width: 700px) and (max-width: 1250px) {
+  .block_imgInfo h1 {
+    font-size: 76px;
+  }
+}
+@media screen and (max-width: 700px) and (max-width: 1250px) and (max-width: 900px) {
+  .block_imgInfo h1 {
+    font-size: 56px;
+  }
+}
+@media screen and (max-width: 700px) {
+  @-webkit-keyframes text_2 {
+    0% {
+      color: transparent;
+      letter-spacing: 12px;
+    }
+    50% {
+      color: transparent;
+      letter-spacing: 18px;
+    }
+    80% {
+      letter-spacing: 10px;
+    }
+    99% {
+      letter-spacing: 9px;
+    }
+  }
+  @keyframes text_2 {
+    0% {
+      color: transparent;
+      letter-spacing: 12px;
+    }
+    50% {
+      color: transparent;
+      letter-spacing: 18px;
+    }
+    80% {
+      letter-spacing: 10px;
+    }
+    99% {
+      letter-spacing: 9px;
+    }
   }
 }
 
@@ -116,11 +212,8 @@
     padding: 27px 0px;
   }
 }
-.block_for_content .cards_block h2 {
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 40px;
-  text-align: center;
-  color: #000000;
-  margin: 0 auto;
+.block_for_content .cards_block h1 {
+  width: 100%;
+  padding: 250px 0;
+  font-size: 30px;
 }

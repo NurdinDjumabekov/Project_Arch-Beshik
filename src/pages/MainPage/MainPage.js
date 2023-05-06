@@ -37,9 +37,13 @@ const MainPage = () => {
               )}
               <div className={styles.block_for_content}>
                 <div className={styles.cards_block}>
-                  {infoArr.map((cardInfo) => (
-                    <EveryCard key={cardInfo.id} cardInfo={cardInfo} />
-                  ))}
+                  {infoArr.length === 0 ? (
+                    <h1>Постов в этой категории пока что нету</h1>
+                  ) : (
+                    infoArr.map((cardInfo) => (
+                      <EveryCard key={cardInfo.id} cardInfo={cardInfo} />
+                    ))
+                  )}
                 </div>
                 <MenuBigDisplay />
               </div>

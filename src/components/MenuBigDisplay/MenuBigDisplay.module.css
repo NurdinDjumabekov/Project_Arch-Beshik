@@ -25,17 +25,15 @@
   margin-bottom: 20px;
 }
 .parentBlock_menuBig ul li {
-  margin-top: 5px;
+  margin-bottom: 7px;
 }
 .parentBlock_menuBig ul li button {
   font-family: "Unbounded";
-  font-style: normal;
   background: transparent;
   border: none;
   text-align: left;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 16px;
   line-height: 20px;
   color: #fff;
-  margin-top: 5px;
 }

@@ -52,25 +52,20 @@
   font-family: "Unbounded", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 17px;
   color: #1e1e1e;
-  height: 20px;
+  height: 18px;
   overflow: hidden;
 }
 .everyCard__wrapper .everyCard__parentBlock .block_description .description_text {
-  position: relative;
-  width: 298px;
-  font-family: "Unbounded", sans-serif;
-  font-style: normal;
   font-weight: 300;
   font-size: 10px;
-  line-height: 12px;
-  color: #484848;
+  line-height: 14px;
+  color: #000;
   margin: 11px 0px 15px;
+  height: 56px;
   overflow: hidden;
-  height: 25px;
-  line-height: 20px;
 }
 .everyCard__wrapper .everyCard__parentBlock .block_description > button {
   width: 30px;
