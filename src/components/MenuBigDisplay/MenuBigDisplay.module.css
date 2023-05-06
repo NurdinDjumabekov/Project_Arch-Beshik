@@ -1,14 +1,14 @@
 .parentBlock_menuBig {
-  padding: 13px 35px 13px 25px;
+  padding: 13px 20px 30px 25px;
   background: -webkit-gradient(linear, left top, left bottom, from(#0019FF), color-stop(46.35%, #0E6C70), to(#14FF00));
   background: linear-gradient(180deg, #0019FF 0%, #0E6C70 46.35%, #14FF00 100%);
   -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.9);
           box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.9);
   border-radius: 15px;
-  max-height: 530px;
   margin-top: 25px;
   position: sticky;
-  top: 100px;
+  height: 100%;
+  top: 200px;
 }
 @media screen and (max-width: 600px) {
   .parentBlock_menuBig {
@@ -25,8 +25,16 @@
   margin-bottom: 20px;
 }
 .parentBlock_menuBig ul li {
+  margin-top: 5px;
+}
+.parentBlock_menuBig ul li button {
+  font-family: "Unbounded";
+  font-style: normal;
+  background: transparent;
+  border: none;
+  text-align: left;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   color: #fff;
   margin-top: 5px;

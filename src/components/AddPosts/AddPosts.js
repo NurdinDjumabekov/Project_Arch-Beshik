@@ -7,6 +7,7 @@ const AddPosts = ({ setAdminInput }) => {
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
   const [img, setImg] = useState(null);
+  const [category, setCategory] = useState(0);
   const baseNums = "192.168.0.105";
   const handleFn = (e) => {
     setImg(e.target.files[0]);
@@ -17,7 +18,7 @@ const AddPosts = ({ setAdminInput }) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("image", img);
-    formData.append("category_id", 2);
+    formData.append("category_id", +category);
     formData.append("content", description);
     formData.append("title", name);
     // formData.append("image", img);
@@ -39,14 +40,14 @@ const AddPosts = ({ setAdminInput }) => {
   const addPhotoFN = () => {
     addPhotoRef.current.click();
   };
-
+  console.log(+category);
   return (
     <>
       <div className={styles.block_shadow_forAddPosts}></div>
       <div className={styles.parentBlock_addPosts}>
         <h5>Добавление поста</h5>
         <form action="" onSubmit={addPostsAdmin} encType="multipart/form-data">
-          <SelectCategory />
+          <SelectCategory setCategory={setCategory} />
           <input
             type="file"
             name="image"

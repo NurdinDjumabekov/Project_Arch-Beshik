@@ -5,77 +5,162 @@
 }
 .blockParent_for_detalied .parent_blockDetail {
   padding: 30px 100px 50px;
+  border-radius: 15px;
+  margin-bottom: 50px;
+}
+.blockParent_for_detalied .parent_blockDetail .block_for_imgsDetailed {
+  max-width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.blockParent_for_detalied .parent_blockDetail .block_for_imgsDetailed .block_for_bigPhoto {
+  width: 880px;
+  height: 550px;
+  border-radius: 15px;
+}
+.blockParent_for_detalied .parent_blockDetail .block_for_imgsDetailed .block_for_bigPhoto img {
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+}
+.blockParent_for_detalied .parent_blockDetail .block_for_imgsDetailed .block_for_miniPhoto {
+  max-width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 15px;
+}
+.blockParent_for_detalied .parent_blockDetail .block_for_imgsDetailed .block_for_miniPhoto div {
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+}
+.blockParent_for_detalied .parent_blockDetail .block_for_imgsDetailed .block_for_miniPhoto div img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising {
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 50px 0 0 0;
+}
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed {
+  width: 890px;
+}
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_contentText {
+  background: rgba(255, 255, 255, 0.5);
   -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
           box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
+  padding: 0 0 20px 0;
 }
-.blockParent_for_detalied .parent_blockDetail img {
-  width: 800px;
-  height: 500px;
-  border-radius: 15px;
-  display: block;
-  margin: 0 auto;
-}
-.blockParent_for_detalied .parent_blockDetail > h1 {
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_contentText > h1 {
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
   line-height: 50px;
   color: #000000;
-  margin: 21px 0 11px 0;
+  margin-bottom: 20px;
+  background: #fff;
+  text-align: left;
+  border-radius: 15px 15px 0 0;
+  padding: 20px;
 }
-.blockParent_for_detalied .parent_blockDetail > p {
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_contentText > p {
   font-weight: 400;
   font-size: 24px;
   line-height: 30px;
   color: #3F3F3F;
+  padding: 20px;
 }
-.blockParent_for_detalied .parent_blockDetail div h3 {
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .comments_parentBlock {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 0 0 25px 0;
+  margin: 40px 0;
+}
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .comments_parentBlock h3 {
   font-weight: 700;
   font-size: 40px;
   line-height: 50px;
-  text-align: center;
+  text-align: left;
   color: #000000;
-  margin: 30px 0;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 15px 15px 0 0;
 }
-.blockParent_for_detalied .parent_blockDetail div .block_for_comments {
-  width: 75%;
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .comments_parentBlock > p {
+  padding: 30px;
+  font-size: 22px;
+}
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .comments_parentBlock .block_for_comments {
+  width: 100%;
   padding: 20px;
-  margin: 0 auto;
   margin-top: 15px;
-  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 10px;
 }
-.blockParent_for_detalied .parent_blockDetail div .block_for_comments :hover {
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .comments_parentBlock .block_for_comments :hover {
   scale: 1.005;
 }
-.blockParent_for_detalied .parent_blockDetail div .block_for_comments div:nth-child(1) {
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .comments_parentBlock .block_for_comments div:nth-child(1) {
   height: 50px;
 }
-.blockParent_for_detalied .parent_blockDetail div .block_for_comments div:nth-child(1) img {
-  width: 50px;
-  height: 50px;
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .comments_parentBlock .block_for_comments div:nth-child(1) img {
+  width: 75px;
+  height: 75px;
 }
-.blockParent_for_detalied .parent_blockDetail div .block_for_comments div:nth-child(2) h2 {
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .comments_parentBlock .block_for_comments div:nth-child(2) h2 {
   font-size: 18px;
   font-weight: 500;
   font-size: 20px;
   line-height: 25px;
   color: #000000;
 }
-.blockParent_for_detalied .parent_blockDetail div .block_for_comments div:nth-child(2) p {
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .comments_parentBlock .block_for_comments div:nth-child(2) p {
   font-size: 12px;
   font-weight: 300;
   font-size: 18px;
   line-height: 22px;
   color: #3F3F3F;
 }
-.blockParent_for_detalied .parent_blockDetail form {
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_addComment {
+  width: 100%;
+  padding: 20px 25px;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_addComment h5 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  color: #000000;
+}
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_addComment form {
   width: 100%;
   margin: 20px auto 0;
   display: -webkit-box;
@@ -86,28 +171,38 @@
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.blockParent_for_detalied .parent_blockDetail form input {
-  width: 50%;
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_addComment form input {
+  min-width: 90%;
+  height: 50px;
   margin: 8px auto;
-  height: 35px;
   border-radius: 8px;
   padding: 0 20px;
-  font-size: 20px;
-}
-.blockParent_for_detalied .parent_blockDetail form textarea {
-  min-width: 500px;
-  height: 80px;
   font-size: 25px;
+}
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_addComment form textarea {
+  min-width: 90%;
+  height: 80px;
+  font-size: 28px;
   padding: 5px 10px;
   border-radius: 8px;
-  margin: 0 auto;
+  margin: 15px auto 0;
 }
-.blockParent_for_detalied .parent_blockDetail form > button {
-  border-radius: 10px;
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_addComment form > button {
+  border-radius: 15px;
   padding: 10px 0px;
   background-color: #007AFF;
   cursor: pointer;
   border: none;
-  width: 150px;
+  color: white;
+  font-size: 25px;
   margin: 25px auto 0;
+  padding: 8px 30px;
+}
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .advertising_block {
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  width: 255px;
+  min-height: 100%;
 }

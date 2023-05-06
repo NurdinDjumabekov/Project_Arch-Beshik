@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import styles from "./MenuBigDisplay.module.css";
-import { takeCategoryOutput } from "../../store/infoWorkSlice";
+import {
+  changeCategories,
+  takeCategoryOutput,
+} from "../../store/infoWorkSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const MenuBigDisplay = () => {
@@ -9,14 +12,27 @@ const MenuBigDisplay = () => {
   console.log(infoCategory);
   useEffect(() => {
     dispatch(takeCategoryOutput());
-    console.log("tyuhi");
   }, []);
+
+  const changeCategoryBtns = (categoryId) => {
+    dispatch(changeCategories(`${categoryId}/`));
+  };
+  const allPosts = () => {
+    dispatch(changeCategories(""));
+  };
   return (
     <div className={styles.parentBlock_menuBig}>
       <h6>Навигация по сайту</h6>
       <ul>
+        <li>
+          <button onClick={changeCategoryBtns}>все</button>
+        </li>
         {infoCategory.map((category) => (
-          <li key={category.id}>{category.name}</li>
+          <li key={category.id}>
+            <button onClick={() => changeCategoryBtns(category.id)}>
+              {category.name}
+            </button>
+          </li>
         ))}
       </ul>
     </div>

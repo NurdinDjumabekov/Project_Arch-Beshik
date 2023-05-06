@@ -4,88 +4,154 @@
     width: 100%
     .parent_blockDetail
         padding: 30px 100px 50px
-        box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)
         border-radius: 15px
-        img
-            width: 800px
-            height: 500px
-            border-radius: 15px
-            display: block
+        margin-bottom: 50px
+        .block_for_imgsDetailed
+            max-width: 100%
             margin: 0 auto
-        > h1
-            font-style: normal
-            font-weight: 700
-            font-size: 40px
-            line-height: 50px
-            color: #000000
-            margin: 21px 0 11px 0
-        > p
-            font-weight: 400
-            font-size: 24px
-            line-height: 30px
-            color: #3F3F3F
-        div
-            h3
-                font-weight: 700
-                font-size: 40px
-                line-height: 50px
-                text-align: center
-                color: #000000
-                margin: 30px 0
-            .block_for_comments
-                width: 75%
-                padding: 20px
-                margin: 0 auto
-                margin-top: 15px
-                box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)
-                border-radius: 10px
-                display: flex
-                gap: 10px
-                :hover
-                    scale: 1.005
-                div:nth-child(1)
-                    height: 50px
-                    img
-                        width: 50px
-                        height: 50px
-                div:nth-child(2)
-                    h2
-                        font-size: 18px
-                        font-weight: 500
-                        font-size: 20px
-                        line-height: 25px
-                        color: #000000
-                    p
-                        font-size: 12px
-                        font-weight: 300
-                        font-size: 18px
-                        line-height: 22px
-                        color: #3F3F3F
-        form
-            width: 100%
-            margin: 20px auto 0
-            // background: red
             display: flex
-            flex-direction: column
-            input
-                width: 50%
-                margin: 8px auto
-                height: 35px
-                border-radius: 8px
-                padding: 0 20px
-                font-size: 20px
-            textarea
-                min-width: 500px
-                height: 80px
-                font-size: 25px
-                padding: 5px 10px
-                border-radius: 8px
-                margin: 0 auto
-            > button
-                border-radius: 10px
-                padding: 10px 0px
-                background-color: #007AFF
-                cursor: pointer
-                border: none
-                width: 150px
-                margin: 25px auto 0
+            justify-content: space-between
+            .block_for_bigPhoto
+                width: 880px
+                height: 550px
+                border-radius: 15px
+                img
+                    border-radius: 15px
+                    width: 100%
+                    height: 100%
+            .block_for_miniPhoto
+                max-width: 300px
+                display: flex
+                justify-content: center
+                flex-wrap: wrap
+                gap: 15px
+                div
+                    width: 120px
+                    height: 120px
+                    border-radius: 15px
+                    img
+                        width: 100%
+                        height: 100%
+                        border-radius: 15px
+        .block_delailedInfo_and_advertising
+            max-width: 100%
+            display: flex
+            justify-content: space-between
+            margin: 50px 0 0 0
+            .contentBlock_detailed
+                width: 890px
+                .block_for_contentText
+                    background: rgba(255, 255, 255, 0.5)
+                    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)
+                    border-radius: 15px
+                    padding: 0 0 20px 0
+                    > h1
+                        font-style: normal
+                        font-weight: 700
+                        font-size: 40px
+                        line-height: 50px
+                        color: #000000
+                        margin-bottom: 20px
+                        background: #fff
+                        text-align: left
+                        border-radius: 15px 15px 0 0
+                        padding: 20px
+                    > p
+                        font-weight: 400
+                        font-size: 24px
+                        line-height: 30px
+                        color: #3F3F3F
+                        padding: 20px
+                .comments_parentBlock 
+                    width: 100%
+                    background: rgba(255, 255, 255, 0.5)
+                    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)
+                    border-radius: 15px
+                    padding: 0 0 25px 0
+                    margin: 40px 0     
+                    h3
+                        font-weight: 700
+                        font-size: 40px
+                        line-height: 50px
+                        text-align: left
+                        color: #000000
+                        padding: 25px
+                        background-color: #fff
+                        border-radius: 15px 15px 0 0
+                    > p
+                        padding: 30px
+                        font-size: 22px
+                    .block_for_comments
+                        width: 100%
+                        padding: 20px
+                        margin-top: 15px
+                        border-radius: 10px
+                        display: flex
+                        gap: 10px
+                        :hover
+                            scale: 1.005
+                        div:nth-child(1)
+                            height: 50px
+                            img
+                                width: 75px
+                                height: 75px
+                        div:nth-child(2)
+                            h2
+                                font-size: 18px
+                                font-weight: 500
+                                font-size: 20px
+                                line-height: 25px
+                                color: #000000
+                            p
+                                font-size: 12px
+                                font-weight: 300
+                                font-size: 18px
+                                line-height: 22px
+                                color: #3F3F3F
+                .block_for_addComment
+                    width: 100%
+                    padding: 20px 25px
+                    background: rgba(255, 255, 255, 0.5)
+                    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)
+                    border-radius: 15px
+                    h5
+                        font-weight: 700
+                        font-size: 40px
+                        line-height: 50px
+                        color: #000000
+                    form
+                        width: 100%
+                        margin: 20px auto 0
+                        display: flex
+                        flex-direction: column
+                        input
+                            min-width: 90%
+                            height: 50px
+                            margin: 8px auto
+                            border-radius: 8px
+                            padding: 0 20px
+                            font-size: 25px
+                        textarea
+                            min-width: 90%
+                            height: 80px
+                            font-size: 28px
+                            padding: 5px 10px
+                            border-radius: 8px
+                            margin: 15px auto 0
+                        > button
+                            border-radius: 15px
+                            padding: 10px 0px
+                            background-color: #007AFF
+                            cursor: pointer
+                            border: none
+                            color: white
+                            font-size: 25px
+                            margin: 25px auto 0
+                            padding: 8px 30px
+            .advertising_block
+                    background: #FFFFFF
+                    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)
+                    border-radius: 15px
+                    width: 255px
+                    min-height: 100%    
+

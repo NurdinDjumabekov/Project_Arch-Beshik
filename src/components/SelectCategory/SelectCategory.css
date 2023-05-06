@@ -1,5 +1,5 @@
 select {
-  width: 360px;
+  width: 355px;
   height: 35px;
   background: #007AFF;
   text-align: center;
@@ -9,4 +9,12 @@ select {
   border: 1px solid black;
   font-size: 18px;
   padding: 0 20px;
+}
+select option {
+  font-size: 18px;
+  text-align: left;
+  padding: 10px 0;
+  font-weight: 600;
+  padding: 50px;
+  background-color: linear-gradient(180deg, #0019FF 0%, #0E6C70 46.35%, #14FF00 100%);
 }

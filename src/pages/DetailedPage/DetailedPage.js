@@ -6,27 +6,31 @@ import usersComment from "../../assests/images/Detalied/users_comment.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { changeSkeleton } from "../../store/infoWorkSlice";
 import Preloader from "../../components/Preloader/Preloader";
+// import faslePhoto from "../../assests/images/history/history_img.png";
+import { changeStateAllComponents } from "../../store/stateforAdminSlice";
 
 const DetailedPage = () => {
   const [date, setDate] = useState({});
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [comment, setComment] = useState("");
-  const [count, setCount] = useState(0);
   const { id } = useParams();
   const dateComents = date.comments;
   const baseNums = "192.168.0.105";
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { stateSkeleton } = useSelector((state) => state.infoWorkSlice);
-
+  const { stateAllComponents } = useSelector(
+    (state) => state.stateforAdminSlice
+  );
   useEffect(() => {
     dispatch(changeSkeleton(false));
     axios
       .get(`http://${baseNums}:8000/api/content_detail/${id}/`)
       .then((date) => setDate(date.data.content));
     dispatch(changeSkeleton(true));
-  }, [count]);
+  }, [stateAllComponents]);
+  console.log(stateAllComponents);
   const sendComment = (e) => {
     e.preventDefault();
     axios({
@@ -38,14 +42,14 @@ const DetailedPage = () => {
         comment: comment,
       },
     });
-    setCount(count + 1);
+
+    dispatch(changeStateAllComponents());
     setTimeout(() => {
       setComment("");
       setEmail("");
       setName("");
     }, 500);
   };
-  // console.log(count);
   const goToBack = () => {
     navigate(-1);
   };
@@ -54,47 +58,88 @@ const DetailedPage = () => {
       {stateSkeleton ? (
         <div className={styles.blockParent_for_detalied}>
           <div className="container">
-            <div className={styles.parent_blockDetail}>
-              <button onClick={goToBack}>Back</button>
-              <img src={date.image} alt="фотка" />
-              {/* {console.log(date.image)} */}
-              <h1>{date.title}</h1>
-              <p>{date.content}</p>
-              <div>
-                <h3>Комментарии</h3>
-                {/* {console.log(dateComents)} */}
-                {dateComents?.map((item) => (
-                  <div className={styles.block_for_comments} key={item.id}>
+            <div className="block_animations"></div>
+            <div className="block_info">
+              <div className={styles.parent_blockDetail}>
+                {/* <button onClick={goToBack}>Back</button> */}
+                <div className={styles.block_for_imgsDetailed}>
+                  <div className={styles.block_for_bigPhoto}>
+                    <img src={date.image} alt="фотка" />
+                  </div>
+                  <div className={styles.block_for_miniPhoto}>
                     <div>
-                      <img src={usersComment} alt="comment" />
+                      <img src={date.image} alt="фотка" />
                     </div>
-                    {/* <p>{item.pub_date}</p> */}
                     <div>
-                      <h2>{item.name}</h2>
-                      <h2>{item.email}</h2>
-                      <p>{item.comment}</p>
+                      <img src={date.image} alt="фотка" />
+                    </div>
+                    <div>
+                      <img src={date.image} alt="фотка" />
+                    </div>
+                    <div>
+                      <img src={date.image} alt="фотка" />
+                    </div>
+                    <div>
+                      <img src={date.image} alt="фотка" />
+                    </div>
+                    <div>
+                      <img src={date.image} alt="фотка" />
                     </div>
                   </div>
-                ))}
+                </div>
+                <div className={styles.block_delailedInfo_and_advertising}>
+                  <div className={styles.contentBlock_detailed}>
+                    <div className={styles.block_for_contentText}>
+                      <h1>{date.title}</h1>
+                      <p>{date.content}</p>
+                    </div>
+                    <div className={styles.comments_parentBlock}>
+                      <h3>Комментарии</h3>
+                      {dateComents ? (
+                        dateComents?.map((item) => (
+                          <div
+                            className={styles.block_for_comments}
+                            key={item.id}
+                          >
+                            <div>
+                              <img src={usersComment} alt="comment" />
+                            </div>
+                            <div>
+                              <h2>{item.name}</h2>
+                              <h2>{item.email}</h2>
+                              <p>{item.comment}</p>
+                            </div>
+                          </div>
+                        ))
+                      ) : (
+                        <p>комментарий пока что нету</p>
+                      )}
+                    </div>
+                    <div className={styles.block_for_addComment}>
+                      <h5>Оставить комментарий</h5>
+                      <form action="" onSubmit={sendComment}>
+                        <input
+                          placeholder="NurdinDjumabekov@gmail.com"
+                          onChange={(e) => setEmail(e.target.value)}
+                          value={email}
+                        />
+                        <input
+                          placeholder="name"
+                          onChange={(e) => setName(e.target.value)}
+                          value={name}
+                        />
+                        <textarea
+                          placeholder="Комментарии"
+                          onChange={(e) => setComment(e.target.value)}
+                          value={comment}
+                        ></textarea>
+                        <button type="submit">Оставить комментарий</button>
+                      </form>
+                    </div>
+                  </div>
+                  <div className={styles.advertising_block}></div>
+                </div>
               </div>
-              <form action="" onSubmit={sendComment}>
-                <input
-                  placeholder="NurdinDjumabekov@gmail.com"
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
-                />
-                <input
-                  placeholder="name"
-                  onChange={(e) => setName(e.target.value)}
-                  value={name}
-                />
-                <textarea
-                  placeholder="Комментарии"
-                  onChange={(e) => setComment(e.target.value)}
-                  value={comment}
-                ></textarea>
-                <button type="submit">Отправить</button>
-              </form>
             </div>
           </div>
         </div>
@@ -106,3 +151,4 @@ const DetailedPage = () => {
 };
 
 export default DetailedPage;
+//NurdinDjumabekov@gmail.com
