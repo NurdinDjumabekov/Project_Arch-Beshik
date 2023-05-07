@@ -1,11 +1,4 @@
-.blockParent_Apartament h1 {
-  font-weight: 700;
-  font-size: 25px;
-  line-height: 25px;
-  color: #000000;
-  padding: 130px 0 50px 0;
-}
-.blockParent_Apartament .childBlock_apartament ul {
+.blockParent_Apartament .childBlock_apartament .childBlock_apartament_texts {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,7 +11,7 @@
   max-width: 1000px;
   margin: 0 auto;
 }
-.blockParent_Apartament .childBlock_apartament ul .everyBlock_info {
+.blockParent_Apartament .childBlock_apartament .childBlock_apartament_texts .everyBlock_info {
   width: 450px;
   padding-bottom: 8px;
   background: rgba(255, 255, 255, 0.5);
@@ -27,34 +20,34 @@
   border-radius: 15px;
   text-align: right;
 }
-.blockParent_Apartament .childBlock_apartament ul .everyBlock_info div:nth-child(1) {
+.blockParent_Apartament .childBlock_apartament .childBlock_apartament_texts .everyBlock_info div:nth-child(1) {
   height: 290px;
   border-radius: 15px 15px 0 0;
 }
-.blockParent_Apartament .childBlock_apartament ul .everyBlock_info div:nth-child(1) img {
+.blockParent_Apartament .childBlock_apartament .childBlock_apartament_texts .everyBlock_info div:nth-child(1) img {
   width: 100%;
   height: 100%;
   border-radius: 15px 15px 0 0;
 }
-.blockParent_Apartament .childBlock_apartament ul .everyBlock_info .textComtent_apartement {
+.blockParent_Apartament .childBlock_apartament .childBlock_apartament_texts .everyBlock_info .textComtent_apartement {
   padding: 18px 0 0 20px;
   text-align: left;
 }
-.blockParent_Apartament .childBlock_apartament ul .everyBlock_info .textComtent_apartement h2 {
+.blockParent_Apartament .childBlock_apartament .childBlock_apartament_texts .everyBlock_info .textComtent_apartement h2 {
   font-weight: 700;
   font-size: 20px;
   line-height: 25px;
   color: #000000;
   margin-bottom: 6px;
 }
-.blockParent_Apartament .childBlock_apartament ul .everyBlock_info .textComtent_apartement p {
+.blockParent_Apartament .childBlock_apartament .childBlock_apartament_texts .everyBlock_info .textComtent_apartement p {
   font-weight: 400;
   font-size: 10px;
   line-height: 12px;
   color: #000000;
   margin-bottom: 8px;
 }
-.blockParent_Apartament .childBlock_apartament ul .everyBlock_info > button {
+.blockParent_Apartament .childBlock_apartament .childBlock_apartament_texts .everyBlock_info > button {
   font-family: "Unbounded";
   font-weight: 500;
   font-size: 15px;

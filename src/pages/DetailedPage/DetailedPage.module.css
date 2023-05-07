@@ -29,7 +29,7 @@
   height: 100%;
 }
 .blockParent_for_detalied .parent_blockDetail .block_for_imgsDetailed .block_for_miniPhoto {
-  max-width: 300px;
+  width: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,18 +76,17 @@
   font-size: 35px;
   line-height: 50px;
   color: #000000;
-  margin-bottom: 20px;
   background: #fff;
   text-align: left;
   border-radius: 15px 15px 0 0;
-  padding: 20px;
+  padding: 20px 20px 20px 35px;
 }
 .blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_contentText > p {
   font-weight: 400;
   font-size: 22px;
   line-height: 30px;
   color: #3F3F3F;
-  padding: 20px;
+  padding: 20px 30px 20px 35px;
 }
 .blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .comments_parentBlock {
   width: 100%;
@@ -133,9 +132,14 @@
   height: 75px;
 }
 .blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .comments_parentBlock .block_for_comments div:nth-child(2) h2 {
-  font-size: 18px;
   font-weight: 500;
   font-size: 20px;
+  line-height: 25px;
+  color: #000000;
+}
+.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .comments_parentBlock .block_for_comments div:nth-child(2) h5 {
+  font-weight: 400;
+  font-size: 18px;
   line-height: 25px;
   color: #000000;
 }

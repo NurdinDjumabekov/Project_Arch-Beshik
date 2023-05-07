@@ -6,8 +6,6 @@ import usersComment from "../../assests/images/Detalied/users_comment.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { changeSkeleton } from "../../store/infoWorkSlice";
 import Preloader from "../../components/Preloader/Preloader";
-// import faslePhoto from "../../assests/images/history/history_img.png";
-import { changeStateAllComponents } from "../../store/stateforAdminSlice";
 
 const DetailedPage = () => {
   const [date, setDate] = useState({});
@@ -16,21 +14,18 @@ const DetailedPage = () => {
   const [comment, setComment] = useState("");
   const { id } = useParams();
   const dateComents = date.comments;
-  const baseNums = "192.168.0.105";
+  const baseNums = "192.168.31.218";
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { stateSkeleton } = useSelector((state) => state.infoWorkSlice);
-  const { stateAllComponents } = useSelector(
-    (state) => state.stateforAdminSlice
-  );
+
   useEffect(() => {
     dispatch(changeSkeleton(false));
     axios
       .get(`http://${baseNums}:8000/api/content_detail/${id}/`)
       .then((date) => setDate(date.data.content));
     dispatch(changeSkeleton(true));
-  }, [stateAllComponents]);
-  console.log(stateAllComponents);
+  }, [date]);
   const sendComment = (e) => {
     e.preventDefault();
     axios({
@@ -43,7 +38,6 @@ const DetailedPage = () => {
       },
     });
 
-    dispatch(changeStateAllComponents());
     setTimeout(() => {
       setComment("");
       setEmail("");
@@ -73,6 +67,7 @@ const DetailedPage = () => {
                     <div>
                       <img src={date.image} alt="фотка" />
                     </div>
+                    {/*
                     <div>
                       <img src={date.image} alt="фотка" />
                     </div>
@@ -84,7 +79,7 @@ const DetailedPage = () => {
                     </div>
                     <div>
                       <img src={date.image} alt="фотка" />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className={styles.block_delailedInfo_and_advertising}>
@@ -106,7 +101,7 @@ const DetailedPage = () => {
                             </div>
                             <div>
                               <h2>{item.name}</h2>
-                              <h2>{item.email}</h2>
+                              <h5>{item.email}</h5>
                               <p>{item.comment}</p>
                             </div>
                           </div>

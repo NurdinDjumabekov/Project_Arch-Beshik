@@ -6,41 +6,30 @@ import ActionAdminBtns from "../ActionAdminBtns/ActionAdminBtns";
 
 const EveryCard = ({ cardInfo }) => {
   return (
-    <div className={styles.everyCard__wrapper}>
-      <ActionAdminBtns cardInfo={cardInfo} />
-      <NavLink to={`/content_detail/${cardInfo.id}`}>
-        <div className={styles.everyCard__parentBlock}>
-          <div className={styles.everyCard__childBlock}>
-            <h3>Новости</h3>
-            <div className={styles.everyCard__infoImg}>
-              <img src={cardInfo.image} />
+    <>
+      <div className={styles.everyCard__wrapper}>
+        <ActionAdminBtns cardInfo={cardInfo} />
+        <NavLink to={`/content_detail/${cardInfo.id}`}>
+          <div className={styles.everyCard__parentBlock}>
+            <div className={styles.everyCard__childBlock}>
+              <h3>Новости</h3>
+              <div className={styles.everyCard__infoImg}>
+                <img src={cardInfo.image} />
+              </div>
+              <p>{cardInfo.data_added}</p>
             </div>
-            <p>{cardInfo.data_added}</p>
+            <div className={styles.block_description}>
+              <h4>{cardInfo.title}</h4>
+              <p className={styles.description_text}>{cardInfo.content}</p>
+              <button>
+                <img src={icon_comment} alt="photo" />
+              </button>
+            </div>
           </div>
-          <div className={styles.block_description}>
-            <h4>{cardInfo.title}</h4>
-            <p className={styles.description_text}>{cardInfo.content}</p>
-            <button>
-              <img src={icon_comment} alt="photo" />
-            </button>
-          </div>
-        </div>
-      </NavLink>
-    </div>
+        </NavLink>
+      </div>
+    </>
   );
 };
 
 export default EveryCard;
-
-{
-  /* {stateComment ? (
-            <Comments
-              cardInfo={cardInfo.comments}
-              setstateComment={setstateComment}
-            />
-          ) : (
-            <button onClick={() => setstateComment(true)}>
-              <img src={icon_comment} alt="photo" />
-            </button>
-          )} */
-}

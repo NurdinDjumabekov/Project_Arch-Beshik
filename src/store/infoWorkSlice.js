@@ -8,9 +8,11 @@ const initialState = {
   falsePreloader: false,
   infoCategory: [],
   stateRequestOnCategory: "",
+  stateRenderCategory: false,
 };
 // const baseUrl = " https://6443c7ca90738aa7c0778850.mockapi.io/infoportal";
-const baseNums = "192.168.0.105";
+const baseNums = "192.168.31.218";
+const urlContentList = `http://${baseNums}:8000/api/content_list/`;
 
 export const infoWorkOutput = createAsyncThunk(
   "infoWorkOutput",
@@ -18,13 +20,30 @@ export const infoWorkOutput = createAsyncThunk(
     dispatch(changeSkeleton(false));
     try {
       const response = await axios.get(
-        `http://${baseNums}:8000/api/content_list/${stateRequestOnCategory}`
+        `${urlContentList}${stateRequestOnCategory}`
       );
+      console.log(response.data.results);
       dispatch(
         toTakeInfo(
           response.data.results ? response.data.results : response.data
         )
       );
+      dispatch(changeSkeleton(true));
+    } catch {
+      console.log("error!");
+    }
+  }
+);
+export const requestOnApartament = createAsyncThunk(
+  "requestOnApartament",
+  async (requestOnApartament, { dispatch }) => {
+    dispatch(changeSkeleton(false));
+    try {
+      const response = await axios.get(
+        `http://${baseNums}:8000/api/content_list/housemanage/`
+      );
+      console.log(response.data.results, "apartament");
+      dispatch(toTakeInfo(response.data.results));
       dispatch(changeSkeleton(true));
     } catch {
       console.log("error!");
@@ -77,6 +96,9 @@ const infoWorkSlice = createSlice({
     changeCategories: (state, action) => {
       state.stateRequestOnCategory = action.payload;
     },
+    stateRenderCategory: (state, action) => {
+      state.stateRenderCategory = action.payload;
+    },
   },
 });
 
@@ -87,5 +109,6 @@ export const {
   changeFalsePreloader,
   toTakeCategory,
   changeCategories,
+  stateRenderCategory,
 } = infoWorkSlice.actions;
 export default infoWorkSlice.reducer;

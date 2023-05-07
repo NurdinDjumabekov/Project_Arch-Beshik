@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./DetailedApartamentPage.module.css";
 import imgs from "../../assests/images/history/history_img.png";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { changeSkeleton } from "../../store/infoWorkSlice";
+import { useDispatch } from "react-redux";
 
 const DetailedApartamentPage = () => {
+  const { id } = useParams();
+  const baseNums = "192.168.31.218";
+  const dispatch = useDispatch();
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    dispatch(changeSkeleton(false));
+    axios
+      .get(`http://${baseNums}:8000/api/housemanage_list/${id}/`)
+      .then((info) => console.log(info));
+    dispatch(changeSkeleton(true));
+  }, []);
   return (
     <div className={styles.blockParent_detaliedApartament}>
       <div className="container">

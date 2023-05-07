@@ -2,24 +2,33 @@ import React, { useEffect } from "react";
 import styles from "./MenuBigDisplay.module.css";
 import {
   changeCategories,
+  stateRenderCategory,
   takeCategoryOutput,
 } from "../../store/infoWorkSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { changeStateForSlider } from "../../store/stateforAdminSlice";
 
 const MenuBigDisplay = () => {
+  const urlApartament = `housemanage`;
   const { infoCategory } = useSelector((state) => state.infoWorkSlice);
   const dispatch = useDispatch();
-  console.log(infoCategory);
+  // console.log(infoCategory, "nnn");
   useEffect(() => {
     dispatch(takeCategoryOutput());
   }, []);
 
-  const changeCategoryBtns = (categoryId) => {
-    dispatch(changeCategories(`${categoryId}/`));
+  const changeCategoryBtns = (categoryId, categoryBoolean) => {
+    if (categoryBoolean) {
+      dispatch(changeCategories(`${urlApartament}/`));
+      dispatch(stateRenderCategory(true));
+    } else {
+      dispatch(changeCategories(`${categoryId}/`));
+      dispatch(stateRenderCategory(false));
+    }
   };
   const allPosts = () => {
     dispatch(changeCategories(""));
+    dispatch(stateRenderCategory(true));
+    dispatch(stateRenderCategory(false));
   };
   return (
     <div className={styles.parentBlock_menuBig}>
@@ -30,7 +39,9 @@ const MenuBigDisplay = () => {
         </li>
         {infoCategory.map((category) => (
           <li key={category.id}>
-            <button onClick={() => changeCategoryBtns(category.id)}>
+            <button
+              onClick={() => changeCategoryBtns(category.id, category.is_rent)}
+            >
               {category.name}
             </button>
           </li>
@@ -41,20 +52,3 @@ const MenuBigDisplay = () => {
 };
 
 export default MenuBigDisplay;
-
-/* <li>О нас</li>
-        <li>История</li>
-        <li>Дороги</li>
-        <li>Тазалык</li>
-        <li>Освещение</li>
-        <li>Канализация</li>
-        <li>Электричество</li>
-        <li>Газоснабжения</li>
-        <li>Сдача квартир и домов</li>
-        <li>Консультация</li>
-        <li>Чрезвычайные ситуации</li>
-        <li>Освещение</li>
-        <li>Водоканал</li>
-        <li>Канализация</li>
-        <li>Электричество</li>
-        <li>Газоснабжения</li> */

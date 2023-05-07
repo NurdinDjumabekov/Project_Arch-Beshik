@@ -8,7 +8,7 @@ const AddPosts = ({ setAdminInput }) => {
   const [name, setName] = useState("");
   const [img, setImg] = useState(null);
   const [category, setCategory] = useState(0);
-  const baseNums = "192.168.0.105";
+  const baseNums = "192.168.31.218";
   const handleFn = (e) => {
     setImg(e.target.files[0]);
   };
@@ -21,8 +21,6 @@ const AddPosts = ({ setAdminInput }) => {
     formData.append("category_id", +category);
     formData.append("content", description);
     formData.append("title", name);
-    // formData.append("image", img);
-    // console.log(formData);
     try {
       const response = await axios({
         method: "POST",
@@ -32,22 +30,24 @@ const AddPosts = ({ setAdminInput }) => {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log(response);
+      await setAdminInput(false);
+      // console.log(response);
     } catch {
       console.log("error");
+      // setAdminInput(false);
     }
   };
   const addPhotoFN = () => {
     addPhotoRef.current.click();
   };
-  console.log(+category);
+  // console.log(+category);
   return (
     <>
       <div className={styles.block_shadow_forAddPosts}></div>
       <div className={styles.parentBlock_addPosts}>
         <h5>Добавление поста</h5>
         <form action="" onSubmit={addPostsAdmin} encType="multipart/form-data">
-          <SelectCategory setCategory={setCategory} />
+          <SelectCategory setCategory={setCategory} category={category} />
           <input
             type="file"
             name="image"

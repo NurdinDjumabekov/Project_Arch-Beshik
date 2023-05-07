@@ -8,7 +8,7 @@ const ActionAdminBtns = ({ cardInfo }) => {
   const { stateDeleteBtn, stateEditBtn } = useSelector(
     (state) => state.stateforAdminSlice
   );
-  const baseNums = "192.168.0.105";
+  const baseNums = "192.168.31.218";
   const requestDeletePost = async () => {
     try {
       const request = await axios.delete(
