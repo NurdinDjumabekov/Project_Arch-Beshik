@@ -6,14 +6,13 @@
   top: 0;
   left: 0;
   background: black;
-  opacity: 0.8;
-  overflow: hidden;
   position: fixed;
+  background-color: white;
 }
 
 .parentBlock_addPosts {
-  width: 500px;
-  height: 550px;
+  width: 360px;
+  height: 450px;
   position: fixed;
   left: 0;
   right: 0;
@@ -21,18 +20,24 @@
   bottom: 0;
   z-index: 99;
   margin: auto;
-  background: white;
-  border-radius: 10px;
-  padding: 50px 30px 0;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
 }
 .parentBlock_addPosts h5 {
   font-weight: 700;
-  font-size: 25px;
+  font-size: 16px;
   text-align: center;
-  padding: 15px 0;
+  padding: 8px 0;
   color: #000000;
+  background: #fff;
+  border-radius: 15px 15px 0 0;
+  margin-bottom: 15px;
 }
 .parentBlock_addPosts form {
+  width: 290px;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,18 +55,20 @@
   overflow: hidden;
   line-height: 0px;
 }
-.parentBlock_addPosts form .one {
-  width: 350px;
-  height: 38px;
+.parentBlock_addPosts form .change_photo {
+  width: 290px;
+  padding: 10px 0;
   border-radius: 8px;
   border: 1px solid black;
-  padding: 0 20px;
-  font-size: 20px;
+  font-size: 15px;
+  text-align: center;
+  line-height: 15px;
   color: white;
   background: #007AFF;
+  font-weight: 500;
 }
 .parentBlock_addPosts form input {
-  width: 350px;
+  width: 100%;
   height: 38px;
   border-radius: 8px;
   border: 1px solid black;
@@ -88,7 +95,7 @@
   color: white;
 }
 .parentBlock_addPosts form textarea {
-  width: 350px;
+  width: 100%;
   height: 100px;
   padding: 5px 10px;
   border-radius: 8px;

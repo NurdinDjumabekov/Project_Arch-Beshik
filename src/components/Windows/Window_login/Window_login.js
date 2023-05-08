@@ -70,14 +70,14 @@ const Window_login = ({ setUserName, userName, setStateToken }) => {
               placeholder="Ваш пароль"
               onChange={(e) => setPassword(e.target.value)}
             />
+            <div className={styles.block_for_password}>
+              <button>Забыли пароль?</button>
+              <button>Регистрация</button>
+            </div>
             <button className={styles.entrance_btn} type="submit">
               Войти
             </button>
           </form>
-          {/* <div className={styles.block_for_password}>
-            <button>Забыли пароль?</button>
-            <button>Регистрация</button>
-          </div> */}
           <button onClick={() => dispatch(changeStateLogin(false))}>
             <img src={cross_btn} alt="x" />
           </button>

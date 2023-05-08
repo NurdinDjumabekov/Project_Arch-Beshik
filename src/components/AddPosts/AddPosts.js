@@ -45,7 +45,9 @@ const AddPosts = ({ setAdminInput }) => {
   // console.log(+category);
   return (
     <>
-      <div className={styles.block_shadow_forAddPosts}></div>
+      <div className={styles.block_shadow_forAddPosts}>
+        <div className="block_animations"></div>
+      </div>
       <div className={styles.parentBlock_addPosts}>
         <h5>Добавление поста</h5>
         <form action="" onSubmit={addPostsAdmin} encType="multipart/form-data">
@@ -59,8 +61,8 @@ const AddPosts = ({ setAdminInput }) => {
             accept="image/*"
             ref={addPhotoRef}
           />
-          <div className={styles.one} onClick={() => addPhotoFN()}>
-            Загрузите картинку
+          <div className={styles.change_photo} onClick={() => addPhotoFN()}>
+            Загрузите фотографии
           </div>
           <input
             onChange={(e) => setName(e.target.value)}
@@ -71,7 +73,7 @@ const AddPosts = ({ setAdminInput }) => {
             placeholder="описание"
           ></textarea>
           <button className={styles.two} type="submit">
-            Добавить пост
+            Загрузить пост
           </button>
         </form>
         <button onClick={() => setAdminInput(false)}>Отмена</button>
