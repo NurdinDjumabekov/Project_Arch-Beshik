@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./NavMenu.module.css";
 import img_mainIcon from "../../assests/images/main_icon.svg";
@@ -15,15 +15,31 @@ import {
   changeStateLogin,
   changeStateRegistration,
 } from "../../store/statesWindowsSlice";
+import Logout from "../Logout/Logout";
 
 const NavMenu = () => {
   const { stateBtnNav } = useSelector((state) => state.infoWorkSlice);
+  const [inputState, setInputState] = useState(false);
+  const [userName, setUserName] = useState(
+    "" ? "" : localStorage.getItem("nameUser")
+  );
   const { registrationState, loginState } = useSelector(
     (state) => state.statesWindowsSlice
   );
-  const [inputState, setInputState] = useState(false);
-  // const [loginState, setLoginState] = useState(false);
   const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
+  const [stateToken, setStateToken] = useState(
+    localStorage.getItem("stateFalse")
+      ? Boolean(localStorage.getItem("stateFalse"))
+      : false
+  );
+  // localStorage.setItem("nameUser");
+
+  useEffect(() => {
+    localStorage.setItem("stateFalse", stateToken);
+    localStorage.setItem("nameUser", userName);
+  }, [userName]);
+
   return (
     <div className={styles.nav_blockParent}>
       <div className="container">
@@ -40,22 +56,37 @@ const NavMenu = () => {
             </div>
           </NavLink>
           <h2>Арча Бешик</h2>
-          {inputState && <InputSearch />}
+          {inputState && <InputSearch setInputState={setInputState} />}
           <div className={styles.block_for_navBtns}>
             <button
               onClick={() => setInputState(true)}
-              className={inputState ? styles.none : ""}
+              className={inputState ? styles.none : styles.iAmHere}
             >
               <img src={nav_btn_search} alt="" />
               Поиск
             </button>
-            <button onClick={() => dispatch(changeStateLogin(true))}>
-              Вход
-            </button>
-            {loginState && <Window_login />}
-            <button onClick={() => dispatch(changeStateRegistration(true))}>
-              Регистрация
-            </button>
+            {token ? (
+              <Logout setStateToken={setStateToken} />
+            ) : (
+              <button onClick={() => dispatch(changeStateLogin(true))}>
+                Вход
+              </button>
+            )}
+            {loginState && (
+              <Window_login
+                userName={userName}
+                setUserName={setUserName}
+                setStateToken={setStateToken}
+              />
+            )}
+            {console.log(stateToken)}
+            {stateToken ? (
+              userName && <b>{userName}</b>
+            ) : (
+              <button onClick={() => dispatch(changeStateRegistration(true))}>
+                Регистрация
+              </button>
+            )}
             {registrationState && <Window_registration />}
           </div>
           {stateBtnNav ? (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./MainPage.module.css";
 import EveryCard from "../../components/EveryCard/EveryCard";
@@ -24,7 +24,7 @@ const MainPage = () => {
   const { stateRenderCategory } = useSelector((state) => state.infoWorkSlice);
 
   const dispatch = useDispatch();
-
+  // const scrollRef = useRef(null);
   useEffect(() => {
     if (stateRenderCategory) {
       dispatch(requestOnApartament());
@@ -32,8 +32,17 @@ const MainPage = () => {
       dispatch(infoWorkOutput(stateRequestOnCategory));
     }
     dispatch(changeStateForSlider(true));
+    // if (scrollRef.current !== null) {
+    //   const handleScroll = () => {
+    //     scrollRef.current.scrollTop = window.pageYOffset;
+    //   };
+    //   scrollRef.current.addEventListener("scroll", handleScroll);
+    //   return () => {
+    //     scrollRef.current.removeEventListener("scroll", handleScroll);
+    //   };
+    // }
   }, [stateRequestOnCategory]);
-
+  localStorage.setItem("scrollPosition", window.pageYOffset);
   return (
     <>
       {stateSkeleton ? (
@@ -49,6 +58,7 @@ const MainPage = () => {
               )}
               <div className={styles.block_for_content}>
                 <div className={styles.cards_block}>
+                  {/* ref={scrollRef} */}
                   {stateRenderCategory ? (
                     infoArr.length === 0 ? (
                       <h1>Постов пока что нету</h1>

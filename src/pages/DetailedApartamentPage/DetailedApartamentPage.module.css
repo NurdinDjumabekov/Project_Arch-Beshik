@@ -69,7 +69,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 17px 20px;
+  padding: 17px 30px;
   margin: 0 0 40px 0;
 }
 .blockParent_detaliedApartament .content_apartament .content_apartament_inner .number_phone h2 {
@@ -77,6 +77,12 @@
   font-size: 40px;
   line-height: 50px;
   color: #007AFF;
+}
+.blockParent_detaliedApartament .content_apartament .content_apartament_inner .number_phone p {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 30px;
+  color: black;
 }
 .blockParent_detaliedApartament .content_apartament .content_apartament_inner > ul {
   background: rgba(255, 255, 255, 0.5);

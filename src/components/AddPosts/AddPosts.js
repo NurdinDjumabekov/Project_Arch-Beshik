@@ -16,6 +16,8 @@ const AddPosts = ({ setAdminInput }) => {
 
   const addPostsAdmin = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("token");
+    setAdminInput(false);
     const formData = new FormData();
     formData.append("image", img);
     formData.append("category_id", +category);
@@ -28,10 +30,10 @@ const AddPosts = ({ setAdminInput }) => {
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: `Token ${token}`,
         },
       });
-      await setAdminInput(false);
-      // console.log(response);
+      console.log(response);
     } catch {
       console.log("error");
       // setAdminInput(false);
@@ -57,9 +59,9 @@ const AddPosts = ({ setAdminInput }) => {
             accept="image/*"
             ref={addPhotoRef}
           />
-          <button className={styles.one} onClick={addPhotoFN}>
+          <div className={styles.one} onClick={() => addPhotoFN()}>
             Загрузите картинку
-          </button>
+          </div>
           <input
             onChange={(e) => setName(e.target.value)}
             placeholder="название"

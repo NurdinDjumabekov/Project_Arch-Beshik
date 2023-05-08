@@ -2,12 +2,21 @@
     height: 100vh
     width: 100%
     position: absolute
-    z-index: 98
+    z-index: 99
     top: 0
     left: 0
-    background: black
-    opacity: 0.5
-    overflow:  hidden
+    background: #fff
+    animation: startWindow 1s forwards
+    @keyframes startWindow
+        0%
+            opacity: 0
+        
+        50%
+            opacity: 0.5
+            
+        100%
+            opacity: 1
+            
 .block_for_login_registration
         width: 450px
         position: fixed
@@ -20,6 +29,17 @@
         height: 500px
         background: white
         border-radius: 10px
+        box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)
+        animation: startWindow_inner 1.5s forwards
+        @keyframes startWindow_inner
+            0%
+                opacity: 0
+            
+            50%
+                opacity: 0.5
+                
+            100%
+                opacity: 1
         h1
             font-weight: 700
             font-size: 22px
@@ -31,11 +51,12 @@
         form
             width: 350px
             padding: 20px 0
-            margin: 20px auto 0
+            margin: 0 auto
             display: flex
             flex-wrap: wrap
             justify-content: center
             input
+                font-family: 'Unbounded'
                 width: 100%
                 margin-top: 25px
                 height: 41px
@@ -44,7 +65,7 @@
                 border-radius: 7px
                 border: none
                 text-align: center
-                font-size: 20px
+                font-size: 17px
                 padding: 0 20px
                 cursor: pointer
             input:nth-child(2)
@@ -53,28 +74,36 @@
                 box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)
                 border-radius: 15px
                 background: #007AFF
+                border: none
                 padding: 10px 35px
                 margin-top: 30px
-                font-weight: 600
+                font-weight: 400
                 font-size: 18px
                 color: white
                 cursor: pointer
+                transition: 0.8s
+                opacity: 0.9
             :hover
-                background: white
-                color: #007AFF
+                opacity: 1
         .block_for_password
             width: 100%
-            padding: 15px 35px 0
-            p
-                font-size: 15px
+            // padding: 15px 55px 0
+            text-align: center
             span
-                font-size: 15px
+                font-size: 12px
+                font-weight: 400
+                line-height: 12px
+                color: #000000
             button
-                margin-left: 10px
-                font-size: 18px
+                font-family: 'Unbounded'
+                margin-left: 8px
                 border: none
                 background: transparent
                 cursor: pointer
+                font-size: 12px
+                font-weight: 400
+                line-height: 12px
+                color: #001AFF
         > button
             top: 0
             right: 0

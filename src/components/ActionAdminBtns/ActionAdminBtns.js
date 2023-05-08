@@ -8,12 +8,18 @@ const ActionAdminBtns = ({ cardInfo }) => {
   const { stateDeleteBtn, stateEditBtn } = useSelector(
     (state) => state.stateforAdminSlice
   );
+  const token = localStorage.getItem("token");
   const baseNums = "192.168.31.218";
   const requestDeletePost = async () => {
     try {
-      const request = await axios.delete(
-        `http://${baseNums}:8000/api/content_delete/${cardInfo.id}/`
-      );
+      const request = await axios({
+        method: "DELETE",
+        url: `http://${baseNums}:8000/api/content_delete/${cardInfo.id}/`,
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Token ${token}`,
+        },
+      });
       console.log(request);
     } catch {
       console.log("error! Request Delete");

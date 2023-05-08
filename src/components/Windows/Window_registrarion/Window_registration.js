@@ -34,7 +34,6 @@ const Window_registration = () => {
           </button>
         </form>
         <div className={styles.block_for_password}>
-          <p>Уже зарегистрированы?</p>
           <span>Хотите войти?</span>
           <button>Войти</button>
         </div>

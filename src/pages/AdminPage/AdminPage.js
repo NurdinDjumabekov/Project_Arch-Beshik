@@ -27,7 +27,6 @@ const AdminPage = () => {
     dispatch(changeStateDeleteBtn(true));
     dispatch(changeStateEditBtn(false));
   };
-
   return (
     <>
       <div>

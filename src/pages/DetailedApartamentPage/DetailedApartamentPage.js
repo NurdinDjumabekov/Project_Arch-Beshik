@@ -11,12 +11,11 @@ const DetailedApartamentPage = () => {
   const baseNums = "192.168.31.218";
   const dispatch = useDispatch();
   const [data, setData] = useState({});
-
   useEffect(() => {
     dispatch(changeSkeleton(false));
     axios
       .get(`http://${baseNums}:8000/api/housemanage_list/${id}/`)
-      .then((info) => console.log(info));
+      .then((info) => setData(info.data));
     dispatch(changeSkeleton(true));
   }, []);
   return (
@@ -27,22 +26,22 @@ const DetailedApartamentPage = () => {
           <div className={styles.blockParent_detaliedApartament}>
             <div className={styles.block_forImgs}>
               <div>
-                <img src={imgs} alt="" />
+                <img src={data.photos} alt="" />
               </div>
               <div>
                 <div>
-                  <img src={imgs} alt="" />
+                  <img src={data.photos} alt="" />
                 </div>
                 <div>
-                  <img src={imgs} alt="" />
+                  <img src={data.photos} alt="" />
                 </div>
               </div>
             </div>
             <div className={styles.content_apartament}>
               <div className={styles.content_apartament_inner}>
                 <div className={styles.number_phone}>
-                  <h2>Эрлан Сабиров </h2>
-                  <p>+996700754454</p>
+                  <h2>{data.owner} </h2>
+                  <p>{data.phone_number}</p>
                 </div>
                 <ul>
                   <li>
@@ -50,46 +49,24 @@ const DetailedApartamentPage = () => {
                   </li>
                   <li>
                     <p>Колличество комнат : </p>
-                    <span></span>
+                    <span>{data.amount_of_rooms}</span>
                   </li>
                   <li>
-                    <p>Этаж : </p>
-                    <span></span>
-                  </li>
-                  <li>
-                    <p>Подселение : </p>
-                    <span></span>
-                  </li>
-                  <li>
-                    <p>Кто сдает : </p>
-                    <span></span>
-                  </li>
-                  <li>
-                    <p>Животные : </p>
-                    <span></span>
+                    <p>Цена : </p>
+                    <span>{data.price} coм</span>
                   </li>
                   <li>
                     <p>Ремонт : </p>
-                    <span></span>
-                  </li>
-                  <li>
-                    <p>На срок : </p>
-                    <span></span>
+                    <span>{data.remont}</span>
                   </li>
                   <li>
                     <p>Удобства : </p>
-                    <span>
-                      Кондиционер, балкон, бронированные двери, гардероб,
-                      домофон, интернет, WI-FI, кабельное, пластиковые окна.
-                    </span>
+                    <span>{data.udobstva}</span>
                   </li>
                 </ul>
                 <div className={styles.desceiption_text_apartament}>
-                  <h4> Описание</h4>
-                  <p>
-                    Предлагаем вам комфортную 3-комнатную квартиру 104 -Серии, в
-                    районе Центральной Мечети. Квартира с хорошим ремонтом.
-                  </p>
+                  <h4>{data.title}</h4>
+                  <p>{data.description}</p>
                 </div>
               </div>
               <div className={styles.apartament_advertising}></div>

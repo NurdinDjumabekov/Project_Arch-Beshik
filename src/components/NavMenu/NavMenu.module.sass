@@ -40,12 +40,35 @@
             width: 385px
             display: flex
             gap: 50px
-            // margin-left: 20px
-            // justify-content: space-between
             @media screen and ( max-width: 750px )
                 display: none
             .none
-                display: none
+                animation: noneBtn 1.5s forwards
+            @keyframes noneBtn 
+                0%
+                    opacity: 1
+                50%
+                    opacity: 0.5
+                    width: 80px
+                100%
+                    opacity: 0    
+                    display: none 
+                    width: 0
+            .iAmHere
+                 animation: iAmHere 1.5s forwards
+            @keyframes iAmHere 
+                0%
+                    opacity: 0.4
+                50%
+                    opacity: 0.8
+                100%
+                    opacity: 1 
+            b
+                font-size: 18px
+                font-weight: 400
+                background: gray
+                padding: 0 10px
+                border-radius: 10px
             > button
                 font-weight: 300
                 font-size: 18px
@@ -67,7 +90,6 @@
             display: none
             @media screen and ( max-width: 750px )
                 display: block
-                
         .btn_left_rigth 
             width: 50px
             height: 50px

@@ -69,7 +69,69 @@
   }
 }
 .nav_blockParent nav .block_for_navBtns .none {
-  display: none;
+  -webkit-animation: noneBtn 1.5s forwards;
+          animation: noneBtn 1.5s forwards;
+}
+@-webkit-keyframes noneBtn {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+    width: 80px;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+    width: 0;
+  }
+}
+@keyframes noneBtn {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+    width: 80px;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+    width: 0;
+  }
+}
+.nav_blockParent nav .block_for_navBtns .iAmHere {
+  -webkit-animation: iAmHere 1.5s forwards;
+          animation: iAmHere 1.5s forwards;
+}
+@-webkit-keyframes iAmHere {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes iAmHere {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.nav_blockParent nav .block_for_navBtns b {
+  font-size: 18px;
+  font-weight: 400;
+  background: gray;
+  padding: 0 10px;
+  border-radius: 10px;
 }
 .nav_blockParent nav .block_for_navBtns > button {
   font-weight: 300;

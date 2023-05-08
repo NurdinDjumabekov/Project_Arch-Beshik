@@ -19,7 +19,7 @@ function App() {
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/content_detail/:id" element={<DetailedPage />} />
           <Route
-            path="/housemanage_list/id/"
+            path="/housemanage_list/:id/"
             element={<DetailedApartamentPage />}
           />
           <Route path="/admin" element={<AdminPage />} />
