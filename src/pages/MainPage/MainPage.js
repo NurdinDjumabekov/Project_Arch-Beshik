@@ -2,11 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./MainPage.module.css";
 import EveryCard from "../../components/EveryCard/EveryCard";
-import {
-  changeCategories,
-  infoWorkOutput,
-  requestOnApartament,
-} from "../../store/infoWorkSlice";
+import { infoWorkOutput, requestOnApartament } from "../../store/infoWorkSlice";
+// changeCategories,
 import MainSkeleton from "../../components/skeletons/MainSkeleton";
 import MenuBigDisplay from "../../components/MenuBigDisplay/MenuBigDisplay";
 import Preloader from "../../components/Preloader/Preloader";
@@ -14,8 +11,9 @@ import Slider from "../../components/Slider/Slider";
 import Footer from "../../components/Footer/Footer";
 import { changeStateForSlider } from "../../store/stateforAdminSlice";
 import EveryApartament from "../../components/EveryApartament/EveryApartament";
+import Pagination from "../../components/Pagination/Pagination";
 const MainPage = () => {
-  const { infoArr, stateSkeleton, stateRequestOnCategory } = useSelector(
+  const { infoArr, stateSkeleton, objForChangeInfo } = useSelector(
     (state) => state.infoWorkSlice
   );
   console.log(infoArr, "infoArr");
@@ -24,30 +22,20 @@ const MainPage = () => {
   const { stateRenderCategory } = useSelector((state) => state.infoWorkSlice);
 
   const dispatch = useDispatch();
-  // const scrollRef = useRef(null);
   useEffect(() => {
     if (stateRenderCategory) {
       dispatch(requestOnApartament());
     } else {
-      dispatch(infoWorkOutput(stateRequestOnCategory));
+      dispatch(infoWorkOutput(objForChangeInfo));
     }
     dispatch(changeStateForSlider(true));
-    // if (scrollRef.current !== null) {
-    //   const handleScroll = () => {
-    //     scrollRef.current.scrollTop = window.pageYOffset;
-    //   };
-    //   scrollRef.current.addEventListener("scroll", handleScroll);
-    //   return () => {
-    //     scrollRef.current.removeEventListener("scroll", handleScroll);
-    //   };
-    // }
-  }, [stateRequestOnCategory]);
-  localStorage.setItem("scrollPosition", window.pageYOffset);
+  }, [objForChangeInfo]);
   return (
     <>
       {stateSkeleton ? (
         <>
           {stateForSlider && <Slider />}
+          {/* <Slider /> */}
           <div className="container">
             <div className="block_animations"></div>
             <div className="block_info">
@@ -58,7 +46,6 @@ const MainPage = () => {
               )}
               <div className={styles.block_for_content}>
                 <div className={styles.cards_block}>
-                  {/* ref={scrollRef} */}
                   {stateRenderCategory ? (
                     infoArr.length === 0 ? (
                       <h1>Постов пока что нету</h1>
@@ -82,6 +69,7 @@ const MainPage = () => {
               </div>
             </div>
           </div>
+          {/* <Pagination /> */}
           <Footer />
         </>
       ) : (
@@ -95,7 +83,3 @@ const MainPage = () => {
 };
 
 export default MainPage;
-
-{
-  /* <h1>Продажа домов и квартир</h1> */
-}

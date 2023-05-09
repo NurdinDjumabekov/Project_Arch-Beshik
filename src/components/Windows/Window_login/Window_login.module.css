@@ -118,7 +118,7 @@
   background: #fff;
 }
 .block_for_login h5 {
-  width: 155px;
+  width: 175px;
   margin: 0 auto;
   font-weight: 400;
   font-size: 14px;
@@ -210,6 +210,7 @@
   cursor: pointer;
   border: none;
   opacity: 0.9;
+  margin-top: 10px;
 }
 .block_for_login form :hover {
   opacity: 1;

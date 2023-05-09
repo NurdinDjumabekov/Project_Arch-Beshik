@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const EveryApartament = ({ apartamentInfo }) => {
   return (
     <>
-      <NavLink to={`housemanage_list/${apartamentInfo.id}/`}>
+      <NavLink to={`/housemanage_list/${apartamentInfo.id}/`}>
         <div className={styles.blockParent_Apartament}>
           <div className="container">
             <div className={styles.childBlock_apartament}>

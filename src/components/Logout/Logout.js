@@ -17,13 +17,16 @@ const Logout = ({ setStateToken }) => {
       },
     });
     setStateToken(false);
+    // localStorage.removeItem("nameUser");
+    // localStorage.removeItem("stateToken");
+    // localStorage.removeItem("token");
     localStorage.clear();
     navigate("/");
     if (location.pathname === "/") {
       window.location.reload();
     }
   };
-  console.log(location.pathname);
+  // console.log(location.pathname);
   return (
     <div>
       <button onClick={logoutFn}>Выход</button>

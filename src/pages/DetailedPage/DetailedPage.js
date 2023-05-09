@@ -18,14 +18,13 @@ const DetailedPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { stateSkeleton } = useSelector((state) => state.infoWorkSlice);
-
   useEffect(() => {
     dispatch(changeSkeleton(false));
     axios
       .get(`http://${baseNums}:8000/api/content_detail/${id}/`)
       .then((date) => setDate(date.data.content));
     dispatch(changeSkeleton(true));
-  }, [date]);
+  }, []);
   const sendComment = (e) => {
     e.preventDefault();
     axios({

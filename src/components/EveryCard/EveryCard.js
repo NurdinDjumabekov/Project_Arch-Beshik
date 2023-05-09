@@ -7,6 +7,7 @@ import ActionAdminBtns from "../ActionAdminBtns/ActionAdminBtns";
 const EveryCard = ({ cardInfo }) => {
   return (
     <>
+      {/* {console.log(cardInfo)} */}
       <div className={styles.everyCard__wrapper}>
         <ActionAdminBtns cardInfo={cardInfo} />
         <NavLink to={`/content_detail/${cardInfo.id}`}>

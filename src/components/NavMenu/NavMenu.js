@@ -16,30 +16,27 @@ import {
   changeStateRegistration,
 } from "../../store/statesWindowsSlice";
 import Logout from "../Logout/Logout";
-
 const NavMenu = () => {
   const { stateBtnNav } = useSelector((state) => state.infoWorkSlice);
   const [inputState, setInputState] = useState(false);
-  const [userName, setUserName] = useState(
+  const [stateToken, setStateToken] = useState(
+    Boolean(localStorage.getItem("stateToken"))
+  );
+  const [nameIcon, setNameIcon] = useState(
     "" ? "" : localStorage.getItem("nameUser")
   );
+
   const { registrationState, loginState } = useSelector(
     (state) => state.statesWindowsSlice
   );
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
-  const [stateToken, setStateToken] = useState(
-    localStorage.getItem("stateFalse")
-      ? Boolean(localStorage.getItem("stateFalse"))
-      : false
-  );
-  // localStorage.setItem("nameUser");
 
   useEffect(() => {
-    localStorage.setItem("stateFalse", stateToken);
-    localStorage.setItem("nameUser", userName);
-  }, [userName]);
-
+    localStorage.setItem("nameUser", nameIcon);
+    localStorage.setItem("stateToken", stateToken);
+  }, [nameIcon]);
+  console.log(stateToken, "stateToken");
   return (
     <div className={styles.nav_blockParent}>
       <div className="container">
@@ -74,14 +71,13 @@ const NavMenu = () => {
             )}
             {loginState && (
               <Window_login
-                userName={userName}
-                setUserName={setUserName}
+                setNameIcon={setNameIcon}
                 setStateToken={setStateToken}
               />
             )}
-            {console.log(stateToken)}
+            {/* {console.log(stateToken)} */}
             {stateToken ? (
-              userName && <b>{userName}</b>
+              <b>{nameIcon}</b>
             ) : (
               <button onClick={() => dispatch(changeStateRegistration(true))}>
                 Регистрация

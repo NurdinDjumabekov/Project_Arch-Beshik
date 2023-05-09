@@ -11,7 +11,7 @@ const LoginPage = () => {
           <form>
             <input placeholder="Ваш логин" />
             <input placeholder="Ваш пароль" />
-            <button>Войти</button>
+            <button>Войти bbb</button>
           </form>
         </div>
       </div>

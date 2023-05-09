@@ -7,7 +7,11 @@ const initialState = {
   stateSkeleton: false,
   falsePreloader: false,
   infoCategory: [],
-  stateRequestOnCategory: "",
+  objForChangeInfo: {
+    stateRequestOnCategory: "",
+    pagination: 1,
+  },
+
   stateRenderCategory: false,
 };
 // const baseUrl = " https://6443c7ca90738aa7c0778850.mockapi.io/infoportal";
@@ -16,11 +20,11 @@ const urlContentList = `http://${baseNums}:8000/api/content_list/`;
 
 export const infoWorkOutput = createAsyncThunk(
   "infoWorkOutput",
-  async (stateRequestOnCategory, { dispatch }) => {
+  async (objForChangeInfo, { dispatch }) => {
     dispatch(changeSkeleton(false));
     try {
       const response = await axios.get(
-        `${urlContentList}${stateRequestOnCategory}`
+        `${urlContentList}${objForChangeInfo.stateRequestOnCategory}`
       );
       console.log(response.data.results);
       dispatch(
@@ -34,6 +38,7 @@ export const infoWorkOutput = createAsyncThunk(
     }
   }
 );
+
 export const requestOnApartament = createAsyncThunk(
   "requestOnApartament",
   async (requestOnApartament, { dispatch }) => {
@@ -94,7 +99,7 @@ const infoWorkSlice = createSlice({
       state.infoCategory = action.payload;
     },
     changeCategories: (state, action) => {
-      state.stateRequestOnCategory = action.payload;
+      state.objForChangeInfo.stateRequestOnCategory = action.payload;
     },
     stateRenderCategory: (state, action) => {
       state.stateRenderCategory = action.payload;

@@ -8,13 +8,13 @@ select {
   border-radius: 8px;
   border: 1px solid black;
   font-size: 18px;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 select option {
-  font-size: 18px;
+  font-size: 16px;
   text-align: left;
-  padding: 10px 0;
+  width: 50px;
   font-weight: 600;
-  padding: 50px;
+  padding: 500px;
   background-color: linear-gradient(180deg, #0019FF 0%, #0E6C70 46.35%, #14FF00 100%);
 }

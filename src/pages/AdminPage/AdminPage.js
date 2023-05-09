@@ -12,12 +12,10 @@ import {
 const AdminPage = () => {
   const [adminInput, setAdminInput] = useState(false);
   const dispatch = useDispatch();
-  const { stateRequestOnCategory } = useSelector(
-    (state) => state.infoWorkSlice
-  );
+  const { objForChangeInfo } = useSelector((state) => state.infoWorkSlice);
   useEffect(() => {
     dispatch(changeStateForSlider(false));
-  }, [stateRequestOnCategory]);
+  }, [objForChangeInfo.stateRequestOnCategory]);
   const changeStateBtnEdit = () => {
     dispatch(changeStateEditBtn(true));
     dispatch(changeStateDeleteBtn(false));

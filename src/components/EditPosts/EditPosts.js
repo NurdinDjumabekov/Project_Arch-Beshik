@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
-import styles from "./AddPosts.module.css";
+import styles from "./EditPosts.module.css";
 import axios from "axios";
 import SelectCategory from "../SelectCategory/SelectCategory";
 
-const AddPosts = ({ setAdminInput }) => {
-  const [description, setDescription] = useState("");
-  const [name, setName] = useState("");
+const EditPosts = ({ setForIconEdit, cardInfo }) => {
+  const [description, setDescription] = useState(cardInfo.content);
+  const [name, setName] = useState(cardInfo.title);
   const [img, setImg] = useState(null);
   const [category, setCategory] = useState(0);
   const baseNums = "192.168.31.218";
@@ -17,7 +17,7 @@ const AddPosts = ({ setAdminInput }) => {
   const addPostsAdmin = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-    setAdminInput(false);
+    setForIconEdit(false);
     const formData = new FormData();
     formData.append("image", img);
     formData.append("category_id", +category);
@@ -25,8 +25,8 @@ const AddPosts = ({ setAdminInput }) => {
     formData.append("title", name);
     try {
       const response = await axios({
-        method: "POST",
-        url: `http://${baseNums}:8000/api/content_create/`,
+        method: "PATCH",
+        url: `http://${baseNums}:8000/api/content_update/${cardInfo.id}/`,
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",
@@ -57,7 +57,7 @@ const AddPosts = ({ setAdminInput }) => {
             name="image"
             onChange={handleFn}
             className={styles.none_Block}
-            multipleтзь 
+            multipleтзь
             accept="image/*"
             ref={addPhotoRef}
           />
@@ -67,19 +67,21 @@ const AddPosts = ({ setAdminInput }) => {
           <input
             onChange={(e) => setName(e.target.value)}
             placeholder="название"
+            value={name}
           />
           <textarea
             onChange={(e) => setDescription(e.target.value)}
             placeholder="описание"
+            value={description}
           ></textarea>
           <button className={styles.two} type="submit">
             Загрузить пост
           </button>
         </form>
-        <button onClick={() => setAdminInput(false)}>Отмена</button>
+        <button onClick={() => setForIconEdit(false)}>Отмена</button>
       </div>
     </>
   );
 };
 
-export default AddPosts;
+export default EditPosts;
