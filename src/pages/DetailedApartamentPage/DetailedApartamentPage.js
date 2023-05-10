@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 
 const DetailedApartamentPage = () => {
   const { id } = useParams();
-  const baseNums = "192.168.31.218";
+  const baseNums = "192.168.198.218";
   const dispatch = useDispatch();
   const [data, setData] = useState({});
   useEffect(() => {
@@ -18,6 +18,7 @@ const DetailedApartamentPage = () => {
       .then((info) => setData(info.data));
     dispatch(changeSkeleton(true));
   }, []);
+  console.log(data);
   return (
     <div className={styles.blockParent_detaliedApartament}>
       <div className="container">

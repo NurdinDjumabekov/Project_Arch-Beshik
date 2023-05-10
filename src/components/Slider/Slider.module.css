@@ -1,7 +1,7 @@
 .slider_parentBlock {
   position: relative;
   z-index: 3;
-  height: 100vh;
+  height: 110vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,7 +11,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #1e1e1e;
+  background-image: url("../../assests/images/main/bac-d_2.jpg");
+  background-size: contain;
   -webkit-box-shadow: 0px 14px 25px rgba(0, 0, 0, 0.5);
           box-shadow: 0px 14px 25px rgba(0, 0, 0, 0.5);
 }
@@ -35,6 +36,7 @@
   height: 450px;
   border-radius: 20px;
   background-color: black;
+  border: 2px solid white;
 }
 .slider_parentBlock .slider_block .block_for_img :hover {
   -webkit-box-shadow: -25px 34px 105px rgb(0, 0, 0);
@@ -50,12 +52,15 @@
   position: relative;
 }
 .slider_parentBlock .slider_block .block_for_img h2 {
+  font-family: "Unbounded";
+  font-style: normal;
   position: absolute;
   z-index: 10;
-  top: 0;
-  background-color: white;
+  top: 1px;
+  background-color: black;
+  color: #fff;
   padding: 10px;
-  border-radius: 14px 0 14px 0;
+  border-radius: 20px 0 20px 0;
   -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
           box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
 }
@@ -74,6 +79,7 @@
   border-radius: 10px;
   position: relative;
   background-color: black;
+  border: 2px solid white;
 }
 .slider_parentBlock .slider_block .block_for_contentImg .block_for_history :hover {
   opacity: 0.8;
@@ -85,8 +91,9 @@
 }
 .slider_parentBlock .slider_block .block_for_contentImg .block_for_history h3 {
   position: absolute;
+  color: white;
   top: 0px;
-  background-color: white;
+  background-color: black;
   padding: 8px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
@@ -100,6 +107,7 @@
   border-radius: 10px;
   position: relative;
   background: black;
+  border: 2px solid white;
 }
 .slider_parentBlock .slider_block .block_for_contentImg .block_for_clear :hover {
   opacity: 0.8;
@@ -112,8 +120,9 @@
 .slider_parentBlock .slider_block .block_for_contentImg .block_for_clear h4 {
   position: absolute;
   top: 0;
-  background-color: white;
+  background-color: black;
   padding: 8px;
+  color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   border-radius: 10px 0 14px 0;

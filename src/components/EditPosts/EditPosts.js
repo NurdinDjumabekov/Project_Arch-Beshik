@@ -8,7 +8,7 @@ const EditPosts = ({ setForIconEdit, cardInfo }) => {
   const [name, setName] = useState(cardInfo.title);
   const [img, setImg] = useState(null);
   const [category, setCategory] = useState(0);
-  const baseNums = "192.168.31.218";
+  const baseNums = "192.168.198.218";
   const handleFn = (e) => {
     setImg(e.target.files[0]);
   };

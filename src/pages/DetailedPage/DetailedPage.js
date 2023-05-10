@@ -6,6 +6,7 @@ import usersComment from "../../assests/images/Detalied/users_comment.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { changeSkeleton } from "../../store/infoWorkSlice";
 import Preloader from "../../components/Preloader/Preloader";
+import DetailedPhotos from "../../components/DetailedPhotos/DetailedPhotos";
 
 const DetailedPage = () => {
   const [date, setDate] = useState({});
@@ -14,7 +15,7 @@ const DetailedPage = () => {
   const [comment, setComment] = useState("");
   const { id } = useParams();
   const dateComents = date.comments;
-  const baseNums = "192.168.31.218";
+  const baseNums = "192.168.198.218";
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { stateSkeleton } = useSelector((state) => state.infoWorkSlice);
@@ -25,6 +26,7 @@ const DetailedPage = () => {
       .then((date) => setDate(date.data.content));
     dispatch(changeSkeleton(true));
   }, []);
+  console.log(date);
   const sendComment = (e) => {
     e.preventDefault();
     axios({
@@ -37,11 +39,11 @@ const DetailedPage = () => {
       },
     });
 
-    setTimeout(() => {
-      setComment("");
-      setEmail("");
-      setName("");
-    }, 500);
+    // setTimeout(() => {
+    //   setComment("");
+    //   setEmail("");
+    //   setName("");
+    // }, 500);
   };
   const goToBack = () => {
     navigate(-1);
@@ -55,32 +57,7 @@ const DetailedPage = () => {
             <div className="block_info">
               <div className={styles.parent_blockDetail}>
                 {/* <button onClick={goToBack}>Back</button> */}
-                <div className={styles.block_for_imgsDetailed}>
-                  <div className={styles.block_for_bigPhoto}>
-                    <img src={date.image} alt="фотка" />
-                  </div>
-                  <div className={styles.block_for_miniPhoto}>
-                    <div>
-                      <img src={date.image} alt="фотка" />
-                    </div>
-                    <div>
-                      <img src={date.image} alt="фотка" />
-                    </div>
-                    {/*
-                    <div>
-                      <img src={date.image} alt="фотка" />
-                    </div>
-                    <div>
-                      <img src={date.image} alt="фотка" />
-                    </div>
-                    <div>
-                      <img src={date.image} alt="фотка" />
-                    </div>
-                    <div>
-                      <img src={date.image} alt="фотка" />
-                    </div> */}
-                  </div>
-                </div>
+                <DetailedPhotos date={date} />
                 <div className={styles.block_delailedInfo_and_advertising}>
                   <div className={styles.contentBlock_detailed}>
                     <div className={styles.block_for_contentText}>

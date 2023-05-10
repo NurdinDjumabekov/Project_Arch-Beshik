@@ -15,7 +15,7 @@ const initialState = {
   stateRenderCategory: false,
 };
 // const baseUrl = " https://6443c7ca90738aa7c0778850.mockapi.io/infoportal";
-const baseNums = "192.168.31.218";
+const baseNums = "192.168.198.218";
 const urlContentList = `http://${baseNums}:8000/api/content_list/`;
 
 export const infoWorkOutput = createAsyncThunk(
@@ -24,7 +24,7 @@ export const infoWorkOutput = createAsyncThunk(
     dispatch(changeSkeleton(false));
     try {
       const response = await axios.get(
-        `${urlContentList}${objForChangeInfo.stateRequestOnCategory}`
+        `${urlContentList}${objForChangeInfo.stateRequestOnCategory}?page_size=${objForChangeInfo.pagination}`
       );
       console.log(response.data.results);
       dispatch(
@@ -104,6 +104,9 @@ const infoWorkSlice = createSlice({
     stateRenderCategory: (state, action) => {
       state.stateRenderCategory = action.payload;
     },
+    changePagination: (state, action) => {
+      state.objForChangeInfo.pagination = action.payload;
+    },
   },
 });
 
@@ -115,5 +118,6 @@ export const {
   toTakeCategory,
   changeCategories,
   stateRenderCategory,
+  changePagination,
 } = infoWorkSlice.actions;
 export default infoWorkSlice.reducer;

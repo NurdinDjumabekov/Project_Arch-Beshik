@@ -8,7 +8,7 @@ const AddPosts = ({ setAdminInput }) => {
   const [name, setName] = useState("");
   const [img, setImg] = useState(null);
   const [category, setCategory] = useState(0);
-  const baseNums = "192.168.31.218";
+  const baseNums = "192.168.198.218";
   const handleFn = (e) => {
     setImg(e.target.files[0]);
   };
@@ -57,7 +57,7 @@ const AddPosts = ({ setAdminInput }) => {
             name="image"
             onChange={handleFn}
             className={styles.none_Block}
-            multipleтзь 
+            multipleтзь
             accept="image/*"
             ref={addPhotoRef}
           />

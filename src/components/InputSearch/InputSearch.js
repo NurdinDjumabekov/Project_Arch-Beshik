@@ -27,7 +27,7 @@ const InputSearch = ({ setInputState }) => {
         <input
           placeholder="Поиск"
           className={styles.search_input}
-          onChange={(e) => changeLengthInput(e)}
+          onChange={changeLengthInput}
           value={input}
         />
         <button onClick={clearInput} className={styles.lll}>

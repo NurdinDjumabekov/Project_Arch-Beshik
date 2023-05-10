@@ -18,7 +18,7 @@ const Window_login = ({ setNameIcon, setStateToken }) => {
   const [stateAuth, setStateAuth] = useState(false);
   const [stateForAdmin, setStateForAdmin] = useState(false);
   const dispatch = useDispatch();
-  const baseNums = "192.168.31.218";
+  const baseNums = "192.168.198.218";
   const navigate = useNavigate();
   const sendToRequestLogin = async (e) => {
     e.preventDefault();

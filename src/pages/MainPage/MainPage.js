@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./MainPage.module.css";
 import EveryCard from "../../components/EveryCard/EveryCard";
 import { infoWorkOutput, requestOnApartament } from "../../store/infoWorkSlice";
-// changeCategories,
 import MainSkeleton from "../../components/skeletons/MainSkeleton";
 import MenuBigDisplay from "../../components/MenuBigDisplay/MenuBigDisplay";
 import Preloader from "../../components/Preloader/Preloader";
@@ -69,7 +68,6 @@ const MainPage = () => {
               </div>
             </div>
           </div>
-          {/* <Pagination /> */}
           <Footer />
         </>
       ) : (

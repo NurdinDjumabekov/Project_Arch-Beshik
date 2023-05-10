@@ -22,21 +22,25 @@ const NavMenu = () => {
   const [stateToken, setStateToken] = useState(
     Boolean(localStorage.getItem("stateToken"))
   );
-  const [nameIcon, setNameIcon] = useState(
-    "" ? "" : localStorage.getItem("nameUser")
-  );
-
+  const [nameIcon, setNameIcon] = useState("null");
+  useEffect(() => {
+    const name = localStorage.getItem("nameUser")
+      ? localStorage.getItem("nameUser")
+      : "null";
+    setNameIcon(name);
+  }, []);
   const { registrationState, loginState } = useSelector(
     (state) => state.statesWindowsSlice
   );
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
-
+  // console.log("kak: ", nameIcon);
   useEffect(() => {
     localStorage.setItem("nameUser", nameIcon);
     localStorage.setItem("stateToken", stateToken);
   }, [nameIcon]);
-  console.log(stateToken, "stateToken");
+  // console.log(stateToken, "stateToken");
+  // console.log(nameIcon, "name");
   return (
     <div className={styles.nav_blockParent}>
       <div className="container">
@@ -76,7 +80,7 @@ const NavMenu = () => {
               />
             )}
             {/* {console.log(stateToken)} */}
-            {stateToken ? (
+            {nameIcon !== "null" ? (
               <b>{nameIcon}</b>
             ) : (
               <button onClick={() => dispatch(changeStateRegistration(true))}>

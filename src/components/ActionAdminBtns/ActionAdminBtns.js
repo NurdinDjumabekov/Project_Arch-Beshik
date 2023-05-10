@@ -11,7 +11,7 @@ const ActionAdminBtns = ({ cardInfo }) => {
   );
   const [ForIconEdit, setForIconEdit] = useState(false);
   const token = localStorage.getItem("token");
-  const baseNums = "192.168.31.218";
+  const baseNums = "192.168.198.218";
   const requestDeletePost = async () => {
     try {
       const request = await axios({

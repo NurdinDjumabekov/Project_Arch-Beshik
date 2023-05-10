@@ -169,7 +169,7 @@
       -ms-flex-align: baseline;
           align-items: baseline;
   gap: 30px;
-  padding: 27px 0px;
+  padding: 27px 0px 0 0;
 }
 @media screen and (max-width: 1460px) {
   .block_for_content .cards_block {

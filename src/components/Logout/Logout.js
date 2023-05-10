@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 const Logout = ({ setStateToken }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const baseNums = "192.168.31.218";
+  const baseNums = "192.168.198.218";
   const logoutFn = () => {
     const token = localStorage.getItem("token");
     axios({
@@ -17,14 +17,12 @@ const Logout = ({ setStateToken }) => {
       },
     });
     setStateToken(false);
-    // localStorage.removeItem("nameUser");
-    // localStorage.removeItem("stateToken");
-    // localStorage.removeItem("token");
-    localStorage.clear();
+    window.localStorage.clear()
     navigate("/");
-    if (location.pathname === "/") {
-      window.location.reload();
-    }
+    // if (location.pathname === "/") {
+    // }
+    window.location.reload();
+
   };
   // console.log(location.pathname);
   return (

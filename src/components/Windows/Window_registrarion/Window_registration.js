@@ -6,7 +6,7 @@ import { changeStateRegistration } from "../../../store/statesWindowsSlice";
 import axios from "axios";
 
 const Window_registration = () => {
-  const baseNums = "192.168.31.218";
+  const baseNums = "192.168.198.218";
   const [userName, setUserName] = useState("");
   const [surName, setSurName] = useState("");
   const [name, setName] = useState("");
