@@ -10,15 +10,20 @@ import Slider from "../../components/Slider/Slider";
 import Footer from "../../components/Footer/Footer";
 import { changeStateForSlider } from "../../store/stateforAdminSlice";
 import EveryApartament from "../../components/EveryApartament/EveryApartament";
-import Pagination from "../../components/Pagination/Pagination";
 const MainPage = () => {
+  ////////////////////////////////////////
   const { infoArr, stateSkeleton, objForChangeInfo } = useSelector(
     (state) => state.infoWorkSlice
   );
   console.log(infoArr, "infoArr");
+  ////////////////////////////////////////
 
   const { stateForSlider } = useSelector((state) => state.stateforAdminSlice);
-  const { stateRenderCategory } = useSelector((state) => state.infoWorkSlice);
+  ////////////////////////////////////////
+  const { stateRenderCategory, infoCategory } = useSelector(
+    (state) => state.infoWorkSlice
+  );
+  const [nameTitle, setNameTitle] = useState(-1);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -27,7 +32,7 @@ const MainPage = () => {
     } else {
       dispatch(infoWorkOutput(objForChangeInfo));
     }
-    dispatch(changeStateForSlider(true));
+    // dispatch(changeStateForSlider(true));
   }, [objForChangeInfo]);
   return (
     <>
@@ -38,11 +43,15 @@ const MainPage = () => {
           <div className="container">
             <div className="block_animations"></div>
             <div className="block_info">
-              {stateForSlider && (
-                <div className={styles.header_textMain}>
-                  <h2>Новостная лента</h2>
-                </div>
-              )}
+              <div className={styles.header_textMain}>
+                <h2>
+                  {nameTitle === -1 ? (
+                    <>Новостная лента</>
+                  ) : (
+                    infoCategory[nameTitle]?.name
+                  )}
+                </h2>
+              </div>
               <div className={styles.block_for_content}>
                 <div className={styles.cards_block}>
                   {stateRenderCategory ? (
@@ -64,7 +73,7 @@ const MainPage = () => {
                     ))
                   )}
                 </div>
-                <MenuBigDisplay />
+                <MenuBigDisplay setNameTitle={setNameTitle} />
               </div>
             </div>
           </div>

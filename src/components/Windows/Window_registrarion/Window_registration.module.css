@@ -32,6 +32,35 @@
   }
 }
 
+.block_auth {
+  width: 400px;
+  height: 70px;
+  background: #01CC01;
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+.block_auth h5 {
+  width: 70%;
+  text-align: center;
+}
+
 .block_for_login_registration {
   width: 430px;
   height: 450px;
@@ -94,9 +123,12 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+.block_for_login_registration form p {
+  padding: 5px;
+}
 .block_for_login_registration form input {
   font-family: "Unbounded";
-  font-weight: 300;
+  font-weight: 500;
   font-size: 15px;
   margin-bottom: 15px;
   height: 40px;
@@ -109,7 +141,7 @@
   text-align: center;
   padding: 0 20px;
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgb(0, 0, 0);
 }
 .block_for_login_registration form .entrance_btn {
   font-family: "Unbounded";
@@ -167,4 +199,8 @@
 .block_for_login_registration > button img {
   width: 20px;
   height: 20px;
+}
+
+.active_login_registration {
+  background: red;
 }

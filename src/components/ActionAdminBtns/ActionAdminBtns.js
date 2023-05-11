@@ -9,9 +9,11 @@ const ActionAdminBtns = ({ cardInfo }) => {
   const { stateDeleteBtn, stateEditBtn } = useSelector(
     (state) => state.stateforAdminSlice
   );
+  const { baseNums } = useSelector((state) => state.infoWorkSlice);
+
+  // const baseNums = "192.168.21.218";
   const [ForIconEdit, setForIconEdit] = useState(false);
   const token = localStorage.getItem("token");
-  const baseNums = "192.168.198.218";
   const requestDeletePost = async () => {
     try {
       const request = await axios({

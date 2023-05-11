@@ -44,14 +44,6 @@
 
 @-webkit-keyframes infiniteupdown {
   5% {
-    -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
-  }
-  10% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-  }
-  30% {
     -webkit-transform: translateY(-80px);
             transform: translateY(-80px);
   }
@@ -60,16 +52,16 @@
             transform: translateY(100px);
   }
   60% {
-    -webkit-transform: translateX(-150px);
-            transform: translateX(-150px);
+    -webkit-transform: translateX(-80px);
+            transform: translateX(-80px);
   }
   70% {
-    -webkit-transform: translateX(200px);
-            transform: translateX(200px);
+    -webkit-transform: translateX(80px);
+            transform: translateX(80px);
   }
   80% {
-    -webkit-transform: translateY(250px);
-            transform: translateY(250px);
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
   }
   99% {
     -webkit-transform: translateY(10px);
@@ -79,14 +71,6 @@
 
 @keyframes infiniteupdown {
   5% {
-    -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
-  }
-  10% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-  }
-  30% {
     -webkit-transform: translateY(-80px);
             transform: translateY(-80px);
   }
@@ -95,16 +79,16 @@
             transform: translateY(100px);
   }
   60% {
-    -webkit-transform: translateX(-150px);
-            transform: translateX(-150px);
+    -webkit-transform: translateX(-80px);
+            transform: translateX(-80px);
   }
   70% {
-    -webkit-transform: translateX(200px);
-            transform: translateX(200px);
+    -webkit-transform: translateX(80px);
+            transform: translateX(80px);
   }
   80% {
-    -webkit-transform: translateY(250px);
-            transform: translateY(250px);
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
   }
   99% {
     -webkit-transform: translateY(10px);

@@ -7,7 +7,7 @@ import {
 } from "../../store/infoWorkSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const MenuBigDisplay = () => {
+const MenuBigDisplay = ({ setNameTitle }) => {
   const urlApartament = `housemanage`;
   const { infoCategory } = useSelector((state) => state.infoWorkSlice);
   const dispatch = useDispatch();
@@ -16,9 +16,10 @@ const MenuBigDisplay = () => {
     dispatch(takeCategoryOutput());
   }, []);
 
-  const changeCategoryBtns = (categoryId, categoryBoolean) => {
+  const changeCategoryBtns = (categoryId, categoryBoolean, index) => {
+    setNameTitle(index);
     if (categoryBoolean) {
-      dispatch(changeCategories(`${urlApartament}/`));
+      dispatch(changeCategories(`housemanage/`));
       dispatch(stateRenderCategory(true));
     } else {
       dispatch(changeCategories(`${categoryId}/`));
@@ -26,6 +27,7 @@ const MenuBigDisplay = () => {
     }
   };
   const allPosts = () => {
+    setNameTitle(-1);
     dispatch(changeCategories(""));
     dispatch(stateRenderCategory(true));
     dispatch(stateRenderCategory(false));
@@ -37,10 +39,12 @@ const MenuBigDisplay = () => {
         <li>
           <button onClick={allPosts}>все</button>
         </li>
-        {infoCategory.map((category) => (
+        {infoCategory.map((category, index) => (
           <li key={category.id}>
             <button
-              onClick={() => changeCategoryBtns(category.id, category.is_rent)}
+              onClick={() =>
+                changeCategoryBtns(category.id, category.is_rent, index)
+              }
             >
               {category.name}
             </button>

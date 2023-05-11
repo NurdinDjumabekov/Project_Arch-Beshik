@@ -2,11 +2,14 @@ import React from "react";
 import axios from "axios";
 import styles from "./Logout.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Logout = ({ setStateToken }) => {
+  const { baseNums } = useSelector((state) => state.infoWorkSlice);
+  // const baseNums = "192.168.21.218";
+
   const navigate = useNavigate();
   const location = useLocation();
-  const baseNums = "192.168.198.218";
   const logoutFn = () => {
     const token = localStorage.getItem("token");
     axios({
@@ -17,12 +20,11 @@ const Logout = ({ setStateToken }) => {
       },
     });
     setStateToken(false);
-    window.localStorage.clear()
+    window.localStorage.clear();
     navigate("/");
     // if (location.pathname === "/") {
     // }
     window.location.reload();
-
   };
   // console.log(location.pathname);
   return (

@@ -4,11 +4,13 @@ import imgs from "../../assests/images/history/history_img.png";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { changeSkeleton } from "../../store/infoWorkSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const DetailedApartamentPage = () => {
+  const { baseNums } = useSelector((state) => state.infoWorkSlice);
+  // const baseNums = "192.168.21.218";
+
   const { id } = useParams();
-  const baseNums = "192.168.198.218";
   const dispatch = useDispatch();
   const [data, setData] = useState({});
   useEffect(() => {

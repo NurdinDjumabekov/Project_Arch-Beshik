@@ -25,7 +25,6 @@ const Slider = () => {
     return () => clearInterval(interval);
   }, [count]);
   // console.log(count);
-
   return (
     <div className={styles.slider_parentBlock}>
       <div className="container">

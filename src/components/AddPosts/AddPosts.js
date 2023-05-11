@@ -2,13 +2,16 @@ import React, { useState, useRef } from "react";
 import styles from "./AddPosts.module.css";
 import axios from "axios";
 import SelectCategory from "../SelectCategory/SelectCategory";
+import { useSelector } from "react-redux";
 
 const AddPosts = ({ setAdminInput }) => {
+  const { baseNums } = useSelector((state) => state.infoWorkSlice);
+  // const baseNums = "192.168.21.218";
+
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
   const [img, setImg] = useState(null);
   const [category, setCategory] = useState(0);
-  const baseNums = "192.168.198.218";
   const handleFn = (e) => {
     setImg(e.target.files[0]);
   };

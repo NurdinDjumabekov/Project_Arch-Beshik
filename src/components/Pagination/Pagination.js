@@ -47,7 +47,7 @@ const Pagination = () => {
       dispatch(changePagination(objForChangeInfo.pagination + 1));
     } else return;
   };
-  console.log(objForChangeInfo.pagination, "objForChangeInfo.pagination");
+  // console.log(objForChangeInfo.pagination, "objForChangeInfo.pagination");
   return (
     <div className={styles.pagination_parentBlock}>
       <div className={styles.pagination_parentChild}>

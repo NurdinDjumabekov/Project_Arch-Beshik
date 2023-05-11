@@ -2,13 +2,16 @@ import React, { useState, useRef } from "react";
 import styles from "./EditPosts.module.css";
 import axios from "axios";
 import SelectCategory from "../SelectCategory/SelectCategory";
+import { useSelector } from "react-redux";
 
 const EditPosts = ({ setForIconEdit, cardInfo }) => {
+  const { baseNums } = useSelector((state) => state.infoWorkSlice);
+  // const baseNums = "192.168.21.218";
+
   const [description, setDescription] = useState(cardInfo.content);
   const [name, setName] = useState(cardInfo.title);
   const [img, setImg] = useState(null);
   const [category, setCategory] = useState(0);
-  const baseNums = "192.168.198.218";
   const handleFn = (e) => {
     setImg(e.target.files[0]);
   };

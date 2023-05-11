@@ -11,6 +11,9 @@ import { useNavigate } from "react-router-dom";
 
 const Window_login = ({ setNameIcon, setStateToken }) => {
   // const { stateForAdmin } = useSelector((state) => state.statesWindowsSlice);
+  const { baseNums } = useSelector((state) => state.infoWorkSlice);
+  // const baseNums = "192.168.21.218";
+
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
   const [moreLoginInfo, setMoreLoginInfo] = useState(true);
@@ -18,7 +21,6 @@ const Window_login = ({ setNameIcon, setStateToken }) => {
   const [stateAuth, setStateAuth] = useState(false);
   const [stateForAdmin, setStateForAdmin] = useState(false);
   const dispatch = useDispatch();
-  const baseNums = "192.168.198.218";
   const navigate = useNavigate();
   const sendToRequestLogin = async (e) => {
     e.preventDefault();

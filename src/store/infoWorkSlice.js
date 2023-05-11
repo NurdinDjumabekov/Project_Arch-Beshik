@@ -11,11 +11,11 @@ const initialState = {
     stateRequestOnCategory: "",
     pagination: 1,
   },
-
   stateRenderCategory: false,
+  baseNums: "192.168.202.218",
 };
 // const baseUrl = " https://6443c7ca90738aa7c0778850.mockapi.io/infoportal";
-const baseNums = "192.168.198.218";
+const baseNums = "192.168.202.218";
 const urlContentList = `http://${baseNums}:8000/api/content_list/`;
 
 export const infoWorkOutput = createAsyncThunk(
@@ -73,7 +73,7 @@ export const takeCategoryOutput = createAsyncThunk(
         `http://${baseNums}:8000/api/category_list/`
       );
       dispatch(toTakeCategory(response.data.results));
-      // console.log(response.data.results);
+      console.log(response.data.results, "category");
     } catch {
       console.log("error");
     }

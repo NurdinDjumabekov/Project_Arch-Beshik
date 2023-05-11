@@ -9,13 +9,14 @@ import Preloader from "../../components/Preloader/Preloader";
 import DetailedPhotos from "../../components/DetailedPhotos/DetailedPhotos";
 
 const DetailedPage = () => {
+  // const baseNums = "192.168.21.218";
+  const { baseNums } = useSelector((state) => state.infoWorkSlice);
   const [date, setDate] = useState({});
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [comment, setComment] = useState("");
   const { id } = useParams();
   const dateComents = date.comments;
-  const baseNums = "192.168.198.218";
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { stateSkeleton } = useSelector((state) => state.infoWorkSlice);
@@ -39,11 +40,11 @@ const DetailedPage = () => {
       },
     });
 
-    // setTimeout(() => {
-    //   setComment("");
-    //   setEmail("");
-    //   setName("");
-    // }, 500);
+    setTimeout(() => {
+      setComment("");
+      setEmail("");
+      setName("");
+    }, 500);
   };
   const goToBack = () => {
     navigate(-1);
