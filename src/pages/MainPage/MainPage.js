@@ -8,7 +8,6 @@ import MenuBigDisplay from "../../components/MenuBigDisplay/MenuBigDisplay";
 import Preloader from "../../components/Preloader/Preloader";
 import Slider from "../../components/Slider/Slider";
 import Footer from "../../components/Footer/Footer";
-import { changeStateForSlider } from "../../store/stateforAdminSlice";
 import EveryApartament from "../../components/EveryApartament/EveryApartament";
 const MainPage = () => {
   ////////////////////////////////////////

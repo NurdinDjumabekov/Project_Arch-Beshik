@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import styles from "./Window_registration.module.css";
 import cross_btn from "../../../assests/images/Windows/cross_img.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { changeStateRegistration } from "../../../store/statesWindowsSlice";
+import {
+  changeStateLogin,
+  changeStateRegistration,
+} from "../../../store/statesWindowsSlice";
 import axios from "axios";
 
 const Window_registration = () => {
@@ -21,7 +24,7 @@ const Window_registration = () => {
     try {
       const responce = axios({
         method: "POST",
-        url: `http://${baseNums}:8000/api/register/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/register/`,
         data: {
           username: userName,
           first_name: name,
@@ -44,6 +47,10 @@ const Window_registration = () => {
         setErrorState(false);
       }, 2000);
     }
+  };
+  const changeStateRegistrationAndLogin = () => {
+    dispatch(changeStateLogin(true));
+    dispatch(changeStateRegistration(false));
   };
   return (
     <>
@@ -90,7 +97,7 @@ const Window_registration = () => {
             />
             <div className={styles.block_for_password}>
               <span>Есть аккаун?</span>
-              <button>Войти</button>
+              <button onClick={changeStateRegistrationAndLogin}>Войти</button>
             </div>
             <button className={styles.entrance_btn} type="submit">
               Регистрация

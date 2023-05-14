@@ -10,6 +10,128 @@
   background-color: white;
 }
 
+.parentBlock_addApartament {
+  width: 420px;
+  height: 600px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 70px;
+  bottom: 0;
+  z-index: 99;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+.parentBlock_addApartament h5 {
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  padding: 8px 0;
+  color: #000000;
+  background: #fff;
+  border-radius: 15px 15px 0 0;
+  margin-bottom: 15px;
+}
+.parentBlock_addApartament form {
+  width: 350px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 15px;
+}
+.parentBlock_addApartament form .none_Block {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  line-height: 0px;
+}
+.parentBlock_addApartament form .change_photo {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 0;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-size: 15px;
+  text-align: center;
+  line-height: 15px;
+  color: white;
+  background: #007AFF;
+  font-weight: 500;
+}
+.parentBlock_addApartament form input {
+  width: 100%;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 0 20px;
+  font-size: 20px;
+  color: white;
+  background: #007AFF;
+  text-align: center;
+  margin: 0 auto;
+}
+.parentBlock_addApartament form ::-webkit-input-placeholder {
+  color: white;
+}
+.parentBlock_addApartament form ::-moz-placeholder {
+  color: white;
+}
+.parentBlock_addApartament form :-ms-input-placeholder {
+  color: white;
+}
+.parentBlock_addApartament form ::-ms-input-placeholder {
+  color: white;
+}
+.parentBlock_addApartament form ::placeholder {
+  color: white;
+}
+.parentBlock_addApartament form textarea {
+  width: 100%;
+  height: 80px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-size: 20px;
+  background: #007AFF;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+}
+.parentBlock_addApartament form .addBtn {
+  background: #01CC01;
+  width: 100%;
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 5px 30px;
+  display: block;
+  font-size: 20px;
+}
+.parentBlock_addApartament button {
+  display: block;
+  margin: 0 auto;
+  background: red;
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 3px 30px;
+  display: block;
+  font-size: 20px;
+  margin-top: 5px;
+  width: 72%;
+}
+
 .parentBlock_addPosts {
   width: 360px;
   height: 450px;
@@ -105,8 +227,9 @@
   margin: 0 auto;
   color: white;
 }
-.parentBlock_addPosts form .two {
+.parentBlock_addPosts form .addBtn {
   background: #01CC01;
+  width: 100%;
   -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
           box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
@@ -125,4 +248,5 @@
   display: block;
   font-size: 20px;
   margin-top: 5px;
+  width: 80%;
 }

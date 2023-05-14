@@ -143,6 +143,7 @@
   border-radius: 15px;
 }
 .nav_blockParent nav .block_for_navBtns > button {
+  position: relative;
   font-weight: 300;
   font-size: 18px;
   line-height: 20px;

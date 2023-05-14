@@ -16,7 +16,7 @@ const initialState = {
 };
 // const baseUrl = " https://6443c7ca90738aa7c0778850.mockapi.io/infoportal";
 const baseNums = "192.168.202.218";
-const urlContentList = `http://${baseNums}:8000/api/content_list/`;
+const urlContentList = `http://baielbekenov.pythonanywhere.com/api/content_list/`;
 
 export const infoWorkOutput = createAsyncThunk(
   "infoWorkOutput",
@@ -45,7 +45,7 @@ export const requestOnApartament = createAsyncThunk(
     dispatch(changeSkeleton(false));
     try {
       const response = await axios.get(
-        `http://${baseNums}:8000/api/content_list/housemanage/`
+        `http://baielbekenov.pythonanywhere.com/api/content_list/housemanage/`
       );
       console.log(response.data.results, "apartament");
       dispatch(toTakeInfo(response.data.results));
@@ -70,7 +70,7 @@ export const takeCategoryOutput = createAsyncThunk(
   async (infoWorkSlice, { dispatch }) => {
     try {
       const response = await axios.get(
-        `http://${baseNums}:8000/api/category_list/`
+        `http://baielbekenov.pythonanywhere.com/api/category_list/`
       );
       dispatch(toTakeCategory(response.data.results));
       console.log(response.data.results, "category");

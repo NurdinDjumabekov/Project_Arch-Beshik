@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 const SelectCategory = ({ setCategory, category }) => {
   const { infoCategory } = useSelector((state) => state.infoWorkSlice);
-  // console.log(infoCategory);
+  // console.log(infoCategory, "infoCategory");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(takeCategoryOutput());
   }, []);
   console.log(+category);
-  +category === 1 ? console.log(true) : console.log(false);
+  // +category === 1 ? console.log(true) : console.log(false);
   return (
     <>
       <select onChange={(e) => setCategory(e.target.value)}>

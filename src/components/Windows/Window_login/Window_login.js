@@ -5,6 +5,7 @@ import axios from "axios";
 import {
   // changeStateForAdmin,
   changeStateLogin,
+  changeStateRegistration,
 } from "../../../store/statesWindowsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -27,7 +28,7 @@ const Window_login = ({ setNameIcon, setStateToken }) => {
     try {
       const responce = await axios({
         method: "POST",
-        url: `http://${baseNums}:8000/api/login/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/login/`,
         data: {
           username: userName,
           password: password,
@@ -56,6 +57,10 @@ const Window_login = ({ setNameIcon, setStateToken }) => {
       }, 3000);
       setStateToken(false);
     }
+  };
+  const changeStateLoginAndRegistration = () => {
+    dispatch(changeStateRegistration(true));
+    dispatch(changeStateLogin(false));
   };
   return (
     <>
@@ -90,7 +95,9 @@ const Window_login = ({ setNameIcon, setStateToken }) => {
             {moreLoginInfo && (
               <div className={styles.block_for_password}>
                 <button>Забыли пароль?</button>
-                <button>Регистрация</button>
+                <button onClick={changeStateLoginAndRegistration}>
+                  Регистрация
+                </button>
               </div>
             )}
             <button className={styles.entrance_btn} type="submit">

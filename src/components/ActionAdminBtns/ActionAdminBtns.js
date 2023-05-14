@@ -18,7 +18,7 @@ const ActionAdminBtns = ({ cardInfo }) => {
     try {
       const request = await axios({
         method: "DELETE",
-        url: `http://${baseNums}:8000/api/content_delete/${cardInfo.id}/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/content_delete/${cardInfo.id}/`,
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Token ${token}`,

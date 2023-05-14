@@ -7,10 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeSkeleton } from "../../store/infoWorkSlice";
 import Preloader from "../../components/Preloader/Preloader";
 import DetailedPhotos from "../../components/DetailedPhotos/DetailedPhotos";
+import { Advertising } from "../../components/Advertising/Advertising";
 
 const DetailedPage = () => {
-  // const baseNums = "192.168.21.218";
-  const { baseNums } = useSelector((state) => state.infoWorkSlice);
   const [date, setDate] = useState({});
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,21 +17,20 @@ const DetailedPage = () => {
   const { id } = useParams();
   const dateComents = date.comments;
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { stateSkeleton } = useSelector((state) => state.infoWorkSlice);
   useEffect(() => {
     dispatch(changeSkeleton(false));
     axios
-      .get(`http://${baseNums}:8000/api/content_detail/${id}/`)
+      .get(`http://baielbekenov.pythonanywhere.com/api/content_detail/${id}/`)
       .then((date) => setDate(date.data.content));
     dispatch(changeSkeleton(true));
   }, []);
-  console.log(date);
+  // console.log(date);
   const sendComment = (e) => {
     e.preventDefault();
     axios({
       method: "POST",
-      url: `http://${baseNums}:8000/api/content_detail/${id}/`,
+      url: `http://baielbekenov.pythonanywhere.com/api/content_detail/${id}/`,
       data: {
         email: email,
         name: name,
@@ -46,9 +44,6 @@ const DetailedPage = () => {
       setName("");
     }, 500);
   };
-  const goToBack = () => {
-    navigate(-1);
-  };
   return (
     <>
       {stateSkeleton ? (
@@ -57,7 +52,6 @@ const DetailedPage = () => {
             <div className="block_animations"></div>
             <div className="block_info">
               <div className={styles.parent_blockDetail}>
-                {/* <button onClick={goToBack}>Back</button> */}
                 <DetailedPhotos date={date} />
                 <div className={styles.block_delailedInfo_and_advertising}>
                   <div className={styles.contentBlock_detailed}>
@@ -109,7 +103,7 @@ const DetailedPage = () => {
                       </form>
                     </div>
                   </div>
-                  <div className={styles.advertising_block}></div>
+                  <Advertising />
                 </div>
               </div>
             </div>

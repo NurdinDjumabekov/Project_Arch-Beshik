@@ -19,7 +19,7 @@
   margin: 50px 0 0 0;
 }
 .blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed {
-  width: 890px;
+  width: 800px;
 }
 .blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_contentText {
   background: rgba(255, 255, 255, 0.5);
@@ -45,6 +45,8 @@
   line-height: 30px;
   color: #3F3F3F;
   padding: 20px 30px 20px 35px;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 .blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .comments_parentBlock {
   width: 100%;
@@ -140,6 +142,7 @@
   border-radius: 8px;
   padding: 0 20px;
   font-size: 25px;
+  text-align: center;
 }
 .blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_addComment form textarea {
   min-width: 90%;
@@ -148,6 +151,7 @@
   padding: 5px 10px;
   border-radius: 8px;
   margin: 15px auto 0;
+  text-align: center;
 }
 .blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_addComment form > button {
   border-radius: 15px;
@@ -159,12 +163,4 @@
   font-size: 25px;
   margin: 25px auto 0;
   padding: 8px 30px;
-}
-.blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .advertising_block {
-  background: #FFFFFF;
-  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
-  width: 255px;
-  min-height: 100%;
 }

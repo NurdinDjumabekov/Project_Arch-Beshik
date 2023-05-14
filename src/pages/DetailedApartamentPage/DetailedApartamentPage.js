@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { changeSkeleton } from "../../store/infoWorkSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { Advertising } from "../../components/Advertising/Advertising";
 
 const DetailedApartamentPage = () => {
   const { baseNums } = useSelector((state) => state.infoWorkSlice);
@@ -16,7 +17,7 @@ const DetailedApartamentPage = () => {
   useEffect(() => {
     dispatch(changeSkeleton(false));
     axios
-      .get(`http://${baseNums}:8000/api/housemanage_list/${id}/`)
+      .get(`http://baielbekenov.pythonanywhere.com/api/housemanage_list/${id}/`)
       .then((info) => setData(info.data));
     dispatch(changeSkeleton(true));
   }, []);
@@ -72,7 +73,7 @@ const DetailedApartamentPage = () => {
                   <p>{data.description}</p>
                 </div>
               </div>
-              <div className={styles.apartament_advertising}></div>
+              <Advertising />
             </div>
           </div>
         </div>

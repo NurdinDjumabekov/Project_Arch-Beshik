@@ -14,7 +14,7 @@ const Logout = ({ setStateToken }) => {
     const token = localStorage.getItem("token");
     axios({
       method: "POST",
-      url: `http://${baseNums}:8000/api/logout/`,
+      url: `http://baielbekenov.pythonanywhere.com/api/logout/`,
       headers: {
         Authorization: `Token ${token}`,
       },

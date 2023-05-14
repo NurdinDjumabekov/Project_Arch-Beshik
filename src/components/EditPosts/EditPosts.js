@@ -29,7 +29,7 @@ const EditPosts = ({ setForIconEdit, cardInfo }) => {
     try {
       const response = await axios({
         method: "PATCH",
-        url: `http://${baseNums}:8000/api/content_update/${cardInfo.id}/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/content_update/${cardInfo.id}/`,
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",
