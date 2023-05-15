@@ -1,24 +1,25 @@
 .blockParent_detaliedApartament
-    max-width: 85%
+    max-width: 80%
     margin: 0 auto
     padding-top: 60px
     .block_forImgs
         display: flex
         justify-content: space-between
-        div:nth-child(1) 
-            width: 880px
+        div
+            width: 800px
             height: 560px
             border-radius: 15px
             img
                 width: 100%
                 height: 100%
                 border-radius: 15px
-        div:nth-child(2) 
+        div:nth-child(2)
             width: 260px
             height: 615px
             display: flex
-            justify-content: space-between
+            // justify-content: space-between
             flex-wrap: wrap
+            gap: 15px
             div
                 width: 120px
                 height: 120px
@@ -26,12 +27,13 @@
                     width: 100%
                     height: 100%
     .content_apartament
-        max-width: 100%
+        width: 100%
         display: flex
         justify-content: space-between
         padding-bottom: 50px
+        gap: 10px
         .content_apartament_inner
-            width: 100%
+            width: 80%
             max-width: 880px
             .number_phone
                 display: flex
@@ -94,8 +96,6 @@
                     font-size: 24px
                     line-height: 30px
                     color: #3F3F3F
-
-
         .apartament_advertising
             background: #FFFFFF
             box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)

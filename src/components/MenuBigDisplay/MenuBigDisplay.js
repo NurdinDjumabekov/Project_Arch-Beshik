@@ -8,10 +8,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 const MenuBigDisplay = ({ setNameTitle }) => {
-  const urlApartament = `housemanage`;
   const { infoCategory } = useSelector((state) => state.infoWorkSlice);
   const dispatch = useDispatch();
-  // console.log(infoCategory, "nnn");
   useEffect(() => {
     dispatch(takeCategoryOutput());
   }, []);

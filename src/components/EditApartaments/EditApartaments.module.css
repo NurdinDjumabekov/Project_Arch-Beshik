@@ -1,0 +1,128 @@
+.block_shadow_forAddPosts {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  background: black;
+  position: fixed;
+  background-color: white;
+}
+
+.parentBlock_addPosts {
+  width: 360px;
+  height: 450px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 99;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+.parentBlock_addPosts h5 {
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  padding: 8px 0;
+  color: #000000;
+  background: #fff;
+  border-radius: 15px 15px 0 0;
+  margin-bottom: 15px;
+}
+.parentBlock_addPosts form {
+  width: 290px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 25px;
+}
+.parentBlock_addPosts form .none_Block {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  line-height: 0px;
+}
+.parentBlock_addPosts form .change_photo {
+  width: 290px;
+  padding: 10px 0;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-size: 15px;
+  text-align: center;
+  line-height: 15px;
+  color: white;
+  background: #007AFF;
+  font-weight: 500;
+}
+.parentBlock_addPosts form input {
+  width: 100%;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 0 20px;
+  font-size: 20px;
+  color: white;
+  background: #007AFF;
+  text-align: center;
+  margin: 0 auto;
+}
+.parentBlock_addPosts form ::-webkit-input-placeholder {
+  color: white;
+}
+.parentBlock_addPosts form ::-moz-placeholder {
+  color: white;
+}
+.parentBlock_addPosts form :-ms-input-placeholder {
+  color: white;
+}
+.parentBlock_addPosts form ::-ms-input-placeholder {
+  color: white;
+}
+.parentBlock_addPosts form ::placeholder {
+  color: white;
+}
+.parentBlock_addPosts form textarea {
+  width: 100%;
+  height: 100px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-size: 20px;
+  background: #007AFF;
+  margin: 0 auto;
+  color: white;
+}
+.parentBlock_addPosts form .two {
+  background: #01CC01;
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 5px 30px;
+  display: block;
+  font-size: 20px;
+}
+.parentBlock_addPosts button {
+  display: block;
+  margin: 0 auto;
+  background: red;
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 3px 30px;
+  display: block;
+  font-size: 20px;
+  margin-top: 5px;
+}

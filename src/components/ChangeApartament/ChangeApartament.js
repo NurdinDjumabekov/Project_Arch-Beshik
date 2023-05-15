@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import styles from "./ActionAdminBtns.module.css";
+import styles from "./ChangeApartament.module.css";
 import { useSelector } from "react-redux";
 import btn_delete from "../../assests/images/adminPage/delete_btn.svg";
 import btn_edit from "../../assests/images/adminPage/edit_btn.svg";
 import axios from "axios";
-import EditPosts from "../EditPosts/EditPosts";
-const ActionAdminBtns = ({ cardInfo }) => {
+import EditApartaments from "../EditApartaments/EditApartaments";
+const ChangeApartament = ({ apartamentInfo }) => {
   const { stateDeleteBtn, stateEditBtn } = useSelector(
     (state) => state.stateforAdminSlice
   );
@@ -15,7 +15,7 @@ const ActionAdminBtns = ({ cardInfo }) => {
     try {
       const request = await axios({
         method: "DELETE",
-        url: `http://baielbekenov.pythonanywhere.com/api/content_delete/${cardInfo.id}/`,
+        url: `http://baielbekenov.pythonanywhere.com/....................`,
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Token ${token}`,
@@ -44,10 +44,13 @@ const ActionAdminBtns = ({ cardInfo }) => {
         </button>
       )}
       {ForIconEdit && (
-        <EditPosts setForIconEdit={setForIconEdit} cardInfo={cardInfo} />
+        <EditApartaments
+          setForIconEdit={setForIconEdit}
+          apartamentInfo={apartamentInfo}
+        />
       )}
     </>
   );
 };
 
-export default ActionAdminBtns;
+export default ChangeApartament;

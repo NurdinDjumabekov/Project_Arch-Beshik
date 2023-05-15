@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 const Window_login = ({ setNameIcon, setStateToken }) => {
   // const { stateForAdmin } = useSelector((state) => state.statesWindowsSlice);
-  const { baseNums } = useSelector((state) => state.infoWorkSlice);
+  // const { baseNums } = useSelector((state) => state.infoWorkSlice);
   // const baseNums = "192.168.21.218";
 
   const [password, setPassword] = useState("");

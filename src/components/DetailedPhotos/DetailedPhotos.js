@@ -36,15 +36,16 @@ export default DetailedPhotos;
 // import React, { useState } from "react";
 // import styles from "./DetailedPhotos.module.css";
 // import imgsss from "../../assests/images/main/bac-d_2.jpg";
+// import imgsss_1 from "../../assests/images/Detalied/users_comment.svg";
 
 // const DetailedPhotos = () => {
 //   const [date, setDate] = useState([
 //     { id: 1, photo: imgsss },
-//     { id: 2, photo: imgsss },
+//     { id: 2, photo: imgsss_1 },
 //     { id: 3, photo: imgsss },
-//     { id: 4, photo: imgsss },
+//     { id: 4, photo: imgsss_1 },
 //     { id: 5, photo: imgsss },
-//     { id: 6, photo: imgsss },
+//     { id: 6, photo: imgsss_1 },
 //   ]);
 //   const [count, setCount] = useState(0);
 //   return (
@@ -55,7 +56,7 @@ export default DetailedPhotos;
 //       <ul className={styles.block_for_miniPhoto}>
 //         {date.map((img) => (
 //           <li key={img.id}>
-//             <button>
+//             <button onClick={() => setCount(img.id - 1)}>
 //               <div>
 //                 <img src={img.photo} alt="фотка" />
 //               </div>

@@ -2,10 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 import styles from "./AddPosts.module.css";
 import axios from "axios";
 import SelectCategory from "../SelectCategory/SelectCategory";
-import { useSelector } from "react-redux";
 import AddApartaments from "../AddApartaments/AddApartaments";
+import { useDispatch } from "react-redux";
+import { changeStateCount } from "../../store/infoWorkSlice";
 
 const AddPosts = ({ setAdminInput }) => {
+  const dispatch = useDispatch();
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
   const [img, setImg] = useState(null);
@@ -18,7 +20,7 @@ const AddPosts = ({ setAdminInput }) => {
   const [remont, setRemont] = useState("");
   const [udobstva, setUdobstva] = useState("");
   const [price, setPrice] = useState(0);
-  console.log(price, owner, udobstva);
+  // console.log(price, owner, udobstva);
   const handleFn = (e) => {
     setImg(e.target.files[0]);
   };
@@ -72,6 +74,7 @@ const AddPosts = ({ setAdminInput }) => {
         });
         console.log(response);
       }
+      dispatch(changeStateCount());
     } catch {
       console.log("error");
       // setAdminInput(false);
@@ -103,7 +106,7 @@ const AddPosts = ({ setAdminInput }) => {
               name="image"
               onChange={handleFn}
               className={styles.none_Block}
-              multipleтзь
+              multiple
               accept="image/*"
               ref={addPhotoRef}
             />

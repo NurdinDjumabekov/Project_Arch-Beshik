@@ -11,17 +11,18 @@ import Footer from "../../components/Footer/Footer";
 import EveryApartament from "../../components/EveryApartament/EveryApartament";
 const MainPage = () => {
   ////////////////////////////////////////
-  const { infoArr, stateSkeleton, objForChangeInfo } = useSelector(
-    (state) => state.infoWorkSlice
-  );
+  const {
+    infoArr,
+    stateSkeleton,
+    objForChangeInfo,
+    stateRenderCategory,
+    infoCategory,
+    count,
+  } = useSelector((state) => state.infoWorkSlice);
   console.log(infoArr, "infoArr");
   ////////////////////////////////////////
-
   const { stateForSlider } = useSelector((state) => state.stateforAdminSlice);
   ////////////////////////////////////////
-  const { stateRenderCategory, infoCategory } = useSelector(
-    (state) => state.infoWorkSlice
-  );
   const [nameTitle, setNameTitle] = useState(-1);
 
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ const MainPage = () => {
       dispatch(infoWorkOutput(objForChangeInfo));
     }
     // dispatch(changeStateForSlider(true));
-  }, [objForChangeInfo]);
+  }, [objForChangeInfo, count]);
   return (
     <>
       {stateSkeleton ? (

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styles from "./DetailedPage.module.css";
 import usersComment from "../../assests/images/Detalied/users_comment.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import { changeSkeleton } from "../../store/infoWorkSlice";
 import Preloader from "../../components/Preloader/Preloader";
 import DetailedPhotos from "../../components/DetailedPhotos/DetailedPhotos";
 import { Advertising } from "../../components/Advertising/Advertising";
+import Footer from "../../components/Footer/Footer";
 
 const DetailedPage = () => {
   const [date, setDate] = useState({});
@@ -108,6 +109,7 @@ const DetailedPage = () => {
               </div>
             </div>
           </div>
+          <Footer />
         </div>
       ) : (
         <Preloader />

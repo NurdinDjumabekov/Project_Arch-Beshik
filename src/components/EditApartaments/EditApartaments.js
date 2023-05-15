@@ -1,14 +1,11 @@
 import React, { useState, useRef } from "react";
-import styles from "./EditPosts.module.css";
+import styles from "./EditApartaments.module.css";
 import axios from "axios";
 import SelectCategory from "../SelectCategory/SelectCategory";
-import { useDispatch } from "react-redux";
-import { changeStateCount } from "../../store/infoWorkSlice";
 
-const EditPosts = ({ setForIconEdit, cardInfo }) => {
-  const dispatch = useDispatch();
-  const [description, setDescription] = useState(cardInfo.content);
-  const [name, setName] = useState(cardInfo.title);
+const EditApartaments = ({ setForIconEdit, apartamentInfo }) => {
+  const [description, setDescription] = useState(apartamentInfo.content);
+  const [name, setName] = useState(apartamentInfo.title);
   const [img, setImg] = useState(null);
   const [category, setCategory] = useState(0);
   const handleFn = (e) => {
@@ -28,7 +25,7 @@ const EditPosts = ({ setForIconEdit, cardInfo }) => {
     try {
       const response = await axios({
         method: "PATCH",
-        url: `http://baielbekenov.pythonanywhere.com/api/content_update/${cardInfo.id}/`,
+        // url: `http://baielbekenov.pythonanywhere.com/api/content_update/${cardInfo.id}/`,
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",
@@ -36,7 +33,6 @@ const EditPosts = ({ setForIconEdit, cardInfo }) => {
         },
       });
       console.log(response);
-      dispatch(changeStateCount());
     } catch {
       console.log("error");
       // setAdminInput(false);
@@ -87,4 +83,4 @@ const EditPosts = ({ setForIconEdit, cardInfo }) => {
   );
 };
 
-export default EditPosts;
+export default EditApartaments;

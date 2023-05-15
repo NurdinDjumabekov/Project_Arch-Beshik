@@ -13,6 +13,7 @@ const initialState = {
   },
   stateRenderCategory: false,
   baseNums: "192.168.202.218",
+  count: 0,
 };
 // const baseUrl = " https://6443c7ca90738aa7c0778850.mockapi.io/infoportal";
 const baseNums = "192.168.202.218";
@@ -107,6 +108,9 @@ const infoWorkSlice = createSlice({
     changePagination: (state, action) => {
       state.objForChangeInfo.pagination = action.payload;
     },
+    changeStateCount: (state, action) => {
+      state.count = state.count + 1;
+    },
   },
 });
 
@@ -119,5 +123,6 @@ export const {
   changeCategories,
   stateRenderCategory,
   changePagination,
+  changeStateCount,
 } = infoWorkSlice.actions;
 export default infoWorkSlice.reducer;

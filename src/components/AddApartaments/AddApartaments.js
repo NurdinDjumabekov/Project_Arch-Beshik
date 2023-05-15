@@ -16,6 +16,7 @@ const AddApartaments = ({
         placeholder="ФИО владельца"
       />
       <input
+        type="number"
         onChange={(e) => setAmount(e.target.value)}
         placeholder="Количество комнат"
       />
@@ -32,7 +33,7 @@ const AddApartaments = ({
       <input
         onChange={(e) => setPrice(e.target.value)}
         placeholder="Цена квартиры в сомах"
-        type="number"
+        type="text"
       />
     </>
   );
