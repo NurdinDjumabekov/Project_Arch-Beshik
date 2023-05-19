@@ -139,8 +139,8 @@
 }
 @media screen and (max-width: 1460px) {
   .block_for_content {
-    padding: 0 30px;
-    max-width: 100%;
+    padding: 0 15px;
+    max-width: 90%;
   }
 }
 @media screen and (max-width: 1460px) and (max-width: 1320px) {
@@ -167,14 +167,20 @@
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 30px;
-  padding: 27px 0px 0 0;
+  padding: 27px 0 0 0;
 }
 @media screen and (max-width: 1460px) {
   .block_for_content .cards_block {
-    max-width: 1000px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 50px;
     padding: 27px 0;
-    max-width: 900px;
+    max-width: 800px;
   }
 }
 @media screen and (max-width: 1460px) and (max-width: 1220px) {
@@ -183,18 +189,30 @@
     padding: 27px 0px 27px 0;
   }
 }
-@media screen and (max-width: 1460px) and (max-width: 1220px) and (max-width: 1170px) {
+@media screen and (max-width: 1460px) and (max-width: 1220px) and (max-width: 1180px) {
   .block_for_content .cards_block {
     padding: 27px 0;
     max-width: 800px;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+    gap: 25px;
   }
 }
-@media screen and (max-width: 1460px) and (max-width: 1220px) and (max-width: 1170px) and (max-width: 1100px) {
+@media screen and (max-width: 1460px) and (max-width: 1220px) and (max-width: 1180px) and (max-width: 1150px) {
   .block_for_content .cards_block {
-    max-width: 750px;
+    padding: 27px 0;
   }
 }
-@media screen and (max-width: 1460px) and (max-width: 1220px) and (max-width: 1170px) and (max-width: 1100px) and (max-width: 940px) {
+@media screen and (max-width: 1460px) and (max-width: 1220px) and (max-width: 1180px) and (max-width: 1150px) and (max-width: 1120px) {
+  .block_for_content .cards_block {
+    max-width: 500px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+@media screen and (max-width: 1460px) and (max-width: 1220px) and (max-width: 1180px) and (max-width: 1150px) and (max-width: 1120px) and (max-width: 940px) {
   .block_for_content .cards_block {
     padding: 27px 40px;
     -webkit-box-pack: center;
@@ -202,7 +220,7 @@
             justify-content: center;
   }
 }
-@media screen and (max-width: 1460px) and (max-width: 1220px) and (max-width: 1170px) and (max-width: 1100px) and (max-width: 520px) {
+@media screen and (max-width: 1460px) and (max-width: 1220px) and (max-width: 1180px) and (max-width: 1150px) and (max-width: 1120px) and (max-width: 940px) and (max-width: 520px) {
   .block_for_content .cards_block {
     max-width: 100%;
     -webkit-box-pack: center;

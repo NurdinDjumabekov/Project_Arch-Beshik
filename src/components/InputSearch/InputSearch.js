@@ -53,4 +53,3 @@ const InputSearch = ({ setInputState }) => {
 };
 
 export default InputSearch;
-

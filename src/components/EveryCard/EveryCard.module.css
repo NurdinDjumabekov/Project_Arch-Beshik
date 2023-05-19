@@ -8,6 +8,11 @@
   -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.7);
           box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.7);
 }
+@media screen and (max-width: 1120px) {
+  .everyCard__wrapper .everyCard__parentBlock {
+    width: 420px;
+  }
+}
 .everyCard__wrapper .everyCard__parentBlock .everyCard__childBlock {
   position: relative;
   border-radius: 15px 15px 0 0;
