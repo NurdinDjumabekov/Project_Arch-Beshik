@@ -13,6 +13,16 @@
     width: 420px;
   }
 }
+@media screen and (max-width: 1120px) and (max-width: 900px) {
+  .everyCard__wrapper .everyCard__parentBlock {
+    width: 380px;
+  }
+}
+@media screen and (max-width: 1120px) and (max-width: 900px) and (max-width: 600px) {
+  .everyCard__wrapper .everyCard__parentBlock {
+    width: 320px;
+  }
+}
 .everyCard__wrapper .everyCard__parentBlock .everyCard__childBlock {
   position: relative;
   border-radius: 15px 15px 0 0;

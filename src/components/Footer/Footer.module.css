@@ -45,6 +45,11 @@
 .footer_parent .footer_child .footer_inner {
   padding: 50px 20px;
 }
+@media screen and (max-width: 670px) {
+  .footer_parent .footer_child .footer_inner {
+    padding: 40px 20px 20px;
+  }
+}
 .footer_parent .footer_child .footer_inner .link_info {
   width: 200px;
   display: -webkit-box;
@@ -61,6 +66,9 @@
 @media screen and (max-width: 670px) {
   .footer_parent .footer_child .footer_inner .link_info {
     margin: 0 auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 .footer_parent .footer_child .footer_inner .link_info h6 {

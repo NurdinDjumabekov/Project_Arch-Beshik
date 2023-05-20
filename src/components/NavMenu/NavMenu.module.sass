@@ -19,6 +19,8 @@
             padding: 16px 0 0 40px
             @media screen and ( max-width: 1000px )
                 padding: 10px 22px 0 40px
+                @media screen and ( max-width: 650px )
+                    padding: 10px 22px 0 10px
         .block_for_imgLine
             display: flex
             align-items: center
@@ -27,6 +29,8 @@
                 width: 3px
                 background-color: black
                 margin: 0 5px
+                @media screen and ( max-width: 750px )
+                    display: none
             h1
                 width: 64px
                 font-weight: 300
@@ -34,12 +38,16 @@
                 line-height: 20px
                 text-transform: capitalize
                 color: #000000
+                @media screen and ( max-width: 750px )
+                    display: none
         h2 
             font-weight: 600
             font-size: 16px
             line-height: 20px
             color: #1e1e1e
             display: none
+            @media screen and ( max-width: 750px )
+                display: block
         .block_for_navBtns
             width: 385px
             display: flex

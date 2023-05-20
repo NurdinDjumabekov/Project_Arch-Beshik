@@ -121,11 +121,6 @@
   padding: 10px 0 25px;
   text-align: center;
 }
-@media screen and (max-width: 520px) {
-  .header_textMain {
-    display: none;
-  }
-}
 
 .block_for_content {
   display: -webkit-box;

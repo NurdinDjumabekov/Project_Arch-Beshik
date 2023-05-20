@@ -10,12 +10,18 @@
   height: 100%;
   top: 200px;
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1200px) {
   .parentBlock_menuBig {
-    padding: 8px 5px 15px 15px;
+    top: 175px;
   }
 }
-@media screen and (max-width: 1100px) and (max-width: 600px) {
+@media screen and (max-width: 1200px) and (max-width: 1100px) {
+  .parentBlock_menuBig {
+    padding: 8px 5px 15px 15px;
+    top: 130px;
+  }
+}
+@media screen and (max-width: 1200px) and (max-width: 1100px) and (max-width: 750px) {
   .parentBlock_menuBig {
     display: none;
   }
@@ -55,4 +61,53 @@
     margin-bottom: 0px;
     width: 220px;
   }
+}
+
+.menu_info {
+  width: 100%;
+  position: fixed;
+  position: absolute;
+  z-index: 10;
+  background-color: #ffffff;
+  padding: 26px 24px 52px;
+}
+@media screen and (max-width: 760px) {
+  .menu_info {
+    padding: 26px 50px 52px;
+    padding: 26px 24px 52px;
+  }
+}
+.menu_info ul:nth-child(1) {
+  margin: 10px 0 30px;
+}
+.menu_info ul:nth-child(1) li {
+  margin-top: 5px;
+  text-align: left;
+}
+.menu_info ul:nth-child(1) li button {
+  font-family: "Unbounded";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  color: #4B08A1;
+}
+.menu_info ul:nth-child(2) h5 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #4B08A1;
+}
+.menu_info ul:nth-child(2) li button {
+  font-family: "Unbounded";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+  margin-top: 10px;
+  text-align: left;
 }

@@ -85,6 +85,11 @@
   -webkit-animation: startWindow_innerLogin 1.5s forwards;
           animation: startWindow_innerLogin 1.5s forwards;
 }
+@media screen and (max-width: 450px) {
+  .block_for_login {
+    width: 320px;
+  }
+}
 @-webkit-keyframes startWindow_innerLogin {
   0% {
     opacity: 0;
@@ -177,6 +182,11 @@
           flex-direction: column;
   padding: 0;
 }
+@media screen and (max-width: 450px) {
+  .block_for_login form {
+    width: 280px;
+  }
+}
 .block_for_login form input {
   font-family: "Unbounded";
   font-weight: 300;
@@ -211,6 +221,12 @@
   border: none;
   opacity: 0.9;
   margin-top: 10px;
+}
+@media screen and (max-width: 450px) {
+  .block_for_login form .entrance_btn {
+    width: 120px;
+    padding: 8px 0;
+  }
 }
 .block_for_login form :hover {
   opacity: 1;

@@ -78,6 +78,12 @@
   -webkit-animation: startWindow_inner 1.5s forwards;
           animation: startWindow_inner 1.5s forwards;
 }
+@media screen and (max-width: 460px) {
+  .block_for_login_registration {
+    width: 320px;
+    height: 380px;
+  }
+}
 @-webkit-keyframes startWindow_inner {
   0% {
     opacity: 0;
@@ -123,6 +129,11 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+@media screen and (max-width: 460px) {
+  .block_for_login_registration form {
+    width: 280px;
+  }
+}
 .block_for_login_registration form p {
   padding: 5px;
 }
@@ -143,6 +154,11 @@
   cursor: pointer;
   color: rgb(0, 0, 0);
 }
+@media screen and (max-width: 460px) {
+  .block_for_login_registration form input {
+    height: 32px;
+  }
+}
 .block_for_login_registration form .entrance_btn {
   font-family: "Unbounded";
   line-height: 17px;
@@ -161,6 +177,12 @@
   transition: 0.8s;
   opacity: 0.9;
   margin-top: 15px;
+}
+@media screen and (max-width: 460px) {
+  .block_for_login_registration form .entrance_btn {
+    height: 32px;
+    width: 180px;
+  }
 }
 .block_for_login_registration form :hover {
   opacity: 1;

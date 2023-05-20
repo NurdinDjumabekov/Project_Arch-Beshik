@@ -6,6 +6,12 @@
   background-color: #ffffff;
   padding: 26px 24px 52px;
 }
+@media screen and (max-width: 760px) {
+  .menu_info {
+    padding: 26px 50px 52px;
+    padding: 26px 24px 52px;
+  }
+}
 .menu_info li {
   margin-top: 5px;
   text-align: left;

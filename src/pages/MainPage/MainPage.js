@@ -22,8 +22,8 @@ const MainPage = () => {
   console.log(infoArr, "infoArr");
   ////////////////////////////////////////
   const { stateForSlider } = useSelector((state) => state.stateforAdminSlice);
+  const { nameTitle } = useSelector((state) => state.stateForMenuSlice);
   ////////////////////////////////////////
-  const [nameTitle, setNameTitle] = useState(-1);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -32,14 +32,12 @@ const MainPage = () => {
     } else {
       dispatch(infoWorkOutput(objForChangeInfo));
     }
-    // dispatch(changeStateForSlider(true));
   }, [objForChangeInfo, count]);
   return (
     <>
       {stateSkeleton ? (
         <>
           {stateForSlider && <Slider />}
-          {/* <Slider /> */}
           <div className="container">
             <div className="block_animations"></div>
             <div className="block_info">
@@ -73,7 +71,7 @@ const MainPage = () => {
                     ))
                   )}
                 </div>
-                <MenuBigDisplay setNameTitle={setNameTitle} />
+                <MenuBigDisplay />
               </div>
             </div>
           </div>

@@ -28,9 +28,14 @@
     width: 360px;
   }
 }
-@media screen and (max-width: 1460px) and (max-width: 1350px) {
+@media screen and (max-width: 1460px) and (max-width: 1350px) and (max-width: 1120px) {
   .everyApartament__wrapper .blockParent_Apartament .childBlock_apartament .childBlock_apartament_texts .everyBlock_info {
     width: 450px;
+  }
+}
+@media screen and (max-width: 1460px) and (max-width: 1350px) and (max-width: 1120px) and (max-width: 490px) {
+  .everyApartament__wrapper .blockParent_Apartament .childBlock_apartament .childBlock_apartament_texts .everyBlock_info {
+    width: 320px;
   }
 }
 .everyApartament__wrapper .blockParent_Apartament .childBlock_apartament .childBlock_apartament_texts .everyBlock_info div:nth-child(1) {

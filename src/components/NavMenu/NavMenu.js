@@ -16,6 +16,7 @@ import {
   changeStateRegistration,
 } from "../../store/statesWindowsSlice";
 import Logout from "../Logout/Logout";
+import MenuBigDisplay from "../MenuBigDisplay/MenuBigDisplay";
 const NavMenu = () => {
   const { stateBtnNav } = useSelector((state) => state.infoWorkSlice);
   const [inputState, setInputState] = useState(false);
@@ -34,13 +35,10 @@ const NavMenu = () => {
   );
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
-  // console.log("kak: ", nameIcon);
   useEffect(() => {
     localStorage.setItem("nameUser", nameIcon);
     localStorage.setItem("stateToken", stateToken);
   }, [nameIcon]);
-  // console.log(stateToken, "stateToken");
-  // console.log(nameIcon, "name");
   return (
     <div className={styles.nav_blockParent}>
       <div className="container">
@@ -73,12 +71,7 @@ const NavMenu = () => {
                 Вход
               </button>
             )}
-            {loginState && (
-              <Window_login
-                setNameIcon={setNameIcon}
-                setStateToken={setStateToken}
-              />
-            )}
+
             {/* {console.log(stateToken)} */}
             {nameIcon !== "null" ? (
               <b>{nameIcon}</b>
@@ -87,7 +80,6 @@ const NavMenu = () => {
                 Регистрация
               </button>
             )}
-            {registrationState && <Window_registration />}
           </div>
           {stateBtnNav ? (
             <>
@@ -108,7 +100,11 @@ const NavMenu = () => {
           )}
         </nav>
       </div>
-      {stateBtnNav && <NavMenuPage />}
+      {stateBtnNav && <MenuBigDisplay />}
+      {loginState && (
+        <Window_login setNameIcon={setNameIcon} setStateToken={setStateToken} />
+      )}
+      {registrationState && <Window_registration />}
     </div>
   );
 };
