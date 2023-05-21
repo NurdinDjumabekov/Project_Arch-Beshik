@@ -20,8 +20,12 @@ h1 span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  gap: 30px;
 }
 .block_for_btnsMain > button {
   padding: 7px 40px;

@@ -11,8 +11,7 @@ const Pagination = () => {
   const itemsPerPage = 10; // Количество элементов на странице
   const totalItems = 100; // Общее количество элементов
   // const totalPages = Math.ceil(totalItems / itemsPerPage); // Общее количество страниц
-  const totalPages = 3; // Общее количество страниц
-
+  const totalPages = 5; // Общее количество страниц
   const handleClick = (pageNumber) => {
     dispatch(changePagination(pageNumber));
   };

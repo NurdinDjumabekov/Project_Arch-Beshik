@@ -8,6 +8,7 @@ import DetailedPage from "./pages/DetailedPage/DetailedPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import DetailedApartamentPage from "./pages/DetailedApartamentPage/DetailedApartamentPage";
+import ComplaintPage from "./pages/ComplaintPage/ComplaintPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             element={<DetailedApartamentPage />}
           />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/complaint" element={<ComplaintPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

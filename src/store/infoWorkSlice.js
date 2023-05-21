@@ -27,7 +27,7 @@ export const infoWorkOutput = createAsyncThunk(
       const response = await axios.get(
         `${urlContentList}${objForChangeInfo.stateRequestOnCategory}?page_size=${objForChangeInfo.pagination}`
       );
-      console.log(response.data.results);
+      console.log(response.data.results, "results");
       dispatch(
         toTakeInfo(
           response.data.results ? response.data.results : response.data

@@ -5,6 +5,7 @@ const initialState = {
   stateDeleteBtn: false,
   stateForSlider: true,
   stateAllComponents: 0,
+  stateAdvertisingBtn: false,
 };
 const stateforAdminSlice = createSlice({
   name: "stateforAdminSlice",
@@ -23,6 +24,9 @@ const stateforAdminSlice = createSlice({
       state.stateAllComponents = state.stateAllComponents + 1;
       // не нужен
     },
+    changeStateAdvertisingBtn: (state, action) => {
+      state.stateAdvertisingBtn = action.payload;
+    },
   },
 });
 
@@ -31,5 +35,6 @@ export const {
   changeStateForSlider,
   changeStateDeleteBtn,
   changeStateAllComponents,
+  changeStateAdvertisingBtn,
 } = stateforAdminSlice.actions;
 export default stateforAdminSlice.reducer;

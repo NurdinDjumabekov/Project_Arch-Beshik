@@ -7,6 +7,10 @@ import { useDispatch } from "react-redux";
 import { changeStateCount } from "../../store/infoWorkSlice";
 
 const AddPosts = ({ setAdminInput }) => {
+  const [btnSendTrue, setBtnSendTrue] = useState(false);
+  const [btnSendFalse, setBtnSendFalse] = useState(false);
+  const [cancel, setCancel] = useState(true);
+  const [mainSendBtn, setMainSendBtn] = useState(true);
   const dispatch = useDispatch();
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
@@ -38,7 +42,14 @@ const AddPosts = ({ setAdminInput }) => {
   const addPostsAdmin = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-    setAdminInput(false);
+    setTimeout(() => {
+      setAdminInput(false);
+      setMainSendBtn(true);
+      setBtnSendTrue(false);
+      setCancel(true);
+    }, 2000);
+    setMainSendBtn(false);
+    setCancel(false);
     const formData = new FormData();
     formData.append("image", img);
     formData.append("category_id", +category);
@@ -75,9 +86,15 @@ const AddPosts = ({ setAdminInput }) => {
         console.log(response);
       }
       dispatch(changeStateCount());
+      setTimeout(() => {
+        setBtnSendTrue(true);
+      }, 2000);
     } catch {
       console.log("error");
-      // setAdminInput(false);
+      setBtnSendFalse(true);
+      setTimeout(() => {
+        setBtnSendFalse(false);
+      }, 2000);
     }
   };
   const addPhotoFN = () => {
@@ -164,11 +181,25 @@ const AddPosts = ({ setAdminInput }) => {
               onChange={(e) => setDescription(e.target.value)}
               placeholder="описание"
             ></textarea>
-            <button className={styles.addBtn} type="submit">
-              Загрузить пост
-            </button>
+            {mainSendBtn && (
+              <button className={styles.addBtn} type="submit">
+                Загрузить пост
+              </button>
+            )}
+            {btnSendTrue && (
+              <button className={styles.addBtn}>
+                Ваш пост успешно загружен
+              </button>
+            )}
+            {btnSendFalse && (
+              <button className={styles.addBtnErorr}>
+                Ваш пост не загрузился
+              </button>
+            )}
           </form>
-          <button onClick={() => setAdminInput(false)}>Отмена</button>
+          {cancel && (
+            <button onClick={() => setAdminInput(false)}>Отмена</button>
+          )}
         </div>
       )}
     </>

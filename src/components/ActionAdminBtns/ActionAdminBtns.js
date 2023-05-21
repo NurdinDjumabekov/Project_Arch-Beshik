@@ -10,6 +10,7 @@ const ActionAdminBtns = ({ cardInfo }) => {
     (state) => state.stateforAdminSlice
   );
   const [ForIconEdit, setForIconEdit] = useState(false);
+  const [confirmation, setConfirmation] = useState(false);
   const token = localStorage.getItem("token");
   const requestDeletePost = async () => {
     try {
@@ -22,19 +23,23 @@ const ActionAdminBtns = ({ cardInfo }) => {
         },
       });
       // console.log(request);
+      setConfirmation(true);
     } catch {
       console.log("error! Request Delete");
+      setConfirmation(true);
     }
   };
 
   const changeButtonEdit = () => {
     setForIconEdit(true);
   };
-
   return (
     <>
       {stateDeleteBtn && (
-        <button className={styles.ntm_delete} onClick={requestDeletePost}>
+        <button
+          className={styles.ntm_delete}
+          onClick={() => setConfirmation(true)}
+        >
           <img src={btn_delete} alt="btn" />
         </button>
       )}
@@ -45,6 +50,15 @@ const ActionAdminBtns = ({ cardInfo }) => {
       )}
       {ForIconEdit && (
         <EditPosts setForIconEdit={setForIconEdit} cardInfo={cardInfo} />
+      )}
+      {confirmation && (
+        <div className={styles.block_for_delete}>
+          <h6>Вы уверены что хотите удалить этот блок? </h6>
+          <div>
+            <button onClick={requestDeletePost}>Удалить этот блок</button>
+            <button onClick={() => setConfirmation(false)}>Отмена</button>
+          </div>
+        </div>
       )}
     </>
   );

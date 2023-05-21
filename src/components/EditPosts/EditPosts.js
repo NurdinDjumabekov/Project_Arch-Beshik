@@ -25,7 +25,9 @@ const EditPosts = ({ setForIconEdit, cardInfo }) => {
     formData.append("category_id", +category);
     formData.append("content", description);
     formData.append("title", name);
+    // window.location.reload();
     try {
+      dispatch(changeStateCount());
       const response = await axios({
         method: "PATCH",
         url: `http://baielbekenov.pythonanywhere.com/api/content_update/${cardInfo.id}/`,
@@ -36,7 +38,6 @@ const EditPosts = ({ setForIconEdit, cardInfo }) => {
         },
       });
       console.log(response);
-      dispatch(changeStateCount());
     } catch {
       console.log("error");
       // setAdminInput(false);

@@ -9,6 +9,7 @@ import {
 } from "../../../store/statesWindowsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { changeAdminState } from "../../../store/stateforAdminSlice";
 
 const Window_login = ({ setNameIcon, setStateToken }) => {
   // const { stateForAdmin } = useSelector((state) => state.statesWindowsSlice);
@@ -40,7 +41,13 @@ const Window_login = ({ setNameIcon, setStateToken }) => {
       setStateAuth(true);
       setNameIcon(userName);
       {
-        responce.data.is_superuser ? navigate("/admin") : navigate("/");
+        if (responce.data.is_superuser) {
+          navigate("/admin");
+          localStorage.setItem("stateAdmin", true);
+        } else {
+          navigate("/");
+        }
+        // responce.data.is_superuser ? navigate("/admin") : navigate("/");
       }
       setTimeout(() => {
         dispatch(changeStateLogin(false));
