@@ -18,3 +18,8 @@ select option {
   padding: 500px;
   background-color: linear-gradient(180deg, #0019FF 0%, #0E6C70 46.35%, #14FF00 100%);
 }
+@media screen and (max-width: 420px) {
+  select option {
+    width: 80%;
+  }
+}

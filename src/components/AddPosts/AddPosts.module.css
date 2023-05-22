@@ -25,6 +25,12 @@
           box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
 }
+@media screen and (max-width: 450px) {
+  .parentBlock_addApartament {
+    width: 88%;
+    padding: 0 15px;
+  }
+}
 .parentBlock_addApartament h5 {
   font-weight: 700;
   font-size: 16px;
@@ -36,7 +42,7 @@
   margin-bottom: 15px;
 }
 .parentBlock_addApartament form {
-  width: 350px;
+  max-width: 350px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -147,6 +153,11 @@
           box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
 }
+@media screen and (max-width: 420px) {
+  .parentBlock_addPosts {
+    width: 320px;
+  }
+}
 .parentBlock_addPosts h5 {
   font-weight: 700;
   font-size: 16px;
@@ -236,6 +247,11 @@
   padding: 5px 30px;
   display: block;
   font-size: 20px;
+}
+@media screen and (max-width: 420px) {
+  .parentBlock_addPosts form .addBtn {
+    width: 88%;
+  }
 }
 .parentBlock_addPosts form .addBtnErorr {
   background: red;

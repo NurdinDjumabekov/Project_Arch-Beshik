@@ -5,11 +5,31 @@ h1 {
   line-height: 45px;
   color: #000000;
 }
+@media screen and (max-width: 850px) {
+  h1 {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 850px) and (max-width: 550px) {
+  h1 {
+    font-size: 16px;
+  }
+}
 h1 span {
   font-weight: 700;
   font-size: 36px;
   line-height: 45px;
   color: #7000FF;
+}
+@media screen and (max-width: 850px) {
+  h1 span {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 850px) and (max-width: 550px) {
+  h1 span {
+    font-size: 16px;
+  }
 }
 
 .block_for_btnsMain {
@@ -28,9 +48,10 @@ h1 span {
   gap: 30px;
 }
 .block_for_btnsMain > button {
-  padding: 7px 40px;
+  padding: 7px 0px;
   background-color: #0019FF;
   font-weight: 400;
+  width: 280px;
   font-size: 24px;
   line-height: 30px;
   color: #FFFFFF;

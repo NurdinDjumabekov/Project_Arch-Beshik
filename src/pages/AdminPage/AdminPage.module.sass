@@ -4,11 +4,19 @@ h1
     font-size: 36px
     line-height: 45px
     color: #000000
+    @media screen and ( max-width: 850px )
+        font-size: 25px
+        @media screen and ( max-width: 550px )
+            font-size: 16px
     span
         font-weight: 700
         font-size: 36px
         line-height: 45px
         color: #7000FF
+        @media screen and ( max-width: 850px )
+            font-size: 25px
+            @media screen and ( max-width: 550px )
+                font-size: 16px
 .block_for_btnsMain
     position: relative
     z-index: 5
@@ -19,9 +27,10 @@ h1
     flex-flow: wrap
     gap: 30px
     > button
-        padding: 7px 40px
+        padding: 7px 0px
         background-color: #0019FF
         font-weight: 400
+        width: 280px
         font-size: 24px
         line-height: 30px
         color: #FFFFFF

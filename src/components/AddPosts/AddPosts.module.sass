@@ -21,6 +21,9 @@
     background: rgba(255, 255, 255, 0.5)
     box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)
     border-radius: 15px
+    @media screen and ( max-width: 450px )
+        width: 88%
+        padding: 0 15px
     h5
         font-weight: 700
         font-size: 16px
@@ -31,7 +34,7 @@
         border-radius: 15px 15px 0 0 
         margin-bottom: 15px
     form
-        width: 350px
+        max-width: 350px
         margin: 0 auto
         display: flex
         justify-content: center
@@ -114,6 +117,8 @@
         background: rgba(255, 255, 255, 0.5)
         box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)
         border-radius: 15px
+        @media screen and ( max-width: 420px )
+            width: 320px
         h5
             font-weight: 700
             font-size: 16px
@@ -178,6 +183,8 @@
                 padding: 5px 30px
                 display: block
                 font-size: 20px
+                @media screen and ( max-width: 420px )
+                    width: 88%
             .addBtnErorr
                 background: red
                 width: 100%
@@ -186,6 +193,7 @@
                 padding: 15px 30px
                 display: block
                 font-size: 20px
+                
         button
             display: block
             margin: 0 auto
