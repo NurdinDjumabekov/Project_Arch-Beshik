@@ -7,7 +7,6 @@ import nav_btnTrue from "../../assests/images/Icon.svg";
 import nav_btn_search from "../../assests/images/nav/Search_bnt.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { changeStateBtn } from "../../store/infoWorkSlice";
-import NavMenuPage from "../../pages/NavMenuPage/NavMenuPage";
 import InputSearch from "../InputSearch/InputSearch";
 import Window_login from "../Windows/Window_login/Window_login";
 import Window_registration from "../Windows/Window_registrarion/Window_registration";

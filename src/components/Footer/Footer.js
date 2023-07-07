@@ -10,9 +10,6 @@ import Pagination from "../Pagination/Pagination";
 const Footer = () => {
   return (
     <>
-      <div className={styles.block_for_pagination}>
-        <Pagination />
-      </div>
       <div className={styles.footer_parent}>
         <div className="container">
           <div className={styles.footer_child}>

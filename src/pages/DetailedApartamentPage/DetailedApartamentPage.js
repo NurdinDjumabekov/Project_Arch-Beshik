@@ -7,6 +7,7 @@ import { changeSkeleton } from "../../store/infoWorkSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Advertising } from "../../components/Advertising/Advertising";
 import Footer from "../../components/Footer/Footer";
+import DetailedPhotos from "../../components/DetailedPhotos/DetailedPhotos";
 
 const DetailedApartamentPage = () => {
   const { baseNums } = useSelector((state) => state.infoWorkSlice);
@@ -16,6 +17,7 @@ const DetailedApartamentPage = () => {
   const dispatch = useDispatch();
   const [data, setData] = useState({});
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(changeSkeleton(false));
     axios
       .get(`http://baielbekenov.pythonanywhere.com/api/housemanage_list/${id}/`)
@@ -30,24 +32,12 @@ const DetailedApartamentPage = () => {
           <div className="block_animations"></div>
           <div className="block_info">
             <div className={styles.blockParent_detaliedApartament}>
-              <div className={styles.block_forImgs}>
-                <div>
-                  <img src={data.photos} alt="" />
-                </div>
-                <div>
-                  <div>
-                    <img src={data.photos} alt="" />
-                  </div>
-                  <div>
-                    <img src={data.photos} alt="" />
-                  </div>
-                </div>
-              </div>
+              <DetailedPhotos date={data} />
               <div className={styles.content_apartament}>
                 <div className={styles.content_apartament_inner}>
                   <div className={styles.number_phone}>
-                    <h2>{data.owner} </h2>
-                    <p>{data.phone_number}</p>
+                    <h2>{data.owner}</h2>
+                    <p>0{data.phone_number}</p>
                   </div>
                   <ul>
                     <li>

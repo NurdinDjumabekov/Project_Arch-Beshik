@@ -7,8 +7,10 @@
   border-radius: 15px;
   margin-top: 25px;
   position: sticky;
-  height: 100%;
+  height: 440px;
   top: 200px;
+  min-width: 300px;
+  overflow-y: scroll;
 }
 @media screen and (max-width: 1200px) {
   .parentBlock_menuBig {
@@ -61,6 +63,14 @@
     margin-bottom: 0px;
     width: 220px;
   }
+}
+.parentBlock_menuBig ul li button a {
+  color: #fff;
+}
+
+.parentBlock_menuBig::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
 }
 
 .menu_info {

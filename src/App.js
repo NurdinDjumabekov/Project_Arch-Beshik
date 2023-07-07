@@ -20,10 +20,10 @@ function App() {
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/content_detail/:id" element={<DetailedPage />} />
           <Route
-            path="/housemanage_list/:id/"
+            path="/housemanage_list/:id"
             element={<DetailedApartamentPage />}
           />
-          <Route path="/admin" element={<AdminPage />} />
+          {/* <Route path="/admin" element={<AdminPage />} /> */}
           <Route path="/complaint" element={<ComplaintPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />

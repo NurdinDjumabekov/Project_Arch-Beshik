@@ -126,10 +126,11 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: -1px 0 0 30px;
-  max-width: 95%;
+  max-width: 100%;
   margin: 0 auto;
 }
 @media screen and (max-width: 1460px) {
@@ -224,8 +225,12 @@
     padding: 27px 0px;
   }
 }
-.block_for_content .cards_block h1 {
-  width: 100%;
+.block_for_content .cards_block .no_posts {
+  width: 1050px;
   padding: 250px 0;
   font-size: 30px;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
 }

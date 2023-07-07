@@ -26,6 +26,12 @@ const DetailedPhotos = ({ date }) => {
         <div>
           <img src={date.image} alt="фотка" />
         </div>
+        <div>
+          <img src={date.image} alt="фотка" />
+        </div>
+        <div>
+          <img src={date.image} alt="фотка" />
+        </div>
       </div>
     </div>
   );

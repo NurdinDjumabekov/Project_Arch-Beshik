@@ -59,7 +59,7 @@
 .parent_searchBlock > div .search_input {
   display: inline-block;
   width: 200px;
-  max-width: 850px;
+  max-width: 650px;
   height: 40px;
   background: transparent;
   border: none;
@@ -99,7 +99,7 @@
   border: none;
   outline: none;
 }
-.parent_searchBlock > div .kkk {
+.parent_searchBlock > div .searchIconBtn {
   font-weight: 600;
   width: 35px;
   height: 40px;
@@ -109,11 +109,17 @@
   cursor: pointer;
   font-size: 20px;
   position: absolute;
-  left: 0;
-  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  left: 0px;
+  top: 0px;
+  -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
-.parent_searchBlock > div .lll {
+.parent_searchBlock > div .searchIconBtn img {
+  width: 25px;
+  height: 25px;
+  margin: 5px 0 0 0;
+}
+.parent_searchBlock > div .clearInput {
   width: 35px;
   height: 40px;
   background: transparent;
@@ -123,7 +129,7 @@
   right: 0;
   border: none;
 }
-.parent_searchBlock > div .lll img {
+.parent_searchBlock > div .clearInput img {
   width: 50%;
   height: 50%;
 }

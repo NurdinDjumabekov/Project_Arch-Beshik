@@ -22,8 +22,6 @@ const Logout = ({ setStateToken }) => {
     setStateToken(false);
     window.localStorage.clear();
     navigate("/");
-    // if (location.pathname === "/") {
-    // }
     window.location.reload();
   };
   // console.log(location.pathname);

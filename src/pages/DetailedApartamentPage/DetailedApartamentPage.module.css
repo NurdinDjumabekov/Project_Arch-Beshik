@@ -1,5 +1,5 @@
 .blockParent_detaliedApartament {
-  max-width: 80%;
+  max-width: 85%;
   margin: 0 auto;
   padding-top: 60px;
 }
@@ -73,9 +73,13 @@
 }
 .blockParent_detaliedApartament .content_apartament .content_apartament_inner .number_phone h2 {
   font-weight: 700;
-  font-size: 40px;
+  font-size: 30px;
   line-height: 50px;
+  width: 450px;
   color: #007AFF;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .blockParent_detaliedApartament .content_apartament .content_apartament_inner .number_phone p {
   font-weight: 500;

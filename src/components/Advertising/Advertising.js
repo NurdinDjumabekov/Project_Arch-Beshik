@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Advertising.module.css";
+import axios from "axios";
 
 export const Advertising = () => {
   const advertisinginfo = [
@@ -79,6 +80,23 @@ export const Advertising = () => {
       phone: "+996700754454",
     },
   ];
+  const [info, setInfo] = useState([]);
+  //// запрос на рекламу
+  const sendAdvertising = async () => {
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: "",
+      });
+      setInfo(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  //////////////
+  useEffect(() => {
+    sendAdvertising();
+  }, []);
   return (
     <div className={styles.advertising_parent}>
       <h4>Реклама</h4>

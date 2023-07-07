@@ -13,6 +13,7 @@ import {
   changeStateRegistration,
 } from "../../store/statesWindowsSlice";
 import Window_login from "../Windows/Window_login/Window_login";
+import { NavLink } from "react-router-dom";
 
 const MenuBigDisplay = () => {
   const { infoCategory, stateBtnNav } = useSelector(
@@ -72,6 +73,16 @@ const MenuBigDisplay = () => {
               </button>
             </li>
           ))}
+          <li>
+            <button>
+              <NavLink to={"/complaint"}>Жалобы</NavLink>
+            </button>
+          </li>
+          <li>
+            <button>
+              <NavLink to={"/question"}>Задать вопрос</NavLink>
+            </button>
+          </li>
         </ul>
       </div>
       {stateBtnNav && (

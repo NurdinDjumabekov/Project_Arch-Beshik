@@ -3,6 +3,7 @@ import styles from "./ComplaintPage.module.css";
 import Footer from "../../components/Footer/Footer";
 
 const ComplaintPage = () => {
+  // взять данные с api
   return (
     <div className={styles.complaint_parentBlock}>
       <div className="container">

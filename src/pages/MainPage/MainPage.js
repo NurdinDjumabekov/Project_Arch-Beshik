@@ -64,7 +64,7 @@ const MainPage = () => {
                       ))
                     )
                   ) : infoArr.length === 0 ? (
-                    <h1>Постов пока что нету</h1>
+                    <h1 className={styles.no_posts}>Постов пока что нету</h1>
                   ) : (
                     infoArr.map((cardInfo) => (
                       <EveryCard key={cardInfo.id} cardInfo={cardInfo} />

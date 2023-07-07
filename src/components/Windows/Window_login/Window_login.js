@@ -21,7 +21,7 @@ const Window_login = ({ setNameIcon, setStateToken }) => {
   const [moreLoginInfo, setMoreLoginInfo] = useState(true);
   const [stateLogin, setStateLogin] = useState(false);
   const [stateAuth, setStateAuth] = useState(false);
-  const [stateForAdmin, setStateForAdmin] = useState(false);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const sendToRequestLogin = async (e) => {
@@ -35,9 +35,10 @@ const Window_login = ({ setNameIcon, setStateToken }) => {
           password: password,
         },
       });
-      // console.log(responce.data.is_superuser, "is_superuser");
       localStorage.setItem("token", responce.data.token);
       localStorage.setItem("is_superuser", responce.data.is_superuser);
+      localStorage.setItem("name", userName);
+      // localStorage.setItem("email", email); тут должен быть email
       setStateAuth(true);
       setNameIcon(userName);
       {
