@@ -8,10 +8,10 @@
     padding: 0 30px;
   }
 }
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 750px) and (max-width: 460px) {
   .container {
     max-width: 100%;
-    padding: 0 20px;
+    padding: 10px;
   }
 }
 

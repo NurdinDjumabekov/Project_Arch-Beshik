@@ -58,19 +58,19 @@
 .block_for_content
     display: flex
     justify-content: space-between
-    padding: -1px 0 0 30px
     max-width: 100%
     margin: 0 auto
-    // background: blue
     @media screen and ( max-width: 1460px )
-        padding: 0 15px
-        max-width: 90%
-        @media screen and ( max-width: 1320px )
-            gap: 0px
-            @media screen and ( max-width: 940px )
-                max-width: 90%
-                @media screen and ( max-width: 600px )
-                    margin: 0 auto
+        max-width: 80%
+        @media screen and ( max-width: 1240px )
+            max-width: 100%
+            padding: 0 100px
+            @media screen and ( max-width: 1190px )
+                padding: 0px 80px
+                @media screen and ( max-width: 1155px )
+                    padding: 0px 60px
+                    @media screen and ( max-width: 590px )
+                        padding: 0
     .cards_block 
         display: flex
         flex-wrap: wrap
@@ -78,36 +78,17 @@
         justify-content: center
         gap: 30px
         padding: 27px 0 0 0
-        @media screen and ( max-width: 1460px )
-            justify-content: center
-            gap: 50px
-            padding: 27px 0
-            max-width: 800px
-            @media screen and ( max-width: 1220px )
-                max-width: 850px
-                padding: 27px 0px 27px 0
-                @media screen and ( max-width: 1180px )
-                    padding: 27px 0
-                    max-width: 800px
-                    justify-content: left
-                    gap: 25px
-                    @media screen and ( max-width: 1150px )
-                        padding: 27px 0
-                        @media screen and ( max-width: 1120px )
-                            max-width: 500px
-                            justify-content: center
-                            @media screen and ( max-width: 940px )
-                                padding: 27px 40px
-                                justify-content: center
-                                @media screen and ( max-width: 520px )
-                                    max-width: 100%
-                                    justify-content: center
-                                    padding: 27px 0px
-        .no_posts
-            width: 1050px
-            padding: 250px 0
-            font-size: 30px
-            // background: red
-            background: rgba(255, 255, 255, 0.5)
-            box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)
-            border-radius: 15px
+        // background: pink
+        @media screen and ( max-width: 1300px )
+            justify-content: flex-start
+            @media screen and ( max-width: 1120px )
+                justify-content: center
+                
+            .no_posts
+                width: 1050px
+                padding: 250px 0
+                font-size: 30px
+                // background: red
+                background: rgba(255, 255, 255, 0.5)
+                box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5)
+                border-radius: 15px

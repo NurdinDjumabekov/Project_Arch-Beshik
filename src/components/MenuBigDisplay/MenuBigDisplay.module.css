@@ -17,13 +17,7 @@
     top: 175px;
   }
 }
-@media screen and (max-width: 1200px) and (max-width: 1100px) {
-  .parentBlock_menuBig {
-    padding: 8px 5px 15px 15px;
-    top: 130px;
-  }
-}
-@media screen and (max-width: 1200px) and (max-width: 1100px) and (max-width: 750px) {
+@media screen and (max-width: 1200px) and (max-width: 1120px) {
   .parentBlock_menuBig {
     display: none;
   }
@@ -74,17 +68,22 @@
 }
 
 .menu_info {
+  display: none;
   width: 100%;
   position: fixed;
   position: absolute;
   z-index: 10;
   background-color: #ffffff;
-  padding: 26px 24px 52px;
+  padding: 26px 35px 52px;
 }
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 1120px) {
   .menu_info {
-    padding: 26px 50px 52px;
-    padding: 26px 24px 52px;
+    display: block;
+  }
+}
+@media screen and (max-width: 1120px) and (max-width: 750px) {
+  .menu_info {
+    padding: 26px 10px 52px;
   }
 }
 .menu_info ul:nth-child(1) {
@@ -105,6 +104,9 @@
   border: none;
   color: #4B08A1;
 }
+.menu_info ul:nth-child(1) li button a {
+  color: #4B08A1;
+}
 .menu_info ul:nth-child(2) h5 {
   font-weight: 500;
   font-size: 18px;
@@ -120,4 +122,7 @@
   color: #000000;
   margin-top: 10px;
   text-align: left;
+}
+.menu_info ul:nth-child(2) li button a {
+  color: #000;
 }

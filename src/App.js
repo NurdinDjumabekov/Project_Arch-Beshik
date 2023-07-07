@@ -9,6 +9,7 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import DetailedApartamentPage from "./pages/DetailedApartamentPage/DetailedApartamentPage";
 import ComplaintPage from "./pages/ComplaintPage/ComplaintPage";
+import QuestionPage from "./pages/QuestionPage/QuestionPage";
 
 function App() {
   return (
@@ -19,12 +20,10 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/content_detail/:id" element={<DetailedPage />} />
-          <Route
-            path="/housemanage_list/:id"
-            element={<DetailedApartamentPage />}
-          />
+          <Route path="/housemanage/:id" element={<DetailedApartamentPage />} />
           {/* <Route path="/admin" element={<AdminPage />} /> */}
           <Route path="/complaint" element={<ComplaintPage />} />
+          <Route path="/question" element={<QuestionPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

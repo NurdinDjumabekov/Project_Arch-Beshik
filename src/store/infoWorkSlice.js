@@ -39,7 +39,6 @@ export const infoWorkOutput = createAsyncThunk(
     }
   }
 );
-
 export const requestOnApartament = createAsyncThunk(
   "requestOnApartament",
   async (requestOnApartament, { dispatch }) => {
@@ -56,7 +55,6 @@ export const requestOnApartament = createAsyncThunk(
     }
   }
 );
-
 export const falsePreloaderOutput = createAsyncThunk(
   "infoWorkOutput",
   async (infoWorkSlice, { dispatch }) => {

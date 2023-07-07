@@ -1,18 +1,17 @@
 import React from "react";
-import styles from "./ComplaintPage.module.css";
+import styles from "./QuestionPage.module.css";
 import Footer from "../../components/Footer/Footer";
 
-const ComplaintPage = () => {
-  // взять данные с api
+const QuestionPage = () => {
   return (
     <div className={styles.complaint_parentBlock}>
       <div className="container">
         <div className="block_animations"></div>
-        <h1>Жалобы</h1>
+        <h1>Вопросы</h1>
         <div className={styles.complaint_childBlock}>
           <div className={styles.everyComplaint}>
             <h1>
-              Жалоба от <p>sil alhlhaidh iahs</p>
+              Вопрос от <p>sil alhlhaidh iahs</p>
             </h1>
             <p>
               20 сентября 2023 года, Заметил хозяина красной бмв не
@@ -21,7 +20,7 @@ const ComplaintPage = () => {
           </div>
           <div className={styles.everyComplaint}>
             <h1>
-              Жалоба от <p>sil alhlhaidh iahs</p>
+              Вопрос от <p>sil alhlhaidh iahs</p>
             </h1>
             <p>
               20 сентября 2023 года, Заметил хозяина красной бмв не
@@ -30,7 +29,7 @@ const ComplaintPage = () => {
           </div>
           <div className={styles.everyComplaint}>
             <h1>
-              Жалоба от <p>sil alhlhaidh iahs</p>
+              Вопрос от <p>sil alhlhaidh iahs</p>
             </h1>
             <p>
               20 сентября 2023 года, Заметил хозяина красной бмв не
@@ -44,4 +43,4 @@ const ComplaintPage = () => {
   );
 };
 
-export default ComplaintPage;
+export default QuestionPage;

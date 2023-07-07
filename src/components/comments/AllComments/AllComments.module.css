@@ -17,6 +17,22 @@
   background-color: #fff;
   border-radius: 15px 15px 0 0;
 }
+@media screen and (max-width: 1100px) {
+  .comments_parentBlock h3 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1100px) and (max-width: 650px) {
+  .comments_parentBlock h3 {
+    font-size: 18px;
+    padding: 0 0 0 20px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .comments_parentBlock > p {
+    font-size: 18px !important;
+  }
+}
 .comments_parentBlock .block_for_comments {
   width: 100%;
   padding: 20px;

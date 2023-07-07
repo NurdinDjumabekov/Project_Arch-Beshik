@@ -13,12 +13,17 @@
     width: 420px;
   }
 }
-@media screen and (max-width: 1120px) and (max-width: 900px) {
+@media screen and (max-width: 1120px) and (max-width: 990px) {
   .everyCard__wrapper .everyCard__parentBlock {
     width: 380px;
   }
 }
-@media screen and (max-width: 1120px) and (max-width: 900px) and (max-width: 600px) {
+@media screen and (max-width: 1120px) and (max-width: 990px) and (max-width: 910px) {
+  .everyCard__wrapper .everyCard__parentBlock {
+    width: 420px;
+  }
+}
+@media screen and (max-width: 1120px) and (max-width: 990px) and (max-width: 910px) and (max-width: 590px) {
   .everyCard__wrapper .everyCard__parentBlock {
     width: 320px;
   }

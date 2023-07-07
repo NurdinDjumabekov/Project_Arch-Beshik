@@ -6,11 +6,26 @@
           box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
 }
+@media screen and (max-width: 420px) {
+  .block_for_addComment {
+    padding: 15px 10px;
+  }
+}
 .block_for_addComment h5 {
   font-weight: 700;
   font-size: 40px;
   line-height: 50px;
   color: #000000;
+}
+@media screen and (max-width: 950px) {
+  .block_for_addComment h5 {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 950px) and (max-width: 600px) {
+  .block_for_addComment h5 {
+    font-size: 18px;
+  }
 }
 .block_for_addComment form {
   width: 100%;
@@ -34,6 +49,17 @@
   border: none;
   -webkit-box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.5);
           box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.5);
+}
+@media screen and (max-width: 850px) {
+  .block_for_addComment form input {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 850px) and (max-width: 600px) {
+  .block_for_addComment form input {
+    font-size: 14px;
+    height: 40px;
+  }
 }
 .block_for_addComment form input::-webkit-input-placeholder {
   font-family: Unbounded;
@@ -68,6 +94,17 @@
           box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.5);
   resize: vertical;
 }
+@media screen and (max-width: 850px) {
+  .block_for_addComment form textarea {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 850px) and (max-width: 600px) {
+  .block_for_addComment form textarea {
+    font-size: 14px;
+    height: 100px;
+  }
+}
 .block_for_addComment form textarea::-webkit-input-placeholder {
   font-family: Unbounded;
   font-weight: 300;
@@ -93,6 +130,40 @@
   font-weight: 300;
   font-size: 25px;
 }
+@media screen and (max-width: 850px) {
+  .block_for_addComment form textarea::-webkit-input-placeholder {
+    font-size: 18px;
+  }
+  .block_for_addComment form textarea::-moz-placeholder {
+    font-size: 18px;
+  }
+  .block_for_addComment form textarea:-ms-input-placeholder {
+    font-size: 18px;
+  }
+  .block_for_addComment form textarea::-ms-input-placeholder {
+    font-size: 18px;
+  }
+  .block_for_addComment form textarea::placeholder {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 850px) and (max-width: 600px) {
+  .block_for_addComment form textarea::-webkit-input-placeholder {
+    font-size: 12px;
+  }
+  .block_for_addComment form textarea::-moz-placeholder {
+    font-size: 12px;
+  }
+  .block_for_addComment form textarea:-ms-input-placeholder {
+    font-size: 12px;
+  }
+  .block_for_addComment form textarea::-ms-input-placeholder {
+    font-size: 12px;
+  }
+  .block_for_addComment form textarea::placeholder {
+    font-size: 12px;
+  }
+}
 .block_for_addComment form > button {
   border-radius: 15px;
   padding: 10px 0px;
@@ -103,4 +174,9 @@
   font-size: 25px;
   margin: 25px auto 0;
   padding: 8px 30px;
+}
+@media screen and (max-width: 500px) {
+  .block_for_addComment form > button {
+    font-size: 16px;
+  }
 }

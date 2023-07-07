@@ -96,10 +96,14 @@ const MenuBigDisplay = () => {
                 <button onClick={registrationFn}>Регистрация</button>
               </li>
               <li>
-                <button>Задать вопрос </button>
+                <button onClick={() => dispatch(changeStateBtn(false))}>
+                  <NavLink to={"/question"}>Задать вопрос </NavLink>
+                </button>
               </li>
               <li>
-                <button>Оставить жалобу</button>
+                <button onClick={() => dispatch(changeStateBtn(false))}>
+                  <NavLink to={"complaint"}>Оставить жалобу</NavLink>
+                </button>
               </li>
             </ul>
             <ul>
@@ -107,7 +111,9 @@ const MenuBigDisplay = () => {
                 <h5>Инфраструктура</h5>
               </li>
               <li>
-                <button onClick={allPosts}>Главная</button>
+                <button onClick={allPosts}>
+                  <NavLink to={"/"}>Главная</NavLink>
+                </button>
               </li>
               {infoCategory.map((category, index) => (
                 <li key={category.id}>

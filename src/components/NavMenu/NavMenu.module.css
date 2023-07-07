@@ -29,17 +29,28 @@
 }
 @media screen and (max-width: 1280px) {
   .nav_blockParent nav {
-    padding: 16px 0 0 40px;
+    padding: 20px 0 0 40px;
   }
 }
-@media screen and (max-width: 1280px) and (max-width: 1000px) {
+@media screen and (max-width: 1280px) and (max-width: 1120px) {
   .nav_blockParent nav {
-    padding: 10px 22px 0 40px;
+    padding: 18px 30px 0;
   }
 }
-@media screen and (max-width: 1280px) and (max-width: 1000px) and (max-width: 650px) {
+@media screen and (max-width: 1280px) and (max-width: 1120px) and (max-width: 1000px) {
   .nav_blockParent nav {
-    padding: 10px 22px 0 10px;
+    padding: 12px 30px 0;
+  }
+}
+@media screen and (max-width: 1280px) and (max-width: 1120px) and (max-width: 1000px) and (max-width: 750px) {
+  .nav_blockParent nav {
+    padding: 13px 0px;
+  }
+}
+@media screen and (max-width: 1280px) and (max-width: 1120px) and (max-width: 1000px) and (max-width: 750px) and (max-width: 460px) {
+  .nav_blockParent nav {
+    margin: -10px auto 0;
+    padding: 13px 10px;
   }
 }
 .nav_blockParent nav .block_for_imgLine {
@@ -56,7 +67,7 @@
   background-color: black;
   margin: 0 5px;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1120px) {
   .nav_blockParent nav .block_for_imgLine .line_mini {
     display: none;
   }
@@ -69,7 +80,7 @@
   text-transform: capitalize;
   color: #000000;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1120px) {
   .nav_blockParent nav .block_for_imgLine h1 {
     display: none;
   }
@@ -81,7 +92,7 @@
   color: #1e1e1e;
   display: none;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1120px) {
   .nav_blockParent nav h2 {
     display: block;
   }
@@ -96,7 +107,7 @@
           align-items: center;
   gap: 50px;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1120px) {
   .nav_blockParent nav .block_for_navBtns {
     display: none;
   }
@@ -199,7 +210,7 @@
   cursor: pointer;
   display: none;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1120px) {
   .nav_blockParent nav > button {
     display: block;
   }

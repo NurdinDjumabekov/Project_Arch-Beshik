@@ -6,18 +6,21 @@ import search_img from "../../assests/images/input/Search.svg";
 const InputSearch = ({ setInputState }) => {
   const [input, setInput] = useState("");
   const inputRef = useRef(null);
+  const searchButtonRef = useRef(null);
 
   useEffect(() => {
-    adjustInputWidth();
-    window.addEventListener("resize", adjustInputWidth); // Обработчик изменения размеров окна
+    addWidthInput();
+    window.addEventListener("resize", addWidthInput);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      window.removeEventListener("resize", adjustInputWidth); // Удаление обработчика при размонтировании компонента
+      window.removeEventListener("resize", addWidthInput);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [input]);
 
-  const adjustInputWidth = () => {
+  const addWidthInput = () => {
     if (inputRef.current) {
-      inputRef.current.style.width = "200px"; // Сброс ширины на авто для корректного измерения ширины содержимого
+      inputRef.current.style.width = "200px";
       inputRef.current.style.width = `${inputRef.current.scrollWidth}px`;
     }
   };
@@ -31,10 +34,27 @@ const InputSearch = ({ setInputState }) => {
     setInputState(false);
   };
 
+  const handleClickOutside = (e) => {
+    if (
+      !inputRef.current.contains(e.target) &&
+      !searchButtonRef.current.contains(e.target)
+    ) {
+      setInputState(false);
+    }
+  };
+
+  const handleSearchClick = () => {
+    addWidthInput();
+  };
+
   return (
     <div className={styles.parent_searchBlock}>
       <div>
-        <button onClick={adjustInputWidth} className={styles.searchIconBtn}>
+        <button
+          ref={searchButtonRef}
+          onClick={handleSearchClick}
+          className={styles.searchIconBtn}
+        >
           <img src={search_img} alt="" />
         </button>
         <input

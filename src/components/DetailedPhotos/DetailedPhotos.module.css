@@ -34,6 +34,11 @@
   min-height: 100%;
   padding: 0 8px 0 0;
 }
+@media screen and (max-width: 1200px) {
+  .block_for_imgsDetailed .block_for_miniPhoto {
+    display: none;
+  }
+}
 .block_for_imgsDetailed .block_for_miniPhoto div {
   width: 129px;
   height: 120px;
