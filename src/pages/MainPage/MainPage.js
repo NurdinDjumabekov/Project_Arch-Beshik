@@ -54,7 +54,7 @@ const MainPage = () => {
                 <div className={styles.cards_block}>
                   {stateRenderCategory ? (
                     infoArr.length === 0 ? (
-                      <h1>Постов пока что нету</h1>
+                      <h3 className={styles.no_posts}>Постов пока что нету</h3>
                     ) : (
                       infoArr.map((apartamentInfo) => (
                         <EveryApartament
@@ -64,7 +64,7 @@ const MainPage = () => {
                       ))
                     )
                   ) : infoArr.length === 0 ? (
-                    <h1 className={styles.no_posts}>Постов пока что нету</h1>
+                    <h3 className={styles.no_posts}>Постов пока что нету</h3>
                   ) : (
                     infoArr.map((cardInfo) => (
                       <EveryCard key={cardInfo.id} cardInfo={cardInfo} />

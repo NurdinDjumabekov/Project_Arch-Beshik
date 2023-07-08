@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./ComplaintPage.module.css";
 import Footer from "../../components/Footer/Footer";
+import WindowAddComplaint from "../../components/Windows/WindowAddComplaint/WindowAddComplaint";
 
 const ComplaintPage = () => {
   // взять данные с api
+  const [addInfo, setAddInfo] = useState(false);
   return (
     <div className={styles.complaint_parentBlock}>
       <div className="container">
         <div className="block_animations"></div>
-        <h1>Жалобы</h1>
+        <h1>
+          Жалобы
+          <button onClick={() => setAddInfo(true)}>добавить жалобу</button>
+        </h1>
         <div className={styles.complaint_childBlock}>
           <div className={styles.everyComplaint}>
             <h1>
@@ -40,6 +45,7 @@ const ComplaintPage = () => {
         </div>
       </div>
       <Footer />
+      {addInfo && <WindowAddComplaint setAddInfo={setAddInfo} />}
     </div>
   );
 };

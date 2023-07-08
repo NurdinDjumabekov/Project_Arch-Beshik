@@ -75,24 +75,9 @@
     max-width: 650px;
   }
 }
-@media screen and (max-width: 1370px) and (max-width: 1150px) {
+@media screen and (max-width: 1370px) and (max-width: 1250px) {
   .parent_searchBlock > div .search_input {
-    max-width: 500px;
-  }
-}
-@media screen and (max-width: 1370px) and (max-width: 1150px) and (max-width: 1000px) {
-  .parent_searchBlock > div .search_input {
-    max-width: 380px;
-  }
-}
-@media screen and (max-width: 1370px) and (max-width: 1150px) and (max-width: 1000px) and (max-width: 850px) {
-  .parent_searchBlock > div .search_input {
-    max-width: 280px;
-  }
-}
-@media screen and (max-width: 1370px) and (max-width: 1150px) and (max-width: 1000px) and (max-width: 850px) and (max-width: 750px) {
-  .parent_searchBlock > div .search_input {
-    display: none;
+    max-width: 550px;
   }
 }
 .parent_searchBlock > div .search_input:focus {

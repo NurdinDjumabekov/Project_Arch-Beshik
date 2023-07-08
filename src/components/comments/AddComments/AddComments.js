@@ -12,8 +12,7 @@ const AddComments = () => {
   useEffect(() => {
     setStateToken(localStorage.getItem("token"));
   }, []);
-  const addCommentHaveUser = (e) => {
-    e.preventDefault();
+  const addCommentHaveUser = () => {
     try {
       axios({
         method: "POST",
@@ -24,8 +23,7 @@ const AddComments = () => {
       console.log(error);
     }
   };
-  const addCommentHaveNotUser = (e) => {
-    e.preventDefault();
+  const addCommentHaveNotUser = () => {
     try {
       axios({
         method: "POST",

@@ -13,10 +13,67 @@
   height: 520px;
   border-radius: 15px;
 }
+@media screen and (max-width: 1000px) {
+  .block_for_imgsDetailed .block_for_bigPhoto {
+    height: 450px;
+  }
+}
+@media screen and (max-width: 1000px) and (max-width: 900px) {
+  .block_for_imgsDetailed .block_for_bigPhoto {
+    height: 420px;
+  }
+}
+@media screen and (max-width: 1000px) and (max-width: 900px) and (max-width: 750px) {
+  .block_for_imgsDetailed .block_for_bigPhoto {
+    height: 350px;
+  }
+}
+@media screen and (max-width: 1000px) and (max-width: 900px) and (max-width: 750px) and (max-width: 640px) {
+  .block_for_imgsDetailed .block_for_bigPhoto {
+    height: 300px;
+  }
+}
+@media screen and (max-width: 1000px) and (max-width: 900px) and (max-width: 750px) and (max-width: 640px) and (max-width: 600px) {
+  .block_for_imgsDetailed .block_for_bigPhoto {
+    height: 280px;
+  }
+}
+@media screen and (max-width: 1000px) and (max-width: 900px) and (max-width: 750px) and (max-width: 640px) and (max-width: 600px) and (max-width: 420px) {
+  .block_for_imgsDetailed .block_for_bigPhoto {
+    height: 250px;
+  }
+}
+@media screen and (max-width: 1000px) and (max-width: 900px) and (max-width: 750px) and (max-width: 640px) and (max-width: 600px) and (max-width: 420px) and (max-width: 380px) {
+  .block_for_imgsDetailed .block_for_bigPhoto {
+    height: 200px;
+  }
+}
 .block_for_imgsDetailed .block_for_bigPhoto img {
   border-radius: 15px;
   width: 100%;
   height: 100%;
+}
+.block_for_imgsDetailed .btn_changePhoto {
+  display: none;
+}
+@media screen and (max-width: 1200px) {
+  .block_for_imgsDetailed .btn_changePhoto {
+    display: block;
+    margin: 0 10px;
+    border-radius: 15px;
+  }
+  .block_for_imgsDetailed .btn_changePhoto > svg {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.5);
+  }
+}
+@media screen and (max-width: 1200px) and (max-width: 600px) {
+  .block_for_imgsDetailed .btn_changePhoto > svg {
+    width: 20px;
+    height: 25px;
+  }
 }
 .block_for_imgsDetailed .block_for_miniPhoto {
   width: 350px;

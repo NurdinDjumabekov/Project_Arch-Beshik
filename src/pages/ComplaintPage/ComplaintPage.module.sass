@@ -4,6 +4,24 @@
     h1
         padding: 50px 0 0 0
         position: relative
+        // background: red
+        @media screen and ( max-width: 700px )
+            padding: 10px 0 0 0 
+        button
+            position: absolute
+            top: 0
+            right: 50px
+            background: rgba(208, 203, 203, 0.559)
+            padding: 8px 20px
+            border-radius: 10px
+            @media screen and ( max-width: 750px )
+                width: 80px
+                font-size: 12px
+                line-height: 10px
+                text-align: center
+                padding: 5px
+                top: -15px
+                right: 10px
     .complaint_childBlock
         padding: 100px 0 0 0    
         display: flex
@@ -13,6 +31,10 @@
         gap: 25px
         width: 80%
         margin: 0 auto
+        @media screen and ( max-width: 1265px )
+            justify-content: center
+            @media screen and ( max-width: 700px )
+                padding: 20px 0 0 0 
         .everyComplaint
             width: 320px
             background: rgba(255, 255, 255, 0.5)
@@ -21,7 +43,6 @@
             position: relative
             height: 215px
             overflow-y: scroll
-            // white-space: nowrap
             h1
                 font-family: 'Unbounded'
                 font-style: normal

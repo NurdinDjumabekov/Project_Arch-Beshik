@@ -43,7 +43,6 @@ const MenuBigDisplay = () => {
     dispatch(stateRenderCategory(true));
     dispatch(stateRenderCategory(false));
   };
-
   const loginFn = () => {
     dispatch(changeStateBtn(false));
     dispatch(changeStateLogin(true));

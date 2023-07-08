@@ -89,6 +89,7 @@
 @media screen and (max-width: 450px) {
   .block_for_login {
     width: 320px;
+    top: -50px;
   }
 }
 @-webkit-keyframes startWindow_innerLogin {

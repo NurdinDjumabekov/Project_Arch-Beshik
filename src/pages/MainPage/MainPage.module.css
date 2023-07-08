@@ -146,6 +146,9 @@
 @media screen and (max-width: 1460px) and (max-width: 1240px) and (max-width: 1190px) {
   .block_for_content {
     padding: 0px 80px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 @media screen and (max-width: 1460px) and (max-width: 1240px) and (max-width: 1190px) and (max-width: 1155px) {
@@ -187,14 +190,41 @@
             justify-content: center;
   }
 }
-@media screen and (max-width: 1300px) {
+.block_for_content .cards_block .no_posts {
+  width: 1050px;
+  padding: 200px 0px;
+  text-align: center;
+  font-size: 30px;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+@media screen and (max-width: 1460px) {
   .block_for_content .cards_block .no_posts {
-    width: 1050px;
-    padding: 250px 0;
-    font-size: 30px;
-    background: rgba(255, 255, 255, 0.5);
-    -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
-            box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
+    max-width: 800px;
+  }
+}
+@media screen and (max-width: 1460px) and (max-width: 1390px) {
+  .block_for_content .cards_block .no_posts {
+    width: 700px;
+  }
+}
+@media screen and (max-width: 1460px) and (max-width: 1390px) and (max-width: 1270px) {
+  .block_for_content .cards_block .no_posts {
+    width: 650px;
+    margin: 0 20px 0 0;
+  }
+}
+@media screen and (max-width: 1460px) and (max-width: 1390px) and (max-width: 1270px) and (max-width: 1120px) {
+  .block_for_content .cards_block .no_posts {
+    background: transparent;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
+@media screen and (max-width: 1460px) and (max-width: 1390px) and (max-width: 1270px) and (max-width: 1120px) and (max-width: 800px) {
+  .block_for_content .cards_block .no_posts {
+    font-size: 20px;
   }
 }

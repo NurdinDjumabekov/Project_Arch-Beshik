@@ -2,12 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./InputSearch.module.css";
 import x_krest from "../../assests/images/input/krestik.svg";
 import search_img from "../../assests/images/input/Search.svg";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  infoWorkOutput,
+  searchData,
+  takeCategoryOutput,
+} from "../../store/infoWorkSlice";
 
 const InputSearch = ({ setInputState }) => {
   const [input, setInput] = useState("");
   const inputRef = useRef(null);
   const searchButtonRef = useRef(null);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     addWidthInput();
     window.addEventListener("resize", addWidthInput);
@@ -42,10 +48,16 @@ const InputSearch = ({ setInputState }) => {
       setInputState(false);
     }
   };
-
+  const { objForChangeInfo } = useSelector((state) => state.infoWorkSlice);
   const handleSearchClick = () => {
     addWidthInput();
+    dispatch(searchData(input));
   };
+  useEffect(() => {
+    if (input === "") {
+      dispatch(infoWorkOutput(objForChangeInfo));
+    }
+  }, [input]);
 
   return (
     <div className={styles.parent_searchBlock}>

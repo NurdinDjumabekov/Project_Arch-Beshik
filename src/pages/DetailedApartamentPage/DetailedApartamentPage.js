@@ -57,12 +57,12 @@ const DetailedApartamentPage = () => {
                     </li>
                     <li>
                       <p>Удобства : </p>
-                      <span>{data.udobstva}</span>
+                      <span>{data.udobstva} </span>
                     </li>
                   </ul>
                   <div className={styles.desceiption_text_apartament}>
                     <h4>{data.title}</h4>
-                    <p>{data.description}</p>
+                    <p>{data.description} </p>
                   </div>
                 </div>
                 <Advertising />

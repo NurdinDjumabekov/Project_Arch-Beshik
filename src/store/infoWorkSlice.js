@@ -15,7 +15,6 @@ const initialState = {
   baseNums: "192.168.202.218",
   count: 0,
 };
-// const baseUrl = " https://6443c7ca90738aa7c0778850.mockapi.io/infoportal";
 const baseNums = "192.168.202.218";
 const urlContentList = `http://baielbekenov.pythonanywhere.com/api/content_list/`;
 
@@ -39,6 +38,7 @@ export const infoWorkOutput = createAsyncThunk(
     }
   }
 );
+
 export const requestOnApartament = createAsyncThunk(
   "requestOnApartament",
   async (requestOnApartament, { dispatch }) => {
@@ -47,7 +47,7 @@ export const requestOnApartament = createAsyncThunk(
       const response = await axios.get(
         `http://baielbekenov.pythonanywhere.com/api/content_list/housemanage/`
       );
-      console.log(response.data.results, "apartament");
+      // console.log(response.data.results, "apartament");
       dispatch(toTakeInfo(response.data.results));
       dispatch(changeSkeleton(true));
     } catch {
@@ -72,10 +72,22 @@ export const takeCategoryOutput = createAsyncThunk(
         `http://baielbekenov.pythonanywhere.com/api/category_list/`
       );
       dispatch(toTakeCategory(response.data.results));
-      console.log(response.data.results, "category");
+      // console.log(response.data.results, "category");
     } catch {
       console.log("error");
     }
+  }
+);
+export const searchData = createAsyncThunk(
+  "searchData",
+  async (info, { dispatch }) => {
+    dispatch(toTakeInfo([]));
+    console.log(info);
+    // try {
+
+    // } catch (error) {
+
+    // }
   }
 );
 const infoWorkSlice = createSlice({

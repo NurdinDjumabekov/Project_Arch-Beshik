@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import styles from "./NavMenu.module.css";
 import img_mainIcon from "../../assests/images/main_icon.svg";
 import nav_btnFalse from "../../assests/images/Cross.svg";
@@ -38,6 +38,17 @@ const NavMenu = () => {
     localStorage.setItem("nameUser", nameIcon);
     localStorage.setItem("stateToken", stateToken);
   }, [nameIcon]);
+  const location = useLocation();
+  const [lookSearch, setLookSearch] = useState(true);
+  useEffect(() => {
+    if (location.pathname === "/") {
+      console.log("главная");
+      setLookSearch(true);
+    } else {
+      console.log("Noглавная");
+      setLookSearch(false);
+    }
+  }, [location.pathname]);
   return (
     <div className={styles.nav_blockParent}>
       <div className="container">
@@ -54,15 +65,19 @@ const NavMenu = () => {
             </div>
           </NavLink>
           <h2>Арча Бешик</h2>
-          {inputState && <InputSearch setInputState={setInputState} />}
+          {lookSearch && inputState && (
+            <InputSearch setInputState={setInputState} />
+          )}
           <div className={styles.block_for_navBtns}>
-            <button
-              onClick={() => setInputState(true)}
-              className={inputState ? styles.none : styles.iAmHere}
-            >
-              <img src={nav_btn_search} alt="" />
-              Поиск
-            </button>
+            {lookSearch && (
+              <button
+                onClick={() => setInputState(true)}
+                className={inputState ? styles.none : styles.iAmHere}
+              >
+                <img src={nav_btn_search} alt="" />
+                Поиск
+              </button>
+            )}
             {token ? (
               <Logout setStateToken={setStateToken} />
             ) : (

@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./QuestionPage.module.css";
 import Footer from "../../components/Footer/Footer";
+import WindowsQuestion from "../../components/Windows/WindowsQuestion/WindowsQuestion";
 
 const QuestionPage = () => {
+  const [addInfo, setAddInfo] = useState(false);
+
   return (
     <div className={styles.complaint_parentBlock}>
       <div className="container">
         <div className="block_animations"></div>
-        <h1>Вопросы</h1>
+        <h1>
+          Вопросы
+          <button onClick={() => setAddInfo(true)}>
+            Хотите задать вопрос?
+          </button>
+        </h1>
         <div className={styles.complaint_childBlock}>
           <div className={styles.everyComplaint}>
             <h1>
@@ -39,6 +47,7 @@ const QuestionPage = () => {
         </div>
       </div>
       <Footer />
+      {addInfo && <WindowsQuestion setAddInfo={setAddInfo} />}
     </div>
   );
 };

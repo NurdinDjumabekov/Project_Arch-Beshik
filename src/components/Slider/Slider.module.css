@@ -22,6 +22,12 @@
     margin-bottom: 20px;
   }
 }
+@media screen and (max-width: 800px) and (max-width: 600px) {
+  .slider_parentBlock {
+    height: 70vh;
+    padding: 40px 0 0 0;
+  }
+}
 .slider_parentBlock .slider_block {
   max-width: 100%;
   border-radius: 15px;

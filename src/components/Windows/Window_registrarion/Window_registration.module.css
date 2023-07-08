@@ -82,6 +82,7 @@
   .block_for_login_registration {
     width: 320px;
     height: 380px;
+    top: -50px;
   }
 }
 @-webkit-keyframes startWindow_inner {
