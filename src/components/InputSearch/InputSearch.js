@@ -35,7 +35,7 @@ const InputSearch = ({ setInputState }) => {
     setInput(e.target.value);
   };
 
-  const clearInput = (e) => {
+  const clearInput = () => {
     setInput("");
     setInputState(false);
   };
