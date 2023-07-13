@@ -1,58 +1,36 @@
 import React, { useEffect } from "react";
 import styles from "./MenuBigDisplay.module.css";
-import {
-  changeCategories,
-  changeStateBtn,
-  stateRenderCategory,
-  takeCategoryOutput,
-} from "../../store/infoWorkSlice";
+import { changeCategories, changeStateBtn } from "../../store/infoWorkSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { changeNameTitle } from "../../store/stateForMenuSlice";
 import {
   changeStateLogin,
   changeStateRegistration,
-} from "../../store/statesWindowsSlice";
-import Window_login from "../Windows/Window_login/Window_login";
+} from "../../store/reducers/windowsSlice";
 import { NavLink } from "react-router-dom";
-
+import {
+  changeNameTitle,
+  takeCategoryOutput,
+} from "../../store/reducers/mainPageSlice";
 const MenuBigDisplay = () => {
-  const { infoCategory, stateBtnNav } = useSelector(
-    (state) => state.infoWorkSlice
-  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(takeCategoryOutput());
   }, []);
+  const { infoCategory } = useSelector((state) => state.mainPageSlice);
 
-  const changeCategoryBtns = (categoryId, categoryBoolean, index) => {
-    dispatch(changeNameTitle(index));
-    dispatch(changeStateBtn(false));
-    if (categoryBoolean) {
-      dispatch(changeCategories(`housemanage/`));
-      dispatch(stateRenderCategory(true));
-    } else {
-      dispatch(changeCategories(`${categoryId}/`));
-      dispatch(stateRenderCategory(false));
-    }
+  const changeCategoryBtns = (name) => {
+    dispatch(changeNameTitle(name));
   };
-
   const allPosts = () => {
-    dispatch(changeStateBtn(false));
-    dispatch(changeNameTitle(-1));
+    dispatch(changeNameTitle("Новостная лента"));
     dispatch(changeCategories(""));
-    dispatch(stateRenderCategory(true));
-    dispatch(stateRenderCategory(false));
   };
   const loginFn = () => {
-    dispatch(changeStateBtn(false));
     dispatch(changeStateLogin(true));
   };
-
   const registrationFn = () => {
-    dispatch(changeStateBtn(false));
     dispatch(changeStateRegistration(true));
   };
-
   return (
     <>
       <div className={styles.parentBlock_menuBig}>
@@ -61,13 +39,9 @@ const MenuBigDisplay = () => {
           <li>
             <button onClick={allPosts}>все</button>
           </li>
-          {infoCategory.map((category, index) => (
+          {infoCategory?.map((category, index) => (
             <li key={category.id}>
-              <button
-                onClick={() =>
-                  changeCategoryBtns(category.id, category.is_rent, index)
-                }
-              >
+              <button onClick={() => changeCategoryBtns(category.name)}>
                 {category.name}
               </button>
             </li>
@@ -84,7 +58,7 @@ const MenuBigDisplay = () => {
           </li>
         </ul>
       </div>
-      {stateBtnNav && (
+      {false && (
         <div className={styles.menu_info}>
           <div className="container">
             <ul className={styles.main_list}>
@@ -114,7 +88,7 @@ const MenuBigDisplay = () => {
                   <NavLink to={"/"}>Главная</NavLink>
                 </button>
               </li>
-              {infoCategory.map((category, index) => (
+              {infoCategory?.map((category, index) => (
                 <li key={category.id}>
                   <button
                     onClick={() =>

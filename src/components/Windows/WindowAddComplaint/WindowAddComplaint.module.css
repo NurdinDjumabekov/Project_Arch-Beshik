@@ -40,6 +40,13 @@
   margin: 0 0 20px 0;
   text-align: center;
   padding: 5px 0;
+  position: relative;
+}
+.addComplaint_parent .addComplaint_child h4 > svg {
+  position: absolute;
+  top: 3px;
+  cursor: pointer;
+  right: 5px;
 }
 .addComplaint_parent .addComplaint_child form {
   width: 90%;

@@ -12,8 +12,6 @@ const initialState = {
     pagination: 1,
   },
   stateRenderCategory: false,
-  baseNums: "192.168.202.218",
-  count: 0,
 };
 const baseNums = "192.168.202.218";
 const urlContentList = `http://baielbekenov.pythonanywhere.com/api/content_list/`;
@@ -21,37 +19,37 @@ const urlContentList = `http://baielbekenov.pythonanywhere.com/api/content_list/
 export const infoWorkOutput = createAsyncThunk(
   "infoWorkOutput",
   async (objForChangeInfo, { dispatch }) => {
-    dispatch(changeSkeleton(false));
+    // dispatch(changeSkeleton(false));
     try {
       const response = await axios.get(
         `${urlContentList}${objForChangeInfo.stateRequestOnCategory}?page_size=${objForChangeInfo.pagination}`
       );
-      console.log(response.data.results, "results");
+      // console.log(response.data.results, "results");
       dispatch(
         toTakeInfo(
           response.data.results ? response.data.results : response.data
         )
       );
-      dispatch(changeSkeleton(true));
+      // dispatch(changeSkeleton(true));
     } catch {
       console.log("error!");
     }
   }
 );
-
 export const requestOnApartament = createAsyncThunk(
   "requestOnApartament",
   async (requestOnApartament, { dispatch }) => {
     dispatch(changeSkeleton(false));
     try {
-      const response = await axios.get(
+      const { data } = await axios.get(
         `http://baielbekenov.pythonanywhere.com/api/content_list/housemanage/`
       );
-      // console.log(response.data.results, "apartament");
-      dispatch(toTakeInfo(response.data.results));
+      console.log(data.results, "apartament");
+      dispatch(toTakeInfo(data.results));
       dispatch(changeSkeleton(true));
     } catch {
       console.log("error!");
+      dispatch(changeSkeleton(true));
     }
   }
 );
@@ -64,20 +62,7 @@ export const falsePreloaderOutput = createAsyncThunk(
     }, 500);
   }
 );
-export const takeCategoryOutput = createAsyncThunk(
-  "infoWorkOutput",
-  async (infoWorkSlice, { dispatch }) => {
-    try {
-      const response = await axios.get(
-        `http://baielbekenov.pythonanywhere.com/api/category_list/`
-      );
-      dispatch(toTakeCategory(response.data.results));
-      // console.log(response.data.results, "category");
-    } catch {
-      console.log("error");
-    }
-  }
-);
+
 export const searchData = createAsyncThunk(
   "searchData",
   async (info, { dispatch }) => {
@@ -118,9 +103,6 @@ const infoWorkSlice = createSlice({
     changePagination: (state, action) => {
       state.objForChangeInfo.pagination = action.payload;
     },
-    changeStateCount: (state, action) => {
-      state.count = state.count + 1;
-    },
   },
 });
 
@@ -133,6 +115,5 @@ export const {
   changeCategories,
   stateRenderCategory,
   changePagination,
-  changeStateCount,
 } = infoWorkSlice.actions;
 export default infoWorkSlice.reducer;

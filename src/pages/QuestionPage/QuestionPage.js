@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./QuestionPage.module.css";
 import Footer from "../../components/Footer/Footer";
 import WindowsQuestion from "../../components/Windows/WindowsQuestion/WindowsQuestion";
 
 const QuestionPage = () => {
   const [addInfo, setAddInfo] = useState(false);
-
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, []);
   return (
     <div className={styles.complaint_parentBlock}>
       <div className="container">

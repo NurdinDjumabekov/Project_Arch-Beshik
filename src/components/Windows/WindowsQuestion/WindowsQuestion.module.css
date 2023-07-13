@@ -40,6 +40,13 @@
   margin: 0 0 20px 0;
   text-align: center;
   padding: 5px 0;
+  position: relative;
+}
+.addQuestion_parent .addQuestion_child h4 > svg {
+  position: absolute;
+  top: 3px;
+  cursor: pointer;
+  right: 5px;
 }
 .addQuestion_parent .addQuestion_child form {
   width: 90%;

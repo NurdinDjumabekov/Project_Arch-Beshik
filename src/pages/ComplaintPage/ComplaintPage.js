@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ComplaintPage.module.css";
 import Footer from "../../components/Footer/Footer";
 import WindowAddComplaint from "../../components/Windows/WindowAddComplaint/WindowAddComplaint";
 
 const ComplaintPage = () => {
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, []);
   // взять данные с api
   const [addInfo, setAddInfo] = useState(false);
   return (

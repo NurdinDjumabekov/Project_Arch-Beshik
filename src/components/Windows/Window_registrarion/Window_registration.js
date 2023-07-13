@@ -2,17 +2,15 @@ import React, { useState } from "react";
 import styles from "./Window_registration.module.css";
 import cross_btn from "../../../assests/images/Windows/cross_img.svg";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 import {
   changeStateLogin,
   changeStateRegistration,
-} from "../../../store/statesWindowsSlice";
-import axios from "axios";
+} from "../../../store/reducers/windowsSlice";
 
 const Window_registration = () => {
-  // const baseNums = "192.168.21.218";
   const [errorState, setErrorState] = useState(false);
   const [rightState, setRightState] = useState(false);
-  const { baseNums } = useSelector((state) => state.infoWorkSlice);
   const [userName, setUserName] = useState("");
   const [surName, setSurName] = useState("");
   const [name, setName] = useState("");

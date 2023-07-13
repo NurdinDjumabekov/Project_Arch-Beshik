@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./MainPage.module.css";
 import EveryCard from "../../components/EveryCard/EveryCard";
 import { infoWorkOutput, requestOnApartament } from "../../store/infoWorkSlice";
-import MainSkeleton from "../../components/skeletons/MainSkeleton";
 import MenuBigDisplay from "../../components/MenuBigDisplay/MenuBigDisplay";
 import Preloader from "../../components/Preloader/Preloader";
 import Slider from "../../components/Slider/Slider";
 import Footer from "../../components/Footer/Footer";
 import EveryApartament from "../../components/EveryApartament/EveryApartament";
+import { toTakeCardInfo } from "../../store/reducers/mainPageSlice";
 const MainPage = () => {
   ////////////////////////////////////////
   const {
@@ -19,23 +19,24 @@ const MainPage = () => {
     infoCategory,
     count,
   } = useSelector((state) => state.infoWorkSlice);
-  console.log(infoArr, "infoArr");
+  // console.log(infoArr, "infoArr");
   ////////////////////////////////////////
   const { stateForSlider } = useSelector((state) => state.stateforAdminSlice);
   const { nameTitle } = useSelector((state) => state.stateForMenuSlice);
   ////////////////////////////////////////
+  // new
 
   const dispatch = useDispatch();
   useEffect(() => {
-    if (stateRenderCategory) {
-      dispatch(requestOnApartament());
-    } else {
-      dispatch(infoWorkOutput(objForChangeInfo));
-    }
-  }, [objForChangeInfo, count]);
+    dispatch(toTakeCardInfo());
+  }, []);
+  const { dataCards, titleName, statePreloader } = useSelector(
+    (state) => state.mainPageSlice
+  );
+
   return (
     <>
-      {stateSkeleton ? (
+      {statePreloader ? (
         <>
           {stateForSlider && <Slider />}
           <div className="container">
@@ -43,30 +44,19 @@ const MainPage = () => {
             <div className="block_info">
               <div className={styles.header_textMain}>
                 <h2>
-                  {nameTitle === -1 ? (
+                  {nameTitle === "Новостная лента" ? (
                     <>Новостная лента</>
                   ) : (
-                    infoCategory[nameTitle]?.name
+                    titleName
                   )}
                 </h2>
               </div>
               <div className={styles.block_for_content}>
                 <div className={styles.cards_block}>
-                  {stateRenderCategory ? (
-                    infoArr.length === 0 ? (
-                      <h3 className={styles.no_posts}>Постов пока что нету</h3>
-                    ) : (
-                      infoArr.map((apartamentInfo) => (
-                        <EveryApartament
-                          key={apartamentInfo.id}
-                          apartamentInfo={apartamentInfo}
-                        />
-                      ))
-                    )
-                  ) : infoArr.length === 0 ? (
+                  {dataCards?.length === 0 ? (
                     <h3 className={styles.no_posts}>Постов пока что нету</h3>
                   ) : (
-                    infoArr.map((cardInfo) => (
+                    dataCards?.map((cardInfo) => (
                       <EveryCard key={cardInfo.id} cardInfo={cardInfo} />
                     ))
                   )}
@@ -80,7 +70,6 @@ const MainPage = () => {
       ) : (
         <>
           <Preloader />
-          <MainSkeleton />
         </>
       )}
     </>

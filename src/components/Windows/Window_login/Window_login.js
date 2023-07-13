@@ -3,68 +3,26 @@ import styles from "./Window_login.module.css";
 import cross_btn from "../../../assests/images/Windows/cross_img.svg";
 import axios from "axios";
 import {
-  // changeStateForAdmin,
   changeStateLogin,
   changeStateRegistration,
-} from "../../../store/statesWindowsSlice";
+} from "../../../store/reducers/windowsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { changeAdminState } from "../../../store/stateforAdminSlice";
+import { changeStateGoodAuthLogin } from "../../../store/reducers/windowsSlice";
+import { sendRequestLogin } from "../../../helpers/sendRequestLogin";
 
 const Window_login = ({ setNameIcon, setStateToken }) => {
-  // const { stateForAdmin } = useSelector((state) => state.statesWindowsSlice);
-  // const { baseNums } = useSelector((state) => state.infoWorkSlice);
-  // const baseNums = "192.168.21.218";
-
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
-  const [moreLoginInfo, setMoreLoginInfo] = useState(true);
   const [stateLogin, setStateLogin] = useState(false);
-  const [stateAuth, setStateAuth] = useState(false);
+  const { stateGoodAuthLogin } = useSelector((state) => state.windowsSlice);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const sendToRequestLogin = async (e) => {
+  const sendToRequestLogin = (e) => {
+    console.log("jsbfdjs32511");
     e.preventDefault();
-    try {
-      const responce = await axios({
-        method: "POST",
-        url: `http://baielbekenov.pythonanywhere.com/api/login/`,
-        data: {
-          username: userName,
-          password: password,
-        },
-      });
-      localStorage.setItem("token", responce.data.token);
-      localStorage.setItem("is_superuser", responce.data.is_superuser);
-      localStorage.setItem("name", userName);
-      // localStorage.setItem("email", email); тут должен быть email
-      setStateAuth(true);
-      setNameIcon(userName);
-      {
-        if (responce.data.is_superuser) {
-          navigate("/admin");
-          localStorage.setItem("stateAdmin", true);
-        } else {
-          navigate("/");
-        }
-        // responce.data.is_superuser ? navigate("/admin") : navigate("/");
-      }
-      setTimeout(() => {
-        dispatch(changeStateLogin(false));
-        setStateAuth(false);
-      }, 2000);
-      setStateToken(true);
-    } catch {
-      console.log("пользователь не найден");
-      setStateLogin(true);
-      setMoreLoginInfo(false);
-      setTimeout(() => {
-        setStateLogin(false);
-        setMoreLoginInfo(true);
-      }, 3000);
-      setStateToken(false);
-    }
+    sendRequestLogin();
   };
   const changeStateLoginAndRegistration = () => {
     dispatch(changeStateRegistration(true));
@@ -78,7 +36,7 @@ const Window_login = ({ setNameIcon, setStateToken }) => {
       >
         <div className="block_animations"></div>
       </div>
-      {stateAuth ? (
+      {stateGoodAuthLogin ? (
         <div className={styles.block_auth}>
           <h5>Вы успешно авторизовались</h5>
         </div>
@@ -100,7 +58,7 @@ const Window_login = ({ setNameIcon, setStateToken }) => {
               placeholder="Ваш пароль"
               onChange={(e) => setPassword(e.target.value)}
             />
-            {moreLoginInfo && (
+            {!stateLogin && (
               <div className={styles.block_for_password}>
                 <button>Забыли пароль?</button>
                 <button onClick={changeStateLoginAndRegistration}>

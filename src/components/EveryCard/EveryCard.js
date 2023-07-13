@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import styles from "./EveryCard.module.css";
 import icon_comment from "../../assests/images/Icon_comment.svg";
 import { NavLink } from "react-router-dom";
-import ActionAdminBtns from "../ActionAdminBtns/ActionAdminBtns";
 
 const EveryCard = ({ cardInfo }) => {
   return (
     <>
       {/* {console.log(cardInfo)} */}
       <div className={styles.everyCard__wrapper}>
-        <ActionAdminBtns cardInfo={cardInfo} />
         <NavLink to={`/content_detail/${cardInfo.id}`}>
           <div className={styles.everyCard__parentBlock}>
             <div className={styles.everyCard__childBlock}>

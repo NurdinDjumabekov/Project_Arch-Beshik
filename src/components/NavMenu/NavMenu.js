@@ -13,7 +13,7 @@ import Window_registration from "../Windows/Window_registrarion/Window_registrat
 import {
   changeStateLogin,
   changeStateRegistration,
-} from "../../store/statesWindowsSlice";
+} from "../../store/reducers/windowsSlice";
 import Logout from "../Logout/Logout";
 import MenuBigDisplay from "../MenuBigDisplay/MenuBigDisplay";
 const NavMenu = () => {
@@ -30,7 +30,7 @@ const NavMenu = () => {
     setNameIcon(name);
   }, []);
   const { registrationState, loginState } = useSelector(
-    (state) => state.statesWindowsSlice
+    (state) => state.windowsSlice
   );
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
@@ -42,10 +42,8 @@ const NavMenu = () => {
   const [lookSearch, setLookSearch] = useState(true);
   useEffect(() => {
     if (location.pathname === "/") {
-      console.log("главная");
       setLookSearch(true);
     } else {
-      console.log("Noглавная");
       setLookSearch(false);
     }
   }, [location.pathname]);

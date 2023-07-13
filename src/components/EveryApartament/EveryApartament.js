@@ -1,13 +1,11 @@
 import React from "react";
 import styles from "./EveryApartament.module.css";
 import { NavLink } from "react-router-dom";
-import ChangeApartament from "../ChangeApartament/ChangeApartament";
 
 const EveryApartament = ({ apartamentInfo }) => {
   return (
     <>
       <div className={styles.everyApartament__wrapper}>
-        <ChangeApartament apartamentInfo={apartamentInfo} />
         <div className={styles.blockParent_Apartament}>
           <div className="container">
             <div className={styles.childBlock_apartament}>

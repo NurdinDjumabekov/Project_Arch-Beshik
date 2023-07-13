@@ -18,6 +18,5 @@ const statesWindowsSlice = createSlice({
   },
 });
 
-export const { changeStateRegistration, changeStateLogin } =
-  statesWindowsSlice.actions;
+export const {} = statesWindowsSlice.actions;
 export default statesWindowsSlice.reducer;
