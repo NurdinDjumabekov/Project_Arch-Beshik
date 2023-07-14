@@ -85,15 +85,15 @@ export const Advertising = () => {
   const [info, setInfo] = useState([]);
   //// запрос на рекламу
   const sendAdvertising = async () => {
-    try {
-      const { data } = await axios({
-        method: "GET",
-        url: "",
-      });
-      setInfo(data);
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   const { data } = await axios({
+    //     method: "GET",
+    //     url: "",
+    //   });
+    //   setInfo(data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
   //////////////
   useEffect(() => {

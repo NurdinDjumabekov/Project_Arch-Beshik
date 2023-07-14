@@ -14,16 +14,17 @@
         @media screen and ( max-width: 1120px )
             display: none
     h6
-        font-weight: 700
-        font-size: 13px
-        line-height: 20px
-        text-align: center
-        color: #FFFFFF
-        width: 180px
-        margin-bottom: 20px
-        @media screen and ( max-width: 1100px )
-            margin-bottom: 10px
+            font-weight: 700
+            font-size: 13px
+            line-height: 20px
+            text-align: center
+            color: #FFFFFF
+            width: 180px
+            margin-bottom: 20px
+            @media screen and ( max-width: 1100px )
+                margin-bottom: 10px
     ul
+        position: relative
         li
             margin-bottom: 7px
             button
@@ -43,6 +44,28 @@
                     width: 220px
                 a
                     color: #fff
+    .btn_navigate
+        position: absolute
+        bottom: 15px
+        right: 20px
+        > svg
+            width: 40px
+            position: relative
+            height: 40px
+            animation-name: menu_anim
+            animation-duration: 1.5s
+            animation-iteration-count: infinite
+            animation-timing-function: ease
+            transition: all 1s
+            color: #0019FF
+            @keyframes menu_anim 
+                5% 
+                    padding: 10px 0 0 0
+                50%
+                    margin: 0px 0 0 0
+                100%
+                    margin: -10px 0 0 0
+
 .parentBlock_menuBig::-webkit-scrollbar 
     width: 0
     background-color: transparent

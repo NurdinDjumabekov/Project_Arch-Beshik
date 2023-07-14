@@ -9,20 +9,45 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { changeStateGoodAuthLogin } from "../../../store/reducers/windowsSlice";
-import { sendRequestLogin } from "../../../helpers/sendRequestLogin";
+// import sendRequestLoginUser from "../../../helpers/sendRequestLogin";
 
 const Window_login = ({ setNameIcon, setStateToken }) => {
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
   const [stateLogin, setStateLogin] = useState(false);
   const { stateGoodAuthLogin } = useSelector((state) => state.windowsSlice);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const sendToRequestLogin = (e) => {
-    console.log("jsbfdjs32511");
+  const sendToRequestLogin = async (e) => {
     e.preventDefault();
-    sendRequestLogin();
+    try {
+      const { data } = await axios({
+        method: "POST",
+        url: `http://baielbekenov.pythonanywhere.com/api/login/`,
+        data: {
+          username: userName,
+          password: password,
+        },
+      });
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("name", userName);
+      // localStorage.setItem("email", email); тут должен быть email
+      setNameIcon(userName);
+      dispatch(changeStateGoodAuthLogin(true));
+      setTimeout(() => {
+        dispatch(changeStateGoodAuthLogin(false));
+        dispatch(changeStateLogin(false));
+        location.reload();
+      }, 2000);
+      setStateToken(true);
+    } catch (err) {
+      setStateLogin(true);
+      setTimeout(() => {
+        setStateLogin(false);
+      }, 3000);
+      setStateToken(false);
+      console.log(err);
+    }
   };
   const changeStateLoginAndRegistration = () => {
     dispatch(changeStateRegistration(true));

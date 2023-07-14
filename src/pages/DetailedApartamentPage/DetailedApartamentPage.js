@@ -1,28 +1,24 @@
 import React, { useEffect, useState } from "react";
 import styles from "./DetailedApartamentPage.module.css";
-import imgs from "../../assests/images/history/history_img.png";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { changeSkeleton } from "../../store/infoWorkSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Advertising } from "../../components/Advertising/Advertising";
 import Footer from "../../components/Footer/Footer";
 import DetailedPhotos from "../../components/DetailedPhotos/DetailedPhotos";
+import { changeBtnNavMiniDisplay } from "../../store/reducers/mainPageSlice";
 
 const DetailedApartamentPage = () => {
-  const { baseNums } = useSelector((state) => state.infoWorkSlice);
-  // const baseNums = "192.168.21.218";
-
   const { id } = useParams();
   const dispatch = useDispatch();
   const [data, setData] = useState({});
   useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch(changeSkeleton(false));
+    dispatch(changeBtnNavMiniDisplay(false));
     axios
       .get(`http://baielbekenov.pythonanywhere.com/api/housemanage_list/${id}/`)
       .then((info) => setData(info.data));
-    dispatch(changeSkeleton(true));
+    dispatch(changeBtnNavMiniDisplay(true));
   }, []);
   console.log(data);
   return (

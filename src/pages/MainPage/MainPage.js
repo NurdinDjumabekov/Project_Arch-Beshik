@@ -2,43 +2,29 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./MainPage.module.css";
 import EveryCard from "../../components/EveryCard/EveryCard";
-import { infoWorkOutput, requestOnApartament } from "../../store/infoWorkSlice";
 import MenuBigDisplay from "../../components/MenuBigDisplay/MenuBigDisplay";
 import Preloader from "../../components/Preloader/Preloader";
 import Slider from "../../components/Slider/Slider";
 import Footer from "../../components/Footer/Footer";
-import EveryApartament from "../../components/EveryApartament/EveryApartament";
 import { toTakeCardInfo } from "../../store/reducers/mainPageSlice";
+import { searchData } from "../../store/reducers/windowsSlice";
 const MainPage = () => {
-  ////////////////////////////////////////
-  const {
-    infoArr,
-    stateSkeleton,
-    objForChangeInfo,
-    stateRenderCategory,
-    infoCategory,
-    count,
-  } = useSelector((state) => state.infoWorkSlice);
-  // console.log(infoArr, "infoArr");
-  ////////////////////////////////////////
-  const { stateForSlider } = useSelector((state) => state.stateforAdminSlice);
   const { nameTitle } = useSelector((state) => state.stateForMenuSlice);
   ////////////////////////////////////////
-  // new
-
   const dispatch = useDispatch();
+
+  const { dataCards, titleName, statePreloader, stateForLookSlider } =
+    useSelector((state) => state.mainPageSlice);
   useEffect(() => {
     dispatch(toTakeCardInfo());
-  }, []);
-  const { dataCards, titleName, statePreloader } = useSelector(
-    (state) => state.mainPageSlice
-  );
-
+    scrollTo(50, 50);
+    dispatch(searchData());
+  }, [stateForLookSlider]);
   return (
     <>
       {statePreloader ? (
         <>
-          {stateForSlider && <Slider />}
+          {stateForLookSlider && <Slider />}
           <div className="container">
             <div className="block_animations"></div>
             <div className="block_info">

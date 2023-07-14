@@ -36,6 +36,9 @@
     margin-bottom: 10px;
   }
 }
+.parentBlock_menuBig ul {
+  position: relative;
+}
 .parentBlock_menuBig ul li {
   margin-bottom: 7px;
 }
@@ -60,6 +63,49 @@
 }
 .parentBlock_menuBig ul li button a {
   color: #fff;
+}
+.parentBlock_menuBig .btn_navigate {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+}
+.parentBlock_menuBig .btn_navigate > svg {
+  width: 40px;
+  position: relative;
+  height: 40px;
+  -webkit-animation-name: menu_anim;
+          animation-name: menu_anim;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  color: #0019FF;
+}
+@-webkit-keyframes menu_anim {
+  5% {
+    padding: 10px 0 0 0;
+  }
+  50% {
+    margin: 0px 0 0 0;
+  }
+  100% {
+    margin: -10px 0 0 0;
+  }
+}
+@keyframes menu_anim {
+  5% {
+    padding: 10px 0 0 0;
+  }
+  50% {
+    margin: 0px 0 0 0;
+  }
+  100% {
+    margin: -10px 0 0 0;
+  }
 }
 
 .parentBlock_menuBig::-webkit-scrollbar {

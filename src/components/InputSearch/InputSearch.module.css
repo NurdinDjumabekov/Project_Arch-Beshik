@@ -19,8 +19,8 @@
   border-radius: 15px;
   -webkit-animation-name: searchInput;
           animation-name: searchInput;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 }
 @-webkit-keyframes searchInput {
   0% {

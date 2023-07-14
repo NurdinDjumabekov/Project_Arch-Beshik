@@ -4,11 +4,11 @@ import { useSelector } from "react-redux";
 import NavMenu from "../../NavMenu/NavMenu";
 
 const Layout = () => {
-  const { stateBtnNav } = useSelector((state) => state.infoWorkSlice);
+  const { btnNavMiniDisplay } = useSelector((state) => state.mainPageSlice);
   return (
     <>
       <NavMenu />
-      {stateBtnNav ? "" : <Outlet />}
+      {btnNavMiniDisplay ? "" : <Outlet />}
     </>
   );
 };

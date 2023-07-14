@@ -226,3 +226,8 @@
   height: 50px;
   z-index: 99;
 }
+
+.shadow_navMenu {
+  width: 100%;
+  height: 140px;
+}

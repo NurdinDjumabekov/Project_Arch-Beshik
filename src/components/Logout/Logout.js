@@ -1,30 +1,23 @@
 import React from "react";
 import axios from "axios";
 import styles from "./Logout.module.css";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Logout = ({ setStateToken }) => {
-  const { baseNums } = useSelector((state) => state.infoWorkSlice);
-  // const baseNums = "192.168.21.218";
-
   const navigate = useNavigate();
-  const location = useLocation();
-  const logoutFn = () => {
-    const token = localStorage.getItem("token");
-    axios({
+  const logoutFn = async () => {
+    await axios({
       method: "POST",
       url: `http://baielbekenov.pythonanywhere.com/api/logout/`,
       headers: {
-        Authorization: `Token ${token}`,
+        Authorization: `Token ${localStorage.getItem("token")}`,
       },
     });
     setStateToken(false);
-    window.localStorage.clear();
+    localStorage.clear();
     navigate("/");
-    window.location.reload();
+    location.reload();
   };
-  // console.log(location.pathname);
   return (
     <div>
       <button onClick={logoutFn}>Выход</button>

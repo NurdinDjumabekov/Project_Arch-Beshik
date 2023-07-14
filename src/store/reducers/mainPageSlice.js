@@ -6,17 +6,21 @@ const initialState = {
   infoCategory: [],
   statePreloader: false,
   titleName: "Новостная лента",
+  btnNavMiniDisplay: false,
+  stateForLookSlider: true, // для того, чтобы при выборе категории постоянно не отображался слайдер!
+  stateScrollDisplayMenu: 1,
 };
 export const toTakeCardInfo = createAsyncThunk(
   "toTakeCardInfo",
   async (info, { dispatch }) => {
-    changePreloader(false);
+    dispatch(changePreloader(false));
     try {
       const { data } = await axios({
         method: "GET",
         url: `http://baielbekenov.pythonanywhere.com/api/content_list/`,
       });
-      dispatch(changeDataCards(data.results));
+      dispatch(changeDataCards(data?.results));
+      console.log(data.results);
       dispatch(changePreloader(true));
     } catch (error) {
       console.log(error);
@@ -38,6 +42,23 @@ export const takeCategoryOutput = createAsyncThunk(
     }
   }
 );
+export const toTakeDataCategory = createAsyncThunk(
+  "toTakeDataCategory",
+  async (id, { dispatch }) => {
+    dispatch(changePreloader(false));
+    try {
+      const { data } = await axios.get(
+        `http://baielbekenov.pythonanywhere.com/api/content_list/${id}/`
+      );
+      dispatch(changeDataCards(data));
+      // console.log(data, "category");
+      dispatch(changePreloader(true));
+    } catch (error) {
+      console.log(error);
+      dispatch(changePreloader(true));
+    }
+  }
+);
 const mainPageSlice = createSlice({
   name: "mainPageSlice",
   initialState,
@@ -53,7 +74,15 @@ const mainPageSlice = createSlice({
     },
     changeNameTitle: (state, action) => {
       state.titleName = action.payload;
-      console.log(state.titleName);
+    },
+    changeBtnNavMiniDisplay: (state, action) => {
+      state.btnNavMiniDisplay = action.payload;
+    },
+    changeStateForLookSlider: (state, action) => {
+      state.stateForLookSlider = action.payload;
+    },
+    changeStateScrollDisplayMenu: (state, action) => {
+      state.stateScrollDisplayMenu = action.payload;
     },
   },
 });
@@ -62,5 +91,8 @@ export const {
   changePreloader,
   toTakeInfoCategory,
   changeNameTitle,
+  changeBtnNavMiniDisplay,
+  changeStateForLookSlider,
+  changeStateScrollDisplayMenu,
 } = mainPageSlice.actions;
 export default mainPageSlice.reducer;

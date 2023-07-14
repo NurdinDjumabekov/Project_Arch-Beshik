@@ -3,11 +3,7 @@ import styles from "./InputSearch.module.css";
 import x_krest from "../../assests/images/input/krestik.svg";
 import search_img from "../../assests/images/input/Search.svg";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  infoWorkOutput,
-  searchData,
-  takeCategoryOutput,
-} from "../../store/infoWorkSlice";
+// import { infoWorkOutput } from "../../store/infoWorkSlice";
 
 const InputSearch = ({ setInputState }) => {
   const [input, setInput] = useState("");
@@ -30,9 +26,9 @@ const InputSearch = ({ setInputState }) => {
       inputRef.current.style.width = `${inputRef.current.scrollWidth}px`;
     }
   };
-
   const changeLengthInput = (e) => {
     setInput(e.target.value);
+    console.log(e.target.value);
   };
 
   const clearInput = () => {
@@ -48,14 +44,12 @@ const InputSearch = ({ setInputState }) => {
       setInputState(false);
     }
   };
-  const { objForChangeInfo } = useSelector((state) => state.infoWorkSlice);
   const handleSearchClick = () => {
     addWidthInput();
-    dispatch(searchData(input));
   };
   useEffect(() => {
     if (input === "") {
-      dispatch(infoWorkOutput(objForChangeInfo));
+      // dispatch(infoWorkOutput(objForChangeInfo));
     }
   }, [input]);
 

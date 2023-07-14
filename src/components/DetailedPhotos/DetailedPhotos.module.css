@@ -80,16 +80,16 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: right;
-      -ms-flex-pack: right;
-          justify-content: right;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
   overflow-y: scroll;
   height: 515px;
   min-height: 100%;
-  padding: 0 8px 0 0;
+  padding: 0 20px;
 }
 @media screen and (max-width: 1200px) {
   .block_for_imgsDetailed .block_for_miniPhoto {
@@ -100,6 +100,7 @@
   width: 129px;
   height: 120px;
   border-radius: 15px;
+  border: 1px solid black;
 }
 .block_for_imgsDetailed .block_for_miniPhoto div img {
   width: 100%;
