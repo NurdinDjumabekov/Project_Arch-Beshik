@@ -9,18 +9,19 @@ const initialState = {
   btnNavMiniDisplay: false,
   stateForLookSlider: true, // для того, чтобы при выборе категории постоянно не отображался слайдер!
   stateScrollDisplayMenu: 1,
+  paginationCards: 1,
 };
 export const toTakeCardInfo = createAsyncThunk(
   "toTakeCardInfo",
-  async (info, { dispatch }) => {
+  async (page, { dispatch }) => {
     dispatch(changePreloader(false));
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://baielbekenov.pythonanywhere.com/api/content_list/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/content_list/?page_size=${page}`,
       });
       dispatch(changeDataCards(data?.results));
-      console.log(data.results);
+      // console.log(data.results);
       dispatch(changePreloader(true));
     } catch (error) {
       console.log(error);
@@ -84,6 +85,10 @@ const mainPageSlice = createSlice({
     changeStateScrollDisplayMenu: (state, action) => {
       state.stateScrollDisplayMenu = action.payload;
     },
+    changePaginationCards: (state, action) => {
+      state.paginationCards = action.payload;
+      // console.log(state.paginationCards);
+    },
   },
 });
 export const {
@@ -94,5 +99,6 @@ export const {
   changeBtnNavMiniDisplay,
   changeStateForLookSlider,
   changeStateScrollDisplayMenu,
+  changePaginationCards,
 } = mainPageSlice.actions;
 export default mainPageSlice.reducer;

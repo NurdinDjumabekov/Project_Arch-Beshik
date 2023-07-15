@@ -20,8 +20,12 @@ const MenuBigDisplay = () => {
   useEffect(() => {
     dispatch(takeCategoryOutput());
   }, []);
-  const { infoCategory, btnNavMiniDisplay, stateScrollDisplayMenu } =
-    useSelector((state) => state.mainPageSlice);
+  const {
+    infoCategory,
+    btnNavMiniDisplay,
+    stateScrollDisplayMenu,
+    paginationCards,
+  } = useSelector((state) => state.mainPageSlice);
   const changeCategoryBtns = (name, id) => {
     dispatch(changeNameTitle(name));
     dispatch(toTakeDataCategory(id));
@@ -30,19 +34,19 @@ const MenuBigDisplay = () => {
   };
   const allPosts = () => {
     dispatch(changeNameTitle("Новостная лента"));
-    dispatch(toTakeCardInfo());
-    dispatch(changeStateForLookSlider(true));
+    dispatch(toTakeCardInfo(paginationCards));
+    dispatch(changeStateForLookSlider(true)); // вид слайдера(на галвной видно, на других нет)
     dispatch(changeBtnNavMiniDisplay(false)); // закрывает меню(маленького экрана)
   };
   const loginFn = () => {
     dispatch(changeStateLogin(true));
     dispatch(changeBtnNavMiniDisplay(false));
-    dispatch(changeStateRegistration(false));
+    dispatch(changeStateRegistration(false)); // закрывает страницу регитсрации
   };
   const registrationFn = () => {
     dispatch(changeStateRegistration(true));
     dispatch(changeBtnNavMiniDisplay(false));
-    dispatch(changeStateLogin(false));
+    dispatch(changeStateLogin(false)); // закрывает страницу логина
   };
 
   //////////////////////////////////////////////////
@@ -129,6 +133,7 @@ const MenuBigDisplay = () => {
       </div>
       {btnNavMiniDisplay && (
         <div className={styles.menu_info}>
+          <p className={styles.name_user}>nurdin</p>
           <div className="container">
             <ul className={styles.main_list}>
               <li>

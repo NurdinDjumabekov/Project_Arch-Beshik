@@ -19,8 +19,8 @@
   background-image: url("./assests/images/main/animation_for_bigDisplay.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
-  min-width: 100%;
+  background-size: contain;
+  min-width: 90%;
   height: 100%;
   position: fixed;
   left: 0;
@@ -37,12 +37,12 @@
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 920px) {
   .block_animations {
     background-size: contain;
   }
 }
-@media screen and (max-width: 850px) and (max-width: 550px) {
+@media screen and (max-width: 920px) and (max-width: 550px) {
   .block_animations {
     background-image: url("./assests/images/animation_img.png");
   }

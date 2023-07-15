@@ -19,26 +19,14 @@ import MenuBigDisplay from "../MenuBigDisplay/MenuBigDisplay";
 const NavMenu = () => {
   const dispatch = useDispatch();
   const [inputState, setInputState] = useState(false);
-  const [stateToken, setStateToken] = useState(
-    Boolean(localStorage.getItem("stateToken"))
-  );
-  const [nameIcon, setNameIcon] = useState("null");
+
   const { btnNavMiniDisplay, stateForLookSlider } = useSelector(
     (state) => state.mainPageSlice
   );
-  const { registrationState, loginState } = useSelector(
+  const { registrationState, loginState, dataToken } = useSelector(
     (state) => state.windowsSlice
   );
-  useEffect(() => {
-    const name = localStorage.getItem("nameUser")
-      ? localStorage.getItem("nameUser")
-      : "null";
-    setNameIcon(name);
-  }, []);
-  useEffect(() => {
-    localStorage.setItem("nameUser", nameIcon);
-    localStorage.setItem("stateToken", stateToken);
-  }, [nameIcon]);
+
   ///////////////////////////////////////////
   const location = useLocation();
   const [lookSearch, setLookSearch] = useState(true);
@@ -61,7 +49,18 @@ const NavMenu = () => {
                   alt="#"
                   className={styles.btn_left_rigth}
                 />
-                <div className={styles.line_mini}></div>
+                <div className={styles.line_mini}>
+                  <svg
+                    width="3"
+                    height="46"
+                    viewBox="0 0 3 46"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M1 1V46" stroke="#086FA1" strokeWidth="2" />
+                    <path d="M2 0V45" stroke="black" strokeWidth="2" />
+                  </svg>
+                </div>
                 <h1>Арча Бешик</h1>
               </div>
             </NavLink>
@@ -79,19 +78,19 @@ const NavMenu = () => {
                   Поиск
                 </button>
               )}
-              {localStorage.getItem("token") ? (
-                <Logout setStateToken={setStateToken} />
+              {dataToken ? (
+                <Logout />
               ) : (
-                <button onClick={() => dispatch(changeStateLogin(true))}>
-                  Вход
-                </button>
-              )}
-              {nameIcon !== "null" ? (
-                <b>{nameIcon}</b>
-              ) : (
-                <button onClick={() => dispatch(changeStateRegistration(true))}>
-                  Регистрация
-                </button>
+                <>
+                  <button onClick={() => dispatch(changeStateLogin(true))}>
+                    Вход
+                  </button>
+                  <button
+                    onClick={() => dispatch(changeStateRegistration(true))}
+                  >
+                    Регистрация
+                  </button>
+                </>
               )}
             </div>
             {btnNavMiniDisplay ? (
@@ -114,15 +113,10 @@ const NavMenu = () => {
           </nav>
         </div>
         {btnNavMiniDisplay && <MenuBigDisplay />}
-        {loginState && (
-          <Window_login
-            setNameIcon={setNameIcon}
-            setStateToken={setStateToken}
-          />
-        )}
+        {loginState && <Window_login />}
         {registrationState && <Window_registration />}
       </div>
-      {!stateForLookSlider && <div className={styles.shadow_navMenu}></div>}
+      <div className={styles.shadow_navMenu}></div>
     </>
   );
 };

@@ -133,6 +133,23 @@
     padding: 26px 10px 52px;
   }
 }
+.menu_info .name_user {
+  font-weight: 600;
+  line-height: 10px;
+  color: #050505;
+  font-size: 20px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  text-transform: capitalize;
+  border-radius: 5px;
+  text-align: left;
+  height: 38px;
+  line-height: 38px;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 95%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .menu_info ul:nth-child(1) {
   margin: 10px 0 30px;
 }

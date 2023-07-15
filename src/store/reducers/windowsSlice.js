@@ -7,6 +7,7 @@ const initialState = {
   loginState: false,
   registrationState: false,
   moreLoginInfo: true,
+  dataToken: localStorage.getItem("token"),
 };
 
 export const searchData = createAsyncThunk(
@@ -41,11 +42,15 @@ const windowsSlice = createSlice({
       state.registrationState = action.payload;
     },
     changeMoreLoginInfo: () => {},
+    changeDataToken: (state, action) => {
+      state.dataToken = action.payload;
+    },
   },
 });
 export const {
   changeStateGoodAuthLogin,
   changeStateLogin,
   changeStateRegistration,
+  changeDataToken,
 } = windowsSlice.actions;
 export default windowsSlice.reducer;

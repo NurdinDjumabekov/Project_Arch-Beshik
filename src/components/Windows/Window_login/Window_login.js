@@ -3,6 +3,7 @@ import styles from "./Window_login.module.css";
 import cross_btn from "../../../assests/images/Windows/cross_img.svg";
 import axios from "axios";
 import {
+  changeDataToken,
   changeStateLogin,
   changeStateRegistration,
 } from "../../../store/reducers/windowsSlice";
@@ -11,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { changeStateGoodAuthLogin } from "../../../store/reducers/windowsSlice";
 // import sendRequestLoginUser from "../../../helpers/sendRequestLogin";
 
-const Window_login = ({ setNameIcon, setStateToken }) => {
+const Window_login = ({ setStateToken }) => {
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
   const [stateLogin, setStateLogin] = useState(false);
@@ -31,8 +32,8 @@ const Window_login = ({ setNameIcon, setStateToken }) => {
       });
       localStorage.setItem("token", data.token);
       localStorage.setItem("name", userName);
+      dispatch(changeDataToken(data.token));
       // localStorage.setItem("email", email); тут должен быть email
-      setNameIcon(userName);
       dispatch(changeStateGoodAuthLogin(true));
       setTimeout(() => {
         dispatch(changeStateGoodAuthLogin(false));

@@ -8,18 +8,23 @@ import Slider from "../../components/Slider/Slider";
 import Footer from "../../components/Footer/Footer";
 import { toTakeCardInfo } from "../../store/reducers/mainPageSlice";
 import { searchData } from "../../store/reducers/windowsSlice";
+import Pagination from "../../components/Pagination/Pagination";
 const MainPage = () => {
   const { nameTitle } = useSelector((state) => state.stateForMenuSlice);
   ////////////////////////////////////////
   const dispatch = useDispatch();
 
-  const { dataCards, titleName, statePreloader, stateForLookSlider } =
-    useSelector((state) => state.mainPageSlice);
+  const {
+    dataCards,
+    titleName,
+    statePreloader,
+    stateForLookSlider,
+    paginationCards,
+  } = useSelector((state) => state.mainPageSlice);
   useEffect(() => {
-    dispatch(toTakeCardInfo());
-    scrollTo(50, 50);
-    dispatch(searchData());
-  }, [stateForLookSlider]);
+    dispatch(toTakeCardInfo(paginationCards));
+    window.scrollTo(0, 0);
+  }, [paginationCards]);
   return (
     <>
       {statePreloader ? (
@@ -31,7 +36,7 @@ const MainPage = () => {
               <div className={styles.header_textMain}>
                 <h2>
                   {nameTitle === "Новостная лента" ? (
-                    <>Новостная лента</>
+                    <> Новостная лента </>
                   ) : (
                     titleName
                   )}
@@ -48,6 +53,10 @@ const MainPage = () => {
                   )}
                 </div>
                 <MenuBigDisplay />
+              </div>
+              <div className={styles.pagination}>
+                {/* <Pagination allPage={dataCards?.length} /> */}
+                <Pagination allPage={200} />
               </div>
             </div>
           </div>

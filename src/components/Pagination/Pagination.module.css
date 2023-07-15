@@ -1,5 +1,4 @@
 .pagination_parentBlock {
-  margin-top: 50px;
   width: 400px;
   height: 55px;
   margin: 0 auto;
@@ -22,10 +21,13 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 20px;
 }
 .pagination_parentBlock .pagination_parentChild > button {
-  padding: 4px 8px 0px;
+  padding: 4px 0 0 0;
 }
 .pagination_parentBlock .pagination_parentChild div {
   display: -webkit-box;
@@ -34,12 +36,19 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 10px;
 }
 .pagination_parentBlock .pagination_parentChild div > button {
   border-radius: 50%;
   padding: 5px 11px;
 }
-.pagination_parentBlock .pagination_parentChild .activeBtn {
+.pagination_parentBlock .pagination_parentChild div .active_btn {
+  width: 28px;
+  height: 28px;
   background: #8798D5;
+  color: white;
+  padding: 0;
 }

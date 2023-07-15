@@ -27,7 +27,7 @@ const DetailedPage = () => {
       .then((date) => setDate(date?.data?.content));
     dispatch(changePreloader(true));
   }, []);
-  console.log(date);
+  // console.log(date);
 
   return (
     <>

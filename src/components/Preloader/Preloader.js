@@ -8,7 +8,7 @@ const Preloader = () => {
         <div className={styles.load}></div>
         <div className={styles.load}></div>
         <div className={styles.load}></div>
-        <span>загрузка........</span>
+        <span>загрузка...</span>
       </div>
     </div>
   );

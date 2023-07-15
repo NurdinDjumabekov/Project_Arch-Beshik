@@ -7,3 +7,23 @@ div button {
   border: none;
   cursor: pointer;
 }
+
+.name_user {
+  font-family: "Unbounded";
+  font-style: normal;
+  font-weight: 300;
+  line-height: 10px;
+  color: #FFFFFF;
+  font-size: 16px;
+  padding: 10px 30px;
+  background: #4B08A1;
+  -webkit-box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  width: 130px;
+  height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
