@@ -60,6 +60,25 @@ export const toTakeDataCategory = createAsyncThunk(
     }
   }
 );
+export const searchData = createAsyncThunk(
+  "searchData",
+  async (info, { dispatch }) => {
+    dispatch(changePreloader(false));
+    dispatch(changeDataCards([]));
+    setTimeout(() => {
+      dispatch(changePreloader(true));
+    }, 1000);
+
+    // try {
+    //   const { data } = await axios.get(
+    //     `http://baielbekenov.pythonanywhere.com/api/content_list/${id}/`
+    //   );
+    //   dispatch(changeDataCards(data));
+    // } catch (error) {
+    //   console.log(error);
+    // }
+  }
+);
 const mainPageSlice = createSlice({
   name: "mainPageSlice",
   initialState,

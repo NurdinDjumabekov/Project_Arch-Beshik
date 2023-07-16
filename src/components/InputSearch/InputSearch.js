@@ -3,6 +3,11 @@ import styles from "./InputSearch.module.css";
 import x_krest from "../../assests/images/input/krestik.svg";
 import search_img from "../../assests/images/input/Search.svg";
 import { useDispatch, useSelector } from "react-redux";
+import {
+  changeStateForLookSlider,
+  searchData,
+  toTakeCardInfo,
+} from "../../store/reducers/mainPageSlice";
 
 const InputSearch = ({ setInputState }) => {
   const [input, setInput] = useState("");
@@ -32,6 +37,7 @@ const InputSearch = ({ setInputState }) => {
 
   const clearInput = () => {
     setInput("");
+    dispatch(toTakeCardInfo(1));
     setInputState(false);
   };
 
@@ -45,11 +51,14 @@ const InputSearch = ({ setInputState }) => {
   };
   const handleSearchClick = () => {
     addWidthInput();
+    dispatch(searchData());
+    dispatch(changeStateForLookSlider(false));
   };
   useEffect(() => {
-    // if (input === "") {
-    //   dispatch(infoWorkOutput(objForChangeInfo));
-    // }
+    if (input === "") {
+      dispatch(changeStateForLookSlider(true));
+      dispatch(toTakeCardInfo(1));
+    }
   }, [input]);
 
   return (
