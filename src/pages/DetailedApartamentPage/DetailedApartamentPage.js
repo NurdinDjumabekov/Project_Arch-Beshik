@@ -20,14 +20,14 @@ const DetailedApartamentPage = () => {
       .then((info) => setData(info.data));
     dispatch(changeBtnNavMiniDisplay(true));
   }, []);
-  console.log(data);
+  console.log(data, "DetailedApartamentPage");
   return (
     <>
       <div className={styles.blockParent_detaliedApartament}>
         <div className="container">
           <div className="block_animations"></div>
           <div className="block_info">
-            <div className={styles.blockParent_detaliedApartament}>
+            {/* <div className={styles.blockParent_detaliedApartament}>
               <DetailedPhotos date={data} />
               <div className={styles.content_apartament}>
                 <div className={styles.content_apartament_inner}>
@@ -63,7 +63,7 @@ const DetailedApartamentPage = () => {
                 </div>
                 <Advertising />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

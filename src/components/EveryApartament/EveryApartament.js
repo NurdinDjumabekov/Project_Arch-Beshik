@@ -19,7 +19,7 @@ const EveryApartament = ({ apartamentInfo }) => {
                     <p>3x комнатная квартира на улицу Бая</p>
                   </div>
                   <button>
-                    <NavLink to={`/housemanage/${apartamentInfo.id}/`}>
+                    <NavLink to={`/housemanage/${apartamentInfo.id}`}>
                       Узнать больше
                     </NavLink>
                   </button>

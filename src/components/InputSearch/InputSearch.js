@@ -11,9 +11,10 @@ import {
 
 const InputSearch = ({ setInputState }) => {
   const [input, setInput] = useState("");
+  const dispatch = useDispatch();
   const inputRef = useRef(null);
   const searchButtonRef = useRef(null);
-  const dispatch = useDispatch();
+  const closedRef = useRef(null);
   useEffect(() => {
     addWidthInput();
     window.addEventListener("resize", addWidthInput);
@@ -35,7 +36,7 @@ const InputSearch = ({ setInputState }) => {
     // console.log(e.target.value);
   };
 
-  const clearInput = () => {
+  const clearInputFN = () => {
     setInput("");
     dispatch(toTakeCardInfo(1));
     setInputState(false);
@@ -44,7 +45,8 @@ const InputSearch = ({ setInputState }) => {
   const handleClickOutside = (e) => {
     if (
       !inputRef.current.contains(e.target) &&
-      !searchButtonRef.current.contains(e.target)
+      !searchButtonRef.current.contains(e.target) &&
+      !closedRef.current.contains(e.target)
     ) {
       setInputState(false);
     }
@@ -78,7 +80,11 @@ const InputSearch = ({ setInputState }) => {
           onChange={changeLengthInput}
           value={input}
         />
-        <button onClick={clearInput} className={styles.clearInput}>
+        <button
+          ref={closedRef}
+          onClick={() => clearInputFN()}
+          className={styles.clearInput}
+        >
           <img src={x_krest} alt="" />
         </button>
       </div>

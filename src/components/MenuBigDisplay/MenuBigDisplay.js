@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./MenuBigDisplay.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   changeStateLogin,
   changeStateRegistration,
@@ -16,6 +16,7 @@ import {
   toTakeDataCategory,
 } from "../../store/reducers/mainPageSlice";
 const MenuBigDisplay = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(takeCategoryOutput());
@@ -26,14 +27,27 @@ const MenuBigDisplay = () => {
     stateScrollDisplayMenu,
     paginationCards,
   } = useSelector((state) => state.mainPageSlice);
-  const changeCategoryBtns = (name, id) => {
-    dispatch(changeNameTitle(name));
-    dispatch(toTakeDataCategory(id));
-    dispatch(changeStateForLookSlider(false));
-    dispatch(changeBtnNavMiniDisplay(false)); // закрывает меню(маленького экрана)
+
+  const changeCategoryBtns = (name, id, choiceData) => {
+    if (choiceData === false) {
+      navigate("/");
+      dispatch(changeNameTitle(name));
+      dispatch(toTakeDataCategory(id));
+      dispatch(changeStateForLookSlider(false));
+      dispatch(changeBtnNavMiniDisplay(false)); // закрывает меню(маленького экрана)
+    } else {
+      dispatch(changeNameTitle(name));
+      // dispatch(toTakeDataCategory(id));
+      navigate("/housemanage");
+      dispatch(changeStateForLookSlider(false));
+      dispatch(changeBtnNavMiniDisplay(false));
+    }
+    // console.log(typeof id);
+    // console.log(choiceData);
   };
   const allPosts = () => {
     dispatch(changeNameTitle("Новостная лента"));
+    navigate("/");
     dispatch(toTakeCardInfo(paginationCards));
     dispatch(changeStateForLookSlider(true)); // вид слайдера(на галвной видно, на других нет)
     dispatch(changeBtnNavMiniDisplay(false)); // закрывает меню(маленького экрана)
@@ -83,7 +97,13 @@ const MenuBigDisplay = () => {
           {infoCategory?.map((category) => (
             <li key={category.id}>
               <button
-                onClick={() => changeCategoryBtns(category?.name, category?.id)}
+                onClick={() =>
+                  changeCategoryBtns(
+                    category?.name,
+                    category?.id,
+                    category?.is_rent
+                  )
+                }
               >
                 {category.name}
               </button>

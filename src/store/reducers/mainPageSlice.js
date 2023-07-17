@@ -37,7 +37,7 @@ export const takeCategoryOutput = createAsyncThunk(
         `http://baielbekenov.pythonanywhere.com/api/category_list/`
       );
       dispatch(toTakeInfoCategory(data.results));
-      //   console.log(data.results, "category");
+      console.log(data.results, "category");
     } catch (error) {
       console.log(error);
     }
@@ -79,6 +79,7 @@ export const searchData = createAsyncThunk(
     // }
   }
 );
+
 const mainPageSlice = createSlice({
   name: "mainPageSlice",
   initialState,

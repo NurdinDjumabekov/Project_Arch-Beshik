@@ -1,38 +1,40 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./MainPage.module.css";
+import styles from "./Apartament.module.css";
 import EveryCard from "../../components/EveryCard/EveryCard";
 import MenuBigDisplay from "../../components/MenuBigDisplay/MenuBigDisplay";
 import Preloader from "../../components/Preloader/Preloader";
-import Slider from "../../components/Slider/Slider";
 import Footer from "../../components/Footer/Footer";
 import { toTakeCardInfo } from "../../store/reducers/mainPageSlice";
 import Pagination from "../../components/Pagination/Pagination";
-const MainPage = () => {
+import { toTakeDataHousemanage } from "../../store/reducers/houseManageSlice";
+import EveryApartament from "../../components/EveryApartament/EveryApartament";
+const ApartamentPage = () => {
   const { nameTitle } = useSelector((state) => state.stateForMenuSlice);
   ////////////////////////////////////////
   const dispatch = useDispatch();
 
-  const {
-    dataCards,
-    titleName,
-    statePreloader,
-    stateForLookSlider,
-    paginationCards,
-  } = useSelector((state) => state.mainPageSlice);
+  const { titleName, statePreloader } = useSelector(
+    (state) => state.mainPageSlice
+  );
+
+  const { dataAllApartaments } = useSelector((state) => state.houseManageSlice);
+
   useEffect(() => {
-    dispatch(toTakeCardInfo(paginationCards));
+    dispatch(toTakeDataHousemanage());
     window.scrollTo(0, 0);
-  }, [paginationCards]);
+  }, []);
+
+  //   console.log(dataAllApartaments);
+
   return (
     <>
       {statePreloader ? (
         <>
-          {stateForLookSlider && <Slider />}
           <div className="container">
             <div className="block_animations"></div>
             <div className="block_info">
-              <div className={styles.header_textMain}>
+              <div className={styles.header_textMain_p}>
                 <h2>
                   {nameTitle === "Новостная лента" ? (
                     <> Новостная лента </>
@@ -43,20 +45,22 @@ const MainPage = () => {
               </div>
               <div className={styles.block_for_content}>
                 <div className={styles.cards_block}>
-                  {dataCards?.length === 0 ? (
-                    <h3 className={styles.no_posts}>Постов пока что нету</h3>
+                  {dataAllApartaments?.length === 0 ? (
+                    <h3 className={styles.no_posts}>Постов пока что нету555</h3>
                   ) : (
-                    dataCards?.map((cardInfo) => (
-                      <EveryCard key={cardInfo.id} cardInfo={cardInfo} />
+                    dataAllApartaments?.map((apartamentInfo) => (
+                      <EveryApartament
+                        key={apartamentInfo.id}
+                        apartamentInfo={apartamentInfo}
+                      />
                     ))
                   )}
                 </div>
                 <MenuBigDisplay />
               </div>
-              <div className={styles.pagination}>
-                {/* <Pagination allPage={dataCards?.length} /> */}
+              {/* <div className={styles.pagination}>
                 <Pagination allPage={200} />
-              </div>
+              </div> */}
             </div>
           </div>
           <Footer />
@@ -70,4 +74,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default ApartamentPage;
