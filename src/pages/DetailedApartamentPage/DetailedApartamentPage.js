@@ -1,39 +1,40 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import styles from "./DetailedApartamentPage.module.css";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Advertising } from "../../components/Advertising/Advertising";
 import Footer from "../../components/Footer/Footer";
 import DetailedPhotos from "../../components/DetailedPhotos/DetailedPhotos";
 import { changeBtnNavMiniDisplay } from "../../store/reducers/mainPageSlice";
+import { toTakeDetailedApartament } from "../../store/reducers/houseManageSlice";
 
 const DetailedApartamentPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const [data, setData] = useState({});
+  const { dataEveryApartaments } = useSelector(
+    (state) => state.houseManageSlice
+  );
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch(changeBtnNavMiniDisplay(false));
-    axios
-      .get(`http://baielbekenov.pythonanywhere.com/api/housemanage_list/${id}/`)
-      .then((info) => setData(info.data));
-    dispatch(changeBtnNavMiniDisplay(true));
+    dispatch(toTakeDetailedApartament(id));
   }, []);
-  console.log(data, "DetailedApartamentPage");
+
+  // console.log(dataEveryApartaments, "dataEveryApartaments");
   return (
     <>
       <div className={styles.blockParent_detaliedApartament}>
         <div className="container">
           <div className="block_animations"></div>
           <div className="block_info">
-            {/* <div className={styles.blockParent_detaliedApartament}>
-              <DetailedPhotos date={data} />
+            <div className={styles.blockParent_detaliedApartament}>
+              <DetailedPhotos date={dataEveryApartaments} />
               <div className={styles.content_apartament}>
                 <div className={styles.content_apartament_inner}>
                   <div className={styles.number_phone}>
-                    <h2>{data.owner}</h2>
-                    <p>0{data.phone_number}</p>
+                    <h2>{dataEveryApartaments.owner}</h2>
+                    <p>0{dataEveryApartaments.phone_number}</p>
                   </div>
                   <ul>
                     <li>
@@ -41,29 +42,29 @@ const DetailedApartamentPage = () => {
                     </li>
                     <li>
                       <p>Колличество комнат : </p>
-                      <span>{data.amount_of_rooms}</span>
+                      <span>{dataEveryApartaments.amount_of_rooms}</span>
                     </li>
                     <li>
                       <p>Цена : </p>
-                      <span>{data.price} coм</span>
+                      <span>{dataEveryApartaments.price} coм</span>
                     </li>
                     <li>
                       <p>Ремонт : </p>
-                      <span>{data.remont}</span>
+                      <span>{dataEveryApartaments.remont}</span>
                     </li>
                     <li>
                       <p>Удобства : </p>
-                      <span>{data.udobstva} </span>
+                      <span>{dataEveryApartaments.udobstva} </span>
                     </li>
                   </ul>
                   <div className={styles.desceiption_text_apartament}>
-                    <h4>{data.title}</h4>
-                    <p>{data.description} </p>
+                    <h4>{dataEveryApartaments.title}</h4>
+                    <p>{dataEveryApartaments.description} </p>
                   </div>
                 </div>
                 <Advertising />
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

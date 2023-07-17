@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { changePreloader } from "./mainPageSlice";
+import { changeBtnNavMiniDisplay, changePreloader } from "./mainPageSlice";
 import axios from "axios";
 
 const initialState = {
   dataAllApartaments: [],
+  dataEveryApartaments: {},
 };
 
 export const toTakeDataHousemanage = createAsyncThunk(
@@ -25,6 +26,26 @@ export const toTakeDataHousemanage = createAsyncThunk(
   }
 );
 
+export const toTakeDetailedApartament = createAsyncThunk(
+  "toTakeDetailedApartament",
+  async (id, { dispatch }) => {
+    // dispatch(changeBtnNavMiniDisplay(false));
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: `http://baielbekenov.pythonanywhere.com/api/housemanage_list/${id}/`,
+      });
+      dispatch(toTakeDataEveryApartaments(data));
+      //   console.log(data);
+      //   dispatch(changeBtnNavMiniDisplay(true));
+    } catch (error) {
+      console.log(error);
+      //   dispatch(changePreloader(true));
+      //   dispatch(changeBtnNavMiniDisplay(true));
+    }
+  }
+);
+
 const houseManageSlice = createSlice({
   name: "houseManageSlice",
   initialState,
@@ -32,7 +53,11 @@ const houseManageSlice = createSlice({
     toTakeDataAllApartaments: (state, action) => {
       state.dataAllApartaments = action.payload;
     },
+    toTakeDataEveryApartaments: (state, action) => {
+      state.dataEveryApartaments = action.payload;
+    },
   },
 });
-export const { toTakeDataAllApartaments } = houseManageSlice.actions;
+export const { toTakeDataAllApartaments, toTakeDataEveryApartaments } =
+  houseManageSlice.actions;
 export default houseManageSlice.reducer;
