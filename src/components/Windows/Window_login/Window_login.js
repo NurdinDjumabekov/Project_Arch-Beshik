@@ -6,6 +6,7 @@ import {
   changeDataToken,
   changeStateLogin,
   changeStateRegistration,
+  changeForgetPassword,
 } from "../../../store/reducers/windowsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -86,7 +87,9 @@ const Window_login = ({ setStateToken }) => {
             />
             {!stateLogin && (
               <div className={styles.block_for_password}>
-                <button>Забыли пароль?</button>
+                <button onClick={() => dispatch(changeForgetPassword(true))}>
+                  Забыли пароль?
+                </button>
                 <button onClick={changeStateLoginAndRegistration}>
                   Регистрация
                 </button>

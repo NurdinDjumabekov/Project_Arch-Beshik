@@ -16,6 +16,7 @@ import {
 } from "../../store/reducers/windowsSlice";
 import Logout from "../Logout/Logout";
 import MenuBigDisplay from "../MenuBigDisplay/MenuBigDisplay";
+import Window_forgetPassword from "../Windows/Window_forgetPassword/Window_forgetPassword";
 const NavMenu = () => {
   const dispatch = useDispatch();
   const [inputState, setInputState] = useState(false);
@@ -23,9 +24,8 @@ const NavMenu = () => {
   const { btnNavMiniDisplay, stateForLookSlider } = useSelector(
     (state) => state.mainPageSlice
   );
-  const { registrationState, loginState, dataToken } = useSelector(
-    (state) => state.windowsSlice
-  );
+  const { registrationState, loginState, forgetPassword, dataToken } =
+    useSelector((state) => state.windowsSlice);
 
   ///////////////////////////////////////////
   const location = useLocation();
@@ -115,6 +115,7 @@ const NavMenu = () => {
         {btnNavMiniDisplay && <MenuBigDisplay />}
         {loginState && <Window_login />}
         {registrationState && <Window_registration />}
+        {forgetPassword && <Window_forgetPassword />}
       </div>
       <div className={styles.shadow_navMenu}></div>
     </>

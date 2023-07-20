@@ -6,6 +6,7 @@ const initialState = {
   stateGoodAuthLogin: false,
   loginState: false,
   registrationState: false,
+  forgetPassword: false,
   moreLoginInfo: true,
   dataToken: localStorage.getItem("token"),
 };
@@ -45,6 +46,9 @@ const windowsSlice = createSlice({
     changeDataToken: (state, action) => {
       state.dataToken = action.payload;
     },
+    changeForgetPassword: (state, action) => {
+      state.forgetPassword = action.payload;
+    },
   },
 });
 export const {
@@ -52,5 +56,6 @@ export const {
   changeStateLogin,
   changeStateRegistration,
   changeDataToken,
+  changeForgetPassword,
 } = windowsSlice.actions;
 export default windowsSlice.reducer;
