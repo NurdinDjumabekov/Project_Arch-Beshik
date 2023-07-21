@@ -15,6 +15,7 @@ const InputSearch = ({ setInputState }) => {
   const inputRef = useRef(null);
   const searchButtonRef = useRef(null);
   const closedRef = useRef(null);
+
   useEffect(() => {
     addWidthInput();
     window.addEventListener("resize", addWidthInput);
@@ -31,6 +32,7 @@ const InputSearch = ({ setInputState }) => {
       inputRef.current.style.width = `${inputRef.current.scrollWidth}px`;
     }
   };
+
   const changeLengthInput = (e) => {
     setInput(e.target.value);
     // console.log(e.target.value);
@@ -40,6 +42,7 @@ const InputSearch = ({ setInputState }) => {
     setInput("");
     dispatch(toTakeCardInfo(1));
     setInputState(false);
+    dispatch(changeStateForLookSlider(true));
   };
 
   const handleClickOutside = (e) => {
@@ -51,11 +54,13 @@ const InputSearch = ({ setInputState }) => {
       setInputState(false);
     }
   };
+
   const handleSearchClick = () => {
     addWidthInput();
     dispatch(searchData());
     dispatch(changeStateForLookSlider(false));
   };
+
   useEffect(() => {
     if (input === "") {
       dispatch(changeStateForLookSlider(true));

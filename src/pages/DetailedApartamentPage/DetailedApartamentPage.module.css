@@ -67,7 +67,7 @@
   }
 }
 .blockParent_detaliedApartament .content_apartament .content_apartament_inner {
-  max-width: 100%;
+  max-width: 70%;
 }
 @media screen and (max-width: 1100px) {
   .blockParent_detaliedApartament .content_apartament .content_apartament_inner {
@@ -76,7 +76,8 @@
 }
 @media screen and (max-width: 1100px) and (max-width: 950px) {
   .blockParent_detaliedApartament .content_apartament .content_apartament_inner {
-    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
   }
 }
 .blockParent_detaliedApartament .content_apartament .content_apartament_inner .number_phone {
@@ -206,8 +207,9 @@
   margin-bottom: 40px;
   font-weight: 700;
   font-size: 40px;
-  line-height: 30px;
+  line-height: 45px;
   color: #000000;
+  padding: 0 25px 0 0;
 }
 @media screen and (max-width: 1000px) {
   .blockParent_detaliedApartament .content_apartament .content_apartament_inner .desceiption_text_apartament h4 {
@@ -215,9 +217,9 @@
     margin: 0 0 10px 0;
   }
 }
-@media screen and (max-width: 1000px) and (max-width: 450px) {
+@media screen and (max-width: 1000px) and (max-width: 490px) {
   .blockParent_detaliedApartament .content_apartament .content_apartament_inner .desceiption_text_apartament h4 {
-    font-size: 20px;
+    font-size: 17px;
   }
 }
 .blockParent_detaliedApartament .content_apartament .content_apartament_inner .desceiption_text_apartament p {

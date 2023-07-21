@@ -66,7 +66,7 @@
 }
 .parentBlock_menuBig .btn_navigate {
   position: absolute;
-  bottom: 15px;
+  bottom: 10px;
   right: 20px;
 }
 .parentBlock_menuBig .btn_navigate > svg {

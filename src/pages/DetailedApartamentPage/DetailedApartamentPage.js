@@ -54,12 +54,12 @@ const DetailedApartamentPage = () => {
                     </li>
                     <li>
                       <p>Удобства : </p>
-                      <span>{dataEveryApartaments.udobstva} </span>
+                      <span>{dataEveryApartaments.udobstva}</span>
                     </li>
                   </ul>
                   <div className={styles.desceiption_text_apartament}>
                     <h4>{dataEveryApartaments.title}</h4>
-                    <p>{dataEveryApartaments.description} </p>
+                    <p>{dataEveryApartaments.description}</p>
                   </div>
                 </div>
                 <Advertising />
