@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./HistoryPage.module.css";
 import Footer from "../../components/Footer/Footer";
 import img_history from "../../assests/images/history/history_img.png";
+import { useDispatch, useSelector } from "react-redux";
+import { toTakeDataHistory } from "../../store/reducers/otherAllStateSlice";
 
 const HistoryPage = () => {
+  const dispatch = useDispatch();
+  const { dataHistory } = useSelector((state) => state.otherAllStateSlice);
+  useEffect(() => {
+    dispatch(toTakeDataHistory());
+  }, []);
+  // console.log(dataHistory);
   return (
     <>
       <div className="container">
@@ -21,6 +29,7 @@ const HistoryPage = () => {
                 жителей.
               </p>
             </li>
+            {dataHistory?.map((item) => console.log(item))}
           </ul>
         </div>
       </div>

@@ -1,44 +1,51 @@
 import React, { useEffect, useState } from "react";
 import styles from "./AddComments.module.css";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import {
+  addCommentHaveUser,
+  addCommentNotHaveUser,
+} from "../../../store/reducers/commentsSlice";
 
 const AddComments = () => {
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     email: "",
     name: "",
     comment: "",
   });
+
   const [stateToken, setStateToken] = useState("");
+
   useEffect(() => {
     setStateToken(localStorage.getItem("token"));
   }, []);
-  const addCommentHaveUser = () => {
-    try {
-      axios({
-        method: "POST",
-        url: "",
-        data: {},
-      });
-    } catch (error) {
-      console.log(error);
-    }
+
+  const addCommentHaveUserFN = (e) => {
+    e.preventDefault();
+    dispatch(
+      addCommentHaveUser({
+        comment: data.comment,
+      })
+    );
   };
-  const addCommentHaveNotUser = () => {
-    try {
-      axios({
-        method: "POST",
-        url: "",
-        data: {},
-      });
-    } catch (error) {
-      console.log(error);
-    }
+
+  const addCommentNotHaveUserFN = (e) => {
+    e.preventDefault();
+    dispatch(
+      addCommentNotHaveUser({
+        comment: data.comment,
+        name: data.name,
+        email: data.email,
+      })
+    );
   };
+
   return (
     <div className={styles.block_for_addComment}>
       <h5>Оставить комментарий</h5>
       {stateToken ? (
-        <form action="" onSubmit={addCommentHaveUser}>
+        <form action="" onSubmit={addCommentHaveUserFN}>
           <textarea
             placeholder="Ваш кометарий"
             onChange={(e) =>
@@ -52,7 +59,7 @@ const AddComments = () => {
           <button type="submit">Оставить комментарий</button>
         </form>
       ) : (
-        <form action="" onSubmit={addCommentHaveNotUser}>
+        <form action="" onSubmit={addCommentNotHaveUserFN}>
           <input
             placeholder="Ваш Email"
             onChange={(e) =>

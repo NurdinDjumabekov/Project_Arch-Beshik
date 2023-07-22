@@ -5,7 +5,7 @@ import sliderImg_2 from "../../assests/images/slider/for_slider_2.png";
 import sliderImg_3 from "../../assests/images/slider/for_slider_3.png";
 import sliderImg_4 from "../../assests/images/slider/for_slider_4.png";
 import sliderImg_5 from "../../assests/images/slider/for_slider_5.png";
-import home_kyrgyz from "../../assests/images/slider/home_kyrgyz.jpg";
+import roads from "../../assests/images/slider/roads.jpg";
 import tazalyk from "../../assests/images/slider/tazalyk.jpg";
 import { NavLink } from "react-router-dom";
 const Slider = () => {
@@ -36,8 +36,8 @@ const Slider = () => {
           <div className={styles.block_for_contentImg}>
             <NavLink to={"/history"}>
               <div className={styles.block_for_history}>
-                <img src={home_kyrgyz} alt="" />
-                <h3>Тарых</h3>
+                <img src={roads} alt="roads" />
+                <h3>Дороги</h3>
               </div>
             </NavLink>
             <NavLink>

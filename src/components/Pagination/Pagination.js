@@ -23,6 +23,7 @@ const Pagination = ({ allPage }) => {
       return;
     }
   };
+  
   const decrement = () => {
     if (paginationCards > 1) {
       dispatch(changePaginationCards(paginationCards - 1));
