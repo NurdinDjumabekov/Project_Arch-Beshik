@@ -4,47 +4,39 @@ import cross_btn from "../../../assests/images/Windows/cross_img.svg";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import {
+  changeErrorState,
+  changeRightState,
   changeStateLogin,
   changeStateRegistration,
+  sendRegistrationData,
 } from "../../../store/reducers/windowsSlice";
 
 const Window_registration = () => {
-  const [errorState, setErrorState] = useState(false);
-  const [rightState, setRightState] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [surName, setSurName] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const { errorState, rightState } = useSelector((state) => state.windowsSlice);
+  // const [userName, setUserName] = useState("");
+  // const [surName, setSurName] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  const [data, setData] = useState({
+    userName: "",
+    surName: "",
+    name: "",
+    email: "",
+    password: "",
+  });
   const sendToRequestRegistration = (e) => {
     e.preventDefault();
-    try {
-      const responce = axios({
-        method: "POST",
-        url: `http://baielbekenov.pythonanywhere.com/api/register/`,
-        data: {
-          username: userName,
-          first_name: name,
-          last_name: surName,
-          email: email,
-          password: password,
-        },
-      });
-      console.log(responce.data);
-      localStorage.setItem("token", responce.data.token);
-      setRightState(true);
-      setTimeout(() => {
-        dispatch(changeStateRegistration(false));
-        setRightState(false);
-      }, 1500);
-    } catch {
-      console.log("Вы не смогли пройти регистрацию!");
-      setErrorState(true);
-      setTimeout(() => {
-        setErrorState(false);
-      }, 2000);
-    }
+    dispatch(
+      sendRegistrationData({
+        userName: data.userName,
+        surName: data.surName,
+        name: data.name,
+        email: data.email,
+        password: data.password,
+      })
+    );
   };
   const changeStateRegistrationAndLogin = () => {
     dispatch(changeStateLogin(true));
@@ -74,24 +66,50 @@ const Window_registration = () => {
             {errorState && <p>Ошибка</p>}
             <input
               placeholder="user name"
-              onChange={(e) => setUserName(e.target.value)}
+              // onChange={(e) => setUserName(e.target.value)}
+              onChange={(e) =>
+                setData((info) => ({
+                  ...info,
+                  userName: e.target.value,
+                }))
+              }
             />
             <input
               placeholder="Ваше фамилие"
-              onChange={(e) => setSurName(e.target.value)}
+              onChange={(e) =>
+                setData((info) => ({
+                  ...info,
+                  surName: e.target.value,
+                }))
+              }
             />
             <input
               placeholder="Ваше имя"
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) =>
+                setData((info) => ({
+                  ...info,
+                  name: e.target.value,
+                }))
+              }
             />
             <input
               placeholder="Ваш Email"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) =>
+                setData((info) => ({
+                  ...info,
+                  email: e.target.value,
+                }))
+              }
             />
             <input
               type="password"
               placeholder="Ваш пароль"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) =>
+                setData((info) => ({
+                  ...info,
+                  password: e.target.value,
+                }))
+              }
             />
             <div className={styles.block_for_password}>
               <span>Есть аккаун?</span>

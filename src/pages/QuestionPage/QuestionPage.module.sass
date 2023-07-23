@@ -1,13 +1,18 @@
 .complaint_parentBlock
     height: 100vh
     padding: 100px 0 0 0 
+    @media screen and ( max-width: 900px )
+        padding: 30px 0 0 0
+        
     h1
         padding: 50px 0 0 0
         position: relative
         text-align: center
-
-        @media screen and ( max-width: 700px )
-            padding: 10px 0 0 0 
+        // background: red
+        @media screen and ( max-width: 800px )
+            font-size: 25px
+            @media screen and ( max-width: 700px )
+                padding: 20px 0 0 0 
         button
             position: absolute
             top: 0
@@ -34,8 +39,8 @@
         margin: 0 auto
         @media screen and ( max-width: 1265px )
             justify-content: center
-            @media screen and ( max-width: 700px )
-                padding: 20px 0 0 0 
+            @media screen and ( max-width: 800px )
+                padding: 40px 0 0 0 
             
         .everyComplaint
             width: 320px

@@ -7,8 +7,11 @@ const initialState = {
   loginState: false,
   registrationState: false,
   forgetPassword: false,
-  moreLoginInfo: true,
+  // moreLoginInfo: true,
   dataToken: localStorage.getItem("token"),
+  ///// Window_registration
+  errorState: false,
+  rightState: false,
 };
 
 export const searchData = createAsyncThunk(
@@ -29,6 +32,38 @@ export const searchData = createAsyncThunk(
   }
 );
 
+export const sendRegistrationData = createAsyncThunk(
+  "sendRegistrationData",
+  async (data, { dispatch }) => {
+    try {
+      const responce = axios({
+        method: "POST",
+        url: `http://baielbekenov.pythonanywhere.com/api/register/`,
+        data: {
+          username: data.userName,
+          first_name: data.name,
+          last_name: data.surName,
+          email: data.email,
+          password: data.password,
+        },
+      });
+      console.log(responce.data);
+      localStorage.setItem("token", responce.data.token);
+      dispatch(changeRightState(true));
+      setTimeout(() => {
+        dispatch(changeStateRegistration(false));
+        dispatch(changeRightState(false));
+      }, 1500);
+    } catch {
+      console.log("Вы не смогли пройти регистрацию!");
+      dispatch(changeErrorState(true));
+      setTimeout(() => {
+        dispatch(changeErrorState(false));
+      }, 2000);
+    }
+  }
+);
+
 const windowsSlice = createSlice({
   name: "windowsSlice",
   initialState,
@@ -42,12 +77,18 @@ const windowsSlice = createSlice({
     changeStateRegistration: (state, action) => {
       state.registrationState = action.payload;
     },
-    changeMoreLoginInfo: () => {},
+    // changeMoreLoginInfo: () => {},
     changeDataToken: (state, action) => {
       state.dataToken = action.payload;
     },
     changeForgetPassword: (state, action) => {
       state.forgetPassword = action.payload;
+    },
+    changeErrorState: (state, action) => {
+      state.errorState = action.payload;
+    },
+    changeRightState: (state, action) => {
+      state.rightState = action.payload;
     },
   },
 });
@@ -57,5 +98,7 @@ export const {
   changeStateRegistration,
   changeDataToken,
   changeForgetPassword,
+  changeErrorState,
+  changeRightState,
 } = windowsSlice.actions;
 export default windowsSlice.reducer;

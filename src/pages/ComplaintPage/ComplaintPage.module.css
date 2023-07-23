@@ -2,6 +2,11 @@
   height: 100vh;
   padding: 100px 0 0 0;
 }
+@media screen and (max-width: 750px) {
+  .complaint_parentBlock {
+    padding: 40px 0 0 0;
+  }
+}
 .complaint_parentBlock h1 {
   padding: 50px 0 0 0;
   position: relative;
@@ -9,7 +14,8 @@
 }
 @media screen and (max-width: 700px) {
   .complaint_parentBlock h1 {
-    padding: 10px 0 0 0;
+    padding: 20px 0 0 0;
+    font-size: 25px;
   }
 }
 .complaint_parentBlock h1 button {
