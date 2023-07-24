@@ -23,7 +23,7 @@ const Pagination = ({ allPage }) => {
       return;
     }
   };
-  
+
   const decrement = () => {
     if (paginationCards > 1) {
       dispatch(changePaginationCards(paginationCards - 1));
@@ -51,7 +51,7 @@ const Pagination = ({ allPage }) => {
           ))}
         </div>
         <button onClick={increment}>
-          <img src={btnRight} alt="" />
+          <img src={btnRight} alt="btnRight" />
         </button>
       </div>
     </div>

@@ -41,7 +41,7 @@ const DetailedPage = () => {
                 <div className={styles.block_delailedInfo_and_advertising}>
                   <div className={styles.advertising_mobile}>
                     <Advertising />
-                  </div>  
+                  </div>
                   <div className={styles.contentBlock_detailed}>
                     <div className={styles.block_for_contentText}>
                       <h1>{date?.title}</h1>

@@ -3,6 +3,7 @@ import styles from "./EveryApartament.module.css";
 import { NavLink } from "react-router-dom";
 
 const EveryApartament = ({ apartamentInfo }) => {
+  console.log(apartamentInfo, "apartamentInfo");
   return (
     <>
       <div className={styles.everyApartament__wrapper}>
@@ -15,8 +16,8 @@ const EveryApartament = ({ apartamentInfo }) => {
                     <img src={apartamentInfo.photos} alt="фотка" />
                   </div>
                   <div className={styles.textComtent_apartement}>
-                    <h2>23000 сом</h2>
-                    <p>3x комнатная квартира на улицу Бая</p>
+                    <h2>{apartamentInfo?.price} сом</h2>
+                    <p>{apartamentInfo?.title}</p>
                   </div>
                   <button>
                     <NavLink to={`/housemanage/${apartamentInfo.id}`}>

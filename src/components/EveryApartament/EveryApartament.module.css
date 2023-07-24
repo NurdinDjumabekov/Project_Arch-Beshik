@@ -68,6 +68,10 @@
   line-height: 25px;
   color: #000000;
   margin-bottom: 6px;
+  height: 28px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .everyApartament__wrapper .blockParent_Apartament .childBlock_apartament .childBlock_apartament_texts .everyBlock_info .textComtent_apartement p {
   font-weight: 400;
@@ -75,6 +79,11 @@
   line-height: 12px;
   color: #000000;
   margin-bottom: 8px;
+  padding: 0 10px 0 0;
+  height: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .everyApartament__wrapper .blockParent_Apartament .childBlock_apartament .childBlock_apartament_texts .everyBlock_info > button {
   font-family: "Unbounded";
