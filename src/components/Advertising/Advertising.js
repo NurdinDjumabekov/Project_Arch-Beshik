@@ -28,9 +28,6 @@ export const Advertising = () => {
   // ];
   const [closeModal, setCloseModal] = useState(false);
 
-  const [info, setInfo] = useState([]);
-  //// запрос на рекламу
-
   const { dataAdvertising } = useSelector((state) => state.otherAllStateSlice);
   // console.log(dataAdvertising);
 

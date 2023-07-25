@@ -10,8 +10,6 @@ import Pagination from "../../components/Pagination/Pagination";
 import { toTakeDataHousemanage } from "../../store/reducers/houseManageSlice";
 import EveryApartament from "../../components/EveryApartament/EveryApartament";
 const ApartamentPage = () => {
-  const { nameTitle } = useSelector((state) => state.stateForMenuSlice);
-  ////////////////////////////////////////
   const dispatch = useDispatch();
 
   const { titleName, statePreloader } = useSelector(
@@ -36,7 +34,7 @@ const ApartamentPage = () => {
             <div className="block_info">
               <div className={styles.header_textMain_p}>
                 <h2>
-                  {nameTitle === "Новостная лента" ? (
+                  {titleName === "Новостная лента" ? (
                     <> Новостная лента </>
                   ) : (
                     titleName

@@ -9,8 +9,6 @@ import Footer from "../../components/Footer/Footer";
 import { toTakeCardInfo } from "../../store/reducers/mainPageSlice";
 import Pagination from "../../components/Pagination/Pagination";
 const MainPage = () => {
-  const { nameTitle } = useSelector((state) => state.stateForMenuSlice);
-  ////////////////////////////////////////
   const dispatch = useDispatch();
 
   const {
@@ -34,7 +32,7 @@ const MainPage = () => {
             <div className="block_info">
               <div className={styles.header_textMain}>
                 <h2>
-                  {nameTitle === "Новостная лента" ? (
+                  {titleName === "Новостная лента" ? (
                     <> Новостная лента </>
                   ) : (
                     titleName

@@ -50,6 +50,7 @@ const otherAllStateSlice = createSlice({
     },
   },
 });
+
 export const { changeDataHistory, changeDataAdvertising } =
   otherAllStateSlice.actions;
 export default otherAllStateSlice.reducer;

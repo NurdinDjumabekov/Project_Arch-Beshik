@@ -6,6 +6,7 @@
 @media screen and (max-width: 1400px) {
   .blockParent_detaliedApartament {
     max-width: 100%;
+    padding: 20px 0 0 0;
   }
 }
 .blockParent_detaliedApartament .block_forImgs {
@@ -49,9 +50,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   padding-bottom: 50px;
   gap: 30px;
   margin: 50px auto 0px;

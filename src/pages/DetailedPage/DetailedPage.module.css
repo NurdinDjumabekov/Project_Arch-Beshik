@@ -3,6 +3,11 @@
   margin-top: 60px;
   width: 100%;
 }
+@media screen and (max-width: 600px) {
+  .blockParent_for_detalied {
+    margin: 20px 0 0 0;
+  }
+}
 .blockParent_for_detalied .parent_blockDetail {
   padding: 30px 100px 50px;
   border-radius: 15px;

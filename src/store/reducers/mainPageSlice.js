@@ -9,6 +9,7 @@ const initialState = {
   btnNavMiniDisplay: false,
   stateForLookSlider: true, // для того, чтобы при выборе категории постоянно не отображался слайдер!
   stateScrollDisplayMenu: 1,
+  // nameTitle: -1,
   paginationCards: 1,
 };
 export const toTakeCardInfo = createAsyncThunk(
@@ -109,6 +110,9 @@ const mainPageSlice = createSlice({
       state.paginationCards = action.payload;
       // console.log(state.paginationCards);
     },
+    // changeNameTitle: (state, action) => {
+    //   state.nameTitle = action.payload;
+    // },
   },
 });
 export const {
