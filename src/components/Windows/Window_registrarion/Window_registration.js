@@ -66,7 +66,6 @@ const Window_registration = () => {
             {errorState && <p>Ошибка</p>}
             <input
               placeholder="user name"
-              // onChange={(e) => setUserName(e.target.value)}
               onChange={(e) =>
                 setData((info) => ({
                   ...info,

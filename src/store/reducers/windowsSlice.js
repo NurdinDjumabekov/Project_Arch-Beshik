@@ -20,7 +20,7 @@ export const searchData = createAsyncThunk(
     dispatch(changePreloader(false));
     try {
       const { data } = await axios.get(
-        `http://baielbekenov.pythonanywhere.com/api/search_content?title=газ`
+        `http://127.0.0.1:8000/api/search_content?title=газ`
       );
       // console.log(data, "data");
       dispatch(changeDataCards(data));
@@ -38,7 +38,7 @@ export const sendRegistrationData = createAsyncThunk(
     try {
       const responce = axios({
         method: "POST",
-        url: `http://baielbekenov.pythonanywhere.com/api/register/`,
+        url: `http://127.0.0.1:8000/api/register/`,
         data: {
           username: data.userName,
           first_name: data.name,
@@ -47,7 +47,7 @@ export const sendRegistrationData = createAsyncThunk(
           password: data.password,
         },
       });
-      console.log(responce.data);
+      // console.log(responce.data);
       localStorage.setItem("token", responce.data.token);
       dispatch(changeRightState(true));
       setTimeout(() => {

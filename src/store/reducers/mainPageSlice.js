@@ -9,7 +9,6 @@ const initialState = {
   btnNavMiniDisplay: false,
   stateForLookSlider: true, // для того, чтобы при выборе категории постоянно не отображался слайдер!
   stateScrollDisplayMenu: 1,
-  // nameTitle: -1,
   paginationCards: 1,
 };
 export const toTakeCardInfo = createAsyncThunk(
@@ -19,7 +18,7 @@ export const toTakeCardInfo = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://baielbekenov.pythonanywhere.com/api/content_list/?page_size=${page}`,
+        url: `http://127.0.0.1:8000/api/content_list/?page_size=${page}`,
       });
       dispatch(changeDataCards(data?.results));
       // console.log(data.results);
@@ -30,30 +29,32 @@ export const toTakeCardInfo = createAsyncThunk(
     }
   }
 );
+
 export const takeCategoryOutput = createAsyncThunk(
   "infoWorkOutput",
   async (info, { dispatch }) => {
     try {
       const { data } = await axios.get(
-        `http://baielbekenov.pythonanywhere.com/api/category_list/`
+        `http://127.0.0.1:8000/api/category_list/`
       );
       dispatch(toTakeInfoCategory(data.results));
-      console.log(data.results, "category");
+      // console.log(data.results, "category");
     } catch (error) {
       console.log(error);
     }
   }
 );
+
 export const toTakeDataCategory = createAsyncThunk(
   "toTakeDataCategory",
   async (id, { dispatch }) => {
     dispatch(changePreloader(false));
     try {
       const { data } = await axios.get(
-        `http://baielbekenov.pythonanywhere.com/api/content_list/${id}/`
+        `http://127.0.0.1:8000/api/content_list/${id}/`
       );
       dispatch(changeDataCards(data));
-      // console.log(data, "category");
+      console.log(data, "category");
       dispatch(changePreloader(true));
     } catch (error) {
       console.log(error);
@@ -61,6 +62,7 @@ export const toTakeDataCategory = createAsyncThunk(
     }
   }
 );
+
 export const searchData = createAsyncThunk(
   "searchData",
   async (info, { dispatch }) => {
@@ -72,7 +74,7 @@ export const searchData = createAsyncThunk(
 
     // try {
     //   const { data } = await axios.get(
-    //     `http://baielbekenov.pythonanywhere.com/api/content_list/${id}/`
+    //     `http://127.0.0.1:8000/api/content_list/${id}/`
     //   );
     //   dispatch(changeDataCards(data));
     // } catch (error) {
@@ -96,6 +98,7 @@ const mainPageSlice = createSlice({
     },
     changeNameTitle: (state, action) => {
       state.titleName = action.payload;
+      // console.log(state.titleName);
     },
     changeBtnNavMiniDisplay: (state, action) => {
       state.btnNavMiniDisplay = action.payload;
@@ -110,9 +113,6 @@ const mainPageSlice = createSlice({
       state.paginationCards = action.payload;
       // console.log(state.paginationCards);
     },
-    // changeNameTitle: (state, action) => {
-    //   state.nameTitle = action.payload;
-    // },
   },
 });
 export const {

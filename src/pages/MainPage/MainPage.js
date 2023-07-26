@@ -53,7 +53,7 @@ const MainPage = () => {
               </div>
               <div className={styles.pagination}>
                 {/* <Pagination allPage={dataCards?.length} /> */}
-                <Pagination allPage={200} />
+                <Pagination allPage={3} />
               </div>
             </div>
           </div>

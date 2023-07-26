@@ -8,7 +8,14 @@ import sliderImg_5 from "../../assests/images/slider/for_slider_5.png";
 import roads from "../../assests/images/slider/roads.jpg";
 import tazalyk from "../../assests/images/slider/tazalyk.jpg";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {
+  changeNameTitle,
+  changeStateForLookSlider,
+  toTakeDataCategory,
+} from "../../store/reducers/mainPageSlice";
 const Slider = () => {
+  const dispatch = useDispatch();
   const [count, setCount] = useState(0);
   const imgArr = [
     sliderImg_1,
@@ -25,6 +32,13 @@ const Slider = () => {
     return () => clearInterval(interval);
   }, [count]);
   // console.log(count);
+
+  const withDrawCards = (title, id) => {
+    dispatch(changeStateForLookSlider(false));
+    dispatch(changeNameTitle(title));
+    dispatch(toTakeDataCategory(id));
+  };
+
   return (
     <div className={styles.slider_parentBlock}>
       <div className="container">
@@ -34,15 +48,15 @@ const Slider = () => {
             <h2>Арча Бешик</h2>
           </div>
           <div className={styles.block_for_contentImg}>
-            <NavLink to={"/history"}>
+            <NavLink onClick={() => withDrawCards("Дороги", 3)}>
               <div className={styles.block_for_history}>
                 <img src={roads} alt="roads" />
                 <h3>Дороги</h3>
               </div>
             </NavLink>
-            <NavLink>
+            <NavLink onClick={() => withDrawCards("Тазалык", 4)}>
               <div className={styles.block_for_clear}>
-                <img src={tazalyk} alt="" />
+                <img src={tazalyk} alt="tazalyk" />
                 <h4>Тазалык</h4>
               </div>
             </NavLink>

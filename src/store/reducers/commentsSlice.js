@@ -13,7 +13,7 @@ export const addCommentHaveUser = createAsyncThunk(
     try {
       await axios({
         method: "POST",
-        url: `http://baielbekenov.pythonanywhere.com/api.....`,
+        url: `http://127.0.0.1:8000/api.....`,
         data: {},
       });
       //   console.log(data);
@@ -32,7 +32,7 @@ export const addCommentNotHaveUser = createAsyncThunk(
     try {
       await axios({
         method: "POST",
-        url: `http://baielbekenov.pythonanywhere.com/api.....`,
+        url: `http://127.0.0.1:8000/api.....`,
         data: {},
       });
       //   console.log(data);

@@ -11,7 +11,7 @@ const Logout = () => {
   const logoutFn = () => {
     // await axios({
     //   method: "POST",
-    //   url: `http://baielbekenov.pythonanywhere.com/api/logout/`,
+    //   url: `http://127.0.0.1:8000/api/logout/`,
     //   headers: {
     //     Authorization: `Token ${localStorage.getItem("token")}`,
     //   },

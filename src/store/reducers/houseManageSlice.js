@@ -14,7 +14,7 @@ export const toTakeDataHousemanage = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://baielbekenov.pythonanywhere.com/api/content_list/housemanage/`,
+        url: `http://127.0.0.1:8000/api/content_list/housemanage/`,
       });
       dispatch(toTakeDataAllApartaments(data.results));
       //   console.log(data.results, "category");
@@ -33,7 +33,7 @@ export const toTakeDetailedApartament = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://baielbekenov.pythonanywhere.com/api/housemanage_list/${id}/`,
+        url: `http://127.0.0.1:8000/api/housemanage_list/${id}/`,
       });
       dispatch(toTakeDataEveryApartaments(data));
       //   console.log(data);
