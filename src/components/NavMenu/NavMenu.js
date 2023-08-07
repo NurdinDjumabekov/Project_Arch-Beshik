@@ -30,13 +30,6 @@ const NavMenu = () => {
   ///////////////////////////////////////////
   const location = useLocation();
   const [lookSearch, setLookSearch] = useState(true);
-  useEffect(() => {
-    if (location.pathname === "/") {
-      setLookSearch(true);
-    } else {
-      setLookSearch(false);
-    }
-  }, [location.pathname]);
   return (
     <>
       <div className={styles.nav_blockParent}>
@@ -65,9 +58,7 @@ const NavMenu = () => {
               </div>
             </NavLink>
             <h2>Арча Бешик</h2>
-            {lookSearch && inputState && (
-              <InputSearch setInputState={setInputState} />
-            )}
+            {inputState && <InputSearch setInputState={setInputState} />}
             <div className={styles.block_for_navBtns}>
               {lookSearch && (
                 <button

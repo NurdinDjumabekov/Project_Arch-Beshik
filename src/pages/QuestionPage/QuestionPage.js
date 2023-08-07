@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styles from "./QuestionPage.module.css";
 import Footer from "../../components/Footer/Footer";
 import WindowsQuestion from "../../components/Windows/WindowsQuestion/WindowsQuestion";
+import arrow from "../../assests/images/Detalied/arrow.svg";
+import { NavLink } from "react-router-dom";
 
 const QuestionPage = () => {
   const [addInfo, setAddInfo] = useState(false);
@@ -14,6 +16,9 @@ const QuestionPage = () => {
         <div className="block_animations"></div>
         <h1>
           Вопросы
+          <NavLink to={"/"}>
+            <img src={arrow} alt="<" /> назад
+          </NavLink>
           <button onClick={() => setAddInfo(true)}>
             Хотите задать вопрос?
           </button>

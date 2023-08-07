@@ -1,3 +1,19 @@
+.toBack {
+  display: block;
+  width: 96%;
+  margin: 0 auto;
+  padding: 0px 0 30px;
+}
+.toBack a {
+  border: 1px solid black;
+  padding: 8px 40px 8px 25px;
+  border-radius: 8px;
+  background: rgba(244, 242, 242, 0.748);
+}
+.toBack a img {
+  margin-bottom: -2px;
+}
+
 .block_for_imgsDetailed {
   max-width: 100%;
   margin: 0 auto;
@@ -88,22 +104,25 @@
       flex-wrap: wrap;
   gap: 20px;
   overflow-y: scroll;
-  height: 515px;
+  height: 260px;
   min-height: 100%;
-  padding: 0 20px;
+  padding: 0px 20px;
 }
 @media screen and (max-width: 1200px) {
   .block_for_imgsDetailed .block_for_miniPhoto {
     display: none;
   }
 }
-.block_for_imgsDetailed .block_for_miniPhoto div {
+.block_for_imgsDetailed .block_for_miniPhoto li {
+  height: 120px;
+}
+.block_for_imgsDetailed .block_for_miniPhoto li button > div {
   width: 129px;
   height: 120px;
   border-radius: 15px;
   border: 1px solid black;
 }
-.block_for_imgsDetailed .block_for_miniPhoto div img {
+.block_for_imgsDetailed .block_for_miniPhoto li button > div img {
   width: 100%;
   height: 100%;
   border-radius: 15px;

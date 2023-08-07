@@ -6,30 +6,10 @@ import { toTakeAdvertising } from "../../store/reducers/otherAllStateSlice";
 
 export const Advertising = () => {
   const dispatch = useDispatch();
-  // const advertisinginfo = [
-  //   {
-  //     id: 1,
-  //     title: "тут наша реклама",
-  //     text: "Если вам нужен сайт, то звоните на этот номер Если вам нужен сайт, то звоните на этот номер Если вам нужен сайт, то звоните на этот номерЕсли вам нужен сайт, то звоните на этот номер Если вам нужен сайт, то звоните на этот номер Если вам нужен сайт, то звоните на этот номер Если вам нужен сайт, то звоните на этот номер ",
-  //     phone: "+996700754454",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "тут наша реклама",
-  //     text: "Если вам нужен сайт, то звоните на этот номер",
-  //     phone: "+996502024364",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "тут наша реклама",
-  //     text: "Если вам нужен сайт, то звоните на этот номер",
-  //     phone: "+996700750000",
-  //   },
-  // ];
+
   const [closeModal, setCloseModal] = useState(false);
 
   const { dataAdvertising } = useSelector((state) => state.otherAllStateSlice);
-  // console.log(dataAdvertising);
 
   //////////////
   useEffect(() => {
@@ -57,7 +37,7 @@ export const Advertising = () => {
             <li key={item.id}>
               <h6>{item.title}</h6>
               <p>{item.text}</p>
-              <button>{item.phone}</button>
+              <button>{item.phone_number}</button>
             </li>
           ))}
         </ul>
@@ -69,7 +49,7 @@ export const Advertising = () => {
               <li>
                 <h6>{dataAdvertising[count].title}</h6>
                 <p>{dataAdvertising[count].text}</p>
-                <button>{dataAdvertising[count].phone}</button>
+                <button>{dataAdvertising[count]?.phone_number}</button>
                 <button
                   className={styles.close}
                   onClick={() => setCloseModal(false)}

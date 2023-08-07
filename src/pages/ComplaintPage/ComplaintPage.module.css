@@ -2,21 +2,47 @@
   height: 100vh;
   padding: 100px 0 0 0;
 }
-@media screen and (max-width: 750px) {
-  .complaint_parentBlock {
-    padding: 40px 0 0 0;
-  }
-}
 .complaint_parentBlock h1 {
   padding: 50px 0 0 0;
   position: relative;
   text-align: center;
+  width: 80%;
+  margin: 0 auto;
 }
 @media screen and (max-width: 700px) {
   .complaint_parentBlock h1 {
     padding: 20px 0 0 0;
     font-size: 25px;
   }
+}
+.complaint_parentBlock h1 a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  background: rgba(244, 242, 242, 0.748);
+  padding: 8px 50px 8px 40px;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 18px;
+  font-weight: 300;
+}
+@media screen and (max-width: 750px) {
+  .complaint_parentBlock h1 a {
+    width: 80px;
+    font-size: 10px;
+    line-height: 10px;
+    text-align: center;
+    padding: 5px;
+    top: -15px;
+    right: 10px;
+  }
+}
+.complaint_parentBlock h1 a img {
+  display: inline-block;
+  margin-bottom: -2px;
+  width: 15px;
+  height: 15px;
 }
 .complaint_parentBlock h1 button {
   position: absolute;
@@ -76,12 +102,13 @@
   height: 215px;
   overflow-y: scroll;
 }
-.complaint_parentBlock .complaint_childBlock .everyComplaint h1 {
+.complaint_parentBlock .complaint_childBlock .everyComplaint > h1 {
   font-family: "Unbounded";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
+  width: 100%;
   color: #000000;
   padding: 10px 15px;
   background: white;
@@ -89,7 +116,7 @@
           box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
   border-radius: 15px 15px 0 0;
 }
-.complaint_parentBlock .complaint_childBlock .everyComplaint h1 p {
+.complaint_parentBlock .complaint_childBlock .everyComplaint > h1 p {
   height: 25px;
   line-height: 8px;
   overflow: hidden;

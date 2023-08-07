@@ -19,6 +19,7 @@ const Logout = () => {
     dispatch(changeDataToken(""));
     localStorage.clear();
     navigate("/");
+    location.reload();
   };
   return (
     <>

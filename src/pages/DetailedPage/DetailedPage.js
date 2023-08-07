@@ -13,21 +13,17 @@ import {
   changeBtnNavMiniDisplay,
   changePreloader,
 } from "../../store/reducers/mainPageSlice";
+import { toTakeDetailedInfo } from "../../store/reducers/otherAllStateSlice";
 
 const DetailedPage = () => {
-  const [data, setData] = useState({});
   const { id } = useParams();
   const dispatch = useDispatch();
   const { statePreloader } = useSelector((state) => state.mainPageSlice);
+  const { dataDetailedPage } = useSelector((state) => state.otherAllStateSlice);
   useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch(changePreloader(false));
-    axios
-      .get(`http://127.0.0.1:8000/api/content_detail/${id}/`)
-      .then((data) => setData(data?.data?.content));
-    dispatch(changePreloader(true));
+    dispatch(toTakeDetailedInfo({ id }));
   }, [statePreloader]);
-  // console.log(data);
 
   return (
     <>
@@ -37,18 +33,18 @@ const DetailedPage = () => {
             <div className="block_animations"></div>
             <div className="block_info">
               <div className={styles.parent_blockDetail}>
-                <DetailedPhotos data={data} />
+                <DetailedPhotos data={dataDetailedPage} />
                 <div className={styles.block_delailedInfo_and_advertising}>
                   <div className={styles.advertising_mobile}>
                     <Advertising />
                   </div>
                   <div className={styles.contentBlock_detailed}>
                     <div className={styles.block_for_contentText}>
-                      <h1>{data?.title}</h1>
-                      <p>{data?.content}</p>
+                      <h1>{dataDetailedPage?.title}</h1>
+                      <p>{dataDetailedPage?.content}</p>
                     </div>
-                    <AllComments data={data} />
-                    <AddComments />
+                    <AllComments data={dataDetailedPage} />
+                    <AddComments id={id} />
                   </div>
                   <div className={styles.advertising_desktop}>
                     <Advertising />

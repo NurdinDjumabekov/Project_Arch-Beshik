@@ -32,15 +32,18 @@ export const addCommentNotHaveUser = createAsyncThunk(
     try {
       await axios({
         method: "POST",
-        url: `http://127.0.0.1:8000/api.....`,
-        data: {},
+        url: `http://192.168.0.105:8000/api/comment_list/${data.id}/`,
+        data: {
+          name: data.name,
+          email: data.email,
+          comment: data.comment,
+        },
       });
-      //   console.log(data);
       dispatch(changePreloader(true));
     } catch (error) {
       console.log(error);
-      //   dispatch(changePreloader(true));
       dispatch(changePreloader(true));
+      console.log(error);
     }
   }
 );

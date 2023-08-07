@@ -109,7 +109,7 @@
                 overflow: hidden
                 text-overflow: ellipsis
                     
-            button
+            button:nth-child(3)
                 margin-top: 10px
                 padding: 6px 28px
                 background: #FFDD00
@@ -121,9 +121,11 @@
                 line-height: 19px
                 position: absolute
                 bottom: 15px
-                margin: 0 0 0 47px
-            .close
+                left: 50%
+                transform: translateX(-50%)
+            > .close
                 position: absolute
+                background: red
                 right: 0
                 top: 0
                 height: 20px

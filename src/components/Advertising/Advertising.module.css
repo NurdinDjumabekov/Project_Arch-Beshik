@@ -141,7 +141,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.advertising_mobile_version ul li button {
+.advertising_mobile_version ul li button:nth-child(3) {
   margin-top: 10px;
   padding: 6px 28px;
   background: #FFDD00;
@@ -153,10 +153,13 @@
   line-height: 19px;
   position: absolute;
   bottom: 15px;
-  margin: 0 0 0 47px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
-.advertising_mobile_version ul li .close {
+.advertising_mobile_version ul li > .close {
   position: absolute;
+  background: red;
   right: 0;
   top: 0;
   height: 20px;

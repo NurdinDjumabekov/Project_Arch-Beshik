@@ -13,7 +13,7 @@ const EveryApartament = ({ apartamentInfo }) => {
               <div className={styles.childBlock_apartament_texts}>
                 <div className={styles.everyBlock_info}>
                   <div>
-                    <img src={apartamentInfo.photos} alt="фотка" />
+                    <img src={apartamentInfo.photoss} alt="фотка" />
                   </div>
                   <div className={styles.textComtent_apartement}>
                     <h2>{apartamentInfo?.price} сом</h2>

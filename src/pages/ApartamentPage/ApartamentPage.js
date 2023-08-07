@@ -44,7 +44,7 @@ const ApartamentPage = () => {
               <div className={styles.block_for_content}>
                 <div className={styles.cards_block}>
                   {dataAllApartaments?.length === 0 ? (
-                    <h3 className={styles.no_posts}>Постов пока что нету555</h3>
+                    <h3 className={styles.no_posts}>Постов пока что нету</h3>
                   ) : (
                     dataAllApartaments?.map((apartamentInfo) => (
                       <EveryApartament

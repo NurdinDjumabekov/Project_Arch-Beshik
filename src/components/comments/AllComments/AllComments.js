@@ -3,7 +3,6 @@ import styles from "./AllComments.module.css";
 import usersComment from "../../../assests/images/Detalied/users_comment.svg";
 
 const AllComments = ({ data }) => {
-  // console.log(typeof data?.comments);
   return (
     <div className={styles.comments_parentBlock}>
       <h3>Комментарии</h3>

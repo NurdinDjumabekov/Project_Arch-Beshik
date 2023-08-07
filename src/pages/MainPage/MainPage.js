@@ -6,7 +6,10 @@ import MenuBigDisplay from "../../components/MenuBigDisplay/MenuBigDisplay";
 import Preloader from "../../components/Preloader/Preloader";
 import Slider from "../../components/Slider/Slider";
 import Footer from "../../components/Footer/Footer";
-import { toTakeCardInfo } from "../../store/reducers/mainPageSlice";
+import {
+  changeNameTitle,
+  toTakeCardInfo,
+} from "../../store/reducers/mainPageSlice";
 import Pagination from "../../components/Pagination/Pagination";
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -18,10 +21,17 @@ const MainPage = () => {
     stateForLookSlider,
     paginationCards,
   } = useSelector((state) => state.mainPageSlice);
+
   useEffect(() => {
     dispatch(toTakeCardInfo(paginationCards));
     window.scrollTo(0, 0);
   }, [paginationCards]);
+
+  // console.log(dataCards);
+  useEffect(() => {
+    dispatch(changeNameTitle("Новостная лента"));
+  }, []);
+
   return (
     <>
       {statePreloader ? (
@@ -41,10 +51,10 @@ const MainPage = () => {
               </div>
               <div className={styles.block_for_content}>
                 <div className={styles.cards_block}>
-                  {dataCards?.length === 0 ? (
+                  {dataCards?.results?.length === 0 ? (
                     <h3 className={styles.no_posts}>Постов пока что нету</h3>
                   ) : (
-                    dataCards?.map((cardInfo) => (
+                    dataCards?.results?.map((cardInfo) => (
                       <EveryCard key={cardInfo.id} cardInfo={cardInfo} />
                     ))
                   )}
@@ -52,8 +62,7 @@ const MainPage = () => {
                 <MenuBigDisplay />
               </div>
               <div className={styles.pagination}>
-                {/* <Pagination allPage={dataCards?.length} /> */}
-                <Pagination allPage={3} />
+                <Pagination allPage={Math.ceil(dataCards.count / 12)} />
               </div>
             </div>
           </div>

@@ -11,6 +11,7 @@ const initialState = {
   stateScrollDisplayMenu: 1,
   paginationCards: 1,
 };
+
 export const toTakeCardInfo = createAsyncThunk(
   "toTakeCardInfo",
   async (page, { dispatch }) => {
@@ -18,10 +19,11 @@ export const toTakeCardInfo = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://127.0.0.1:8000/api/content_list/?page_size=${page}`,
+        // url: `http://192.168.0.105/api/content_list/?page_size=${page}`,
+        url: `http://192.168.0.105:8000/api/content_list/?page_size=${page}`,
       });
-      dispatch(changeDataCards(data?.results));
-      // console.log(data.results);
+      dispatch(changeDataCards(data));
+      // console.log(data);
       dispatch(changePreloader(true));
     } catch (error) {
       console.log(error);
@@ -35,7 +37,7 @@ export const takeCategoryOutput = createAsyncThunk(
   async (info, { dispatch }) => {
     try {
       const { data } = await axios.get(
-        `http://127.0.0.1:8000/api/category_list/`
+        `http://192.168.0.105:8000/api/category_list/`
       );
       dispatch(toTakeInfoCategory(data.results));
       // console.log(data.results, "category");
@@ -51,7 +53,7 @@ export const toTakeDataCategory = createAsyncThunk(
     dispatch(changePreloader(false));
     try {
       const { data } = await axios.get(
-        `http://127.0.0.1:8000/api/content_list/${id}/`
+        `http://192.168.0.105:8000/api/content_list/${id}/`
       );
       dispatch(changeDataCards(data));
       console.log(data, "category");
@@ -98,7 +100,6 @@ const mainPageSlice = createSlice({
     },
     changeNameTitle: (state, action) => {
       state.titleName = action.payload;
-      // console.log(state.titleName);
     },
     changeBtnNavMiniDisplay: (state, action) => {
       state.btnNavMiniDisplay = action.payload;
@@ -111,7 +112,6 @@ const mainPageSlice = createSlice({
     },
     changePaginationCards: (state, action) => {
       state.paginationCards = action.payload;
-      // console.log(state.paginationCards);
     },
   },
 });

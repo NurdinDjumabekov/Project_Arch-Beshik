@@ -14,11 +14,6 @@ import {
 const Window_registration = () => {
   const dispatch = useDispatch();
   const { errorState, rightState } = useSelector((state) => state.windowsSlice);
-  // const [userName, setUserName] = useState("");
-  // const [surName, setSurName] = useState("");
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
   const [data, setData] = useState({
     userName: "",
     surName: "",

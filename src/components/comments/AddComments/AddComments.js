@@ -6,8 +6,9 @@ import {
   addCommentHaveUser,
   addCommentNotHaveUser,
 } from "../../../store/reducers/commentsSlice";
+import { toTakeDetailedInfo } from "../../../store/reducers/otherAllStateSlice";
 
-const AddComments = () => {
+const AddComments = ({ id }) => {
   const dispatch = useDispatch();
   const [data, setData] = useState({
     email: "",
@@ -28,6 +29,7 @@ const AddComments = () => {
         comment: data.comment,
       })
     );
+    dispatch(toTakeDetailedInfo({ id }));
   };
 
   const addCommentNotHaveUserFN = (e) => {
@@ -37,6 +39,7 @@ const AddComments = () => {
         comment: data.comment,
         name: data.name,
         email: data.email,
+        id: id,
       })
     );
   };

@@ -8,6 +8,11 @@ import {
   searchData,
   toTakeCardInfo,
 } from "../../store/reducers/mainPageSlice";
+import {
+  changeLookDataSearch,
+  toTakeAllData,
+} from "../../store/reducers/otherAllStateSlice";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const InputSearch = ({ setInputState }) => {
   const [input, setInput] = useState("");
@@ -15,6 +20,13 @@ const InputSearch = ({ setInputState }) => {
   const inputRef = useRef(null);
   const searchButtonRef = useRef(null);
   const closedRef = useRef(null);
+  const choiceRef = useRef(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const { dataForComparison, lookDataSearch } = useSelector(
+    (state) => state.otherAllStateSlice
+  );
 
   useEffect(() => {
     addWidthInput();
@@ -28,14 +40,13 @@ const InputSearch = ({ setInputState }) => {
 
   const addWidthInput = () => {
     if (inputRef.current) {
-      inputRef.current.style.width = "200px";
+      inputRef.current.style.width = "250px";
       inputRef.current.style.width = `${inputRef.current.scrollWidth}px`;
     }
   };
 
   const changeLengthInput = (e) => {
     setInput(e.target.value);
-    // console.log(e.target.value);
   };
 
   const clearInputFN = () => {
@@ -65,17 +76,33 @@ const InputSearch = ({ setInputState }) => {
     if (input === "") {
       dispatch(changeStateForLookSlider(true));
       dispatch(toTakeCardInfo(1));
+      dispatch(changeLookDataSearch(false));
+    } else {
+      dispatch(changeLookDataSearch(true));
     }
   }, [input]);
 
+  useEffect(() => {
+    dispatch(toTakeAllData());
+  }, []);
+
+  const clickSearchData = (id) => {
+    dispatch(changeLookDataSearch(false));
+    if (location.pathname.includes("content_detail")) {
+      navigate(`/`);
+      setTimeout(() => {
+        navigate(`/content_detail/${id}`);
+      }, 100);
+    } else {
+      navigate(`/content_detail/${id}`);
+    }
+    setInput("");
+  };
+
   return (
     <div className={styles.parent_searchBlock}>
-      <div>
-        <button
-          ref={searchButtonRef}
-          onClick={handleSearchClick}
-          className={styles.searchIconBtn}
-        >
+      <div ref={searchButtonRef}>
+        <button onClick={handleSearchClick} className={styles.searchIconBtn}>
           <img src={search_img} alt="" />
         </button>
         <input
@@ -92,6 +119,25 @@ const InputSearch = ({ setInputState }) => {
         >
           <img src={x_krest} alt="" />
         </button>
+        {lookDataSearch && (
+          <label className={styles.selectSearch}>
+            {dataForComparison?.map((item) =>
+              item.title
+                .toLocaleLowerCase()
+                .includes(input.toLocaleLowerCase()) ? (
+                <p key={item.id} onClick={() => clickSearchData(item.id)}>
+                  {item.title}
+                </p>
+              ) : null
+            )}
+            {dataForComparison?.every(
+              (item) =>
+                !item.title
+                  .toLocaleLowerCase()
+                  .includes(input.toLocaleLowerCase())
+            ) && <p>нет результатов</p>}
+          </label>
+        )}
       </div>
     </div>
   );
