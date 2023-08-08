@@ -127,3 +127,8 @@
   padding: 40px 0;
   width: 77%;
 }
+@media screen and (max-width: 1120px) {
+  .pagination {
+    width: 100%;
+  }
+}

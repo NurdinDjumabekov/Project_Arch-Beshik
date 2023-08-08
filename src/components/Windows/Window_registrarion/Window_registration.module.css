@@ -55,6 +55,12 @@
   right: 0;
   left: 0;
   margin: auto;
+  color: #fff;
+}
+@media screen and (max-width: 500px) {
+  .block_auth {
+    width: 340px;
+  }
 }
 .block_auth h5 {
   width: 70%;

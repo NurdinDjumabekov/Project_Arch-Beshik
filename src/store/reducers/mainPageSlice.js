@@ -10,6 +10,7 @@ const initialState = {
   stateForLookSlider: true, // для того, чтобы при выборе категории постоянно не отображался слайдер!
   stateScrollDisplayMenu: 1,
   paginationCards: 1,
+  allPage: 1,
 };
 
 export const toTakeCardInfo = createAsyncThunk(
@@ -19,10 +20,10 @@ export const toTakeCardInfo = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        // url: `http://192.168.0.105/api/content_list/?page_size=${page}`,
         url: `http://192.168.0.105:8000/api/content_list/?page_size=${page}`,
       });
-      dispatch(changeDataCards(data));
+      dispatch(changeDataCards(data.results));
+      dispatch(changeAllPage(data.count));
       // console.log(data);
       dispatch(changePreloader(true));
     } catch (error) {
@@ -55,8 +56,9 @@ export const toTakeDataCategory = createAsyncThunk(
       const { data } = await axios.get(
         `http://192.168.0.105:8000/api/content_list/${id}/`
       );
-      dispatch(changeDataCards(data));
-      console.log(data, "category");
+      dispatch(changeDataCards(data.results));
+      dispatch(changeAllPage(data.count));
+      // console.log(data, "category");
       dispatch(changePreloader(true));
     } catch (error) {
       console.log(error);
@@ -113,6 +115,9 @@ const mainPageSlice = createSlice({
     changePaginationCards: (state, action) => {
       state.paginationCards = action.payload;
     },
+    changeAllPage: (state, action) => {
+      state.allPage = action.payload;
+    },
   },
 });
 export const {
@@ -124,5 +129,6 @@ export const {
   changeStateForLookSlider,
   changeStateScrollDisplayMenu,
   changePaginationCards,
+  changeAllPage,
 } = mainPageSlice.actions;
 export default mainPageSlice.reducer;

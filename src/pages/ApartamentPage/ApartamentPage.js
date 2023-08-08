@@ -12,7 +12,7 @@ import EveryApartament from "../../components/EveryApartament/EveryApartament";
 const ApartamentPage = () => {
   const dispatch = useDispatch();
 
-  const { titleName, statePreloader } = useSelector(
+  const { titleName, statePreloader, allPage } = useSelector(
     (state) => state.mainPageSlice
   );
 
@@ -46,9 +46,9 @@ const ApartamentPage = () => {
                   {dataAllApartaments?.length === 0 ? (
                     <h3 className={styles.no_posts}>Постов пока что нету</h3>
                   ) : (
-                    dataAllApartaments?.map((apartamentInfo) => (
+                    dataAllApartaments?.map((apartamentInfo, index) => (
                       <EveryApartament
-                        key={apartamentInfo.id}
+                        key={`apartament-${apartamentInfo.id}-${index}`}
                         apartamentInfo={apartamentInfo}
                       />
                     ))
@@ -56,9 +56,9 @@ const ApartamentPage = () => {
                 </div>
                 <MenuBigDisplay />
               </div>
-              {/* <div className={styles.pagination}>
-                <Pagination allPage={200} />
-              </div> */}
+              <div className={styles.pagination}>
+                <Pagination allPage={Math.ceil(allPage / 12)} />
+              </div>
             </div>
           </div>
           <Footer />

@@ -32,6 +32,9 @@ const Window_registration = () => {
         password: data.password,
       })
     );
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
   };
   const changeStateRegistrationAndLogin = () => {
     dispatch(changeStateLogin(true));

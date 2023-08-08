@@ -83,6 +83,7 @@
   .blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_contentText > h1 {
     font-size: 18px;
     padding: 0 0 0 20px;
+    line-height: 35px;
   }
 }
 .blockParent_for_detalied .parent_blockDetail .block_delailedInfo_and_advertising .contentBlock_detailed .block_for_contentText > p {

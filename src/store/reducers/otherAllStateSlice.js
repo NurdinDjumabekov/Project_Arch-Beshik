@@ -8,6 +8,8 @@ const initialState = {
   dataDetailedPage: {},
   dataForComparison: [],
   lookDataSearch: false,
+  dataComplaint: [],
+  dataQuestion: [],
 };
 
 export const toTakeDataHistory = createAsyncThunk(
@@ -51,7 +53,7 @@ export const toTakeDetailedInfo = createAsyncThunk(
         method: "GET",
         url: `http://192.168.0.105:8000/api/content_detail/${info.id}/`,
       });
-      console.log(data.content);
+      // console.log(data.content);
       dispatch(changeDataDetailedPage(data.content));
       dispatch(changePreloader(true));
     } catch (error) {
@@ -67,13 +69,83 @@ export const toTakeAllData = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://192.168.0.105:8000/api/content_list/`,
+        url: `http://192.168.0.105:8000/api/content_search/`,
       });
-      dispatch(toTakeDataForComparison(data.results));
-      console.log(data.results, "data");
+      dispatch(toTakeDataForComparison(data));
+      // console.log(data, "data");
     } catch (error) {
       console.log(error);
       dispatch(changePreloader(true));
+    }
+  }
+);
+
+export const toTakeAllComplaintData = createAsyncThunk(
+  "toTakeAllData",
+  async (page, { dispatch }) => {
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: `http://192.168.0.105:8000/api/report_list/`,
+      });
+      dispatch(totakeDataComplaint(data.results));
+      console.log(data.results, "data");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const toSendComplaintData = createAsyncThunk(
+  "toSendComplaintData",
+  async (info, { dispatch }) => {
+    // console.log(info);
+    try {
+      await axios({
+        method: "POSt",
+        url: `http://192.168.0.105:8000/api/report_list/`,
+        data: {
+          text: info.text,
+          name: info.name,
+        },
+      });
+      // console.log(data.results, "data");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const toTakeAllQuestionsData = createAsyncThunk(
+  "toTakeAllData",
+  async (page, { dispatch }) => {
+    try {
+      const { data } = await axios({
+        method: "GET",
+        url: `http://192.168.0.105:8000/api/question_list/`,
+      });
+      dispatch(totakeDataQuestion(data.results));
+      // console.log(data.results, "data");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const toSendQuestionData = createAsyncThunk(
+  "toSendComplaintData",
+  async (info, { dispatch }) => {
+    try {
+      await axios({
+        method: "POSt",
+        url: `http://192.168.0.105:8000/api/question_list/`,
+        data: {
+          text: info.text,
+          name: info.name,
+        },
+      });
+    } catch (error) {
+      console.log(error);
     }
   }
 );
@@ -97,6 +169,12 @@ const otherAllStateSlice = createSlice({
     changeLookDataSearch: (state, action) => {
       state.lookDataSearch = action.payload;
     },
+    totakeDataComplaint: (state, action) => {
+      state.dataComplaint = action.payload;
+    },
+    totakeDataQuestion: (state, action) => {
+      state.dataQuestion = action.payload;
+    },
   },
 });
 
@@ -106,5 +184,7 @@ export const {
   changeDataDetailedPage,
   toTakeDataForComparison,
   changeLookDataSearch,
+  totakeDataComplaint,
+  totakeDataQuestion,
 } = otherAllStateSlice.actions;
 export default otherAllStateSlice.reducer;

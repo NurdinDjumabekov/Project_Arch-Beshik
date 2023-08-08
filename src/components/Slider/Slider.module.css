@@ -24,7 +24,7 @@
 }
 @media screen and (max-width: 800px) and (max-width: 600px) {
   .slider_parentBlock {
-    height: 60vh;
+    display: none;
   }
 }
 .slider_parentBlock .slider_block {

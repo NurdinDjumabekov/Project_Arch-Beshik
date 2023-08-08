@@ -65,7 +65,7 @@ const NavMenu = () => {
                   onClick={() => setInputState(true)}
                   className={inputState ? styles.none : styles.iAmHere}
                 >
-                  <img src={nav_btn_search} alt="" />
+                  <img src={nav_btn_search} alt="search" />
                   Поиск
                 </button>
               )}
@@ -106,7 +106,7 @@ const NavMenu = () => {
         {btnNavMiniDisplay && <MenuBigDisplay />}
         {loginState && <Window_login />}
         {registrationState && <Window_registration />}
-        {forgetPassword && <Window_forgetPassword />}
+        {/* {forgetPassword && <Window_forgetPassword />} */}
       </div>
       <div className={styles.shadow_navMenu}></div>
     </>

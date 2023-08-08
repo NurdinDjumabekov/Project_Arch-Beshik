@@ -4,12 +4,19 @@ import Footer from "../../components/Footer/Footer";
 import WindowsQuestion from "../../components/Windows/WindowsQuestion/WindowsQuestion";
 import arrow from "../../assests/images/Detalied/arrow.svg";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toTakeAllQuestionsData } from "../../store/reducers/otherAllStateSlice";
 
 const QuestionPage = () => {
   const [addInfo, setAddInfo] = useState(false);
+  const dispatch = useDispatch();
+  const { dataQuestion } = useSelector((state) => state.otherAllStateSlice);
+
   useEffect(() => {
     scrollTo(0, 0);
+    dispatch(toTakeAllQuestionsData());
   }, []);
+
   return (
     <div className={styles.complaint_parentBlock}>
       <div className="container">
@@ -24,33 +31,18 @@ const QuestionPage = () => {
           </button>
         </h1>
         <div className={styles.complaint_childBlock}>
-          <div className={styles.everyComplaint}>
-            <h1>
-              Вопрос от <p>sil alhlhaidh iahs</p>
-            </h1>
-            <p>
-              20 сентября 2023 года, Заметил хозяина красной бмв не
-              пропускающего бабушку по пешеходному переходу гос номер 01 013 ZAK
-            </p>
-          </div>
-          <div className={styles.everyComplaint}>
-            <h1>
-              Вопрос от <p>sil alhlhaidh iahs</p>
-            </h1>
-            <p>
-              20 сентября 2023 года, Заметил хозяина красной бмв не
-              пропускающего бабушку по пешеходному переходу гос номер 01 013 ZAK
-            </p>
-          </div>
-          <div className={styles.everyComplaint}>
-            <h1>
-              Вопрос от <p>sil alhlhaidh iahs</p>
-            </h1>
-            <p>
-              20 сентября 2023 года, Заметил хозяина красной бмв не
-              пропускающего бабушку по пешеходному переходу гос номер 01 013 ZAK
-            </p>
-          </div>
+          {dataQuestion.length === 0 ? (
+            <p>Список пустой</p>
+          ) : (
+            dataQuestion?.map((item) => (
+              <div key={item.id} className={styles.everyComplaint}>
+                <h1>
+                  Вопрос от <p>{item.name}</p>
+                </h1>
+                <p>{item.text}</p>
+              </div>
+            ))
+          )}
         </div>
       </div>
       <Footer />

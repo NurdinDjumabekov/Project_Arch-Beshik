@@ -4,6 +4,7 @@ import x_krest from "../../assests/images/input/krestik.svg";
 import search_img from "../../assests/images/input/Search.svg";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  changePaginationCards,
   changeStateForLookSlider,
   searchData,
   toTakeCardInfo,
@@ -84,6 +85,7 @@ const InputSearch = ({ setInputState }) => {
 
   useEffect(() => {
     dispatch(toTakeAllData());
+    dispatch(changePaginationCards(1));
   }, []);
 
   const clickSearchData = (id) => {

@@ -11,11 +11,14 @@ const Pagination = ({ allPage }) => {
   const [pageArr, setPageArr] = useState([]);
   const { paginationCards } = useSelector((state) => state.mainPageSlice);
   useEffect(() => {
-    for (let i = 1; i <= allPage; i++) {
-      setPageArr((prev) => prev, pageArr.push(i));
-    }
-    setPageArr(TransformationPages(pageArr, paginationCards));
+    setPageArr(
+      TransformationPages(
+        Array.from({ length: allPage }, (_, i) => i + 1),
+        paginationCards
+      )
+    );
   }, [paginationCards]);
+
   const increment = () => {
     if (paginationCards < allPage) {
       dispatch(changePaginationCards(paginationCards + 1));
@@ -40,9 +43,9 @@ const Pagination = ({ allPage }) => {
           <img src={btnLeft} alt="" />
         </button>
         <div>
-          {pageArr?.map((page) => (
+          {pageArr?.map((page, index) => (
             <button
-              key={page}
+              key={`pagination-button-${index}`}
               onClick={() => dispatch(changePaginationCards(page))}
               className={page === paginationCards ? styles.active_btn : ""}
             >

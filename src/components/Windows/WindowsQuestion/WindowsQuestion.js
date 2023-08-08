@@ -1,16 +1,27 @@
 import React, { useState } from "react";
 import styles from "./WindowsQuestion.module.css";
+import { useDispatch } from "react-redux";
+import {
+  toSendQuestionData,
+  toTakeAllQuestionsData,
+} from "../../../store/reducers/otherAllStateSlice";
 
 const WindowsQuestion = ({ setAddInfo }) => {
+  const dispatch = useDispatch();
+
   const [data, setData] = useState({
     name: "",
     text: "",
   });
-  const addRequest = () => {
+  const addRequest = (e) => {
+    e.preventDefault();
+    dispatch(toSendQuestionData({ name: data.name, text: data.text }));
     setTimeout(() => {
+      dispatch(toTakeAllQuestionsData());
       setAddInfo(false);
     }, 1000);
   };
+
   return (
     <div className={styles.addQuestion_parent}>
       <div className={styles.block_shadow} onClick={() => setAddInfo(false)}>
@@ -42,8 +53,28 @@ const WindowsQuestion = ({ setAddInfo }) => {
           </svg>
         </h4>
         <form action="" onSubmit={addRequest}>
-          <input type="text" required placeholder="Ваше имя" />
-          <input type="text" required placeholder="Ваш вопрос" />
+          <input
+            type="text"
+            onChange={(e) =>
+              setData((info) => ({
+                ...info,
+                name: e.target.value,
+              }))
+            }
+            required
+            placeholder="Ваше имя"
+          />
+          <input
+            type="text"
+            onChange={(e) =>
+              setData((info) => ({
+                ...info,
+                text: e.target.value,
+              }))
+            }
+            required
+            placeholder="Ваш вопрос"
+          />
           <button type="submit">Оставить</button>
         </form>
       </div>

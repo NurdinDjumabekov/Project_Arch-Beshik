@@ -4,29 +4,35 @@ import imgsss from "../../assests/images/main/bac-d_2.jpg";
 import imgsss_1 from "../../assests/images/Detalied/users_comment.svg";
 import { NavLink } from "react-router-dom";
 import arrow from "../../assests/images/Detalied/arrow.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { remakeDataForImages } from "../../store/reducers/commentsSlice";
+import { toTakeDetailedInfo } from "../../store/reducers/otherAllStateSlice";
 
-const DetailedPhotos = ({ data }) => {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (Array.isArray(data?.photos) && data?.photos.length > 0) {
-      setCount(data.photos[0].id - data.photos[0].id + 1);
-      console.log(count);
-    } else {
-      setCount(0);
-    }
-  }, [data?.photos]);
+const DetailedPhotos = ({ data, id }) => {
+  const dispatch = useDispatch();
+  const { dataForImages } = useSelector((state) => state.commentsSlice);
+  // const { dataDetailedPage } = useSelector((state) => state.otherAllStateSlice);
+  const { statePreloader } = useSelector((state) => state.mainPageSlice);
 
-  console.log(data, "nur");
+  // console.log(dataForImages);
+  const [count, setCount] = useState(1);
   // const [data, setDate] = useState([
-  //   { id: 1, photo: imgsss },
-  //   { id: 2, photo: imgsss_1 },
-  //   { id: 3, photo: imgsss },
-  //   { id: 4, photo: imgsss_1 },
-  //   { id: 5, photo: imgsss },
-  //   { id: 6, photo: imgsss_1 },
-  //   { id: 7, photo: imgsss },
-  //   { id: 8, photo: imgsss_1 },
+  //   { id: 11, image: imgsss },
+  //   { id: 22, image: imgsss_1 },
+  //   { id: 33, image: imgsss },
+  //   { id: 444, image: imgsss_1 },
+  //   { id: 55, image: imgsss },
+  //   { id: 66, image: imgsss_1 },
+  //   { id: 72, image: imgsss },
+  //   { id: 83, image: imgsss_1 },
   // ]);
+  useEffect(() => {
+    dispatch(toTakeDetailedInfo({ id }));
+    // dispatch(remakeDataForImages(dataDetailedPage));
+  }, [statePreloader]);
+  // console.log(data);
+  console.log(dataForImages, "kk");
+
   return (
     <>
       <div className={styles.toBack}>
@@ -37,7 +43,7 @@ const DetailedPhotos = ({ data }) => {
       <div className={styles.block_for_imgsDetailed}>
         <button
           className={styles.btn_changePhoto}
-          onClick={() => setCount(count <= 0 ? 0 : count - 1)}
+          // onClick={() => setCount(count <= 1 ? 1 : count - 1)}
         >
           <svg
             width="42"
@@ -64,19 +70,18 @@ const DetailedPhotos = ({ data }) => {
           </svg>
         </button>
         <div className={styles.block_for_bigPhoto}>
-          {data?.photos && data.photos.length > 0 && (
-            <img src={data.photos[count].image} alt="фотка" />
-          )}
+          {/* {dataForImages?.map((item) => {
+            if (item.id === count) {
+              return <img key={item.id} src={item.image} alt="img" />;
+            }
+          })} */}
+          {/* <img src={dataForImages[count === 1 ? 1 : count].image} alt="img" />; */}
         </div>
         <button
           className={styles.btn_changePhoto}
-          onClick={() =>
-            setCount(
-              count >= data?.photos?.length - 1
-                ? data?.photos?.length - 1
-                : count + 1
-            )
-          }
+          // onClick={() =>
+          //   setCount(count >= data?.length - 1 ? data?.length - 1 : count + 1)
+          // }
         >
           <svg
             width="42"
@@ -102,9 +107,9 @@ const DetailedPhotos = ({ data }) => {
           </svg>
         </button>
         <ul className={styles.block_for_miniPhoto}>
-          {data?.photos?.map((img) => (
-            <li key={img.id}>
-              <button onClick={() => setCount(img.id - 1)}>
+          {dataForImages?.map((img) => (
+            <li key={img.image}>
+              <button onClick={() => setCount(img.id)}>
                 <div>
                   <img src={img?.image} alt="фотка" />
                 </div>

@@ -9,10 +9,6 @@ import { Advertising } from "../../components/Advertising/Advertising";
 import Footer from "../../components/Footer/Footer";
 import AddComments from "../../components/comments/AddComments/AddComments";
 import AllComments from "../../components/comments/AllComments/AllComments";
-import {
-  changeBtnNavMiniDisplay,
-  changePreloader,
-} from "../../store/reducers/mainPageSlice";
 import { toTakeDetailedInfo } from "../../store/reducers/otherAllStateSlice";
 
 const DetailedPage = () => {
@@ -33,7 +29,7 @@ const DetailedPage = () => {
             <div className="block_animations"></div>
             <div className="block_info">
               <div className={styles.parent_blockDetail}>
-                <DetailedPhotos data={dataDetailedPage} />
+                <DetailedPhotos data={dataDetailedPage} id={id} />
                 <div className={styles.block_delailedInfo_and_advertising}>
                   <div className={styles.advertising_mobile}>
                     <Advertising />

@@ -17,6 +17,11 @@
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   border-radius: 26px;
 }
+@media screen and (max-width: 600px) {
+  .pagination_parentBlock {
+    width: 300px;
+  }
+}
 .pagination_parentBlock .pagination_parentChild {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -44,6 +49,11 @@
 .pagination_parentBlock .pagination_parentChild div > button {
   border-radius: 50%;
   padding: 5px 11px;
+}
+@media screen and (max-width: 600px) {
+  .pagination_parentBlock .pagination_parentChild div > button {
+    font-size: 15px;
+  }
 }
 .pagination_parentBlock .pagination_parentChild div .active_btn {
   width: 28px;

@@ -1,5 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { changeBtnNavMiniDisplay, changePreloader } from "./mainPageSlice";
+import {
+  changeAllPage,
+  changeBtnNavMiniDisplay,
+  changePreloader,
+} from "./mainPageSlice";
 import axios from "axios";
 
 const initialState = {
@@ -17,7 +21,8 @@ export const toTakeDataHousemanage = createAsyncThunk(
         url: `http://192.168.0.105:8000/api/content_list/housemanage/`,
       });
       dispatch(toTakeDataAllApartaments(data.results));
-      //   console.log(data.results, "category");
+      // console.log(data.results, "category");
+      dispatch(changeAllPage(data.count));
       dispatch(changePreloader(true));
     } catch (error) {
       console.log(error);
@@ -36,7 +41,7 @@ export const toTakeDetailedApartament = createAsyncThunk(
         url: `http://192.168.0.105:8000/api/housemanage_list/${id}/`,
       });
       dispatch(toTakeDataEveryApartaments(data));
-        console.log(data);
+      console.log(data);
       //   dispatch(changeBtnNavMiniDisplay(true));
     } catch (error) {
       console.log(error);

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./AddComments.module.css";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import {
   addCommentHaveUser,
@@ -22,15 +21,15 @@ const AddComments = ({ id }) => {
     setStateToken(localStorage.getItem("token"));
   }, []);
 
-  const addCommentHaveUserFN = (e) => {
-    e.preventDefault();
-    dispatch(
-      addCommentHaveUser({
-        comment: data.comment,
-      })
-    );
-    dispatch(toTakeDetailedInfo({ id }));
-  };
+  // const addCommentHaveUserFN = (e) => {
+  //   e.preventDefault();
+  //   dispatch(
+  //     addCommentHaveUser({
+  //       comment: data.comment,
+  //     })
+  //   );
+  //   dispatch(toTakeDetailedInfo({ id }));
+  // };
 
   const addCommentNotHaveUserFN = (e) => {
     e.preventDefault();
@@ -42,12 +41,15 @@ const AddComments = ({ id }) => {
         id: id,
       })
     );
+    setTimeout(() => {
+      dispatch(toTakeDetailedInfo({ id }));
+    }, 1000);
   };
 
   return (
     <div className={styles.block_for_addComment}>
       <h5>Оставить комментарий</h5>
-      {stateToken ? (
+      {/* {stateToken ? (
         <form action="" onSubmit={addCommentHaveUserFN}>
           <textarea
             placeholder="Ваш кометарий"
@@ -61,41 +63,45 @@ const AddComments = ({ id }) => {
           ></textarea>
           <button type="submit">Оставить комментарий</button>
         </form>
-      ) : (
-        <form action="" onSubmit={addCommentNotHaveUserFN}>
-          <input
-            placeholder="Ваш Email"
-            onChange={(e) =>
-              setData((info) => ({
-                ...info,
-                email: e.target.value,
-              }))
-            }
-            value={data.email}
-          />
-          <input
-            placeholder="ваше имя"
-            onChange={(e) =>
-              setData((info) => ({
-                ...info,
-                name: e.target.value,
-              }))
-            }
-            value={data.name}
-          />
-          <textarea
-            placeholder="Ваш кометарий"
-            onChange={(e) =>
-              setData((info) => ({
-                ...info,
-                comment: e.target.value,
-              }))
-            }
-            value={data.comment}
-          ></textarea>
-          <button type="submit">Оставить комментарий</button>
-        </form>
-      )}
+      ) : ( */}
+      <form action="" onSubmit={addCommentNotHaveUserFN}>
+        <input
+          type="email"
+          placeholder="Ваш Email"
+          required
+          onChange={(e) =>
+            setData((info) => ({
+              ...info,
+              email: e.target.value,
+            }))
+          }
+          value={data.email}
+        />
+        <input
+          placeholder="ваше имя"
+          required
+          onChange={(e) =>
+            setData((info) => ({
+              ...info,
+              name: e.target.value,
+            }))
+          }
+          value={data.name}
+        />
+        <textarea
+          placeholder="Ваш кометарий"
+          required
+          onChange={(e) =>
+            setData((info) => ({
+              ...info,
+              comment: e.target.value,
+            }))
+          }
+          value={data.comment}
+        ></textarea>
+        <button type="submit">Оставить комментарий</button>
+      </form>
+      {/* )} */}
     </div>
   );
 };

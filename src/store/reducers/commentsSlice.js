@@ -4,6 +4,7 @@ import axios from "axios";
 
 const initialState = {
   dataAllApartaments: [],
+  dataForImages: [],
 };
 
 export const addCommentHaveUser = createAsyncThunk(
@@ -55,7 +56,20 @@ const commentsSlice = createSlice({
     toTakeDataAllApartaments: (state, action) => {
       state.dataAllApartaments = action.payload;
     },
+    remakeDataForImages: (state, action) => {
+      // console.log(action.payload, "222");
+      state.dataForImages = action.payload?.photos;
+      // let count = 1;
+      // const newImagesData = action.payload?.photos?.map((i) => {
+      //   return {
+      //     ...i,
+      //     id: count++,
+      //   };
+      // });
+      // state.dataForImages = newImagesData || [];
+    },
   },
 });
-export const { toTakeDataAllApartaments } = commentsSlice.actions;
+export const { toTakeDataAllApartaments, remakeDataForImages } =
+  commentsSlice.actions;
 export default commentsSlice.reducer;

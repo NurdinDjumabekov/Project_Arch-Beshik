@@ -41,13 +41,13 @@ const Window_login = ({ setStateToken }) => {
         dispatch(changeStateLogin(false));
         location.reload();
       }, 2000);
-      setStateToken(true);
+      // setStateToken(true);
     } catch (err) {
       setStateLogin(true);
       setTimeout(() => {
         setStateLogin(false);
       }, 3000);
-      setStateToken(false);
+      // setStateToken(false);
       console.log(err);
     }
   };
@@ -88,7 +88,7 @@ const Window_login = ({ setStateToken }) => {
             {!stateLogin && (
               <div className={styles.block_for_password}>
                 <button onClick={() => dispatch(changeForgetPassword(true))}>
-                  Забыли пароль?
+                  {/* Забыли пароль? */}
                 </button>
                 <button onClick={changeStateLoginAndRegistration}>
                   Регистрация

@@ -3,6 +3,7 @@ import styles from "./MenuBigDisplay.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import {
+  changeDataToken,
   changeStateLogin,
   changeStateRegistration,
 } from "../../store/reducers/windowsSlice";
@@ -15,6 +16,7 @@ import {
   toTakeCardInfo,
   toTakeDataCategory,
 } from "../../store/reducers/mainPageSlice";
+
 const MenuBigDisplay = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -28,19 +30,21 @@ const MenuBigDisplay = () => {
     paginationCards,
   } = useSelector((state) => state.mainPageSlice);
 
+  const { dataToken } = useSelector((state) => state.windowsSlice);
+
   const changeCategoryBtns = (name, id, choiceData) => {
     if (choiceData === false) {
-      navigate("/");
-      dispatch(changeNameTitle(name));
       dispatch(toTakeDataCategory(id));
-      dispatch(changeStateForLookSlider(false));
+      dispatch(changeNameTitle(name));
+      dispatch(changeStateForLookSlider(false)); // сварачиваю слайдер
       dispatch(changeBtnNavMiniDisplay(false)); // закрывает меню(маленького экрана)
+      navigate("/");
     } else {
       dispatch(changeNameTitle(name));
       // dispatch(toTakeDataCategory(id));
-      navigate("/housemanage");
       dispatch(changeStateForLookSlider(false));
       dispatch(changeBtnNavMiniDisplay(false));
+      navigate("/housemanage");
     }
     // console.log(typeof id);
     // console.log(choiceData);
@@ -85,6 +89,13 @@ const MenuBigDisplay = () => {
       }
     };
   }, []);
+
+  const logoutFn = () => {
+    dispatch(changeDataToken(""));
+    localStorage.clear();
+    navigate("/");
+    location.reload();
+  };
 
   return (
     <>
@@ -153,22 +164,41 @@ const MenuBigDisplay = () => {
       </div>
       {btnNavMiniDisplay && (
         <div className={styles.menu_info}>
-          <p className={styles.name_user}>nurdin</p>
           <div className="container">
             <ul className={styles.main_list}>
+              {dataToken ? (
+                <>
+                  <li>
+                    <p className={styles.name_user}>
+                      {localStorage.getItem("name")}
+                    </p>
+                  </li>
+                  <li>
+                    <button onClick={logoutFn}>Выход</button>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <button onClick={loginFn}>Вход</button>
+                  </li>
+                  <li>
+                    <button onClick={registrationFn}>Регистрация</button>
+                  </li>
+                </>
+              )}
+
               <li>
-                <button onClick={loginFn}>Вход</button>
-              </li>
-              <li>
-                <button onClick={registrationFn}>Регистрация</button>
-              </li>
-              <li>
-                <button onClick={() => dispatch(btnNavMiniDisplay(false))}>
+                <button
+                  onClick={() => dispatch(changeBtnNavMiniDisplay(false))}
+                >
                   <NavLink to={"/question"}>Задать вопрос</NavLink>
                 </button>
               </li>
               <li>
-                <button onClick={() => dispatch(btnNavMiniDisplay(false))}>
+                <button
+                  onClick={() => dispatch(changeBtnNavMiniDisplay(false))}
+                >
                   <NavLink to={"/complaint"}>Оставить жалобу</NavLink>
                 </button>
               </li>
@@ -186,7 +216,11 @@ const MenuBigDisplay = () => {
                 <li key={category.id}>
                   <button
                     onClick={() =>
-                      changeCategoryBtns(category?.name, category?.id)
+                      changeCategoryBtns(
+                        category?.name,
+                        category?.id,
+                        category?.is_rent
+                      )
                     }
                   >
                     {category.name}

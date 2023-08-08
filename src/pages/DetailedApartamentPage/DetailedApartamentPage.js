@@ -28,8 +28,10 @@ const DetailedApartamentPage = () => {
         <div className="container">
           <div className="block_animations"></div>
           <div className="block_info">
-            <div className={styles.blockParent_detaliedApartament}>
-              <DetailedPhotos data={dataEveryApartaments} />
+            <div className={styles.blockInner_detaliedApartament}>
+              <div>
+                <DetailedPhotos data={dataEveryApartaments} />
+              </div>
               <div className={styles.content_apartament}>
                 <div className={styles.content_apartament_inner}>
                   <div className={styles.number_phone}>

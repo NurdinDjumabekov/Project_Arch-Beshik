@@ -20,6 +20,7 @@ const MainPage = () => {
     statePreloader,
     stateForLookSlider,
     paginationCards,
+    allPage,
   } = useSelector((state) => state.mainPageSlice);
 
   useEffect(() => {
@@ -28,9 +29,9 @@ const MainPage = () => {
   }, [paginationCards]);
 
   // console.log(dataCards);
-  useEffect(() => {
-    dispatch(changeNameTitle("Новостная лента"));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(changeNameTitle("Новостная лента"));
+  // }, []);
 
   return (
     <>
@@ -51,10 +52,10 @@ const MainPage = () => {
               </div>
               <div className={styles.block_for_content}>
                 <div className={styles.cards_block}>
-                  {dataCards?.results?.length === 0 ? (
+                  {dataCards?.length === 0 ? (
                     <h3 className={styles.no_posts}>Постов пока что нету</h3>
                   ) : (
-                    dataCards?.results?.map((cardInfo) => (
+                    dataCards?.map((cardInfo) => (
                       <EveryCard key={cardInfo.id} cardInfo={cardInfo} />
                     ))
                   )}
@@ -62,7 +63,7 @@ const MainPage = () => {
                 <MenuBigDisplay />
               </div>
               <div className={styles.pagination}>
-                <Pagination allPage={Math.ceil(dataCards.count / 12)} />
+                <Pagination allPage={Math.ceil(allPage / 12)} />
               </div>
             </div>
           </div>

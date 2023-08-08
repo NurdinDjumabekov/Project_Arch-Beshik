@@ -36,9 +36,9 @@ export const sendRegistrationData = createAsyncThunk(
   "sendRegistrationData",
   async (data, { dispatch }) => {
     try {
-      const responce = axios({
+      const responce = await axios({
         method: "POST",
-        url: `http://127.0.0.1:8000/api/register/`,
+        url: `http://192.168.0.105:8000/api/register/`,
         data: {
           username: data.userName,
           first_name: data.name,
@@ -49,6 +49,8 @@ export const sendRegistrationData = createAsyncThunk(
       });
       // console.log(responce.data);
       localStorage.setItem("token", responce.data.token);
+      localStorage.setItem("name", data.userName);
+      dispatch(changeDataToken(data.token));
       dispatch(changeRightState(true));
       setTimeout(() => {
         dispatch(changeStateRegistration(false));

@@ -3,11 +3,19 @@
     width: 96%
     margin: 0 auto
     padding: 0px 0 30px
+    // background: red
+    @media screen and ( max-width: 1390px )
+        width: 100%
+        @media screen and ( max-width: 800px )
+            width: 84%
     a
         border: 1px solid black
         padding: 8px 40px 8px 25px
         border-radius: 8px
         background: rgba(244, 242, 242, 0.748)
+        @media screen and ( max-width: 800px )
+            padding: 5px 30px 5px 15px
+            font-size: 15px
         img
             margin-bottom: -2px
 .block_for_imgsDetailed
@@ -58,8 +66,8 @@
         flex-wrap: wrap
         gap: 20px
         overflow-y: scroll
-        // max-height: 515px
-        height: 260px
+        max-height: 515px
+        // height: 260px
         min-height: 100%
         padding: 0px 20px
         // align-items: center

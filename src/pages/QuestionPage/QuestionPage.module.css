@@ -2,6 +2,11 @@
   height: 100vh;
   padding: 100px 0 0 0;
 }
+@media screen and (max-width: 900px) {
+  .complaint_parentBlock {
+    padding: 50px 0 0 0;
+  }
+}
 .complaint_parentBlock h1 {
   padding: 50px 0 0 0;
   position: relative;
@@ -17,6 +22,11 @@
 @media screen and (max-width: 800px) and (max-width: 700px) {
   .complaint_parentBlock h1 {
     padding: 20px 0 0 0;
+  }
+}
+@media screen and (max-width: 800px) and (max-width: 700px) and (max-width: 540px) {
+  .complaint_parentBlock h1 {
+    padding: 40px 0 0 0;
   }
 }
 .complaint_parentBlock h1 a {
@@ -37,7 +47,7 @@
     font-size: 10px;
     line-height: 10px;
     text-align: center;
-    padding: 5px;
+    padding: 10px 5px;
     top: -15px;
     right: 10px;
   }
@@ -47,6 +57,11 @@
   margin-bottom: -2px;
   width: 15px;
   height: 15px;
+}
+@media screen and (max-width: 750px) {
+  .complaint_parentBlock h1 a img {
+    height: 10px;
+  }
 }
 .complaint_parentBlock h1 button {
   position: absolute;
@@ -96,6 +111,12 @@
   .complaint_parentBlock .complaint_childBlock {
     padding: 40px 0 0 0;
   }
+}
+.complaint_parentBlock .complaint_childBlock > p {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  padding: 100px 0;
 }
 .complaint_parentBlock .complaint_childBlock .everyComplaint {
   width: 320px;

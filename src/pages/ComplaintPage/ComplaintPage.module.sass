@@ -2,16 +2,20 @@
     height: 100vh
     padding: 100px 0 0 0 
     @media screen and ( max-width: 750px )
-        // padding: 40px 0 0 0
+        padding: 50px 0 0 0
     h1
         padding: 50px 0 0 0
         position: relative
         text-align: center
+        // background: red
         width: 80%
         margin: 0 auto
-        @media screen and ( max-width: 700px )
-            padding: 20px 0 0 0 
+        @media screen and ( max-width: 800px )
             font-size: 25px
+            @media screen and ( max-width: 700px )
+                padding: 20px 0 0 0 
+                @media screen and ( max-width: 540px )
+                    padding: 40px 0 0 0
         a
             display: block
             position: absolute
@@ -23,19 +27,23 @@
             border:  1px solid black
             font-size: 18px
             font-weight: 300
+            // background: red
             @media screen and ( max-width: 750px )
                 width: 80px
                 font-size: 10px
                 line-height: 10px
                 text-align: center
-                padding: 5px
+                padding: 10px 5px
                 top: -15px
                 right: 10px
+                
             img
                 display: inline-block
                 margin-bottom: -2px
                 width: 15px
                 height: 15px
+                @media screen and ( max-width: 750px )
+                    height: 10px
         button
             position: absolute
             top: 0
@@ -64,6 +72,12 @@
             justify-content: center
             @media screen and ( max-width: 700px )
                 padding: 20px 0 0 0 
+        > p
+            width: 100%
+            text-align: center
+            font-size: 25px
+            padding: 100px 0
+            
         .everyComplaint
             width: 320px
             background: rgba(255, 255, 255, 0.5)
@@ -96,6 +110,8 @@
                 font-size: 12px
                 line-height: 20px
                 color: #000000
+                text-align: center
+
         .everyComplaint::-webkit-scrollbar 
             width: 0px
             background-color: transparent
