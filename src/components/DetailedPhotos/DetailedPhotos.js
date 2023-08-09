@@ -8,30 +8,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { remakeDataForImages } from "../../store/reducers/commentsSlice";
 import { toTakeDetailedInfo } from "../../store/reducers/otherAllStateSlice";
 
-const DetailedPhotos = ({ data, id }) => {
+const DetailedPhotos = ({ id }) => {
   const dispatch = useDispatch();
-  const { dataForImages } = useSelector((state) => state.commentsSlice);
-  // const { dataDetailedPage } = useSelector((state) => state.otherAllStateSlice);
+  const { allPhotos } = useSelector((state) => state.otherAllStateSlice);
   const { statePreloader } = useSelector((state) => state.mainPageSlice);
 
-  // console.log(dataForImages);
   const [count, setCount] = useState(1);
-  // const [data, setDate] = useState([
-  //   { id: 11, image: imgsss },
-  //   { id: 22, image: imgsss_1 },
-  //   { id: 33, image: imgsss },
-  //   { id: 444, image: imgsss_1 },
-  //   { id: 55, image: imgsss },
-  //   { id: 66, image: imgsss_1 },
-  //   { id: 72, image: imgsss },
-  //   { id: 83, image: imgsss_1 },
-  // ]);
+
   useEffect(() => {
     dispatch(toTakeDetailedInfo({ id }));
-    // dispatch(remakeDataForImages(dataDetailedPage));
-  }, [statePreloader]);
-  // console.log(data);
-  console.log(dataForImages, "kk");
+  }, []);
+  // console.log(allPhotos);
+  // console.log(count);
 
   return (
     <>
@@ -43,7 +31,7 @@ const DetailedPhotos = ({ data, id }) => {
       <div className={styles.block_for_imgsDetailed}>
         <button
           className={styles.btn_changePhoto}
-          // onClick={() => setCount(count <= 1 ? 1 : count - 1)}
+          onClick={() => setCount(count <= 1 ? 1 : count - 1)}
         >
           <svg
             width="42"
@@ -70,18 +58,13 @@ const DetailedPhotos = ({ data, id }) => {
           </svg>
         </button>
         <div className={styles.block_for_bigPhoto}>
-          {/* {dataForImages?.map((item) => {
-            if (item.id === count) {
-              return <img key={item.id} src={item.image} alt="img" />;
-            }
-          })} */}
-          {/* <img src={dataForImages[count === 1 ? 1 : count].image} alt="img" />; */}
+          <img src={allPhotos[count - 1]?.image} alt="img" />
         </div>
         <button
           className={styles.btn_changePhoto}
-          // onClick={() =>
-          //   setCount(count >= data?.length - 1 ? data?.length - 1 : count + 1)
-          // }
+          onClick={() =>
+            setCount(count >= allPhotos?.length ? allPhotos?.length : count + 1)
+          }
         >
           <svg
             width="42"
@@ -107,8 +90,8 @@ const DetailedPhotos = ({ data, id }) => {
           </svg>
         </button>
         <ul className={styles.block_for_miniPhoto}>
-          {dataForImages?.map((img) => (
-            <li key={img.image}>
+          {allPhotos?.map((img) => (
+            <li key={img.id}>
               <button onClick={() => setCount(img.id)}>
                 <div>
                   <img src={img?.image} alt="фотка" />

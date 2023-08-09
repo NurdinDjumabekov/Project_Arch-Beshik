@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { changePreloader } from "./mainPageSlice";
+import { addID } from "../../helpers/addID";
 
 const initialState = {
   dataHistory: [],
@@ -10,6 +11,7 @@ const initialState = {
   lookDataSearch: false,
   dataComplaint: [],
   dataQuestion: [],
+  allPhotos: [],
 };
 
 export const toTakeDataHistory = createAsyncThunk(
@@ -34,7 +36,7 @@ export const toTakeAdvertising = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://192.168.0.105:8000/api/advert_list/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/advert_list/`,
       });
       dispatch(changeDataAdvertising(data.results));
       // console.log(data.results);
@@ -51,10 +53,10 @@ export const toTakeDetailedInfo = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://192.168.0.105:8000/api/content_detail/${info.id}/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/content_detail/${info.id}/`,
       });
-      // console.log(data.content);
       dispatch(changeDataDetailedPage(data.content));
+      dispatch(totakeAllPhotos(addID(data?.content?.photos)));
       dispatch(changePreloader(true));
     } catch (error) {
       console.log(error);
@@ -69,7 +71,7 @@ export const toTakeAllData = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://192.168.0.105:8000/api/content_search/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/content_search/`,
       });
       dispatch(toTakeDataForComparison(data));
       // console.log(data, "data");
@@ -86,7 +88,7 @@ export const toTakeAllComplaintData = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://192.168.0.105:8000/api/report_list/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/report_list/`,
       });
       dispatch(totakeDataComplaint(data.results));
       console.log(data.results, "data");
@@ -103,7 +105,7 @@ export const toSendComplaintData = createAsyncThunk(
     try {
       await axios({
         method: "POSt",
-        url: `http://192.168.0.105:8000/api/report_list/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/report_list/`,
         data: {
           text: info.text,
           name: info.name,
@@ -122,7 +124,7 @@ export const toTakeAllQuestionsData = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://192.168.0.105:8000/api/question_list/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/question_list/`,
       });
       dispatch(totakeDataQuestion(data.results));
       // console.log(data.results, "data");
@@ -138,7 +140,7 @@ export const toSendQuestionData = createAsyncThunk(
     try {
       await axios({
         method: "POSt",
-        url: `http://192.168.0.105:8000/api/question_list/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/question_list/`,
         data: {
           text: info.text,
           name: info.name,
@@ -175,6 +177,9 @@ const otherAllStateSlice = createSlice({
     totakeDataQuestion: (state, action) => {
       state.dataQuestion = action.payload;
     },
+    totakeAllPhotos: (state, action) => {
+      state.allPhotos = action.payload;
+    },
   },
 });
 
@@ -186,5 +191,6 @@ export const {
   changeLookDataSearch,
   totakeDataComplaint,
   totakeDataQuestion,
+  totakeAllPhotos,
 } = otherAllStateSlice.actions;
 export default otherAllStateSlice.reducer;

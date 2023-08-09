@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./MainPage.module.css";
 import EveryCard from "../../components/EveryCard/EveryCard";
@@ -24,14 +24,17 @@ const MainPage = () => {
   } = useSelector((state) => state.mainPageSlice);
 
   useEffect(() => {
-    dispatch(toTakeCardInfo(paginationCards));
     window.scrollTo(0, 0);
+    dispatch(toTakeCardInfo(paginationCards));
   }, [paginationCards]);
 
   // console.log(dataCards);
   // useEffect(() => {
   //   dispatch(changeNameTitle("Новостная лента"));
   // }, []);
+
+  console.log(dataCards);
+  console.log(allPage, "allPage");
 
   return (
     <>

@@ -1,18 +1,16 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Apartament.module.css";
-import EveryCard from "../../components/EveryCard/EveryCard";
 import MenuBigDisplay from "../../components/MenuBigDisplay/MenuBigDisplay";
 import Preloader from "../../components/Preloader/Preloader";
 import Footer from "../../components/Footer/Footer";
-import { toTakeCardInfo } from "../../store/reducers/mainPageSlice";
 import Pagination from "../../components/Pagination/Pagination";
 import { toTakeDataHousemanage } from "../../store/reducers/houseManageSlice";
 import EveryApartament from "../../components/EveryApartament/EveryApartament";
 const ApartamentPage = () => {
   const dispatch = useDispatch();
 
-  const { titleName, statePreloader, allPage } = useSelector(
+  const { titleName, statePreloader, allPage, paginationCards } = useSelector(
     (state) => state.mainPageSlice
   );
 
@@ -21,7 +19,7 @@ const ApartamentPage = () => {
   useEffect(() => {
     dispatch(toTakeDataHousemanage());
     window.scrollTo(0, 0);
-  }, []);
+  }, [paginationCards]);
 
   //   console.log(dataAllApartaments);
 

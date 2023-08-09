@@ -23,16 +23,16 @@ const Footer = () => {
               <ul>
                 <li>
                   <p>Реклама на сайте</p>
-                  <span>+996 200 200 200</span>
+                  <span>+996 555 087 788</span>
                 </li>
                 <li>
                   <p>Есть идеи? </p>
-                  <span>+996 300 300 300</span>
+                  <span>+996 555 087 788</span>
                 </li>
-                <li>
+                {/* <li>
                   <p>Команда разработки</p>
                   <span>10 Мая</span>
-                </li>
+                </li> */}
               </ul>
               <div className={styles.block_footerIcon}>
                 <ul>

@@ -41,14 +41,14 @@ const WindowsQuestion = ({ setAddInfo }) => {
             <path
               d="M8.46409 15.5354L15.5352 8.46436"
               stroke="black"
-              stroke-width="1.5"
-              stroke-linecap="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
             />
             <path
               d="M8.46409 8.46458L15.5352 15.5356"
               stroke="black"
-              stroke-width="1.5"
-              stroke-linecap="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
             />
           </svg>
         </h4>

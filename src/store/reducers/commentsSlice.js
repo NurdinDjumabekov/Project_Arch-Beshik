@@ -4,7 +4,6 @@ import axios from "axios";
 
 const initialState = {
   dataAllApartaments: [],
-  dataForImages: [],
 };
 
 export const addCommentHaveUser = createAsyncThunk(
@@ -33,7 +32,7 @@ export const addCommentNotHaveUser = createAsyncThunk(
     try {
       await axios({
         method: "POST",
-        url: `http://192.168.0.105:8000/api/comment_list/${data.id}/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/comment_list/${data.id}/`,
         data: {
           name: data.name,
           email: data.email,
@@ -56,20 +55,7 @@ const commentsSlice = createSlice({
     toTakeDataAllApartaments: (state, action) => {
       state.dataAllApartaments = action.payload;
     },
-    remakeDataForImages: (state, action) => {
-      // console.log(action.payload, "222");
-      state.dataForImages = action.payload?.photos;
-      // let count = 1;
-      // const newImagesData = action.payload?.photos?.map((i) => {
-      //   return {
-      //     ...i,
-      //     id: count++,
-      //   };
-      // });
-      // state.dataForImages = newImagesData || [];
-    },
   },
 });
-export const { toTakeDataAllApartaments, remakeDataForImages } =
-  commentsSlice.actions;
+export const { toTakeDataAllApartaments } = commentsSlice.actions;
 export default commentsSlice.reducer;

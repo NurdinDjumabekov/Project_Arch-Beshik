@@ -20,10 +20,10 @@ export const toTakeCardInfo = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://192.168.0.105:8000/api/content_list/?page_size=${page}`,
+        url: `http://baielbekenov.pythonanywhere.com/api/content_list/?page_size=${page}`,
       });
-      dispatch(changeDataCards(data.results));
-      dispatch(changeAllPage(data.count));
+      dispatch(changeDataCards(data?.results));
+      dispatch(changeAllPage(data?.count));
       // console.log(data);
       dispatch(changePreloader(true));
     } catch (error) {
@@ -38,7 +38,7 @@ export const takeCategoryOutput = createAsyncThunk(
   async (info, { dispatch }) => {
     try {
       const { data } = await axios.get(
-        `http://192.168.0.105:8000/api/category_list/`
+        `http://baielbekenov.pythonanywhere.com/api/category_list/`
       );
       dispatch(toTakeInfoCategory(data.results));
       // console.log(data.results, "category");
@@ -54,12 +54,12 @@ export const toTakeDataCategory = createAsyncThunk(
     dispatch(changePreloader(false));
     try {
       const { data } = await axios.get(
-        `http://192.168.0.105:8000/api/content_list/${id}/`
+        `http://baielbekenov.pythonanywhere.com/api/content_list/${id}/`
       );
-      dispatch(changeDataCards(data.results));
-      dispatch(changeAllPage(data.count));
-      // console.log(data, "category");
+      dispatch(changeAllPage(data?.count));
+      dispatch(changeDataCards(data?.results));
       dispatch(changePreloader(true));
+      // console.log(data, "category");
     } catch (error) {
       console.log(error);
       dispatch(changePreloader(true));

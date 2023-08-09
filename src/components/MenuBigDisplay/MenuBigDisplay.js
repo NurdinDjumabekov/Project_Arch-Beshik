@@ -23,6 +23,7 @@ const MenuBigDisplay = () => {
   useEffect(() => {
     dispatch(takeCategoryOutput());
   }, []);
+
   const {
     infoCategory,
     btnNavMiniDisplay,
@@ -34,20 +35,18 @@ const MenuBigDisplay = () => {
 
   const changeCategoryBtns = (name, id, choiceData) => {
     if (choiceData === false) {
-      dispatch(toTakeDataCategory(id));
-      dispatch(changeNameTitle(name));
+      navigate("/");
       dispatch(changeStateForLookSlider(false)); // сварачиваю слайдер
       dispatch(changeBtnNavMiniDisplay(false)); // закрывает меню(маленького экрана)
-      navigate("/");
+      dispatch(changeNameTitle(name));
+      dispatch(toTakeDataCategory(id));
     } else {
+      navigate("/housemanage");
       dispatch(changeNameTitle(name));
       // dispatch(toTakeDataCategory(id));
       dispatch(changeStateForLookSlider(false));
       dispatch(changeBtnNavMiniDisplay(false));
-      navigate("/housemanage");
     }
-    // console.log(typeof id);
-    // console.log(choiceData);
   };
   const allPosts = () => {
     dispatch(changeNameTitle("Новостная лента"));
@@ -163,71 +162,73 @@ const MenuBigDisplay = () => {
         )}
       </div>
       {btnNavMiniDisplay && (
-        <div className={styles.menu_info}>
-          <div className="container">
-            <ul className={styles.main_list}>
-              {dataToken ? (
-                <>
-                  <li>
-                    <p className={styles.name_user}>
-                      {localStorage.getItem("name")}
-                    </p>
-                  </li>
-                  <li>
-                    <button onClick={logoutFn}>Выход</button>
-                  </li>
-                </>
-              ) : (
-                <>
-                  <li>
-                    <button onClick={loginFn}>Вход</button>
-                  </li>
-                  <li>
-                    <button onClick={registrationFn}>Регистрация</button>
-                  </li>
-                </>
-              )}
+        <div className={styles.menu_smallDisplay}>
+          <div className={styles.menu_info}>
+            <div className="container">
+              <ul className={styles.main_list}>
+                {dataToken ? (
+                  <>
+                    <li>
+                      <p className={styles.name_user}>
+                        {localStorage.getItem("name")}
+                      </p>
+                    </li>
+                    <li>
+                      <button onClick={logoutFn}>Выход</button>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <button onClick={loginFn}>Вход</button>
+                    </li>
+                    <li>
+                      <button onClick={registrationFn}>Регистрация</button>
+                    </li>
+                  </>
+                )}
 
-              <li>
-                <button
-                  onClick={() => dispatch(changeBtnNavMiniDisplay(false))}
-                >
-                  <NavLink to={"/question"}>Задать вопрос</NavLink>
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => dispatch(changeBtnNavMiniDisplay(false))}
-                >
-                  <NavLink to={"/complaint"}>Оставить жалобу</NavLink>
-                </button>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h5>Инфраструктура</h5>
-              </li>
-              <li>
-                <button onClick={allPosts}>
-                  <NavLink to={"/"}>Главная</NavLink>
-                </button>
-              </li>
-              {infoCategory?.map((category) => (
-                <li key={category.id}>
+                <li>
                   <button
-                    onClick={() =>
-                      changeCategoryBtns(
-                        category?.name,
-                        category?.id,
-                        category?.is_rent
-                      )
-                    }
+                    onClick={() => dispatch(changeBtnNavMiniDisplay(false))}
                   >
-                    {category.name}
+                    <NavLink to={"/question"}>Задать вопрос</NavLink>
                   </button>
                 </li>
-              ))}
-            </ul>
+                <li>
+                  <button
+                    onClick={() => dispatch(changeBtnNavMiniDisplay(false))}
+                  >
+                    <NavLink to={"/complaint"}>Оставить жалобу</NavLink>
+                  </button>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <h5>Инфраструктура</h5>
+                </li>
+                <li>
+                  <button onClick={allPosts}>
+                    <NavLink to={"/"}>Главная</NavLink>
+                  </button>
+                </li>
+                {infoCategory?.map((category) => (
+                  <li key={category.id}>
+                    <button
+                      onClick={() =>
+                        changeCategoryBtns(
+                          category?.name,
+                          category?.id,
+                          category?.is_rent
+                        )
+                      }
+                    >
+                      {category.name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       )}

@@ -38,7 +38,7 @@ export const sendRegistrationData = createAsyncThunk(
     try {
       const responce = await axios({
         method: "POST",
-        url: `http://192.168.0.105:8000/api/register/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/register/`,
         data: {
           username: data.userName,
           first_name: data.name,

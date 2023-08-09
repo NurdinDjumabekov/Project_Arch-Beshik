@@ -25,7 +25,7 @@ const Window_login = ({ setStateToken }) => {
     try {
       const { data } = await axios({
         method: "POST",
-        url: `http://192.168.0.105:8000/api/login/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/login/`,
         data: {
           username: userName,
           password: password,

@@ -5,6 +5,8 @@ import {
   changePreloader,
 } from "./mainPageSlice";
 import axios from "axios";
+import { totakeAllPhotos } from "./otherAllStateSlice";
+import { addID } from "../../helpers/addID";
 
 const initialState = {
   dataAllApartaments: [],
@@ -18,7 +20,7 @@ export const toTakeDataHousemanage = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://192.168.0.105:8000/api/content_list/housemanage/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/content_list/housemanage/`,
       });
       dispatch(toTakeDataAllApartaments(data.results));
       // console.log(data.results, "category");
@@ -38,10 +40,11 @@ export const toTakeDetailedApartament = createAsyncThunk(
     try {
       const { data } = await axios({
         method: "GET",
-        url: `http://192.168.0.105:8000/api/housemanage_list/${id}/`,
+        url: `http://baielbekenov.pythonanywhere.com/api/housemanage_list/${id}/`,
       });
       dispatch(toTakeDataEveryApartaments(data));
-      console.log(data);
+      dispatch(totakeAllPhotos(addID(data?.photos)));
+      // console.log(data);
       //   dispatch(changeBtnNavMiniDisplay(true));
     } catch (error) {
       console.log(error);
