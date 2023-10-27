@@ -1,21 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-html {
-  font-size: 18px;
-  font-family: "Unbounded", sans-serif;
-  font-weight: 400;
-  /* background-color: rgb(199, 201, 190); */
-}
-
-a {
-  text-decoration: none;
-}
-
-li {
-  list-style: none;
-}
