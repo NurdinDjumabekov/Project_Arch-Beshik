@@ -9,11 +9,10 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* <Route path="/history" element={<HistoryPage />} /> */}
+          <Route path="/" element={<MainPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      {/* <MainPage/> */}
     </>
   )
 }
