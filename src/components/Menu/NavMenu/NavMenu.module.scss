@@ -4,33 +4,51 @@
     padding: 20px 0px;
     background: var(--root-color-white);
     box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.50);
-    &__logo {
+    &__inner{
         display: flex;
-        // justify-content: center;
         align-items: center;
-        > img {
-            display: block;
-            width: 60px;
-            height: 60px;
+        .logo {
+            display: flex;
+            // justify-content: center;
+            align-items: center;
+            > img {
+                display: block;
+                width: 60px;
+                height: 60px;
+            }
+            > div {
+                height: 55px;
+                width: 2px;
+                background-color: var(--root-color-black);
+                margin: 0 5px;
+            }
+            > p {
+                width: 70px;
+                color: var(--root-color-black);
+                font-family: Unbounded;
+                font-size: 22px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+                text-transform: capitalize;
+            }
         }
-        > div {
-            height: 55px;
-            width: 2px;
-            background-color: var(--root-color-black);
-            margin: 0 5px;
+        .pages {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            li {
+                padding: 5px 10px;
+            }
+            .activePage {
+                background-color: var(--root-color-black);
+                padding: 5px 10px;
+                border-radius: 8px;
+                transition: background-color 0.5s, color 0.5s;
+                a {
+                    color: var(--root-color-white);
+                }
+            }
         }
-        > p {
-            width: 70px;
-            color: var(--root-color-black);
-            font-family: Unbounded;
-            font-size: 22px;
-            font-style: normal;
-            font-weight: 300;
-            line-height: normal;
-            text-transform: capitalize;
-        }
-    }
-    &__pages {
-        
     }
 }
