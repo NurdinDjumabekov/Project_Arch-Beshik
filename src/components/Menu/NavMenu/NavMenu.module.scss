@@ -1,5 +1,6 @@
 @import url('../../../globalStyles/colors.scss');
 
+
 .navMenu{
     padding: 20px 0px;
     background: var(--root-color-white);
@@ -7,6 +8,8 @@
     &__inner{
         display: flex;
         align-items: center;
+        // background: green;
+        justify-content: space-between;
         .logo {
             display: flex;
             // justify-content: center;
@@ -25,10 +28,10 @@
             > p {
                 width: 70px;
                 color: var(--root-color-black);
-                font-family: Unbounded;
+                font-family: var(--root-font-montserrat);
                 font-size: 22px;
                 font-style: normal;
-                font-weight: 300;
+                font-weight: 400;
                 line-height: normal;
                 text-transform: capitalize;
             }
@@ -36,9 +39,22 @@
         .pages {
             display: flex;
             justify-content: space-between;
-            gap: 20px;
+            // gap: 20px;
+            width: 60%;
+            padding: 0 20px;
+            overflow-x: scroll;
             li {
                 padding: 5px 10px;
+                font-family: var(--root-font-openSans);
+                font-weight: 500;
+                text-align: center;
+                // background: red;
+                display: block;
+                width: 180px;
+                a {
+                    display: block;
+                    width: 150px;
+                }
             }
             .activePage {
                 background-color: var(--root-color-black);
@@ -47,8 +63,14 @@
                 transition: background-color 0.5s, color 0.5s;
                 a {
                     color: var(--root-color-white);
+                    font-family: var(--root-font-openSans);
+                    font-weight: 500;
                 }
             }
+        }
+        .pages::-webkit-scrollbar {
+            display: none;
+                /* Скрываем полосу прокрутки в Chrome и Safari */
         }
     }
 }
