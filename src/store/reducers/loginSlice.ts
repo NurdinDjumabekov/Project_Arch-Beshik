@@ -1,9 +1,10 @@
-import { createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 type TypeLogins = {
   login: string,
   password: string
 }
+
 
 type TypeLoginState = {
   dataLogin: TypeLogins,

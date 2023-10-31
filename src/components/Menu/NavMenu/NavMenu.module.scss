@@ -1,6 +1,5 @@
 @import url('../../../globalStyles/colors.scss');
 
-
 .navMenu{
     padding: 20px 0px;
     background: var(--root-color-white);
@@ -12,29 +11,38 @@
         justify-content: space-between;
         .logo {
             display: flex;
-            // justify-content: center;
+            justify-content: center;
+            gap: 5px;
             align-items: center;
-            > img {
-                display: block;
-                width: 60px;
-                height: 60px;
+            background: black;
+            padding: 6px 10px;
+            border-radius: 8px;
+            img {
+                // display: none;
+                width: 30px;
+                height: 30px;
+                border: 1px solid var(--root-color-black);
+                border-radius: 50%;
             }
-            > div {
-                height: 55px;
-                width: 2px;
-                background-color: var(--root-color-black);
-                margin: 0 5px;
-            }
+            // > div {
+            //     height: 55px;
+            //     width: 2px;
+            //     background-color: var(--root-color-black);
+            //     margin: 0 5px;
+            // }
             > p {
-                width: 70px;
+                // width: 0px;
                 color: var(--root-color-black);
                 font-family: var(--root-font-montserrat);
-                font-size: 22px;
+                font-size: 18px;
                 font-style: normal;
-                font-weight: 400;
+                font-weight: 500;
                 line-height: normal;
+                letter-spacing: -1px;
                 text-transform: capitalize;
-            }
+                color: white;
+                
+            }  
         }
         .pages {
             display: flex;
@@ -50,10 +58,13 @@
                 text-align: center;
                 // background: red;
                 display: block;
-                width: 180px;
+                // width: 180px;
+                width: auto;
                 a {
                     display: block;
-                    width: 150px;
+                    padding: 0 10px;
+                    width: auto;
+                    // width: 150px;
                 }
             }
             .activePage {

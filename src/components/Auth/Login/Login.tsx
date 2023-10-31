@@ -8,6 +8,7 @@ import InputPassword from '../../Inputs/InputPassword/InputPassword';
 const Login = () => {
     const [ openModal, setOpenModal ] = useState<boolean>(false)
     const { dataLogin } = useAppSelector((state) => state.loginSlice)
+    // const { data } = useAppSelector((state) => state.mainPageSlice)
     const dispatch = useAppDispatch()
 
     const sendDataLogin = (e: React.FormEvent<HTMLFormElement>) => {

@@ -1,0 +1,10 @@
+@import url('../../../globalStyles/colors.scss');
+
+.logOut {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-family: var(--root-font-openSans);
+    font-weight: 500;
+    font-size: 20px;
+}

@@ -3,6 +3,7 @@ import logo from "../../../assets/images/logo.svg"
 import { NavLink, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react";
 import Account from "../../Auth/Account/Account";
+import InputSearch from "../../Inputs/InputSearch/InputSearch";
 
 const NavMenu = () => {
 
@@ -18,7 +19,7 @@ const location = useLocation()
 const [ pages, setPages ]=useState<IPage[]>([
     {
       id: 1,
-      name: "Новостная лента",
+      name: "Новостнаялента",
       path: "/",
       bool: false
     },
@@ -54,7 +55,7 @@ const [ pages, setPages ]=useState<IPage[]>([
     },
     {
       id: 7,
-      name: "Новостная лента",
+      name: "НовостнаяЛента",
       path: "/",
       bool: false
     },
@@ -92,23 +93,15 @@ const [ pages, setPages ]=useState<IPage[]>([
         <div className={styles.navMenu__inner}>
             <NavLink className={styles.logo} to={"/"}>
                 <img src={logo} alt={logo} />
-                <div></div>
+                {/* <div></div> */}
                 <p>Арча Бешик</p>
             </NavLink>
             <div className={styles.account}>
-                {/* /// input */}
+              <InputSearch />
             </div>
-            <ul className={styles.pages}>
+            {/* <ul className={styles.pages}>
               {
                 pages?.map((p)=>
-                  (<li key={p.id} className={p.bool ? styles.activePage : ""}>
-                    <NavLink to={p.path}>{p.name}</NavLink>
-                  </li>))
-              }
-            </ul>
-             {/* <ul className={styles.pages}>
-              {
-                pages?.slice(0,2)?.map((p)=>
                   (<li key={p.id} className={p.bool ? styles.activePage : ""}>
                     <NavLink to={p.path}>{p.name}</NavLink>
                   </li>))
