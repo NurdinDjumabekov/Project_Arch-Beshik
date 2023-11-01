@@ -1,5 +1,19 @@
+@import url('../../../globalStyles/colors.scss');
+
 .accountBlock{
     display: flex;
     gap: 40px;
-    // background: red;
+    align-items: center;
+    .nameUser {
+        background-color: var(--root-color-black);
+        line-height: 30px;
+        color: var(--root-color-white);
+        padding: 1px 8px;
+        border-radius: 8px;
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: center;
+    }
 }

@@ -1,0 +1,51 @@
+@import url('../../globalStyles/colors.scss');
+
+footer {
+    padding: 50px 0;
+    width: 100%;
+    font-family: var(--root-font-OpenSans);
+    // background-color: var(--root-color-black);
+    background: var(--root-color-white);
+    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.50);
+    .footerBlock {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 100px;
+        &__logo {
+            display: flex;
+            // align-items: center;
+            justify-content: center;
+            letter-spacing: -1px;
+            gap: 10px;
+            h3 {
+                font-family: var(--root-font-OpenSans);
+                color: var(--root-color-black);
+                // font-family: var(--root-font-montserrat);
+                font-style: normal;
+                font-weight: 700;
+                line-height: 38px;
+                letter-spacing: -1px;
+            }
+            img {
+                width: 40px;
+                height: 40px;
+            }
+            .social {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+        .mapBlock {
+            border: none;
+            border-radius: 8px;
+        }
+        ul {
+            li {
+                color: var(--root-color-black);
+            }
+        }
+    }
+}

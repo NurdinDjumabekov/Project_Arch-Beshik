@@ -60,7 +60,7 @@ export const registrationUser = createAsyncThunk(
       dispatch(toTakeToken({token: resp?.data?.token, username: info?.dataRegistr?.username}))
     } catch (err) {
       console.log(err);
-      throwLS("", "")
+      throwLS( "", "" )
     }
   }
 );

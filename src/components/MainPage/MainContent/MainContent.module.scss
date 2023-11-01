@@ -1,0 +1,48 @@
+@import url('../../../globalStyles/colors.scss');
+
+.contentBlock {
+    &__inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 30px 40px;
+        padding: 40px 0px;
+    }
+    &__every {
+        display: block;
+        width: 300px;
+        background-color: hsla(0, 0%, 100%, .5);
+        border-radius: 8px;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, .7);
+        height: 380px;
+        img {
+            width: 100%;
+            height: 210px;
+            border-radius: 8px 8px 0px 0px;
+        }
+        .contentText {
+            padding: 5px 10px;
+            h2 {
+                font-family: var(--root-font-openSans);
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 21px;
+                max-height: 65px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 0 0 10px 0;
+            }
+            p {
+                font-family: var(--root-font-openSans);
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 21px;
+                max-height: 77px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 10px 0 0 0;
+            }
+        }
+    }
+}

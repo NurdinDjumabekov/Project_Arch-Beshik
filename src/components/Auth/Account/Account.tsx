@@ -14,7 +14,8 @@ const Account = () => {
         dataToken?.token 
         ? 
         <>
-          <p>{ dataToken?.username }</p>
+          <p className={styles.nameUser}>{ dataToken?.username }</p>
+          {/* <p className={styles.nameUser}>Nurdin</p> */}
           <LogOut />
         </>
         :
