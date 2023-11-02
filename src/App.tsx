@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import MainPage from "./pages/MainPage/MainPage";
@@ -10,22 +10,20 @@ import { useAppDispatch } from "./hook";
 import { toTakeData } from "./store/reducers/mainPageSlice";
 
 function App() {
-  const dispatch = useAppDispatch()
-  React.useEffect(()=>{
-    dispatch(toTakeData({ url:"category_list", lang:"ru", type:"GET"}))
-    dispatch(toTakeData({ url:"content_list", lang:"ru", type:"GET"}))
-  },[])
+  const dispatch = useAppDispatch();
+  React.useEffect(() => {
+    dispatch(toTakeData({ url: "category_list", lang: "ru", type: "GET" }));
+    dispatch(toTakeData({ url: "content_list", lang: "ru", type: "GET" }));
+  }, []);
 
   return (
     <>
-      {
-        false && <Preloader />
-      }
+      {false && <Preloader />}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<MainPage />} />
-          <Route path="/apartament" element={<ApartamentPage />} />
-          <Route path="/roads" element={<ApartamentPage />} />
+          {/* <Route path="/apartament" element={<ApartamentPage />} />
+          <Route path="/roads" element={<ApartamentPage />} /> */}
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
