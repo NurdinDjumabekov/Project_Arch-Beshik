@@ -2,11 +2,13 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import mainPageSlice from "./reducers/mainPageSlice";
 import loginSlice from "./reducers/loginSlice";
 import registrSlice from "./reducers/registrSlice";
+import detailedSlice from "./reducers/detailedSlice"
 
 const reducer = combineReducers({
   mainPageSlice,
   loginSlice,
-  registrSlice
+  registrSlice,
+  detailedSlice
 });
 
 export const store = configureStore({

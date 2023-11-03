@@ -8,6 +8,7 @@ import ApartamentPage from "./pages/ApartamentPage/ApartamentPage";
 import Preloader from "./components/Preloader/Preloader";
 import { useAppDispatch } from "./hook";
 import { toTakeData } from "./store/reducers/mainPageSlice";
+import DetailedPage from "./pages/DetailedPage/DetailedPage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<MainPage />} />
+          <Route path="detailed/:id" element={<DetailedPage />} />
           {/* <Route path="/apartament" element={<ApartamentPage />} />
           <Route path="/roads" element={<ApartamentPage />} /> */}
         </Route>

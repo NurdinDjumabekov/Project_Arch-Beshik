@@ -1,0 +1,27 @@
+@import url('../../globalStyles/colors.scss');
+
+.detailed {
+    &__inner {
+        padding: 50px 0px;
+        text-align: center;
+    }
+    &__mainText {
+        h4 {
+            color: var(--root-color-block);
+            font-family: var(--root-font-openSans);
+            font-size: 35px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+        p {
+            color: var(--root-color-block);
+            font-family: var(--root-font-openSans);
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            padding: 20px 0 0 0;
+        }
+    }
+}
