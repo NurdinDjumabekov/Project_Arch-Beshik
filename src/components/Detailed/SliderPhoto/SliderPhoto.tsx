@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './SliderPhoto.module.scss';
 
 type Photo = {
@@ -6,25 +6,37 @@ type Photo = {
 };
 
 type SliderPhotoProps = {
-  photos: Photo[]; // Массив объектов типа Photo
+  photos: Photo[];
 };
 
 const SliderPhoto: React.FC<SliderPhotoProps> = ({ photos }) => {
-  const [ count, setCount ] = useState(1)
+  const [count, setCount] = useState(0)
+
+  const prevSlider = () => {
+    count <= 0 ? setCount(0) : setCount(count - 1)
+  }
+
+  const nextSlider = () => {
+    count >= photos?.length - 1 ? setCount(photos?.length - 1) : setCount(count + 1)
+  }
+  // useEffect(()=>{
+    
+  // }, [photos])
+
   return (
     <div className={styles.mainSlider}>
-      <div className={styles.mainSlider}>
-        <button>prev</button>
+      <div className={styles.mainSlider__inner}>
+        <button onClick={prevSlider}>prev</button>
         {photos.map((photo, index) => {
-            if (index === count) {
-                return (
-                    <div key={index}>
-                        <img src={photo.image} alt="" />
-                    </div>
-                )
-            }
+          if (index === count) {
+            return (
+              <div key={index} className={styles.imgBlock}>
+                <img src={photo.image} alt="" />
+              </div>
+            )
+          }
         })}
-        <button>next</button>
+        <button onClick={nextSlider}>next</button>
       </div>
     </div>
   );

@@ -1,3 +1,21 @@
 .mainSlider {
-    
+    &__inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    .imgBlock {
+        width: 400px;
+        height: 280px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
 }
