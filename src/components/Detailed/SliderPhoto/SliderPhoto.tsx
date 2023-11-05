@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import styles from './SliderPhoto.module.scss';
+import React, { useEffect, useState } from "react";
+import styles from "./SliderPhoto.module.scss";
 
 type Photo = {
   image: string;
@@ -10,17 +10,19 @@ type SliderPhotoProps = {
 };
 
 const SliderPhoto: React.FC<SliderPhotoProps> = ({ photos }) => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   const prevSlider = () => {
-    count <= 0 ? setCount(0) : setCount(count - 1)
-  }
+    count <= 0 ? setCount(0) : setCount(count - 1);
+  };
 
   const nextSlider = () => {
-    count >= photos?.length - 1 ? setCount(photos?.length - 1) : setCount(count + 1)
-  }
+    count >= photos?.length - 1
+      ? setCount(photos?.length - 1)
+      : setCount(count + 1);
+  };
   // useEffect(()=>{
-    
+
   // }, [photos])
 
   return (
@@ -31,9 +33,13 @@ const SliderPhoto: React.FC<SliderPhotoProps> = ({ photos }) => {
           if (index === count) {
             return (
               <div key={index} className={styles.imgBlock}>
-                <img src={photo.image} alt="" />
+                {photo?.image ? (
+                  <img src={photo.image} alt="" />
+                ) : (
+                  <p>loading</p>
+                )}
               </div>
-            )
+            );
           }
         })}
         <button onClick={nextSlider}>next</button>
