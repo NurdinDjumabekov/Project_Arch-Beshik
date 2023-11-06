@@ -9,13 +9,15 @@ import Comments from "../../components/Detailed/Comments/Comments";
 const DetailedPage = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
+  const { stateMainDetailed } = useAppSelector((state) => state.detailedSlice);
+  const { statePreloader } = useAppSelector((state) => state.mainPageSlice);
+  console.log(statePreloader, "fghjkl651351");
+
   React.useEffect(() => {
     dispatch(
       toTakeDetailed({ url: `content_detail/${id}`, lang: "ru", type: "GET" })
     );
   }, []);
-  const { stateMainDetailed } = useAppSelector((state) => state.detailedSlice);
-  console.log(stateMainDetailed);
 
   return (
     <div className={styles.detailed}>
@@ -26,7 +28,7 @@ const DetailedPage = () => {
             <h4>{stateMainDetailed?.title}</h4>
             <p>{stateMainDetailed?.content}</p>
           </div>
-          <Comments />
+          <Comments comments={stateMainDetailed?.comments} id={stateMainDetailed?.id} />
         </div>
       </div>
     </div>

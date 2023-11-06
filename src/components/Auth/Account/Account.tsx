@@ -11,18 +11,18 @@ const Account = () => {
   return (
     <div className={styles.accountBlock}>
       {
-        dataToken?.token 
-        ? 
-        <>
-          <p className={styles.nameUser}>{ dataToken?.username }</p>
-          {/* <p className={styles.nameUser}>Nurdin</p> */}
-          <LogOut />
-        </>
-        :
-        <>
-          <Login />
-          <Registr />
-        </>
+        dataToken?.token
+          ?
+          <>
+            <p className={styles.nameUser}>{dataToken?.username}</p>
+            {/* <p className={styles.nameUser}>Nurdin</p> */}
+            <LogOut />
+          </>
+          :
+          <>
+            <Login />
+            <Registr />
+          </>
       }
     </div>
   )

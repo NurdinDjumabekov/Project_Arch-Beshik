@@ -1,14 +1,26 @@
 @import url('../../../globalStyles/colors.scss');
 
-.navMenu{
+.navMenu__shadow {
+    height: 100px;
+    width: 100%;
+}
+
+.navMenu {
     padding: 20px 0px;
     background: var(--root-color-white);
     box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.50);
-    &__inner{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+
+    &__inner {
         display: flex;
         align-items: center;
         // background: green;
         justify-content: space-between;
+
         .logo {
             display: flex;
             justify-content: center;
@@ -17,6 +29,7 @@
             background: black;
             padding: 6px 10px;
             border-radius: 8px;
+
             img {
                 // display: none;
                 width: 30px;
@@ -24,13 +37,14 @@
                 border: 1px solid var(--root-color-black);
                 border-radius: 50%;
             }
+
             // > div {
             //     height: 55px;
             //     width: 2px;
             //     background-color: var(--root-color-black);
             //     margin: 0 5px;
             // }
-            > p {
+            >p {
                 // width: 0px;
                 color: var(--root-color-black);
                 font-family: var(--root-font-montserrat);
@@ -41,9 +55,10 @@
                 letter-spacing: -1px;
                 text-transform: capitalize;
                 color: white;
-                
-            }  
+
+            }
         }
+
         .pages {
             display: flex;
             justify-content: space-between;
@@ -51,6 +66,7 @@
             width: 60%;
             padding: 0 20px;
             overflow-x: scroll;
+
             li {
                 padding: 5px 10px;
                 font-family: var(--root-font-openSans);
@@ -60,6 +76,7 @@
                 display: block;
                 // width: 180px;
                 width: auto;
+
                 a {
                     display: block;
                     padding: 0 10px;
@@ -67,11 +84,13 @@
                     // width: 150px;
                 }
             }
+
             .activePage {
                 background-color: var(--root-color-black);
                 padding: 5px 10px;
                 border-radius: 8px;
                 transition: background-color 0.5s, color 0.5s;
+
                 a {
                     color: var(--root-color-white);
                     font-family: var(--root-font-openSans);
@@ -79,9 +98,9 @@
                 }
             }
         }
+
         .pages::-webkit-scrollbar {
             display: none;
-                /* Скрываем полосу прокрутки в Chrome и Safari */
         }
     }
 }

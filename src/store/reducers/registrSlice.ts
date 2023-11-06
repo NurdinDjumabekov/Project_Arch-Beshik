@@ -1,6 +1,8 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { standartAxios } from "../../helpers/standartAxios";
 import { throwLS } from "../../helpers/throwLS";
+import { errorsSendData } from "../../helpers/errorsSendData";
+import { changePreloader } from "./mainPageSlice";
 
 type TypeRegistr = {
   username: string,
@@ -55,12 +57,24 @@ export const registrationUser = createAsyncThunk(
   "registration",
   async (info: TypeUrl, { dispatch }) => {
     try {
-      const resp = await standartAxios(info?.url, info.lang, info.type, info.dataRegistr );
-      throwLS(resp?.data?.token, info?.dataRegistr?.username)
-      dispatch(toTakeToken({token: resp?.data?.token, username: info?.dataRegistr?.username}))
+      const resp = await standartAxios(info?.url, info.lang, info.type, info.dataRegistr);
+      if (resp?.data?.errors) {
+        throwLS("", "")
+        errorsSendData(dispatch)
+      }
+      else {
+        throwLS(resp?.data?.token, info?.dataRegistr?.username)
+        dispatch(toTakeToken({ token: resp?.data?.token, username: info?.dataRegistr?.username }))
+        console.log(resp, "resp");
+        dispatch(changePreloader(true))
+        setTimeout(() => {
+          dispatch(changePreloader(false))
+        }, 1000);
+      }
     } catch (err) {
+      errorsSendData(dispatch)
       console.log(err);
-      throwLS( "", "" )
+      throwLS("", "")
     }
   }
 );

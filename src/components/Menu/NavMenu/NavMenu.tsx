@@ -8,15 +8,15 @@ import InputSearch from "../../Inputs/InputSearch/InputSearch";
 const NavMenu = () => {
 
   interface IPage {
-  id: number;
-  name: string;
-  path: string;
-  bool: boolean; 
-}
+    id: number;
+    name: string;
+    path: string;
+    bool: boolean;
+  }
 
-const location = useLocation()
+  const location = useLocation()
 
-const [ pages, setPages ]=useState<IPage[]>([
+  const [pages, setPages] = useState<IPage[]>([
     {
       id: 1,
       name: "Новостнаялента",
@@ -70,7 +70,7 @@ const [ pages, setPages ]=useState<IPage[]>([
   // console.log(pages, "pages");
   // console.log(location.pathname, "location.pathname");
 
-  useEffect(()=>{
+  useEffect(() => {
     const newPage = pages.map((page) => {
       if (page.path === location.pathname) {
         return {
@@ -88,13 +88,15 @@ const [ pages, setPages ]=useState<IPage[]>([
   }, [location.pathname])
 
   return (
-    <div className={styles.navMenu}>
+    <>
+      <div className={styles.navMenu__shadow}></div>
+      <div className={styles.navMenu}>
         <div className="container">
-        <div className={styles.navMenu__inner}>
+          <div className={styles.navMenu__inner}>
             <NavLink className={styles.logo} to={"/"}>
-                <img src={logo} alt={logo} />
-                {/* <div></div> */}
-                <p>Арча Бешик</p>
+              <img src={logo} alt={logo} />
+              {/* <div></div> */}
+              <p>Арча Бешик</p>
             </NavLink>
             <div className={styles.account}>
               <InputSearch />
@@ -103,14 +105,15 @@ const [ pages, setPages ]=useState<IPage[]>([
               {
                 pages?.map((p)=>
                   (<li key={p.id} className={p.bool ? styles.activePage : ""}>
-                    <NavLink to={p.path}>{p.name}</NavLink>
+                  <NavLink to={p.path}>{p.name}</NavLink>
                   </li>))
               }
             </ul> */}
             <Account />
+          </div>
         </div>
-        </div>
-    </div>
+      </div>
+    </>
   )
 }
 

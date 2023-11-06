@@ -30,7 +30,7 @@ interface ContentList {
   category_id: number;
   comments: Comment[];
   content: string;
-  data_added: string; 
+  data_added: string;
   image: string;
   owner: number;
   photos: "";
@@ -49,20 +49,22 @@ const initialState: TypeLoginState = {
   },
   stateCategory: [],
   stateCount: 0,
-  stateContentList:[] 
+  stateContentList: []
 };
 
 export const toTakeData = createAsyncThunk(
   "toTakeData",
   async (info: TypeUrl, { dispatch }) => {
     try {
+      dispatch(changePreloader(true))
       if (info?.url === 'category_list') {
-        const resp = await standartAxios(info?.url, info.lang, info.type );
+        const resp = await standartAxios(info?.url, info.lang, info.type);
         dispatch(toTakeCategory(resp?.data?.results))
       } else if (info?.url === 'content_list') {
-        const resp = await standartAxios(info?.url, info.lang, info.type );
+        const resp = await standartAxios(info?.url, info.lang, info.type);
         dispatch(toTakeContentList(resp?.data?.results))
       }
+      dispatch(changePreloader(false))
     } catch (err) {
       console.log(err);
     }
@@ -79,12 +81,12 @@ const mainPageSlice = createSlice({
     toTakeCategory: (state, action) => {
       state.stateCategory = action.payload;
     },
-     toTakeContentList: (state, action) => {
+    toTakeContentList: (state, action) => {
       state.stateContentList = action.payload;
     },
   },
 });
-export const { changePreloader, toTakeCategory, toTakeContentList} =
+export const { changePreloader, toTakeCategory, toTakeContentList } =
   mainPageSlice.actions;
 
 export default mainPageSlice.reducer;

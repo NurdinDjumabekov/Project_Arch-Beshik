@@ -7,19 +7,16 @@ import InputPassword from "../../Inputs/InputPassword/InputPassword";
 
 const Login = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
-  const { dataLogin } = useAppSelector((state) => state.loginSlice);
-  // const { data } = useAppSelector((state) => state.mainPageSlice)
+  const { dataLogin, loginState } = useAppSelector((state) => state.loginSlice);
   const dispatch = useAppDispatch();
 
   const sendDataLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(dataLogin, "dataLogin");
     dispatch(loginUser({ url: "login", lang: "ru", type: "POST", dataLogin }));
   };
 
   const changeInput = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-
     dispatch(
       changeDataLogin({ ...dataLogin, [e.target.name]: e.target.value })
     );
@@ -28,8 +25,9 @@ const Login = () => {
   return (
     <div className={styles.login}>
       <button onClick={() => setOpenModal(true)}>Вход</button>
-      <ModalWin openModal={openModal} setOpenModal={setOpenModal}>
+      <ModalWin openModal={openModal} setOpenModal={setOpenModal} color={loginState}>
         <h4>Вход в аккаунт</h4>
+        {loginState && <p className={styles.errorLogin}>Неверный логин или пароль</p>}
         <form onSubmit={sendDataLogin} className={styles.formSend}>
           <input
             type="text"

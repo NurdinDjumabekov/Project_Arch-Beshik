@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { throwLS } from "../../helpers/throwLS";
 import { standartAxios } from "../../helpers/standartAxios";
 import { toTakeToken } from "./registrSlice";
+import { errorsSendData } from "../../helpers/errorsSendData";
 
 type TypeLogins = {
   username: string;
@@ -17,6 +18,7 @@ type TypeUrl = {
 
 type TypeLoginState = {
   dataLogin: TypeLogins;
+  loginState: boolean
 };
 
 const initialState: TypeLoginState = {
@@ -24,6 +26,7 @@ const initialState: TypeLoginState = {
     username: "",
     password: "",
   },
+  loginState: false
 };
 
 export const loginUser = createAsyncThunk(
@@ -37,7 +40,6 @@ export const loginUser = createAsyncThunk(
         info.dataLogin
       );
       throwLS(resp?.data?.token, info?.dataLogin?.username);
-      console.log(resp?.data?.token);
       dispatch(
         toTakeToken({
           token: resp?.data?.token,
@@ -45,6 +47,7 @@ export const loginUser = createAsyncThunk(
         })
       );
     } catch (err) {
+      errorsSendData(dispatch)
       console.log(err);
       throwLS("", "");
     }
@@ -58,8 +61,11 @@ const loginSlice = createSlice({
     changeDataLogin: (state, action: PayloadAction<TypeLogins>) => {
       state.dataLogin = action.payload;
     },
+    changeErrloginState: (state, action) => {
+      state.loginState = action.payload;
+    },
   },
 });
-export const { changeDataLogin } = loginSlice.actions;
+export const { changeDataLogin, changeErrloginState } = loginSlice.actions;
 
 export default loginSlice.reducer;

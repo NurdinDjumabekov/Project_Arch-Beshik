@@ -10,15 +10,15 @@ interface InputPasswordProps {
 }
 
 const InputPassword: React.FC<InputPasswordProps> = ({ placeholder, name, changeInput }) => {
-    const [ lookPassword, setLookPassword ] = useState<boolean>(true)
+  const [lookPassword, setLookPassword] = useState<boolean>(true)
   return (
     <div className={styles.inputPassword}>
-        <input type={lookPassword ? "password":"text"} required placeholder={placeholder} name={name} onChange={changeInput}/> 
-        <div className={styles.eyeBlock} onClick={()=>setLookPassword(!lookPassword)}>
+      <input type={lookPassword ? "password" : "text"} required placeholder={placeholder} name={name} onChange={changeInput} />
+      <div className={styles.eyeBlock} onClick={() => setLookPassword(!lookPassword)}>
         {
-            lookPassword ? <img src={eyeOff} alt="вижу" /> : <img src={eyeOn} alt="не вижу" />
+          lookPassword ? <img src={eyeOff} alt="вижу" /> : <img src={eyeOn} alt="не вижу" />
         }
-        </div>
+      </div>
     </div>
 
   )
