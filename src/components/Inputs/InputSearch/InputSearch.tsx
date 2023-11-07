@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import loop from "../../../assets/images/inputs/loop_search.svg";
 import cross from "../../../assets/images/inputs/krestik.svg";
-// import { useDispatch, useSelector } from "react-redux";
 import styles from './InputSearch.module.scss';
+import { useAppSelector } from "../../../hook";
+import { NavLink } from "react-router-dom";
 
 const InputSearch = () => {
   const [lookIcos, setLookIcos] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
+  const { stateContentList } = useAppSelector((state) => state.mainPageSlice)
+
   useEffect(() => {
     if (search === "") {
       setLookIcos(false);
@@ -15,9 +18,18 @@ const InputSearch = () => {
     }
   }, [search]);
 
-//   useEffect(() => {
-//     dispatch(changeSearch(""));
-//   }, [langData]);
+
+  const clearInput = () => {
+    setSearch("")
+  }
+
+
+  console.log(search);
+  console.log(stateContentList);
+
+  //   useEffect(() => {
+  //     dispatch(changeSearch(""));
+  //   }, [langData]);
 
   return (
     <>
@@ -25,7 +37,7 @@ const InputSearch = () => {
         <input
           type="text"
           onChange={(e) => setSearch(e.target.value)}
-        //   placeholder={t("search")}
+          //   placeholder={t("search")}
           placeholder="Поиск"
           value={search}
         />
@@ -41,6 +53,11 @@ const InputSearch = () => {
             <img src={loop} alt="0" />
           </label>
         )}
+        <div className={styles.searchData}>
+          {search === "" ? "" : <div>
+            {stateContentList?.map((i) => i.title.includes(search) ?
+              <NavLink to={`/detailed/${i.id}`} key={i.id} onClick={clearInput}>{i.title}</NavLink> : "")}</div>}
+        </div >
       </label>
     </>
   );

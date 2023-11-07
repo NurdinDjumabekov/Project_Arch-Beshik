@@ -1,8 +1,9 @@
 .blockSearch {
     display: block;
-    width: 600px; 
+    width: 600px;
     // margin: 0 0 20px 0;
     position: relative;
+
     input {
         text-align: left;
         padding: 0 35px 0px 10px;
@@ -12,7 +13,9 @@
         border-radius: 6px;
         border: 1px solid rgba(0, 0, 0, 0.10);
     }
-    .search__loop, .search__cross {
+
+    .search__loop,
+    .search__cross {
         position: absolute;
         display: block;
         width: 20px;
@@ -21,6 +24,15 @@
         z-index: 5;
         top: 50%;
         transform: translate(-50%, -50%);
-        cursor: pointer ;
+        cursor: pointer;
+    }
+
+    .searchData {
+        // font-size: 18px;
+        background: red;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
     }
 }
