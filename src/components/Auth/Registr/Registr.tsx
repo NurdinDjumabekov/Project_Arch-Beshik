@@ -7,7 +7,8 @@ import {
   registrationUser,
 } from "../../../store/reducers/registrSlice";
 import InputPassword from "../../Inputs/InputPassword/InputPassword";
-import InputMask from 'react-input-mask';
+import InputMask from "react-input-mask";
+import { errorsSendData } from "../../../helpers/errorsSendData";
 
 const Registr = () => {
   const dispatch = useAppDispatch();
@@ -17,16 +18,21 @@ const Registr = () => {
 
   const sendDataRegistration = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(
-      registrationUser({
-        url: "register",
-        lang: "ru",
-        type: "POST",
-        dataRegistr
-      })
-    );
+    if (regEmail.test(dataRegistr.email)) {
+      dispatch(
+        registrationUser({
+          url: "register",
+          lang: "ru",
+          type: "POST",
+          dataRegistr,
+        })
+      );
+    } else {
+      errorsSendData(dispatch);
+    }
   };
 
+  const regEmail = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
   const changeInput = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(
       changeDataRegistr({ ...dataRegistr, [e.target.name]: e.target.value })
@@ -36,9 +42,15 @@ const Registr = () => {
   return (
     <div className={styles.registr}>
       <button onClick={() => setOpenModal(true)}>Регистрация</button>
-      <ModalWin openModal={openModal} setOpenModal={setOpenModal} color={loginState}>
+      <ModalWin
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        color={loginState}
+      >
         <h4>Регистрация</h4>
-        {loginState && <p className={styles.errorLogin}>Такой пользователь уже существует</p>}
+        {loginState && (
+          <p className={styles.errorLogin}>Такой пользователь уже существует</p>
+        )}
         <form onSubmit={sendDataRegistration} className={styles.formSend}>
           <input
             type="text"
@@ -61,7 +73,14 @@ const Registr = () => {
             onChange={changeInput}
             required
           /> */}
-          <InputMask mask="+999(999)99-99-99" placeholder="+996(700)75-44-54" value={dataRegistr?.number} name='number' onChange={changeInput} />
+          <InputMask
+            mask="+999(999)99-99-99"
+            placeholder="+996(700)75-44-54"
+            value={dataRegistr?.number}
+            name="number"
+            onChange={changeInput}
+            required
+          />
           <InputPassword
             placeholder="Введите пароль"
             name="password"
