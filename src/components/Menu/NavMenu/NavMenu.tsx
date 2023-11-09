@@ -1,12 +1,12 @@
-import styles from "./NavMenu.module.scss"
-import logo from "../../../assets/images/logo.svg"
-import { NavLink, useLocation } from "react-router-dom"
+import styles from "./NavMenu.module.scss";
+import logo from "../../../assets/images/logo.svg";
+import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Account from "../../Auth/Account/Account";
 import InputSearch from "../../Inputs/InputSearch/InputSearch";
+import Categories from "../Categories/Categories";
 
 const NavMenu = () => {
-
   interface IPage {
     id: number;
     name: string;
@@ -14,58 +14,58 @@ const NavMenu = () => {
     bool: boolean;
   }
 
-  const location = useLocation()
+  const location = useLocation();
 
   const [pages, setPages] = useState<IPage[]>([
     {
       id: 1,
       name: "Новостнаялента",
       path: "/",
-      bool: false
+      bool: false,
     },
     {
       id: 2,
       name: "Квартиры",
       path: "/apartament",
-      bool: false
+      bool: false,
     },
     {
       id: 3,
       name: "Дороги",
       path: "/roads",
-      bool: false
+      bool: false,
     },
     {
       id: 4,
       name: "Тазалык",
       path: "/Тазалык",
-      bool: false
+      bool: false,
     },
     {
       id: 5,
       name: "Водоканал",
       path: "/Водоканал",
-      bool: false
+      bool: false,
     },
     {
       id: 6,
       name: "Жарыктандыруу",
       path: "/Жарыктандыруу",
-      bool: false
+      bool: false,
     },
     {
       id: 7,
       name: "НовостнаяЛента",
       path: "/",
-      bool: false
+      bool: false,
     },
     {
       id: 8,
       name: "Квартиры",
       path: "/apartament",
-      bool: false
+      bool: false,
     },
-  ])
+  ]);
 
   // console.log(pages, "pages");
   // console.log(location.pathname, "location.pathname");
@@ -85,7 +85,7 @@ const NavMenu = () => {
       }
     });
     setPages(newPage);
-  }, [location.pathname])
+  }, [location.pathname]);
 
   return (
     <>
@@ -95,12 +95,13 @@ const NavMenu = () => {
           <div className={styles.navMenu__inner}>
             <NavLink className={styles.logo} to={"/"}>
               <img src={logo} alt={logo} />
-              {/* <div></div> */}
               <p>Арча Бешик</p>
             </NavLink>
+
             <div className={styles.account}>
               <InputSearch />
             </div>
+
             {/* <ul className={styles.pages}>
               {
                 pages?.map((p)=>
@@ -109,12 +110,13 @@ const NavMenu = () => {
                   </li>))
               }
             </ul> */}
-            <Account />
+            {/* <Account /> */}
+            <Categories />
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default NavMenu
+export default NavMenu;
