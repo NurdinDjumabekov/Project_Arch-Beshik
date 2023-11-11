@@ -3,34 +3,31 @@ $topMenu: 63px;
 .dropDownMenu__shadow {
   width: 100%;
   height: 100vh;
-  //   background-color: red;
   position: absolute;
   left: 0;
   top: $topMenu;
   z-index: 5;
 }
 .categoriesBlock {
-  > button {
-    background-color: transparent;
-    border: none;
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-    img {
-      width: 100%;
-      height: 100%;
-    }
+  display: flex;
+  flex-direction: column;
+  > div {
+    display: flex;
+    justify-content: center !important;
+    gap: 130px !important;
+    padding: 0 0 50px 0;
   }
-  .dropDownMenu {
-    width: 100%;
-    height: 500px;
-    background-color: rgba(82, 79, 79, 0.73);
-    position: absolute;
-    border: 1px solid black;
-    background: red !important;
-    top: $topMenu;
-    left: 0;
-    padding: 20px 30px;
-    z-index: 6;
+  > ul {
+    display: inline-block;
+    columns: 3;
+    column-gap: 120px;
+    max-width: 100%;
+    margin: 0 auto;
+    > li {
+      font-size: 20px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      break-inside: avoid-column;
+    }
   }
 }

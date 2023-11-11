@@ -1,9 +1,13 @@
-import React from 'react';
-import styles from './Categories.module.scss';
-import Account from '../../Auth/Account/Account';
-import { useAppSelector } from '../../../hook';
+import React from "react";
+import styles from "./Categories.module.scss";
+import Account from "../../Auth/Account/Account";
+import { useAppSelector } from "../../../hook";
 
-const Categories = () => {
+interface CategoriesProps {
+  closeAccordion: React.MouseEventHandler;
+}
+
+const Categories: React.FC<CategoriesProps> = ({ closeAccordion }) => {
   const { stateCategory } = useAppSelector((state) => state.mainPageSlice);
   //   console.log(stateCategory);
 
@@ -12,7 +16,9 @@ const Categories = () => {
       <Account />
       <ul>
         {stateCategory?.map((c) => (
-          <li key={c.id}>{c.name}</li>
+          <li key={c.id} onClick={closeAccordion}>
+            {c.name}
+          </li>
         ))}
       </ul>
     </div>
