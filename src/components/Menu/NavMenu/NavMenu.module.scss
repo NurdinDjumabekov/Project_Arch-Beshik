@@ -8,8 +8,11 @@
 .navMenu,
 .navMenu__back {
   padding: 20px 0px;
-  background: var(--root-color-white);
-  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.5);
+  // background: rgba(68, 91, 135, 0.38);
+  // background: rgba(68, 91, 135, 0.153);
+  // background: rgba(0, 0, 0, 0.563);
+  background: white;
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.152);
   position: fixed;
   top: 0;
   left: 0;
@@ -33,7 +36,6 @@
       border-radius: 8px;
 
       img {
-        // display: none;
         width: 30px;
         height: 30px;
         border: 1px solid var(--root-color-black);
@@ -105,6 +107,10 @@
       height: 100%;
     }
   }
+}
+.navMenu__back {
+  // background: linear-gradient(#1c4b88, rgba(15, 15, 82, 0.736));
+  height: 89px;
 }
 .accordionBlock {
   padding: 50px 0px;

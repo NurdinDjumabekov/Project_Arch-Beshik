@@ -11,12 +11,18 @@ const DetailedPage = () => {
   const dispatch = useAppDispatch();
   const { stateMainDetailed } = useAppSelector((state) => state.detailedSlice);
   const { statePreloader } = useAppSelector((state) => state.mainPageSlice);
-  console.log(statePreloader, "fghjkl651351");
 
   React.useEffect(() => {
     dispatch(
       toTakeDetailed({ url: `content_detail/${id}`, lang: "ru", type: "GET" })
     );
+    // dispatch(
+    //   detailedApartement({
+    //     url: `content_detail/${id}`,
+    //     lang: "ru",
+    //     type: "GET",
+    //   })
+    // );
   }, []);
 
   return (
@@ -28,7 +34,10 @@ const DetailedPage = () => {
             <h4>{stateMainDetailed?.title}</h4>
             <p>{stateMainDetailed?.content}</p>
           </div>
-          <Comments comments={stateMainDetailed?.comments} id={stateMainDetailed?.id} />
+          <Comments
+            comments={stateMainDetailed?.comments}
+            id={stateMainDetailed?.id}
+          />
         </div>
       </div>
     </div>

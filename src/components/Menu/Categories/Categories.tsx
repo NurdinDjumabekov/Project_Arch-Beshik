@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./Categories.module.scss";
 import Account from "../../Auth/Account/Account";
-import { useAppSelector } from "../../../hook";
+import { useAppDispatch, useAppSelector } from "../../../hook";
+import { choiceCategories } from "../../../store/reducers/mainPageSlice";
+import { useNavigate } from "react-router-dom";
 
 interface CategoriesProps {
   closeAccordion: React.MouseEventHandler;
@@ -9,17 +11,40 @@ interface CategoriesProps {
 
 const Categories: React.FC<CategoriesProps> = ({ closeAccordion }) => {
   const { stateCategory } = useAppSelector((state) => state.mainPageSlice);
-  //   console.log(stateCategory);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const clickCategory = (e: any, id: number) => {
+    closeAccordion(e);
+    dispatch(
+      choiceCategories({ url: `content_list/${id}`, lang: "ru", type: "GET" })
+    );
+    navigate("/");
+  };
+  const allCategory = (e: any) => {
+    closeAccordion(e);
+    dispatch(
+      choiceCategories({ url: `content_list`, lang: "ru", type: "GET" })
+    );
+    navigate("/");
+  };
+
+  const questions = (e: any) => {
+    closeAccordion(e);
+    navigate("/");
+  };
 
   return (
     <div className={styles.categoriesBlock}>
       <Account />
       <ul>
+        <li onClick={allCategory}>Все категории</li>
         {stateCategory?.map((c) => (
-          <li key={c.id} onClick={closeAccordion}>
+          <li key={c.id} onClick={(e) => clickCategory(e, c.id)}>
             {c.name}
           </li>
         ))}
+        <li onClick={(e) => questions(e)}>Жалобы и вопросы</li>
       </ul>
     </div>
   );

@@ -1,31 +1,45 @@
-// MUI
+import React from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-// hooks
-import Categories from "../Categories/Categories";
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
-// components
 import InputSearch from "../../Inputs/InputSearch/InputSearch";
-// img
+import Categories from "../Categories/Categories";
 import logo from "../../../assets/images/logo.svg";
 import menuIcon from "../../../assets/images/menu/menu.svg";
-// styles
 import styles from "./NavMenu.module.scss";
 
 const NavMenu = () => {
-  const [look, setLook] = useState<boolean>(false);
+  const [look, setLook] = React.useState<boolean>(false);
+  const accordionRef = React.useRef<any>(null);
 
   const handleAccordionToggle = () => {
     setLook(!look);
   };
 
+  React.useEffect(() => {
+    const handleClickOutsideAccordion = (e: MouseEvent) => {
+      if (look && !accordionRef.current.contains(e.target as Node)) {
+        setLook(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutsideAccordion);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutsideAccordion);
+    };
+  }, [look]);
+
   return (
     <>
       <div className={styles.navMenu__shadow}></div>
       <div className={styles.navMenu__back}>
-        <Accordion expanded={look} onChange={handleAccordionToggle}>
+        <Accordion
+          ref={accordionRef}
+          expanded={look}
+          onChange={handleAccordionToggle}
+        >
           <div className={styles.navMenu}>
             <div className="container">
               <div className={styles.navMenu__inner}>

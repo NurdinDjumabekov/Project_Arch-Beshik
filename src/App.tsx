@@ -4,7 +4,7 @@ import "./App.scss";
 import MainPage from "./pages/MainPage/MainPage";
 import Layout from "./components/hoc/Layout/Layout";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import ApartamentPage from "./pages/ApartamentPage/ApartamentPage";
+// import ApartamentPage from "./pages/ApartamentPage/ApartamentPage";
 import Preloader from "./components/Preloader/Preloader";
 import { useAppDispatch, useAppSelector } from "./hook";
 import { toTakeData } from "./store/reducers/mainPageSlice";
@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="parent">
       {statePreloader.preloader && <Preloader />}
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -31,7 +31,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

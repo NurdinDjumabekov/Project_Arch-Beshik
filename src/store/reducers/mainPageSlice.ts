@@ -2,13 +2,13 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { standartAxios } from "../../helpers/standartAxios";
 
 interface TypePreloader {
-  preloader: boolean
+  preloader: boolean;
 }
 
 interface TypeUrl {
-  url: string,
-  lang: string,
-  type: string,
+  url: string;
+  lang: string;
+  type: string;
 }
 
 interface Category {
@@ -37,11 +37,12 @@ interface ContentList {
 }
 
 type TypeLoginState = {
-  statePreloader: TypePreloader
-  stateCategory: Category[],
-  stateCount: number,
-  stateContentList: ContentList[]
-}
+  statePreloader: TypePreloader;
+  stateCategory: Category[];
+  stateCount: number;
+  stateContentList: ContentList[];
+  paginationCount: number;
+};
 
 const initialState: TypeLoginState = {
   statePreloader: {
@@ -49,22 +50,39 @@ const initialState: TypeLoginState = {
   },
   stateCategory: [],
   stateCount: 0,
-  stateContentList: []
+  stateContentList: [],
+  paginationCount: localStorage.getItem("pagination")
+    ? Number(localStorage.getItem("pagination"))
+    : 1,
 };
 
 export const toTakeData = createAsyncThunk(
   "toTakeData",
   async (info: TypeUrl, { dispatch }) => {
     try {
-      dispatch(changePreloader(true))
-      if (info?.url === 'category_list') {
+      dispatch(changePreloader(true));
+      if (info?.url === "category_list") {
         const resp = await standartAxios(info?.url, info.lang, info.type);
-        dispatch(toTakeCategory(resp?.data?.results))
-      } else if (info?.url === 'content_list') {
+        dispatch(toTakeCategory(resp?.data?.results));
+      } else if (info?.url === "content_list") {
         const resp = await standartAxios(info?.url, info.lang, info.type);
-        dispatch(toTakeContentList(resp?.data?.results))
+        dispatch(toTakeContentList(resp?.data?.results));
       }
-      dispatch(changePreloader(false))
+      dispatch(changePreloader(false));
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
+
+export const choiceCategories = createAsyncThunk(
+  "toTakeData",
+  async (info: TypeUrl, { dispatch }) => {
+    try {
+      dispatch(changePreloader(true));
+      const resp = await standartAxios(info?.url, info.lang, info.type);
+      dispatch(toTakeContentList(resp?.data?.results));
+      dispatch(changePreloader(false));
     } catch (err) {
       console.log(err);
     }
@@ -84,9 +102,16 @@ const mainPageSlice = createSlice({
     toTakeContentList: (state, action) => {
       state.stateContentList = action.payload;
     },
+    changePaginationCount: (state, action) => {
+      state.paginationCount = action.payload;
+    },
   },
 });
-export const { changePreloader, toTakeCategory, toTakeContentList } =
-  mainPageSlice.actions;
+export const {
+  changePreloader,
+  toTakeCategory,
+  toTakeContentList,
+  changePaginationCount,
+} = mainPageSlice.actions;
 
 export default mainPageSlice.reducer;

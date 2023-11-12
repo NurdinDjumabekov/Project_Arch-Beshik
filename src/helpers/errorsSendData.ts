@@ -1,9 +1,12 @@
 import { Dispatch } from "@reduxjs/toolkit";
 import { changeErrloginState } from "../store/reducers/loginSlice";
 
-export const errorsSendData: (dispatch: Dispatch) => void = (dispatch) => {
-    dispatch(changeErrloginState(true))
-    setTimeout(() => {
-        dispatch(changeErrloginState(false))
-    }, 1500);
-}
+export const errorsSendData: (dispatch: Dispatch, text: string) => void = (
+  dispatch,
+  text
+) => {
+  dispatch(changeErrloginState({ state: true, text: text }));
+  setTimeout(() => {
+    dispatch(changeErrloginState({ state: false, text: "" }));
+  }, 1500);
+};

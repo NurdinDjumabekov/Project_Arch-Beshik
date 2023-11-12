@@ -15,10 +15,14 @@ type TypeUrl = {
   type: string;
   dataLogin: { [key: string]: string };
 };
+type TypeError = {
+  state: boolean;
+  text: string;
+};
 
 type TypeLoginState = {
   dataLogin: TypeLogins;
-  loginState: boolean
+  loginState: TypeError;
 };
 
 const initialState: TypeLoginState = {
@@ -26,7 +30,10 @@ const initialState: TypeLoginState = {
     username: "",
     password: "",
   },
-  loginState: false
+  loginState: {
+    state: false,
+    text: "",
+  },
 };
 
 export const loginUser = createAsyncThunk(
@@ -47,7 +54,7 @@ export const loginUser = createAsyncThunk(
         })
       );
     } catch (err) {
-      errorsSendData(dispatch)
+      errorsSendData(dispatch, "Ошибка! Что-то пошло не так...");
       console.log(err);
       throwLS("", "");
     }

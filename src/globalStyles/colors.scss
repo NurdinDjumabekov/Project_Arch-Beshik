@@ -1,13 +1,14 @@
 :root {
-    --root-font-montserrat: 'Montserrat', sans-serif;
-    --root-font-openSans: 'Open Sans', sans-serif;
-    --root-font-roboto: 'Roboto', sans-serif;
-    --root-font-unbounded: 'Unbounded', sans-serif;
-    --root-color-white: #FFF;
-    --root-color-black: #000;
+  --root-font-montserrat: "Montserrat", sans-serif;
+  --root-font-openSans: "Open Sans", sans-serif;
+  --root-font-roboto: "Roboto", sans-serif;
+  --root-font-unbounded: "Unbounded", sans-serif;
+  --root-color-white: #fff;
+  --root-color-black: #000;
+  // --root-color-gradient: linear-gradient(#144381, rgb(14, 14, 16));
+  --root-color-gradient: white;
 }
 
-
 #root {
-    background-color: var(--primary-color);
+  background-color: var(--primary-color);
 }

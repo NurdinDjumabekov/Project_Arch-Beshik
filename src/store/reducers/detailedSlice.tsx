@@ -3,30 +3,30 @@ import { standartAxios } from "../../helpers/standartAxios";
 import { changePreloader } from "./mainPageSlice";
 
 interface TypeUrl {
-  url: string,
-  lang: string,
-  type: string,
+  url: string;
+  lang: string;
+  type: string;
 }
 
 type photos = {
-  image: string
-}
+  image: string;
+};
 
 interface mainDetailed {
-  id: number,
-  title: string,
-  category_id: number,
-  image: string,
-  data_added: string,
-  owner: number,
-  content: string,
-  comments: [],
-  photos: photos[]
+  id: number;
+  title: string;
+  category_id: number;
+  image: string;
+  data_added: string;
+  owner: number;
+  content: string;
+  comments: [];
+  photos: photos[];
 }
 
 type TypeDetaliedData = {
-  stateMainDetailed: mainDetailed
-}
+  stateMainDetailed: mainDetailed;
+};
 
 const initialState: TypeDetaliedData = {
   stateMainDetailed: {
@@ -38,25 +38,38 @@ const initialState: TypeDetaliedData = {
     owner: 0,
     content: "",
     comments: [],
-    photos: []
-  }
-
+    photos: [],
+  },
 };
 
 export const toTakeDetailed = createAsyncThunk(
   "toTakeData",
   async (info: TypeUrl, { dispatch }) => {
     try {
-      dispatch(changePreloader(true))
+      dispatch(changePreloader(true));
       const resp = await standartAxios(info?.url, info.lang, info.type);
-      dispatch(changeMainDetailed(resp?.data?.content))
-      dispatch(changePreloader(false))
+      dispatch(changeMainDetailed(resp?.data?.content));
+      dispatch(changePreloader(false));
     } catch (err) {
       console.log(err);
-      dispatch(changePreloader(true))
+      dispatch(changePreloader(true));
     }
   }
 );
+// export const detailedApartement = createAsyncThunk(
+//   "detailedApartement",
+//   async (info: TypeUrl, { dispatch }) => {
+//     try {
+//       dispatch(changePreloader(true));
+//       const resp = await standartAxios(info?.url, info.lang, info.type);
+//       dispatch(changeMainDetailed(resp?.data?.content));
+//       dispatch(changePreloader(false));
+//     } catch (err) {
+//       console.log(err);
+//       dispatch(changePreloader(true));
+//     }
+//   }
+// );
 
 const detailedSlice = createSlice({
   name: "detailedSlice",
@@ -65,7 +78,6 @@ const detailedSlice = createSlice({
     changeMainDetailed: (state, action) => {
       state.stateMainDetailed = action.payload;
     },
-
   },
 });
 export const { changeMainDetailed } = detailedSlice.actions;

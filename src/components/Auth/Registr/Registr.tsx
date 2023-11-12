@@ -15,24 +15,40 @@ const Registr = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const { dataRegistr } = useAppSelector((state) => state.registrSlice);
   const { loginState } = useAppSelector((state) => state.loginSlice);
+  const regEmail = /^[\w\.-]+@gmail.com$/;
+  const regExpNum = /^\+996\(\d{3}\)\d{2}-\d{2}-\d{2}$/;
 
   const sendDataRegistration = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (regEmail.test(dataRegistr.email)) {
-      dispatch(
-        registrationUser({
-          url: "register",
-          lang: "ru",
-          type: "POST",
-          dataRegistr,
-        })
-      );
+    if (dataRegistr.username.length >= 5) {
+      if (regEmail.test(dataRegistr.email)) {
+        if (regExpNum.test(dataRegistr.number)) {
+          if (dataRegistr.password.length >= 5) {
+            dispatch(
+              registrationUser({
+                url: "register",
+                lang: "ru",
+                type: "POST",
+                dataRegistr,
+              })
+            );
+          } else {
+            errorsSendData(
+              dispatch,
+              "Пароль должен содержать больше 5ти символов"
+            );
+          }
+        } else {
+          errorsSendData(dispatch, "Некорректный номер");
+        }
+      } else {
+        errorsSendData(dispatch, "Некорректный Email");
+      }
     } else {
-      errorsSendData(dispatch);
+      errorsSendData(dispatch, "Имя должно быть больше 5ти символов");
     }
   };
 
-  const regEmail = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
   const changeInput = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(
       changeDataRegistr({ ...dataRegistr, [e.target.name]: e.target.value })
@@ -45,11 +61,11 @@ const Registr = () => {
       <ModalWin
         openModal={openModal}
         setOpenModal={setOpenModal}
-        color={loginState}
+        color={loginState.state}
       >
         <h4>Регистрация</h4>
-        {loginState && (
-          <p className={styles.errorLogin}>Такой пользователь уже существует</p>
+        {loginState.state && (
+          <p className={styles.errorLogin}>{loginState.text}</p>
         )}
         <form onSubmit={sendDataRegistration} className={styles.formSend}>
           <input

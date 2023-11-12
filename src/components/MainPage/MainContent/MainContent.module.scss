@@ -1,13 +1,16 @@
 @import url("../../../globalStyles/colors.scss");
 
 .contentBlock {
+  // background: var(--root-color-gradient);
+  padding: 50px 0;
+
   &__inner {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 30px 40px;
-    padding: 40px 0px;
+    padding: 10px 0px 40px;
 
     .noneData {
       color: var(--root-color-black);
