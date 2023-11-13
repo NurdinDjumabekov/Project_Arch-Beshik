@@ -14,7 +14,7 @@ const Registr = () => {
   const dispatch = useAppDispatch();
   const [openModal, setOpenModal] = useState<boolean>(false);
   const { dataRegistr } = useAppSelector((state) => state.registrSlice);
-  const { loginState } = useAppSelector((state) => state.loginSlice);
+  const { registrState } = useAppSelector((state) => state.errorsSlice);
   const regEmail = /^[\w\.-]+@gmail.com$/;
   const regExpNum = /^\+996\(\d{3}\)\d{2}-\d{2}-\d{2}$/;
 
@@ -61,11 +61,11 @@ const Registr = () => {
       <ModalWin
         openModal={openModal}
         setOpenModal={setOpenModal}
-        color={loginState.state}
+        color={registrState.state}
       >
         <h4>Регистрация</h4>
-        {loginState.state && (
-          <p className={styles.errorLogin}>{loginState.text}</p>
+        {registrState.state && (
+          <p className={styles.errorLogin}>{registrState.text}</p>
         )}
         <form onSubmit={sendDataRegistration} className={styles.formSend}>
           <input
@@ -82,13 +82,6 @@ const Registr = () => {
             onChange={changeInput}
             required
           />
-          {/* <input
-            type="text"
-            placeholder="Введите number"
-            name="number"
-            onChange={changeInput}
-            required
-          /> */}
           <InputMask
             mask="+999(999)99-99-99"
             placeholder="+996(700)75-44-54"
@@ -102,7 +95,7 @@ const Registr = () => {
             name="password"
             changeInput={changeInput}
           />
-          <button type="submit">send</button>
+          <button type="submit">Отправить</button>
         </form>
       </ModalWin>
     </div>

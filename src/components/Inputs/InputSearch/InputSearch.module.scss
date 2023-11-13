@@ -1,3 +1,5 @@
+@import url("../../../globalStyles/colors.scss");
+
 $heightInput: 40px;
 .blockSearch {
   display: block;
@@ -10,7 +12,7 @@ $heightInput: 40px;
     padding: 0 35px 0px 10px;
     width: 100%;
     height: $heightInput;
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 6px;
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
@@ -30,10 +32,46 @@ $heightInput: 40px;
 
   .searchData {
     font-size: 18px;
-    background: red;
+    background: var(--root-color-white);
+    // background: red;
     position: absolute;
+    border-radius: 5px;
     left: 0;
     top: $heightInput;
     width: 100%;
+    &__inner {
+      margin: 5px 0px;
+      padding: 20px 10px;
+      min-height: 40px;
+      max-height: 120px;
+      overflow-y: scroll;
+      box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.152);
+      border-radius: 3px;
+
+      p {
+        font-size: 18px;
+        display: inline-block;
+        margin: 0 0 10px 0;
+        position: relative;
+        cursor: pointer;
+      }
+
+      p::after {
+        content: "";
+        display: block;
+        height: 1px;
+        width: 100%;
+        background: var(--root-color-black);
+        position: absolute;
+        bottom: 0;
+      }
+    }
+    &__inner::-webkit-scrollbar {
+      width: 0;
+    }
+
+    &__inner::-moz-scrollbar {
+      width: 0;
+    }
   }
 }

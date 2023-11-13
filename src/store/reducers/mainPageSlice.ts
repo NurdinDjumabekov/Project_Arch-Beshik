@@ -1,20 +1,14 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { standartAxios } from "../../helpers/standartAxios";
 
-interface TypePreloader {
-  preloader: boolean;
+interface imgs {
+  image: string;
 }
 
 interface TypeUrl {
   url: string;
   lang: string;
   type: string;
-}
-
-interface Category {
-  id: number;
-  name: string;
-  is_rent: boolean;
 }
 
 interface Comment {
@@ -35,22 +29,34 @@ interface ContentList {
   owner: number;
   photos: "";
 }
+interface housemanageList {
+  amount_of_rooms: number;
+  category_id: number;
+  description: string;
+  id: number;
+  owner: string;
+  phone_number: number;
+  photos: imgs[];
+  photoss: string;
+  price: number;
+  remont: string;
+  udobstva: string;
+  title: string;
+}
 
 type TypeLoginState = {
-  statePreloader: TypePreloader;
-  stateCategory: Category[];
+  statePreloader: boolean;
   stateCount: number;
   stateContentList: ContentList[];
+  stateHousemanage: housemanageList[];
   paginationCount: number;
 };
 
 const initialState: TypeLoginState = {
-  statePreloader: {
-    preloader: false,
-  },
-  stateCategory: [],
+  statePreloader: false,
   stateCount: 0,
   stateContentList: [],
+  stateHousemanage: [],
   paginationCount: localStorage.getItem("pagination")
     ? Number(localStorage.getItem("pagination"))
     : 1,
@@ -61,30 +67,16 @@ export const toTakeData = createAsyncThunk(
   async (info: TypeUrl, { dispatch }) => {
     try {
       dispatch(changePreloader(true));
-      if (info?.url === "category_list") {
-        const resp = await standartAxios(info?.url, info.lang, info.type);
-        dispatch(toTakeCategory(resp?.data?.results));
-      } else if (info?.url === "content_list") {
-        const resp = await standartAxios(info?.url, info.lang, info.type);
-        dispatch(toTakeContentList(resp?.data?.results));
-      }
-      dispatch(changePreloader(false));
-    } catch (err) {
-      console.log(err);
-    }
-  }
-);
-
-export const choiceCategories = createAsyncThunk(
-  "toTakeData",
-  async (info: TypeUrl, { dispatch }) => {
-    try {
-      dispatch(changePreloader(true));
       const resp = await standartAxios(info?.url, info.lang, info.type);
       dispatch(toTakeContentList(resp?.data?.results));
+      // else if (info?.url === "content_list/housemanage") {
+      //   const resp = await standartAxios(info?.url, info.lang, info.type);
+      //   dispatch(toTakeHousemanage(resp?.data?.results));
+      // }
       dispatch(changePreloader(false));
     } catch (err) {
       console.log(err);
+      dispatch(changePreloader(true));
     }
   }
 );
@@ -94,13 +86,13 @@ const mainPageSlice = createSlice({
   initialState,
   reducers: {
     changePreloader: (state, action) => {
-      state.statePreloader.preloader = action.payload;
-    },
-    toTakeCategory: (state, action) => {
-      state.stateCategory = action.payload;
+      state.statePreloader = action.payload;
     },
     toTakeContentList: (state, action) => {
       state.stateContentList = action.payload;
+    },
+    toTakeHousemanage: (state, action) => {
+      state.stateHousemanage = action.payload;
     },
     changePaginationCount: (state, action) => {
       state.paginationCount = action.payload;
@@ -109,9 +101,9 @@ const mainPageSlice = createSlice({
 });
 export const {
   changePreloader,
-  toTakeCategory,
   toTakeContentList,
   changePaginationCount,
+  toTakeHousemanage,
 } = mainPageSlice.actions;
 
 export default mainPageSlice.reducer;

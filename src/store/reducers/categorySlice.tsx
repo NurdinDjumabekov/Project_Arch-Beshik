@@ -1,7 +1,12 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { standartAxios } from "../../helpers/standartAxios";
+import { changePreloader, toTakeContentList } from "./mainPageSlice";
 
-
+interface TypeUrl {
+  url: string;
+  lang: string;
+  type: string;
+}
 interface Category {
   id: number;
   name: string;
@@ -9,25 +14,42 @@ interface Category {
 }
 
 type TypeLoginState = {
-  stateCategory: Category[],
-}
+  stateCategory: Category[];
+};
 
 const initialState: TypeLoginState = {
   stateCategory: [],
 };
 
-// export const toTakeAllCategory = createAsyncThunk(
-//   "toTakeAllCategory",
-//   async (info: TypeUrl, { dispatch }) => {
-//     try {
-//       const resp = await standartAxios(info?.url, info.lang, info.type );
-//       dispatch(toTakeCategory(resp?.data?.results))
-//       // console.log(resp?.data?.results);
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   }
-// );
+export const toTakeAllCategory = createAsyncThunk(
+  "toTakeAllCategory",
+  async (info: TypeUrl, { dispatch }) => {
+    try {
+      dispatch(changePreloader(true));
+      const resp = await standartAxios(info?.url, info.lang, info.type);
+      dispatch(toTakeCategory(resp?.data?.results));
+      dispatch(changePreloader(false));
+    } catch (err) {
+      console.log(err);
+      dispatch(changePreloader(true));
+    }
+  }
+);
+
+export const choiceCategories = createAsyncThunk(
+  "choiceCategories",
+  async (info: TypeUrl, { dispatch }) => {
+    try {
+      dispatch(changePreloader(true));
+      const resp = await standartAxios(info?.url, info.lang, info.type);
+      dispatch(toTakeContentList(resp?.data?.results));
+      dispatch(changePreloader(false));
+    } catch (err) {
+      console.log(err);
+      dispatch(changePreloader(true));
+    }
+  }
+);
 
 const categorySlice = createSlice({
   name: "categorySlice",
@@ -38,7 +60,6 @@ const categorySlice = createSlice({
     },
   },
 });
-export const { toTakeCategory} =
-  categorySlice.actions;
+export const { toTakeCategory } = categorySlice.actions;
 
 export default categorySlice.reducer;

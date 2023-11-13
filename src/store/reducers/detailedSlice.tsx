@@ -43,7 +43,7 @@ const initialState: TypeDetaliedData = {
 };
 
 export const toTakeDetailed = createAsyncThunk(
-  "toTakeData",
+  "toTakeDetailed",
   async (info: TypeUrl, { dispatch }) => {
     try {
       dispatch(changePreloader(true));

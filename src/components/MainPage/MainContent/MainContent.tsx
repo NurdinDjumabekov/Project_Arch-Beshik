@@ -4,14 +4,17 @@ import styles from "./MainContent.module.scss";
 import Paginations from "../Paginations/Paginations";
 
 const MainContent = () => {
-  const { stateContentList, paginationCount } = useAppSelector(
-    (state) => state.mainPageSlice
-  );
+  const { stateContentList, stateHousemanage, paginationCount } =
+    useAppSelector((state) => state.mainPageSlice);
 
   let startIndex: number = (paginationCount - 1) * 12;
   let endIndex: number = paginationCount * 12;
 
   let sortData = stateContentList?.slice(startIndex, endIndex);
+
+  // console.log(sortData, "sortData");
+  // console.log(stateContentList, "stateContentList");
+  // console.log(stateHousemanage, "stateHousemanage");
 
   return (
     <div className={styles.contentBlock}>

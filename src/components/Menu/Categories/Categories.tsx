@@ -2,15 +2,15 @@ import React from "react";
 import styles from "./Categories.module.scss";
 import Account from "../../Auth/Account/Account";
 import { useAppDispatch, useAppSelector } from "../../../hook";
-import { choiceCategories } from "../../../store/reducers/mainPageSlice";
 import { useNavigate } from "react-router-dom";
+import { choiceCategories } from "../../../store/reducers/categorySlice";
 
 interface CategoriesProps {
   closeAccordion: React.MouseEventHandler;
 }
 
 const Categories: React.FC<CategoriesProps> = ({ closeAccordion }) => {
-  const { stateCategory } = useAppSelector((state) => state.mainPageSlice);
+  const { stateCategory } = useAppSelector((state) => state.categorySlice);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -21,6 +21,7 @@ const Categories: React.FC<CategoriesProps> = ({ closeAccordion }) => {
     );
     navigate("/");
   };
+
   const allCategory = (e: any) => {
     closeAccordion(e);
     dispatch(

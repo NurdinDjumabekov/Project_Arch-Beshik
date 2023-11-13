@@ -5,21 +5,39 @@ import {
   addComment,
   changeDataComments,
 } from "../../../store/reducers/commentSlice";
+import { errorsSendData } from "../../../helpers/errorsSendData";
 
 const AddComment = ({ id }: { id: number }) => {
   const dispatch = useAppDispatch();
   const { stateDataComments } = useAppSelector((state) => state.commentSlice);
+  const { commentState } = useAppSelector((state) => state.errorsSlice);
+  const regEmail = /^[\w\.-]+@gmail.com$/;
 
   const sendDataComment = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(
-      addComment({
-        url: `comment_list/${id}`,
-        lang: "ru",
-        type: "POST",
-        stateDataComments,
-      })
-    );
+    if (stateDataComments.name.length >= 5) {
+      if (regEmail.test(stateDataComments.email)) {
+        if (stateDataComments.comment.length >= 5) {
+          dispatch(
+            addComment({
+              url: `comment_list/${id}`,
+              lang: "ru",
+              type: "POST",
+              stateDataComments,
+            })
+          );
+        } else {
+          errorsSendData(
+            dispatch,
+            "Ваш комментарий должен быть больше 5ти символов"
+          );
+        }
+      } else {
+        errorsSendData(dispatch, "Некорректный Email");
+      }
+    } else {
+      errorsSendData(dispatch, "Имя должно быть больше 5ти символов");
+    }
   };
 
   const changeInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -34,6 +52,9 @@ const AddComment = ({ id }: { id: number }) => {
   return (
     <div className={styles.commentBlock}>
       <h4>Добавить коментарий</h4>
+      {commentState.state && (
+        <p className={styles.errorLogin}>{commentState.text}</p>
+      )}
       <form onSubmit={sendDataComment} className={styles.formSend}>
         <input
           type="text"
@@ -51,7 +72,7 @@ const AddComment = ({ id }: { id: number }) => {
         />
         <input
           type="text"
-          placeholder="Введите вашу почту"
+          placeholder="Введите текст"
           name="comment"
           onChange={changeInput}
           required

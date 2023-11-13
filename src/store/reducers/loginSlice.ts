@@ -15,24 +15,15 @@ type TypeUrl = {
   type: string;
   dataLogin: { [key: string]: string };
 };
-type TypeError = {
-  state: boolean;
-  text: string;
-};
 
 type TypeLoginState = {
   dataLogin: TypeLogins;
-  loginState: TypeError;
 };
 
 const initialState: TypeLoginState = {
   dataLogin: {
     username: "",
     password: "",
-  },
-  loginState: {
-    state: false,
-    text: "",
   },
 };
 
@@ -54,9 +45,9 @@ export const loginUser = createAsyncThunk(
         })
       );
     } catch (err) {
-      errorsSendData(dispatch, "Ошибка! Что-то пошло не так...");
-      console.log(err);
+      errorsSendData(dispatch, "Неправильный логин или пароль!");
       throwLS("", "");
+      console.log(err);
     }
   }
 );
@@ -68,11 +59,8 @@ const loginSlice = createSlice({
     changeDataLogin: (state, action: PayloadAction<TypeLogins>) => {
       state.dataLogin = action.payload;
     },
-    changeErrloginState: (state, action) => {
-      state.loginState = action.payload;
-    },
   },
 });
-export const { changeDataLogin, changeErrloginState } = loginSlice.actions;
+export const { changeDataLogin } = loginSlice.actions;
 
 export default loginSlice.reducer;

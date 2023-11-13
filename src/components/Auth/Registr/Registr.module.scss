@@ -1,71 +1,71 @@
-@import url('../../../globalStyles/colors.scss');
+@import url("../../../globalStyles/colors.scss");
 
 .registr {
+  button {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    font-family: var(--root-font-openSans);
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 25px;
+    top: 0;
+    width: 100%;
+    position: absolute;
+    padding: 20px 0px;
+    text-align: center;
+  }
+
+  .errorLogin {
+    color: black;
+    display: block;
+    padding: 5px 0;
+    font-size: 16px;
+    text-align: center;
+    font-family: var(--root-font-openSans);
+    margin: -30px 0 5px;
+    font-weight: 700;
+  }
+
+  .formSend {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 20px;
+
+    input {
+      height: 30px;
+      border-radius: 8px;
+      border: none;
+      padding: 0 10px 3px;
+      font-size: 15px;
+      background-color: var(--root-color-white);
+      border: 2px solid rgb(101, 99, 99);
+      color: var(--root-color-black);
+      font-size: 18px;
+      font-family: var(--root-font-Roboto);
+      font-weight: 600;
+    }
+
     button {
-        cursor: pointer;
-        font-size: 18px;
-        font-weight: 500;
-        background: transparent;
-        border: none;
-        font-family: var(--root-font-openSans);
-        font-weight: 500;
-        font-size: 20px;
+      width: 40%;
+      display: inline;
+      padding: 7px 5px;
+      border-radius: 8px;
+      border: none;
+      margin: 0 auto;
+      font-family: var(--root-font-Roboto);
+      font-size: 20px;
+      font-weight: 600;
+      background-color: rgba(41, 41, 41, 0.237);
+      border: 2px solid rgb(69, 68, 68);
     }
-
-    h4 {
-        font-size: 25px;
-        top: 0;
-        width: 100%;
-        position: absolute;
-        padding: 20px 0px;
-        text-align: center;
-    }
-
-    .errorLogin {
-        color: black;
-        display: block;
-        padding: 5px 0;
-        font-size: 18px;
-        text-align: center;
-        font-family: var(--root-font-openSans);
-        margin: -30px 0 5px;
-        font-weight: 700;
-    }
-
-    .formSend {
-        width: 80%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        margin: 0 auto;
-        gap: 20px;
-
-        input {
-            height: 30px;
-            border-radius: 8px;
-            border: none;
-            padding: 0 10px 3px;
-            font-size: 15px;
-            background-color: var(--root-color-white);
-            border: 2px solid rgb(101, 99, 99);
-            color: var(--root-color-black);
-            font-size: 18px;
-            font-family: var(--root-font-Roboto);
-            font-weight: 600;
-        }
-
-        button {
-            width: 40%;
-            display: inline;
-            padding: 7px 5px;
-            border-radius: 8px;
-            border: none;
-            margin: 0 auto;
-            font-family: var(--root-font-Roboto);
-            font-size: 20px;
-            font-weight: 600;
-            background-color: rgba(41, 41, 41, 0.237);
-            border: 2px solid rgb(69, 68, 68);
-        }
-    }
+  }
 }

@@ -2,21 +2,22 @@ import React, { useState } from "react";
 import styles from "./Comments.module.scss";
 import ModalWin from "../../ModalWin/ModalWin";
 import AddComment from "../AddComment/AddComment";
+import { useAppSelector } from "../../../hook";
 type everyComment = {
   id: number;
   comment: string;
   email: string;
   name: string;
-  pub_date: string
+  pub_date: string;
 };
 type dataComment = {
   comments: everyComment[];
-  id: number
+  id: number;
 };
 
 const Comments: React.FC<dataComment> = ({ comments, id }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
-  console.log(comments, "comments");
+  const { commentState } = useAppSelector((state) => state.errorsSlice);
 
   return (
     <div className={styles.comments}>
@@ -31,7 +32,11 @@ const Comments: React.FC<dataComment> = ({ comments, id }) => {
         </div>
       ))}
       <button onClick={() => setOpenModal(true)}>Добавить комментарий</button>
-      <ModalWin openModal={openModal} setOpenModal={setOpenModal} color={false}>
+      <ModalWin
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        color={commentState.state}
+      >
         <AddComment id={id} />
       </ModalWin>
     </div>
