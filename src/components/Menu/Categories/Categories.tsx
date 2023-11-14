@@ -32,7 +32,7 @@ const Categories: React.FC<CategoriesProps> = ({ closeAccordion }) => {
 
   const questions = (e: any) => {
     closeAccordion(e);
-    navigate("/");
+    navigate("/questions");
   };
 
   return (

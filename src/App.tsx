@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from "./hook";
 import { toTakeData } from "./store/reducers/mainPageSlice";
 import DetailedPage from "./pages/DetailedPage/DetailedPage";
 import { toTakeAllCategory } from "./store/reducers/categorySlice";
+import QuestionsPage from "./pages/QuestionsPage/QuestionsPage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -31,6 +32,7 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="detailed/:id" element={<DetailedPage />} />
           <Route path="/apartament" element={<ApartamentPage />} />
+          <Route path="/questions" element={<QuestionsPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

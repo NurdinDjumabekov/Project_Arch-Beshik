@@ -57,10 +57,27 @@ const NavMenu = () => {
                   id="panel2a-header"
                 >
                   <button
-                    className={styles.btnMenu}
+                    className={`${styles.btnMenu} ${
+                      look ? styles.btnMenuActive : ""
+                    }`}
                     onClick={handleAccordionToggle}
                   >
-                    <img src={menuIcon} alt="" />
+                    {/* <img src={menuIcon} alt="|||" /> */}
+                    <div
+                      className={`${styles.line1} ${
+                        look ? styles.lineActive1 : ""
+                      }`}
+                    ></div>
+                    <div
+                      className={`${styles.line2} ${
+                        look ? styles.lineActive2 : ""
+                      }`}
+                    ></div>
+                    <div
+                      className={`${styles.line3} ${
+                        look ? styles.lineActive3 : ""
+                      }`}
+                    ></div>
                   </button>
                 </AccordionSummary>
               </div>
