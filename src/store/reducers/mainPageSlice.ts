@@ -29,6 +29,7 @@ interface ContentList {
   owner: number;
   photos: "";
 }
+
 interface housemanageList {
   amount_of_rooms: number;
   category_id: number;

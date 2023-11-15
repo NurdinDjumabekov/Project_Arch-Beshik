@@ -6,6 +6,7 @@ import detailedSlice from "./reducers/detailedSlice";
 import commentSlice from "./reducers/commentSlice";
 import errorsSlice from "./reducers/errorsSlice";
 import categorySlice from "./reducers/categorySlice";
+import questionSlice from "./reducers/questionSlice";
 
 const reducer = combineReducers({
   mainPageSlice,
@@ -15,6 +16,7 @@ const reducer = combineReducers({
   commentSlice,
   errorsSlice,
   categorySlice,
+  questionSlice,
 });
 
 export const store = configureStore({

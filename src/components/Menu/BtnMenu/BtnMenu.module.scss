@@ -1,0 +1,43 @@
+.btnMenu {
+  background-color: transparent;
+  border: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  position: relative;
+
+  .imgNone {
+    display: none;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  > div {
+    height: 3px;
+    border-radius: 8px;
+    width: 100%;
+    background-color: var(--root-color-black);
+  }
+
+  .lineActive1 {
+    rotate: 45deg;
+    position: absolute;
+    top: 86%;
+    left: 36%;
+    transform: translate(-50%, -50%);
+  }
+  .lineActive2 {
+    display: none;
+    transition: 0.1s;
+  }
+  .lineActive3 {
+    rotate: -45deg;
+    position: absolute;
+    top: 17%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+  }
+}

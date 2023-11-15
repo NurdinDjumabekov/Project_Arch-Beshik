@@ -6,8 +6,8 @@ import { NavLink } from "react-router-dom";
 import InputSearch from "../../Inputs/InputSearch/InputSearch";
 import Categories from "../Categories/Categories";
 import logo from "../../../assets/images/logo.svg";
-import menuIcon from "../../../assets/images/menu/menu.svg";
 import styles from "./NavMenu.module.scss";
+import BtnMenu from "../BtnMenu/BtnMenu";
 
 const NavMenu = () => {
   const [look, setLook] = React.useState<boolean>(false);
@@ -56,29 +56,7 @@ const NavMenu = () => {
                   aria-controls="panel2a-content"
                   id="panel2a-header"
                 >
-                  <button
-                    className={`${styles.btnMenu} ${
-                      look ? styles.btnMenuActive : ""
-                    }`}
-                    onClick={handleAccordionToggle}
-                  >
-                    {/* <img src={menuIcon} alt="|||" /> */}
-                    <div
-                      className={`${styles.line1} ${
-                        look ? styles.lineActive1 : ""
-                      }`}
-                    ></div>
-                    <div
-                      className={`${styles.line2} ${
-                        look ? styles.lineActive2 : ""
-                      }`}
-                    ></div>
-                    <div
-                      className={`${styles.line3} ${
-                        look ? styles.lineActive3 : ""
-                      }`}
-                    ></div>
-                  </button>
+                  <BtnMenu look={look} closeAccordion={handleAccordionToggle}/>
                 </AccordionSummary>
               </div>
             </div>
