@@ -6,6 +6,7 @@ import {
   sendQuestions,
 } from "../../store/reducers/questionSlice";
 import { useAppDispatch, useAppSelector } from "../../hook";
+import { errorsSendData } from "../../helpers/errorsSendData";
 
 interface stateProps {
   setOpenModal: (value: boolean) => void;
@@ -15,25 +16,26 @@ interface stateProps {
 const QuestionsSend: React.FC<stateProps> = (props) => {
   const dispatch = useAppDispatch();
   const { dataQuestions } = useAppSelector((state) => state.questionSlice);
+  const { questionState } = useAppSelector((state) => state.errorsSlice);
 
   const sendDataQuestion = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // if (dataQuestions.username.length >= 5) {
-    //   if (dataQuestions.question.length >= 5) {
-    //     dispatch(
-    //       sendQuestions({
-    //         url: "register",
-    //         lang: "ru",
-    //         type: "POST",
-    //         dataQuestions,
-    //       })
-    //     );
-    //   } else {
-    //     errorsSendData(dispatch, "Пароль должен содержать больше 5ти символов");
-    //   }
-    // } else {
-    //   errorsSendData(dispatch, "Имя должно быть больше 5ти символов");
-    // }
+    if (dataQuestions.username.length >= 5) {
+      if (dataQuestions.question.length >= 5) {
+        dispatch(
+          sendQuestions({
+            url: "question",
+            lang: "ru",
+            type: "POST",
+            dataQuestions,
+          })
+        );
+      } else {
+        errorsSendData(dispatch, "Ваш вопрос должен быть больше 10ти символов");
+      }
+    } else {
+      errorsSendData(dispatch, "Ваше имя должно содержать больше 5ти символов");
+    }
   };
 
   const changeInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -41,19 +43,18 @@ const QuestionsSend: React.FC<stateProps> = (props) => {
       changeDataQuestion({ ...dataQuestions, [e.target.name]: e.target.value })
     );
   };
-  console.log(dataQuestions);
 
   return (
     <div className={styles.question}>
       <ModalWin
         openModal={props.openModal}
         setOpenModal={props.setOpenModal}
-        color={false}
+        color={questionState.state}
       >
         <h4>Задать вопрос</h4>
-        {/* {registrState.state && (
-          <p className={styles.errorLogin}>{registrState.text}</p>
-        )} */}
+        {questionState.state && (
+          <p className={styles.errorLogin}>{questionState.text}</p>
+        )}
         <form onSubmit={sendDataQuestion} className={styles.formSend}>
           <input
             type="text"

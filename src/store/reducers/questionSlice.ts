@@ -59,12 +59,6 @@ export const sendQuestions = createAsyncThunk(
       if (resp?.data?.errors) {
         errorsSendData(dispatch, "Что-то пошло не так");
       } else {
-        // dispatch(
-        //   toTakeToken({
-        //     token: resp?.data?.token,
-        //     username: info?.dataRegistr?.username,
-        //   })
-        // );
         dispatch(changePreloader(true));
         setTimeout(() => {
           dispatch(changePreloader(false));

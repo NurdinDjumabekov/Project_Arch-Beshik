@@ -9,6 +9,7 @@ type TypeAllErrors = {
   loginState: TypeError;
   registrState: TypeError;
   commentState: TypeError;
+  questionState: TypeError;
 };
 
 const initialState: TypeAllErrors = {
@@ -21,6 +22,10 @@ const initialState: TypeAllErrors = {
     text: "",
   },
   commentState: {
+    state: false,
+    text: "",
+  },
+  questionState: {
     state: false,
     text: "",
   },
@@ -39,9 +44,16 @@ const errorsSlice = createSlice({
     changeErrComment: (state, action) => {
       state.commentState = action.payload;
     },
+    changeErrQuestion: (state, action) => {
+      state.questionState = action.payload;
+    },
   },
 });
-export const { changeErrLogin, changeErrRegistr, changeErrComment } =
-  errorsSlice.actions;
+export const {
+  changeErrLogin,
+  changeErrRegistr,
+  changeErrComment,
+  changeErrQuestion,
+} = errorsSlice.actions;
 
 export default errorsSlice.reducer;
