@@ -1,24 +1,16 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { standartAxios } from "../../helpers/standartAxios";
 import { changePreloader, toTakeContentList } from "./mainPageSlice";
+import { Category, TypeUrl } from "../../types/mainContent";
 
-interface TypeUrl {
-  url: string;
-  lang: string;
-  type: string;
-}
-interface Category {
-  id: number;
-  name: string;
-  is_rent: boolean;
-}
-
-type TypeLoginState = {
+interface TypeLoginState {
   stateCategory: Category[];
-};
+  stateIsRent: boolean;
+}
 
 const initialState: TypeLoginState = {
   stateCategory: [],
+  stateIsRent: false,
 };
 
 export const toTakeAllCategory = createAsyncThunk(
@@ -58,8 +50,11 @@ const categorySlice = createSlice({
     toTakeCategory: (state, action) => {
       state.stateCategory = action.payload;
     },
+    changeStateIsRent: (state, action) => {
+      state.stateIsRent = action.payload;
+    },
   },
 });
-export const { toTakeCategory } = categorySlice.actions;
+export const { toTakeCategory, changeStateIsRent } = categorySlice.actions;
 
 export default categorySlice.reducer;

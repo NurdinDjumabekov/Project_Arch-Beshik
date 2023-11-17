@@ -1,32 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { standartAxios } from "../../helpers/standartAxios";
 import { changePreloader } from "./mainPageSlice";
+import { MainDetailed, TypeUrl } from "../../types/mainContent";
 
-interface TypeUrl {
-  url: string;
-  lang: string;
-  type: string;
+interface TypeDetaliedData {
+  stateMainDetailed: MainDetailed;
 }
-
-type photos = {
-  image: string;
-};
-
-interface mainDetailed {
-  id: number;
-  title: string;
-  category_id: number;
-  image: string;
-  data_added: string;
-  owner: number;
-  content: string;
-  comments: [];
-  photos: photos[];
-}
-
-type TypeDetaliedData = {
-  stateMainDetailed: mainDetailed;
-};
 
 const initialState: TypeDetaliedData = {
   stateMainDetailed: {

@@ -3,22 +3,18 @@ import { throwLS } from "../../helpers/throwLS";
 import { standartAxios } from "../../helpers/standartAxios";
 import { toTakeToken } from "./registrSlice";
 import { errorsSendData } from "../../helpers/errorsSendData";
+import { TypeLogins } from "../../types/mainContent";
 
-type TypeLogins = {
-  username: string;
-  password: string;
-};
-
-type TypeUrl = {
+interface TypeUrl {
   url: string;
   lang: string;
   type: string;
   dataLogin: { [key: string]: string };
-};
+}
 
-type TypeLoginState = {
+interface TypeLoginState {
   dataLogin: TypeLogins;
-};
+}
 
 const initialState: TypeLoginState = {
   dataLogin: {

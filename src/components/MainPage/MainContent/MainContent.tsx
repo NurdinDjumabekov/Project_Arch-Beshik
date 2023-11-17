@@ -1,11 +1,16 @@
-import { NavLink } from "react-router-dom";
 import { useAppSelector } from "../../../hook";
 import styles from "./MainContent.module.scss";
 import Paginations from "../Paginations/Paginations";
+import NewsContent from "../NewsContent/NewsContent";
+import HousesContent from "../HousesContent/HousesContent";
+import { ContentList, HousemanageList } from "../../../types/mainContent";
 
 const MainContent = () => {
-  const { stateContentList, stateHousemanage, paginationCount } =
-    useAppSelector((state) => state.mainPageSlice);
+  const { stateContentList, paginationCount } = useAppSelector(
+    (state) => state.mainPageSlice
+  );
+
+  const { stateIsRent } = useAppSelector((state) => state.categorySlice);
 
   let startIndex: number = (paginationCount - 1) * 12;
   let endIndex: number = paginationCount * 12;
@@ -15,28 +20,16 @@ const MainContent = () => {
   // console.log(sortData, "sortData");
   // console.log(stateContentList, "stateContentList");
   // console.log(stateHousemanage, "stateHousemanage");
+  // console.log(stateContentList);
 
   return (
     <div className={styles.contentBlock}>
       <div className="container">
         <div className={styles.contentBlock__inner}>
-          {sortData?.length === 0 ? (
-            <p className={styles.noneData}>Данных пока что нету</p>
+          {stateIsRent ? (
+            <HousesContent sortData={sortData as HousemanageList[]} />
           ) : (
-            sortData?.map((block) => (
-              <NavLink
-                to={`/detailed/${block.id}`}
-                className={styles.contentBlock__every}
-                key={block.id}
-              >
-                <h3>Новости</h3>
-                <img src={block?.image} alt="новости" />
-                <div className={styles.contentText}>
-                  <h2>{block?.title}</h2>
-                  <p>{block?.content}</p>
-                </div>
-              </NavLink>
-            ))
+            <NewsContent sortData={sortData as ContentList[]} />
           )}
         </div>
         <Paginations />

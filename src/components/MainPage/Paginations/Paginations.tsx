@@ -19,7 +19,7 @@ export default function Paginations() {
   };
 
   let countPage = Math.ceil(stateContentList?.length / 12);
-  console.log(countPage);
+  // console.log(countPage);
 
   return (
     <Typography component="div" className={styles.parentPag}>

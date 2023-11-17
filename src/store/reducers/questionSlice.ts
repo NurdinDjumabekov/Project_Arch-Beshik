@@ -2,27 +2,19 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { standartAxios } from "../../helpers/standartAxios";
 import { errorsSendData } from "../../helpers/errorsSendData";
 import { changePreloader } from "./mainPageSlice";
+import { TypeQuestion, TypeTakeQuestion } from "../../types/mainContent";
 
-type TypeUrl = {
+interface TypeUrl {
   url: string;
   lang: string;
   type: string;
   dataQuestions?: { [key: string]: string };
-};
-type TypeQuestion = {
-  username: string;
-  question: string;
-};
+}
 
-type TypeQestion = {
-  id: number;
-  text: string;
-};
-
-type TypeQestionState = {
-  stateQuestion: TypeQestion[];
+interface TypeQestionState {
+  stateQuestion: TypeTakeQuestion[];
   dataQuestions: TypeQuestion;
-};
+}
 
 const initialState: TypeQestionState = {
   stateQuestion: [],

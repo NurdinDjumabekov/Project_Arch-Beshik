@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { standartAxios } from "../../helpers/standartAxios";
 import { changePreloader } from "./mainPageSlice";
+import { DataComment } from "../../types/mainContent";
 
 interface TypeUrl {
   url: string;
@@ -9,15 +10,9 @@ interface TypeUrl {
   stateDataComments: {};
 }
 
-interface dataComment {
-  name: string;
-  email: string;
-  comment: string;
+interface TypeCommentsData {
+  stateDataComments: DataComment;
 }
-
-type TypeCommentsData = {
-  stateDataComments: dataComment;
-};
 
 const initialState: TypeCommentsData = {
   stateDataComments: {

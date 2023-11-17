@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-type TypeError = {
+interface TypeError {
   state: boolean;
   text: string;
-};
+}
 
-type TypeAllErrors = {
+interface TypeAllErrors {
   loginState: TypeError;
   registrState: TypeError;
   commentState: TypeError;
   questionState: TypeError;
-};
+}
 
 const initialState: TypeAllErrors = {
   loginState: {

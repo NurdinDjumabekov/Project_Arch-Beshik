@@ -3,26 +3,13 @@ import { standartAxios } from "../../helpers/standartAxios";
 import { throwLS } from "../../helpers/throwLS";
 import { errorsSendData } from "../../helpers/errorsSendData";
 import { changePreloader } from "./mainPageSlice";
-
-type TypeRegistr = {
-  username: string;
-  first_name: string;
-  last_name: string;
-  email: string;
-  number: string;
-  password: string;
-};
+import { TypeRegistr, TypeToken } from "../../types/mainContent";
 
 type TypeUrl = {
   url: string;
   lang: string;
   type: string;
   dataRegistr: { [key: string]: string };
-};
-
-type TypeToken = {
-  token: string;
-  username: string;
 };
 
 type TypeRegistrState = {
