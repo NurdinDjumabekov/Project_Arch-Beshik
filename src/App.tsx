@@ -21,7 +21,6 @@ function App() {
       toTakeAllCategory({ url: "category_list", lang: "ru", type: "GET" })
     );
     dispatch(toTakeData({ url: "content_list", lang: "ru", type: "GET" }));
-    // dispatch(toTakeData({ url: "content_list/housemanage", lang: "ru", type: "GET" }));
   }, []);
 
   return (
@@ -30,8 +29,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<MainPage />} />
-          <Route path="detailed/:id" element={<DetailedPage />} />
-          <Route path="/apartament" element={<ApartamentPage />} />
+          <Route path="/detailed/:id" element={<DetailedPage />} />
+          <Route path="/housemanage/:id" element={<ApartamentPage />} />
           <Route path="/questions" element={<QuestionsPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />

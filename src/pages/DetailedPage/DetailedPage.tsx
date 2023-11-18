@@ -10,6 +10,7 @@ const DetailedPage = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
   const { stateMainDetailed } = useAppSelector((state) => state.detailedSlice);
+  console.log(id);
 
   React.useEffect(() => {
     dispatch(

@@ -1,21 +1,71 @@
-.mainSlider {
-    &__inner {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+@import url("../../../globalStyles/colors.scss");
+$widthSliderMini: 400px;
 
+.mainSlider {
+  //   background: green;
+  display: flex;
+  justify-content: center;
+  &__inner {
+    width: $widthSliderMini;
     button {
-        cursor: pointer;
+      cursor: pointer;
     }
 
     .imgBlock {
-        width: 400px;
-        height: 280px;
+      width: auto;
+      height: 280px;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+      //   background-color: rgba(156, 32, 32, 0.211) !important;
 
-        img {
-            width: 100%;
-            height: 100%;
-        }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        filter: none !important;
+        z-index: 15;
+      }
     }
+    .imgBlock::before {
+      content: "";
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("path/to/your/image.jpg");
+      background-color: rgba(22, 22, 22, 0.046) !important;
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px);
+    }
+    ul {
+      background-color: rgba(255, 255, 255, 0.211) !important;
+      bottom: 0 !important;
+      width: ($widthSliderMini - 0px) !important; // 28
+      margin: 0 auto !important;
+      padding: 5px 0 0 0;
+      left: 50%;
+      transform: translateX(-50%);
+      li {
+        width: 35px !important;
+        height: 30px !important;
+        div {
+          height: 30px !important;
+        }
+      }
+      .dotsImgs {
+        img {
+          width: 35px !important;
+          height: 30px !important;
+          position: absolute;
+          top: 0;
+          left: 0;
+          border-radius: 5px !important;
+        }
+      }
+    }
+  }
 }

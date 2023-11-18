@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./SliderPhoto.module.scss";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 type Photo = {
   image: string;
@@ -10,39 +13,69 @@ type SliderPhotoProps = {
 };
 
 const SliderPhoto: React.FC<SliderPhotoProps> = ({ photos }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = React.useState<number>(0);
+  // console.log(count);
 
-  const prevSlider = () => {
-    count <= 0 ? setCount(0) : setCount(count - 1);
+  const settingsMini = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
-
-  const nextSlider = () => {
-    count >= photos?.length - 1
-      ? setCount(photos?.length - 1)
-      : setCount(count + 1);
+  const settings = {
+    afterChange: (index: number) => {
+      setCount(index);
+    },
+    customPaging: function (i: number) {
+      let c = i - 1 + 1;
+      const photo = photos[c];
+      return (
+        <div className={styles.miniSlider}>
+          <Slider {...settingsMini}>
+            <a className={styles.dotsImgs}>
+              {photo && (
+                <img
+                  src={photo.image}
+                  onClick={() => setCount(c)}
+                  style={count === i ? { border: "2px solid white" } : {}}
+                />
+              )}
+            </a>
+          </Slider>
+        </div>
+      );
+    },
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
-  // useEffect(()=>{
-
-  // }, [photos])
-
   return (
     <div className={styles.mainSlider}>
       <div className={styles.mainSlider__inner}>
-        <button onClick={prevSlider}>prev</button>
-        {photos.map((photo, index) => {
-          if (index === count) {
-            return (
-              <div key={index} className={styles.imgBlock}>
-                {photo?.image ? (
-                  <img src={photo.image} alt="" />
-                ) : (
-                  <p>loading</p>
-                )}
-              </div>
-            );
-          }
-        })}
-        <button onClick={nextSlider}>next</button>
+        <Slider {...settings}>
+          {photos.map((photo, index) => (
+            <>
+              {photo?.image && (
+                <div
+                  key={index}
+                  className={styles.imgBlock}
+                  style={{
+                    backgroundImage: `url(${photo?.image})`,
+                    filter: `blur(5px)`,
+                  }}
+                >
+                  {photo?.image ? (
+                    <img src={photo?.image} alt="" />
+                  ) : (
+                    <p>loading</p>
+                  )}
+                </div>
+              )}
+            </>
+          ))}
+        </Slider>
       </div>
     </div>
   );
