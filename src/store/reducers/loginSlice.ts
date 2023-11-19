@@ -9,7 +9,7 @@ interface TypeUrl {
   url: string;
   lang: string;
   type: string;
-  dataLogin: { [key: string]: string };
+  dataLogin: TypeLogins;
 }
 
 interface TypeLoginState {

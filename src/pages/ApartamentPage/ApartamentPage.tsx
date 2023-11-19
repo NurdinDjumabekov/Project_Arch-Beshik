@@ -1,13 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hook";
-import {
-  detailedApartement,
-  toTakeDetailed,
-} from "../../store/reducers/detailedSlice";
+import { detailedApartement } from "../../store/reducers/detailedSlice";
 import styles from "./ApartamentPage.module.scss";
 import SliderPhoto from "../../components/Detailed/SliderPhoto/SliderPhoto";
-import Comments from "../../components/Detailed/Comments/Comments";
 
 const ApartamentPage = () => {
   const { id } = useParams();

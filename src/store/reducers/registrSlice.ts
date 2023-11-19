@@ -9,12 +9,11 @@ type TypeUrl = {
   url: string;
   lang: string;
   type: string;
-  dataRegistr: { [key: string]: string };
+  dataRegistr: TypeRegistr;
 };
 
 type TypeRegistrState = {
   dataRegistr: TypeRegistr;
-  dataUrl: TypeUrl;
   dataToken: TypeToken;
 };
 
@@ -26,12 +25,6 @@ const initialState: TypeRegistrState = {
     email: "",
     number: "",
     password: "",
-  },
-  dataUrl: {
-    url: "",
-    lang: "",
-    type: "",
-    dataRegistr: {},
   },
 
   dataToken: {

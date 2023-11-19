@@ -8,7 +8,7 @@ interface TypeUrl {
   url: string;
   lang: string;
   type: string;
-  dataQuestions?: { [key: string]: string };
+  dataQuestions?: TypeQuestion;
 }
 
 interface TypeQestionState {

@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { standartAxios } from "../../helpers/standartAxios";
 import { changePreloader } from "./mainPageSlice";
 import { DataComment } from "../../types/mainContent";
@@ -27,7 +27,7 @@ export const addComment = createAsyncThunk(
   async (info: TypeUrl, { dispatch }) => {
     try {
       dispatch(changePreloader(true));
-      const resp = await standartAxios(
+      await standartAxios(
         info?.url,
         info.lang,
         info.type,

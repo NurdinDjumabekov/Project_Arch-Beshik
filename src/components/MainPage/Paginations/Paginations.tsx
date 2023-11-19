@@ -13,7 +13,7 @@ export default function Paginations() {
     (state) => state.mainPageSlice
   );
 
-  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+  const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     dispatch(changePaginationCount(value));
     localStorage.setItem("pagination", value.toString());
   };
