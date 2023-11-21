@@ -23,6 +23,18 @@ $topMenu: 63px;
     column-gap: 120px;
     max-width: 100%;
     margin: 0 auto;
+
+    @media screen and (max-width: 930px) {
+      columns: 2;
+      @media screen and (max-width: 600px) {
+        column-gap: 50px;
+      }
+      @media screen and (max-width: 600px) {
+        columns: 1;
+        margin: 0;
+      }
+    }
+
     > li {
       font-size: 20px;
       cursor: pointer;
