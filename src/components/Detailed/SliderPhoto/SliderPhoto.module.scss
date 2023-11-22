@@ -1,6 +1,6 @@
 @import url("../../../globalStyles/colors.scss");
 $widthSliderMini: 750px;
-$heightMiniImg: 50px;
+$heightMiniImg: 80px;
 
 .mainSlider {
   display: flex;
@@ -13,6 +13,7 @@ $heightMiniImg: 50px;
 
   &__inner {
     width: $widthSliderMini;
+    margin: 0 220px 0 0;
 
     button {
       cursor: pointer;
@@ -53,15 +54,25 @@ $heightMiniImg: 50px;
 
     ul {
       position: absolute;
-      bottom: -65px !important;
-      width: ($widthSliderMini - 0px) !important; // 28
-      margin: 0 auto !important;
-      padding: 5px 0 0 0;
-      left: 50%;
-      transform: translateX(-50%);
+      top: 0;
+      // bottom: -65px !important;
+      // width: ($widthSliderMini - 0px) !important; // 28
+      // margin: 0 auto !important;
+      // padding: 5px 0 0 0;
+      // left: 50%;
+      // transform: translateX(-50%);
+      // background-color: green;
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      // gap: 10px;
+      right: -220px;
+      width: 200px;
+      // background: red;
+      max-height: 100%;
 
       li {
-        width: 55px !important;
+        width: 85px !important;
         height: $heightMiniImg !important;
         cursor: pointer;
         div {
@@ -71,7 +82,7 @@ $heightMiniImg: 50px;
 
       .dotsImgs {
         img {
-          width: 55px !important;
+          width: 85px !important;
           height: $heightMiniImg !important;
           position: absolute;
           top: 0;
@@ -94,16 +105,16 @@ $heightMiniImg: 50px;
         border-radius: 10px;
         border: 1px solid rgba(0, 0, 0, 0.205);
         position: absolute;
-        top: 44%;
+        top: 50%;
         transform: translateY(-50%);
       }
 
       button:nth-child(1) {
-        left: 40px !important;
+        left: -85px !important;
       }
 
       button:nth-child(2) {
-        right: 40px !important;
+        right: 135px !important;
       }
     }
   }
