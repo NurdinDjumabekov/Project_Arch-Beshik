@@ -8,10 +8,19 @@ import Categories from "../Categories/Categories";
 import logo from "../../../assets/images/logo.svg";
 import styles from "./NavMenu.module.scss";
 import BtnMenu from "../BtnMenu/BtnMenu";
+import { useAppDispatch } from "../../../hook";
+import { toTakeData } from "../../../store/reducers/mainPageSlice";
+import { changeStateIsRent } from "../../../store/reducers/categorySlice";
 
 const NavMenu = () => {
   const [look, setLook] = React.useState<boolean>(false);
   const accordionRef = React.useRef<any>(null);
+  const dispatch = useAppDispatch();
+
+  const clickLogo = () => {
+    dispatch(toTakeData({ url: "content_list", lang: "ru", type: "GET" }));
+    dispatch(changeStateIsRent(false));
+  };
 
   const handleAccordionToggle = () => {
     setLook(!look);
@@ -43,7 +52,7 @@ const NavMenu = () => {
           <div className={styles.navMenu}>
             <div className="container">
               <div className={styles.navMenu__inner}>
-                <NavLink className={styles.logo} to={"/"}>
+                <NavLink className={styles.logo} to={"/"} onClick={clickLogo}>
                   <img src={logo} alt={logo} />
                   <p>Арча Бешик</p>
                 </NavLink>
@@ -56,7 +65,7 @@ const NavMenu = () => {
                   aria-controls="panel2a-content"
                   id="panel2a-header"
                 >
-                  <BtnMenu look={look} closeAccordion={handleAccordionToggle}/>
+                  <BtnMenu look={look} closeAccordion={handleAccordionToggle} />
                 </AccordionSummary>
               </div>
             </div>

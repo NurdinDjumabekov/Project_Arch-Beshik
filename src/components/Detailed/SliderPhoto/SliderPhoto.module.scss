@@ -1,14 +1,15 @@
 @import url("../../../globalStyles/colors.scss");
-$widthSliderMini: 400px;
+$widthSliderMini: 750px;
 $heightMiniImg: 50px;
 
 .mainSlider {
   display: flex;
   justify-content: center;
-  width: 600px;
+  width: $widthSliderMini;
   margin: 0 auto;
   padding: 0 0 70px 0;
   position: relative;
+  height: 420px;
 
   &__inner {
     width: $widthSliderMini;
@@ -19,7 +20,7 @@ $heightMiniImg: 50px;
 
     .imgBlock {
       width: auto;
-      height: 280px;
+      height: 420px;
       display: flex !important;
       justify-content: center;
       align-items: center;

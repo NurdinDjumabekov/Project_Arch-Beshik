@@ -10,7 +10,6 @@ const DetailedPage = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
   const { stateMainDetailed } = useAppSelector((state) => state.detailedSlice);
-  console.log(id);
 
   React.useEffect(() => {
     dispatch(
@@ -32,13 +31,13 @@ const DetailedPage = () => {
           <SliderPhoto photos={stateMainDetailed.photos} />
           <div className={styles.detailed__mainText}>
             <h4>{stateMainDetailed?.title}</h4>
-            <p>{stateMainDetailed?.content}</p>
+            {/* <p>{stateMainDetailed?.content}</p> */}
           </div>
-          <Comments
-            comments={stateMainDetailed?.comments}
-            id={stateMainDetailed?.id}
-          />
         </div>
+        <Comments
+          comments={stateMainDetailed?.comments}
+          id={stateMainDetailed?.id}
+        />
       </div>
     </div>
   );

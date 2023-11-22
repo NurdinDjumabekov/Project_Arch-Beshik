@@ -20,32 +20,43 @@ const Registr = () => {
 
   const sendDataRegistration = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (dataRegistr.username.length >= 5) {
-      if (regEmail.test(dataRegistr.email)) {
-        if (regExpNum.test(dataRegistr.number)) {
-          if (dataRegistr.password.length >= 5) {
-            dispatch(
-              registrationUser({
-                url: "register",
-                lang: "ru",
-                type: "POST",
-                dataRegistr,
-              })
-            );
+    if (dataRegistr.username.length >= 3) {
+      if (dataRegistr.first_name.length >= 5) {
+        if (dataRegistr.last_name.length >= 5) {
+          if (regEmail.test(dataRegistr.email)) {
+            if (regExpNum.test(dataRegistr.number)) {
+              if (dataRegistr.password.length >= 5) {
+                dispatch(
+                  registrationUser({
+                    url: "register",
+                    lang: "ru",
+                    type: "POST",
+                    dataRegistr,
+                  })
+                );
+              } else {
+                errorsSendData(
+                  dispatch,
+                  "Пароль должен содержать больше 5ти символов"
+                );
+              }
+            } else {
+              errorsSendData(dispatch, "Некорректный номер");
+            }
           } else {
-            errorsSendData(
-              dispatch,
-              "Пароль должен содержать больше 5ти символов"
-            );
+            errorsSendData(dispatch, "Некорректный Email");
           }
         } else {
-          errorsSendData(dispatch, "Некорректный номер");
+          errorsSendData(
+            dispatch,
+            "Ваша фамилия должна быть больше 5ти символов"
+          );
         }
       } else {
-        errorsSendData(dispatch, "Некорректный Email");
+        errorsSendData(dispatch, "имя должно быть больше 5ти символов");
       }
     } else {
-      errorsSendData(dispatch, "Имя должно быть больше 5ти символов");
+      errorsSendData(dispatch, "никнейм должен быть больше 3х символов");
     }
   };
 
@@ -54,6 +65,28 @@ const Registr = () => {
       changeDataRegistr({ ...dataRegistr, [e.target.name]: e.target.value })
     );
   };
+  const arrInput = [
+    {
+      type: "text",
+      placeholder: "Введите ваш ник",
+      name: "username",
+    },
+    {
+      type: "text",
+      placeholder: "Введите ваше имя",
+      name: "first_name",
+    },
+    {
+      type: "text",
+      placeholder: "Введите вашу фамилию",
+      name: "last_name",
+    },
+    {
+      type: "email",
+      placeholder: "Введите email",
+      name: "email",
+    },
+  ];
 
   return (
     <div className={styles.registr}>
@@ -68,20 +101,16 @@ const Registr = () => {
           <p className={styles.errorLogin}>{registrState.text}</p>
         )}
         <form onSubmit={sendDataRegistration} className={styles.formSend}>
-          <input
-            type="text"
-            placeholder="Введите ваше имя"
-            name="username"
-            onChange={changeInput}
-            required
-          />
-          <input
-            type="email"
-            placeholder="Введите email"
-            name="email"
-            onChange={changeInput}
-            required
-          />
+          {arrInput.map((i, ind) => (
+            <input
+              key={ind}
+              type={i.type}
+              placeholder={i.placeholder}
+              name={i.name}
+              onChange={changeInput}
+              required
+            />
+          ))}
           <InputMask
             mask="+999(999)99-99-99"
             placeholder="+996(700)75-44-54"

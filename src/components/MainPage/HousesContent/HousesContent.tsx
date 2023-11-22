@@ -8,7 +8,7 @@ interface stateProps {
 }
 
 const HousesContent: React.FC<stateProps> = ({ sortData }) => {
-  console.log(sortData);
+  // console.log(sortData);
   return (
     <div className={styles.housesContent}>
       {sortData?.length === 0 ? (

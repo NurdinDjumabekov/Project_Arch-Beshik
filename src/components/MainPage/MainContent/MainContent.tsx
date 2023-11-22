@@ -17,8 +17,8 @@ const MainContent = () => {
 
   let sortData = stateContentList?.slice(startIndex, endIndex);
 
-  console.log(sortData, "sortData");
-  console.log(stateContentList, "stateContentList");
+  // console.log(sortData, "sortData");
+  // console.log(stateContentList, "stateContentList");
   // console.log(stateHousemanage, "stateHousemanage");
   // console.log(stateContentList);
 

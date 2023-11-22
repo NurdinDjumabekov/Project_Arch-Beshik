@@ -69,37 +69,43 @@ const SliderPhoto: React.FC<SliderPhotoProps> = ({ photos }) => {
   };
 
   return (
-    <div className={styles.mainSlider}>
-      <div className={styles.mainSlider__inner}>
-        <Slider ref={sliderRef} {...settings}>
-          {photos.map((photo, index) => (
-            <div key={index}>
-              {photo?.image && (
-                <>
-                  <div className={styles.imgBlock}>
-                    {photo?.image && <img src={photo?.image} alt="картинка" />}
-                  </div>
-                  <div
-                    className={styles.imgBlock__shadow}
-                    style={{
-                      backgroundImage: `url(${photo?.image})`,
-                    }}
-                  ></div>
-                </>
-              )}
+    <>
+      {photos?.length !== 0 && (
+        <div className={styles.mainSlider}>
+          <div className={styles.mainSlider__inner}>
+            <Slider ref={sliderRef} {...settings}>
+              {photos.map((photo, index) => (
+                <div key={index}>
+                  {photo?.image && (
+                    <>
+                      <div className={styles.imgBlock}>
+                        {photo?.image && (
+                          <img src={photo?.image} alt="картинка" />
+                        )}
+                      </div>
+                      <div
+                        className={styles.imgBlock__shadow}
+                        style={{
+                          backgroundImage: `url(${photo?.image})`,
+                        }}
+                      ></div>
+                    </>
+                  )}
+                </div>
+              ))}
+            </Slider>
+            <div className={styles.parentBtn}>
+              <button className="button" onClick={() => btnSlider("prev")}>
+                <img src={arrow} style={{ rotate: "180deg" }} alt="<" />
+              </button>
+              <button className="button" onClick={() => btnSlider("next")}>
+                <img src={arrow} alt=">" />
+              </button>
             </div>
-          ))}
-        </Slider>
-        <div className={styles.parentBtn}>
-          <button className="button" onClick={() => btnSlider("prev")}>
-            <img src={arrow} style={{ rotate: "180deg" }} alt="<" />
-          </button>
-          <button className="button" onClick={() => btnSlider("next")}>
-            <img src={arrow} alt=">" />
-          </button>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

@@ -20,8 +20,8 @@ type TypeRegistrState = {
 const initialState: TypeRegistrState = {
   dataRegistr: {
     username: "",
-    first_name: "nurdin",
-    last_name: "nurdinBek",
+    first_name: "",
+    last_name: "",
     email: "",
     number: "",
     password: "",

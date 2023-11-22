@@ -54,6 +54,9 @@ $heightInput: 40px;
         margin: 0 0 10px 0;
         position: relative;
         cursor: pointer;
+        // background: red;
+        height: 25px;
+        overflow: hidden;
       }
 
       p::after {
