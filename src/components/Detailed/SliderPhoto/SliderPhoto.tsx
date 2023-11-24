@@ -20,6 +20,7 @@ const NoneBtn = () => {
 const SliderPhoto: React.FC<SliderPhotoProps> = ({ photos }) => {
   const sliderRef = React.useRef<Slider | null>(null);
   const [count, setCount] = React.useState<number>(0);
+  const oneData = photos?.length > 1;
 
   const settingsMini = {
     infinite: true,
@@ -40,22 +41,25 @@ const SliderPhoto: React.FC<SliderPhotoProps> = ({ photos }) => {
     afterChange: (index: number) => {
       setCount(index);
     },
+
     customPaging: function (i: number) {
       let c = i - 1 + 1;
       const photo = photos[c];
       return (
         <div className={styles.miniSlider}>
-          <Slider {...settingsMini}>
-            <a className={styles.dotsImgs}>
-              {photo && (
-                <img
-                  src={photo.image}
-                  onClick={() => setCount(c)}
-                  style={count === i ? { border: "2px solid black" } : {}}
-                />
-              )}
-            </a>
-          </Slider>
+          {oneData && (
+            <Slider {...settingsMini}>
+              <a className={styles.dotsImgs}>
+                {photo && (
+                  <img
+                    src={photo.image}
+                    onClick={() => setCount(c)}
+                    style={count === i ? { border: "2px solid black" } : {}}
+                  />
+                )}
+              </a>
+            </Slider>
+          )}
         </div>
       );
     },
@@ -71,7 +75,10 @@ const SliderPhoto: React.FC<SliderPhotoProps> = ({ photos }) => {
   return (
     <>
       {photos?.length !== 0 && (
-        <div className={styles.mainSlider}>
+        <div
+          className={styles.mainSlider}
+          style={oneData ? {} : { display: "block" }}
+        >
           <div className={styles.mainSlider__inner}>
             <Slider ref={sliderRef} {...settings}>
               {photos.map((photo, index) => (
@@ -94,14 +101,16 @@ const SliderPhoto: React.FC<SliderPhotoProps> = ({ photos }) => {
                 </div>
               ))}
             </Slider>
-            <div className={styles.parentBtn}>
-              <button className="button" onClick={() => btnSlider("prev")}>
-                <img src={arrow} style={{ rotate: "180deg" }} alt="<" />
-              </button>
-              <button className="button" onClick={() => btnSlider("next")}>
-                <img src={arrow} alt=">" />
-              </button>
-            </div>
+            {oneData && (
+              <div className={styles.parentBtn}>
+                <button className="button" onClick={() => btnSlider("prev")}>
+                  <img src={arrow} style={{ rotate: "180deg" }} alt="<" />
+                </button>
+                <button className="button" onClick={() => btnSlider("next")}>
+                  <img src={arrow} alt=">" />
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}
